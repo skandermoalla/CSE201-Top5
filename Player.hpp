@@ -12,6 +12,7 @@
 #pragma once
 #include <string>
 #include <list>
+#include <cmath>
 class player{
 public:
     //constuctors
@@ -25,13 +26,16 @@ public:
     int age;
     int height;
     int weight;
-    int attack;
-    int defene;
     int sprint;
     int rebound;
     int passing;
     int handling;
-    int overall;
+    int shooting;
+    int stealing;
+    int block;
+    double attack;
+    double defense;
+    double overall;
 
 };
 
