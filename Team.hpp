@@ -1,13 +1,17 @@
 #pragma once
 #include "Player.cpp"
-#include <iostream>
 #include <string>
-using std namespace 
+#include <list>
+
 
 class Team {
     public:
-        string name;
+        std::string name;
         std::list<Player> players;
+        //All attributes are are the averages over all the players
+        double age;
+        double height;
+        double weight;
         double attack;
         double defence;
         double motivation;
@@ -15,22 +19,15 @@ class Team {
         double rebound;
         double passing;
         double handling;
-        double attributes = {attack,defence,motivation,sprint,rebound,passing,handling};  //array of all numeral attributes of the Team to use in methods
+        double shooting;
+        double stealing;
+        double block;
+        double jump;
+        double strength;
+        double overall;
+        double attributes = {attack,defence,motivation,sprint,rebound,passing,handling,shooting,stealing,block,jump,strength};  //array of all numeral attributes of the Team to use in methods
 
-    int age;
-    int height;
-    int weight;
-    int sprint;
-    int rebound;
-    int passing;
-    int handling;
-    int shooting;
-    int stealing;
-    int block;
-    int jump;
-    int strength;
-    double overall;
-        Team(string na,double attributes);  //Constructs a Team
+        Team(std::string na,double attributes);  //Constructs a Team
         void Training(); //Trains team by increasing attributes
 
 
