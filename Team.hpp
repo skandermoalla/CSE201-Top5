@@ -17,7 +17,19 @@ class Team {
         double handling;
         double attributes = {attack,defence,motivation,sprint,rebound,passing,handling};  //array of all numeral attributes of the Team to use in methods
 
-
+    int age;
+    int height;
+    int weight;
+    int sprint;
+    int rebound;
+    int passing;
+    int handling;
+    int shooting;
+    int stealing;
+    int block;
+    int jump;
+    int strength;
+    double overall;
         Team(string na,double attributes);  //Constructs a Team
         void Training(); //Trains team by increasing attributes
 
