@@ -1,12 +1,10 @@
 #pragma once
-
 #include "Team.hpp"
-#include <iostream>
 #include <string>
 #include <list>
-#include <cmath>
 
-Team::Team(string na){ //takes a name and a list of attributes following this form (attack,defence,motivation)
+
+Team::Team(std::string na){ //takes a name and a list of attributes following this form (attack,defence,motivation)
     name = na;
     for (int i=0, i<12 , i++){
         Team::players.push_back(Player::Player());
@@ -31,5 +29,4 @@ void Team::Training(){     //increases team attributes by 1
         attributes[i] +=1;
     }
 }
-
 
