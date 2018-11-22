@@ -55,8 +55,8 @@ player::player()
     shooting=rand()%21 + 40;
     stealing=rand()%21 + 40;
     block=rand()%21 + 40;
-    attack=rand()%21 + 40;
-    defense=rand()%21 + 40;
+    jump=rand()%21 + 40;
+    strength=rand()%21 + 40;
 }
 
 
@@ -102,7 +102,7 @@ player::player(std::string pos)
     shooting=rand()%21 + 40;
     stealing=rand()%21 + 40;
     block=rand()%21 + 40;
-    attack=rand()%21 + 40;
-    defense=rand()%21 + 40;
+    jump=rand()%21 + 40;
+    strength=rand()%21 + 40;
 };
 

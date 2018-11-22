@@ -33,8 +33,8 @@ public:
     int shooting;
     int stealing;
     int block;
-    double attack;
-    double defense;
+    int jump;
+    int strength;
     double overall;
 
 };
