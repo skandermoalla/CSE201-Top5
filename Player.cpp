@@ -104,5 +104,7 @@ player::player(std::string pos)
     block=rand()%21 + 40;
     jump=rand()%21 + 40;
     strength=rand()%21 + 40;
+
+    market_value //TBD depending on the overall & the league division. 
 };
 
