@@ -25,7 +25,7 @@ class Team {
         double jump;
         double strength;
         double overall;
-        double attributes = {attack,defence,motivation,sprint,rebound,passing,handling,shooting,stealing,block,jump,strength};  //array of all numeral attributes of the Team to use in methods
+        std::list<double> attributes = {attack,defence,motivation,sprint,rebound,passing,handling,shooting,stealing,block,jump,strength};  //array of all numeral attributes of the Team to use in methods
 
         Team(std::string na,double attributes);  //Constructs a Team
         void Training(); //Trains team by increasing attributes
