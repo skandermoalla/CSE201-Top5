@@ -36,6 +36,7 @@ public:
     int jump;
     int strength;
     double overall;
+    double market_value; 
 
 };
 
