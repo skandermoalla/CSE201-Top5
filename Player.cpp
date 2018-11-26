@@ -78,7 +78,7 @@ player::player(std::string pos)
     age=rand()%13 + 18;
     
     //generate a random  number for the height in an interval which depends on the player position
-    if (position=="PG")
+    if (position=="PG") 
         height=rand()%11 + 180;
     else if (position=="SG")
         height=rand()%11 + 185;
@@ -105,6 +105,11 @@ player::player(std::string pos)
     jump=rand()%21 + 40;
     strength=rand()%21 + 40;
 
-    market_value //TBD depending on the overall & the league division. 
+    if (player.overallgeneral) < 40) {
+            market_value = 50000;
+    }
+    else {
+        market_value = (0.6*pow(player.overall_attack,2) + 0.4*pow(player.overall_defence,2)) * 100; 
+    }
 };
 
