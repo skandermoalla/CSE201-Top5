@@ -35,8 +35,13 @@ public:
     int block;
     int jump;
     int strength;
+    int overall_attack;
+    int overall_defence;
     double overall;
     double market_value; 
+    
+    //player methods
+    void update_overall();
 
 };
 
