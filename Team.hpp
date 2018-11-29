@@ -9,6 +9,7 @@ class Team {
         std::string name;
         std::list<Player> players;
         //All attributes are are the averages over all the players
+        int division;
         double age;
         double height;
         double weight;

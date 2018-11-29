@@ -13,6 +13,8 @@ std::string names[]={"edison","skander","michael","khoa","mamoun","yassine"};
 std::string surnames[]={"edison","skander","michael","khoa","mamoun","yassine"};
 std::string positions[]={"PG","SG","F","PF","C"};
 
+division = Team.division
+
 //constructor when player position is not given
 player::player()
 {

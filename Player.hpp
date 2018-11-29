@@ -23,6 +23,7 @@ public:
     std::string name;
     std::string surname;
     std::string position; // PG=pointguard SG=shootingguard F=forward PF=powerforward C=center
+    int division; 
     int age;
     int height;
     int weight;
