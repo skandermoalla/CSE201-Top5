@@ -11,6 +11,8 @@ Team::Team(std::string na){ //takes a name and a list of attributes following th
     }
     division = League.division
     for (int j=0, j<12, j++){
+        players[j].division = division
+
         age += players[j].age;
         height += players[j].height;
         weight += players[j].weight;
