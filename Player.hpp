@@ -13,11 +13,11 @@
 #include <string>
 #include <list>
 #include <cmath>
-class player{
+class Player{
 public:
     //constuctors
-    player();
-    player(std::string pos);
+    Player();
+    Player(std::string pos);
 
     //player attributes
     std::string name;
@@ -36,14 +36,16 @@ public:
     int block;
     int jump;
     int strength;
-    double overall_attack;
-    double overall_defence;
-    double overall;
-    double market_value; 
-    
+    int motivation;
+    int energy;
+    double attack;
+    double defence;
+    double overallgeneral;
+    double marketvalue;
     //player methods
     void update_overall();
 
 };
 
 #endif /* Player_hpp */
+

@@ -1,17 +1,18 @@
 #ifndef MARKET_H
 #define MARKET_H
-#include "Team.hpp"
+#include "Player.cpp"
 #pragma once
 #include <string>
+#include <vector>
 #include <iostream>
 #include <list>
 
 class Market
 {
-
+    
 public:
     Market();
-    std::list<player> players;
+    std::vector<Player> players;
 };
 
 #endif // MARKET_H

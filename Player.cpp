@@ -15,10 +15,9 @@ std::string positions[]={"PG","SG","F","PF","C"};
 
 
 //constructor when player position is not given
-player::player()
+Player::Player()
 {
     //initialize the division attribute
-    division = Team.division
     
     //choose a random numbers to select a surname
     int randomname=rand()%(sizeof(names)/sizeof(names[0]));
@@ -65,7 +64,7 @@ player::player()
 
 
 //constructor when the player position is given
-player::player(std::string pos)
+Player::Player(std::string pos)
 {
     //choose a random numbers to select a surname
     int randomname=rand()%(sizeof(names)/sizeof(names[0]));
@@ -108,12 +107,14 @@ player::player(std::string pos)
     block=rand()%21 + 40;
     jump=rand()%21 + 40;
     strength=rand()%21 + 40;
-
-    if (player.overallgeneral) < 40) {
-            market_value = 50000;
+    energy=100;
+    attack=(sprint+height+passing+handling+shooting+jump+strength)/7;
+    defence=(height+sprint+rebound+stealing+block+jump+strength)/7;
+    if (overallgeneral < 40) {
+            marketvalue = 50000;
     }
     else {
-        market_value = (0.6*pow(player.overall_attack,2) + 0.4*pow(player.overall_defence,2)) * 100; 
+        marketvalue = (0.6*pow(attack,2) + 0.4*pow(defence,2)) * 100 * 1/division;
     }
 };
 
