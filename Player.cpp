@@ -13,11 +13,13 @@ std::string names[]={"edison","skander","michael","khoa","mamoun","yassine"};
 std::string surnames[]={"edison","skander","michael","khoa","mamoun","yassine"};
 std::string positions[]={"PG","SG","F","PF","C"};
 
-division = Team.division
 
 //constructor when player position is not given
 player::player()
 {
+    //initialize the division attribute
+    division = Team.division
+    
     //choose a random numbers to select a surname
     int randomname=rand()%(sizeof(names)/sizeof(names[0]));
     name=names[randomname];
