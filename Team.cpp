@@ -10,10 +10,6 @@ Team::Team(std::string na){ //takes a name
         Player p=Player();
         players.push_back( p );
     }
-    division = League.division
-    for (int j=0, j<12, j++){
-        players[j].division = division
-
     division = League.division;
     for (int j=0; j<12; j++)
         players[j].division = division;
