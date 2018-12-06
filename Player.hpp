@@ -1,11 +1,3 @@
-//
-//  Player.hpp
-//  CSE Project
-//
-//  Created by Edison Reshketa on 19/11/2018.
-//  Copyright © 2018 Edison Reshketa. All rights reserved.
-//
-
 #ifndef Player_hpp
 #define Player_hpp
 #include <stdio.h>
@@ -13,6 +5,11 @@
 #include <string>
 #include <list>
 #include <cmath>
+
+
+//Please do get and set methods and make thse attributes private
+
+
 class Player{
 public:
     //constuctors
