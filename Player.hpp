@@ -5,6 +5,7 @@
 #include <string>
 #include <list>
 #include <cmath>
+#include "League.cpp";
 
 
 //Please do get and set methods and make thse attributes private
