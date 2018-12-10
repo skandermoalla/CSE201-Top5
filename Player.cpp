@@ -94,9 +94,8 @@ Player::Player(std::string pos)
     weight=rand()%(int(floor((height-100)*0.2))) + ((height-100)*0.9);
     
     //the next attributes have to depend on the league level when creating new players
-    //for beginning we let the interval be [40,60]. It will be changed after.
+    //for beginning we let the interval be [20,65]. It will be changed after.
     //we should work on these to make them more biased according to the player position.
-    sprint=rand()%21 + 40;
     sprint=rand()%46 + 20;
     rebound=rand()%46 + 20;
     passing=rand()%46 + 20;
