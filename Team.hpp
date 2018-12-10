@@ -2,9 +2,7 @@
 //  Team.hpp
 //  Basketball
 //
-//  Created by Edison Reshketa on 10/12/2018.
-//  Copyright © 2018 Edison Reshketa. All rights reserved.
-//
+
 
 #ifndef Team_hpp
 #define Team_hpp

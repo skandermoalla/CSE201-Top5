@@ -2,9 +2,7 @@
 //  Player.hpp
 //  Basketball
 //
-//  Created by Edison Reshketa on 10/12/2018.
-//  Copyright © 2018 Edison Reshketa. All rights reserved.
-//
+
 
 #ifndef Player_hpp
 #define Player_hpp
