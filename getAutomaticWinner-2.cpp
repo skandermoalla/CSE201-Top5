@@ -15,25 +15,24 @@
  depending on the overall attribute of each team.
  */
 
-const int NUMBER_OF_DRAWS = 100;
+const int NUMBER_OF_DRAWS = 40;
 
-int getAutomaticWinner(const Team Team1, const Team Team2) {
+int getAutomaticWinner(const Team Team1, const Team Team2) { //return 0 if team1 wins, else 1
     
-    const int total_1 = Team1.overall;      //an integer between 0 and 100
-    const int total_2 = Team2.overall;
-    const double p1 = total_1 / 100;                 //A number between 0 and 1
-    const double p2 = total_2 / 100;
-    
+    const double total_1 = Team1.overall;      //an integer between 0 and 100
+    const double total_2 = Team2.overall;
+    const double p1 = total_1 / (total_1+total_2); //A number between 0 and 1
+    /* const double p2 = total_2 / (total_1+total_2); */
     
     int c1 = 0;      //A counter to count the points that will make a team win
     int c2 = 0;
     
     for (int i =0; i<NUMBER_OF_DRAWS; i++){
-        const double r = double(rand()) / (RAND_MAX);        //A random number between 0 and 1
-        if (r < p1) {
+        const double r = double(rand()) / (RAND_MAX);//A random number between 0 and 1
+        if (r <= p1) {
             c1++;
         }
-        if (r < p2){
+        if (r > p1){
             c2++;
         }
     }
