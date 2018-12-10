@@ -1,13 +1,13 @@
 //
 //  Player.cpp
-//  CSE Project
+//  Basketball
 //
-//  Created by Edison Reshketa on 19/11/2018.
+//  Created by Edison Reshketa on 10/12/2018.
 //  Copyright © 2018 Edison Reshketa. All rights reserved.
 //
 
 #include "Player.hpp"
-
+#include <cmath>
 //names and surnames need to be updated.
 std::string names[]={"edison","skander","michael","khoa","mamoun","yassine"};
 std::string surnames[]={"edison","skander","michael","khoa","mamoun","yassine"};
@@ -81,7 +81,7 @@ Player::Player(std::string pos)
     age=rand()%13 + 18;
     
     //generate a random  number for the height in an interval which depends on the player position
-    if (position=="PG") 
+    if (position=="PG")
         height=rand()%11 + 180;
     else if (position=="SG")
         height=rand()%11 + 185;
@@ -111,7 +111,7 @@ Player::Player(std::string pos)
     attack=(sprint+height+passing+handling+shooting+jump+strength)/7;
     defence=(height+sprint+rebound+stealing+block+jump+strength)/7;
     if (overallgeneral < 40) {
-            marketvalue = 50000;
+        marketvalue = 50000;
     }
     else {
         marketvalue = (0.6*pow(attack,2) + 0.4*pow(defence,2)) * 100 * 1/division;

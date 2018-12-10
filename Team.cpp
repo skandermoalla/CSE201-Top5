@@ -1,18 +1,21 @@
+//
+//  Team.cpp
+//  Basketball
+//
+//  Created by Edison Reshketa on 10/12/2018.
+//  Copyright © 2018 Edison Reshketa. All rights reserved.
+//
+
 #include "Team.hpp"
-#include <string>
-#include <list>
-#include "Player.hpp"
-
-
-Team::Team(std::string na){ //takes a name 
+Team::Team(std::string na){ //takes a name
     name = na;
     for (int i=0; i<12 ; i++){
         Player p=Player();
         players.push_back( p );
     }
-    division = League.division;
+/*    division = League.division;
     for (int j=0; j<12; j++)
-        players[j].division = division;
+        players[j].division = division; */
     for (int j=0; j<12; j++){
         age += players[j].age;
         height += players[j].height;
@@ -22,14 +25,14 @@ Team::Team(std::string na){ //takes a name
         rebound += players[j].rebound;
         passing += players[j].passing;
         handling += players[j].handling;
-
+        
         shooting += players[j].shooting;
         stealing += players[j].stealing;
         block += players[j].block;
         jump += players[j].jump;
         strength += players[j].strength;
         motivation += players[j].motivation;
-        energy += players[j].motivation;
+        energy += players[j].energy;
     }
     age = age/12;
     height = height/12 ;
@@ -65,6 +68,3 @@ void Team::Training(){     //increases team attributes by 1
     strength += 1;
     motivation += 1;
 };
-
-
-

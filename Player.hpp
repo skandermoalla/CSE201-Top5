@@ -1,27 +1,27 @@
+//
+//  Player.hpp
+//  Basketball
+//
+//  Created by Edison Reshketa on 10/12/2018.
+//  Copyright © 2018 Edison Reshketa. All rights reserved.
+//
+
 #ifndef Player_hpp
 #define Player_hpp
-#include <stdio.h>
 #pragma once
+#include <stdio.h>
 #include <string>
-#include <list>
-#include <cmath>
-#include "League.cpp";
-
-
-//Please do get and set methods and make thse attributes private
-
-
 class Player{
 public:
     //constuctors
     Player();
     Player(std::string pos);
-
+    
     //player attributes
     std::string name;
     std::string surname;
     std::string position; // PG=pointguard SG=shootingguard F=forward PF=powerforward C=center
-    int division; 
+    int division;
     int age;
     int height;
     int weight;
@@ -42,8 +42,6 @@ public:
     double marketvalue;
     //player methods
     void update_overall();
-
+    
 };
-
 #endif /* Player_hpp */
-
