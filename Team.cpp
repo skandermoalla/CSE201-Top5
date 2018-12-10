@@ -49,6 +49,7 @@ Team::Team(std::string na){ //takes a name
     jump = jump/12;
     strength = strength/12;
     motivation = motivation/12;
+    update_overall();
 }
 
 void Team::Training(){     //increases team attributes by 1
@@ -66,3 +67,7 @@ void Team::Training(){     //increases team attributes by 1
     strength += 1;
     motivation += 1;
 };
+
+void Team::update_overall(){
+     overallgeneral = sprint*0.1 + rebound*0.05 + passing*0.15 + handling*0.15 + shooting*0.2 + stealing*0.05 + block*0.05 + jump*0.1 +strength*0.15;
+}

@@ -33,10 +33,10 @@ public:
     double strength;
     double weight;
     double attack;
-    double overall;
+    double overallgeneral;
     double energy;
     void Training(); //Trains team by increasing attributes
-    
+    void update_overall();
     
     
 };
