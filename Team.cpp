@@ -29,7 +29,7 @@ Team::Team(std::string na){ //takes a name
         jump += players[j].jump;
         strength += players[j].strength;
         motivation += players[j].motivation;
-        energy += players[j].motivation;
+        energy += players[j].energy;
     }
     age = age/12;
     height = height/12 ;
@@ -48,6 +48,7 @@ Team::Team(std::string na){ //takes a name
     jump = jump/12;
     strength = strength/12;
     motivation = motivation/12;
+    energy = energy/12
 }
 
 void Team::Training(){     //increases team attributes by 1
@@ -64,6 +65,7 @@ void Team::Training(){     //increases team attributes by 1
     jump += 1;
     strength += 1;
     motivation += 1;
+    energy -= 1
 };
 
 
