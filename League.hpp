@@ -1,32 +1,28 @@
-#pragma once 
-#include <string>
-#include <map>
-#include <tuple>
-#include "Team.cpp"
+//
+//  League.hpp
+//  Basketball
+//
 
+
+#ifndef League_hpp
+#define League_hpp
+#include "Market.hpp"
+#include <stdio.h>
+#include <vector>
+#include <map>
 class League{   //has 12 teams competing during 22 weeks
-    public:
+public:
     //attributes
     int division;
     std::string season;
-    std::list<Team> teams;
-
+    std::vector<Team> teams;
+    std::string teamNames[1000];
     //constructors
     League(int div, std::string seas);
     
     //functions
-	std::map<int, std::list< std::tuple<int,int> > > calendar();
+    std::map<int, std::vector< std::tuple<int,int> > > calendar();
     
-}
+};
 
-//Possible implementation of a get attribute function, would need to implement a dictionarry to get all the attributes values
-
-/*template < typename T> T get_attribute(std::string attributeName){
-	return attributes[attributeName];  //here attributes would be a dictionnary instead of a list
-}
-
-template <typename T> void set_attribute(std::string attributeName, T value){
-	attributes[attributeName] = value;  //same comment as before for attributes
-}
-
-*/;
+#endif /* League_hpp */
