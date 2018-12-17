@@ -1,7 +1,7 @@
 //
 //  Player.hpp
 //  Basketball
-//
+// player class
 
 
 #ifndef Player_hpp
