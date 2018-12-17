@@ -34,7 +34,6 @@ SOURCES += \
     mainmenu.cpp \
     startmenu.cpp \
     teaminfo.cpp \
-    gameplayer.cpp \
     market.cpp
 
 HEADERS += \

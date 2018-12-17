@@ -1,7 +1,6 @@
 #ifndef MAINMENU_H
 #define MAINMENU_H
 #include "startmenu.h"
-#include "gameplayer.h"
 #include <QMainWindow>
 
 namespace Ui {

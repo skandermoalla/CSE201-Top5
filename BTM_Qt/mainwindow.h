@@ -8,7 +8,6 @@
 #include "training.h"
 #include "calendar.h"
 #include "teaminfo.h"
-#include "gameplayer.h"
 
 namespace Ui {
 class MainWindow;
