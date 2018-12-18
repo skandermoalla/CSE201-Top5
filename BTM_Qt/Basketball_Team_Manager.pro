@@ -34,7 +34,10 @@ SOURCES += \
     mainmenu.cpp \
     startmenu.cpp \
     teaminfo.cpp \
-    market.cpp
+    market.cpp \
+    League.cpp \
+    Player.cpp \
+    Team.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -46,7 +49,10 @@ HEADERS += \
     mainmenu.h \
     startmenu.h \
     teaminfo.h \
-    market.h
+    market.h \
+    League.h \
+    Player.h \
+    Team.h
 
 FORMS += \
         mainwindow.ui \

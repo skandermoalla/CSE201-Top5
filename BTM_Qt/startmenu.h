@@ -4,7 +4,7 @@
 //#include "gameplayer.h"
 #include <QDialog>
 #include"mainwindow.h"
-
+#include "League.h"
 namespace Ui {
 class StartMenu;
 }
