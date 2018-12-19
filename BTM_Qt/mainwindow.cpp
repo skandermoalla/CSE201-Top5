@@ -122,7 +122,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->ui->tableWidget->show();
 }
 
-MainWindow::MainWindow(Team myteam,League A,QWidget *parent) :
+MainWindow::MainWindow(Team& myteam,League& A,QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
@@ -195,19 +195,17 @@ MainWindow::MainWindow(Team myteam,League A,QWidget *parent) :
     this->ui->lcdNumber_12->display(myteam.players[11].overallgeneral);
     this->ui->label_12p->setText(QString::fromStdString(myteam.players[11].position));
 
-    //Info tab
+    //Energy tab
     QStringList header;
-    header<<"Name"<<"Nationality"<<"Age"<<"Height"<<"Weight";
-    this->ui->tableWidget_3->setColumnCount(5);
+    header<<"Name"<<"Energy"<<"Motivation";
+    this->ui->tableWidget_3->setColumnCount(3);
     this->ui->tableWidget_3->setRowCount(12);
     this->ui->tableWidget_3->setHorizontalHeaderLabels(header);
 
     for (int i = 0; i < 12; i++ ) {
     this->ui->tableWidget_3->setItem(i,0,new QTableWidgetItem(QString::fromStdString(myteam.players[i].name)));
-    this->ui->tableWidget_3->setItem(i,1,new QTableWidgetItem((/*QIcon("images.png"), */"Country")));
-    this->ui->tableWidget_3->setItem(i,2,new QTableWidgetItem("20"));
-    this->ui->tableWidget_3->setItem(i,3,new QTableWidgetItem("190"));
-    this->ui->tableWidget_3->setItem(i,4,new QTableWidgetItem("85"));
+    this->ui->tableWidget_3->setItem(i,1,new QTableWidgetItem(QString::number(myteam.players[i].energy)));
+    this->ui->tableWidget_3->setItem(i,2,new QTableWidgetItem(QString::number(myteam.players[i].motivation)));
     }
     this->ui->tableWidget_3->show();
 

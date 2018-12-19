@@ -19,7 +19,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
-    explicit MainWindow(Team myteam, League A,QWidget *parent = nullptr);
+    explicit MainWindow(Team& myteam, League& A,QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
