@@ -1,20 +1,14 @@
-//
-//  Player.hpp
-//  Basketball
-// player class
-
-
-#ifndef Player_hpp
-#define Player_hpp
-#pragma once
-#include <stdio.h>
+#ifndef PLAYER_H
+#define PLAYER_H
 #include <string>
+#pragma once
+
 class Player{
 public:
     //constuctors
     Player();
     Player(std::string pos);
-    
+
     //player attributes
     std::string name;
     std::string surname;
@@ -40,6 +34,7 @@ public:
     double marketvalue;
     //player methods
     void update_overall();
-    
+
 };
-#endif /* Player_hpp */
+
+#endif // PLAYER_H
