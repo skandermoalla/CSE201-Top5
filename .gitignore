@@ -32,3 +32,6 @@
 *.app
 
 *.DS_Store
+
+# Folders
+build-Basketball_Team_Manager-*/
