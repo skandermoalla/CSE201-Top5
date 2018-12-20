@@ -22,7 +22,7 @@ public:
     
     //functions
     std::map<int, std::vector< std::tuple<int,int> > > calendar();
-    
+    std::vector<int> opponents_user();    
 };
 
 #endif /* League_hpp */
