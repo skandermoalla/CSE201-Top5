@@ -18,9 +18,6 @@ MainWindow::MainWindow(QWidget *parent) :
 
     connect(preparation, SIGNAL(backButtonClicked()), this, SLOT(show()));
     connect(preparation, SIGNAL(backButtonClicked()), this, SLOT(refresh()));
-    // We may need a function to refresh the display
-    // the function pack up all the operations on data below
-    // the function may take the current game state as an argument
 }
 
 //Window operations
@@ -28,6 +25,15 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+/*
+QStringList PlayerLabel;
+QStringList PlayerIcd;
+
+PlayerLabel  << label << label_2<<label_3<<label_4<<label_5<<label_6<<label_7<<label_8<<label_9<<label_10<<label_11<<label_12
+void MainWindow::refresh()
+
+ */
 
 void MainWindow::refresh()
 {
@@ -109,33 +115,18 @@ void MainWindow::refresh()
     //Ability tab
     QStringList header2;
     header2<<"Name"<<"Nationality"<<"Age"<<"Height"<<"Weight";
-    this->ui->tableWidget->setColumnCount(5);
-    this->ui->tableWidget->setRowCount(12);
-    this->ui->tableWidget->setHorizontalHeaderLabels(header2);
+    this->ui->tableWidget_2->setColumnCount(5);
+    this->ui->tableWidget_2->setRowCount(12);
+    this->ui->tableWidget_2->setHorizontalHeaderLabels(header2);
 
     for (int i = 0; i < 12; i++ ) {
-    this->ui->tableWidget->setItem(i,0,new QTableWidgetItem("BILIBILI"));
-    this->ui->tableWidget->setItem(i,1,new QTableWidgetItem((/*QIcon("images.png"), */"Country")));
-    this->ui->tableWidget->setItem(i,2,new QTableWidgetItem("20"));
-    this->ui->tableWidget->setItem(i,3,new QTableWidgetItem("190"));
-    this->ui->tableWidget->setItem(i,4,new QTableWidgetItem("85"));
+    this->ui->tableWidget_2->setItem(i,0,new QTableWidgetItem("BILIBILI"));
+    this->ui->tableWidget_2->setItem(i,1,new QTableWidgetItem((/*QIcon("images.png"), */"Country")));
+    this->ui->tableWidget_2->setItem(i,2,new QTableWidgetItem("20"));
+    this->ui->tableWidget_2->setItem(i,3,new QTableWidgetItem("190"));
+    this->ui->tableWidget_2->setItem(i,4,new QTableWidgetItem("85"));
     }
 
-    /*
-    QStringList header3;
-    header3<<"Name"<<"Nationality"<<"Age"<<"Height"<<"Weight";
-    this->ui->tableWidget->setColumnCount(5);
-    this->ui->tableWidget->setRowCount(12);
-    this->ui->tableWidget->setHorizontalHeaderLabels(header3);
-
-    for (int i = 0; i < 12; i++ ) {
-    this->ui->tableWidget->setItem(i,0,new QTableWidgetItem("BILIBILI"));
-    this->ui->tableWidget->setItem(i,1,new QTableWidgetItem((QIcon("images.png"), "Country")));
-    this->ui->tableWidget->setItem(i,2,new QTableWidgetItem("20"));
-    this->ui->tableWidget->setItem(i,3,new QTableWidgetItem("190"));
-    this->ui->tableWidget->setItem(i,4,new QTableWidgetItem("85"));
-    }
-*/
 
     this->ui->tableWidget->show();
 }
@@ -162,5 +153,6 @@ void MainWindow::on_pushButton_4_clicked()
 void MainWindow::on_pushButton_5_clicked()
 {
     this -> hide();
+    preparation -> refresh();
     preparation -> show();
 }
