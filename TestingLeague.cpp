@@ -11,5 +11,9 @@ int main{
 
 		
 		std::cout << L1.teams, L2.teams, L3.teams << std::endl;
+    
+        calendar2018 = L1.calendar()
+    cout << "First week matches: " << calendar2018[1];
+    
 }
 
