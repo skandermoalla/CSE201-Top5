@@ -17,9 +17,8 @@ void StartMenu::on_Next_clicked()
     QString name = ui->nameInput->text();
     QString team_name = ui->teamInput->text();
     QString nationality = ui->nationalityInput->text();
-    this -> hide();
-
+    this -> close();
+    mainwindow -> refresh();
     mainwindow -> show();
 
-//    teaminfo->show();
 }

@@ -8,13 +8,29 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     connect(calendar, SIGNAL(backButtonClicked()), this, SLOT(show()));
-    connect(training, SIGNAL(backButtonClicked()), this, SLOT(show()));
-    connect(teaminfo, SIGNAL(backButtonClicked()), this, SLOT(show()));
+    connect(calendar, SIGNAL(backButtonClicked()), this, SLOT(refresh()));
 
+    connect(training, SIGNAL(backButtonClicked()), this, SLOT(show()));
+    connect(training, SIGNAL(backButtonClicked()), this, SLOT(refresh()));
+
+    connect(teaminfo, SIGNAL(backButtonClicked()), this, SLOT(show()));
+    connect(teaminfo, SIGNAL(backButtonClicked()), this, SLOT(refresh()));
+
+    connect(preparation, SIGNAL(backButtonClicked()), this, SLOT(show()));
+    connect(preparation, SIGNAL(backButtonClicked()), this, SLOT(refresh()));
     // We may need a function to refresh the display
     // the function pack up all the operations on data below
     // the function may take the current game state as an argument
+}
 
+//Window operations
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+void MainWindow::refresh()
+{
     // Player 1
     this->ui->label->setText(QString("BILIBILI"));
     this->ui->lcdNumber->display(QString("55"));
@@ -105,6 +121,7 @@ MainWindow::MainWindow(QWidget *parent) :
     this->ui->tableWidget->setItem(i,4,new QTableWidgetItem("85"));
     }
 
+    /*
     QStringList header3;
     header3<<"Name"<<"Nationality"<<"Age"<<"Height"<<"Weight";
     this->ui->tableWidget->setColumnCount(5);
@@ -113,19 +130,14 @@ MainWindow::MainWindow(QWidget *parent) :
 
     for (int i = 0; i < 12; i++ ) {
     this->ui->tableWidget->setItem(i,0,new QTableWidgetItem("BILIBILI"));
-    this->ui->tableWidget->setItem(i,1,new QTableWidgetItem((/*QIcon("images.png"), */"Country")));
+    this->ui->tableWidget->setItem(i,1,new QTableWidgetItem((QIcon("images.png"), "Country")));
     this->ui->tableWidget->setItem(i,2,new QTableWidgetItem("20"));
     this->ui->tableWidget->setItem(i,3,new QTableWidgetItem("190"));
     this->ui->tableWidget->setItem(i,4,new QTableWidgetItem("85"));
     }
+*/
 
     this->ui->tableWidget->show();
-}
-
-//Window operations
-MainWindow::~MainWindow()
-{
-    delete ui;
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -137,17 +149,18 @@ void MainWindow::on_pushButton_clicked()
 void MainWindow::on_pushButton_3_clicked()
 {
     this -> hide();
+    training -> refresh();
     training -> show();
 }
-
-
-//void MainWindow::on_listView_indexesMoved(const QModelIndexList &indexes)
-//{
-//    listView = new QListView;
-//}
 
 void MainWindow::on_pushButton_4_clicked()
 {
     this -> hide();
     teaminfo -> show();
+}
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    this -> hide();
+    preparation -> show();
 }

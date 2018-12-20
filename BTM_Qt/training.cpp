@@ -6,11 +6,15 @@ Training::Training(QWidget *parent) :
     ui(new Ui::Training)
 {
     ui->setupUi(this);
+}
 
-    // We may need a function to refresh the display
-    // the function pack up all the operations on data below
-    // the function may take the current game state as an argument
+Training::~Training()
+{
+    delete ui;
+}
 
+void Training::refresh()
+{
     // Player 1
     this->ui->label->setText(QString("BILIBILI"));
     this->ui->lcdNumber->display(QString("55"));
@@ -70,15 +74,6 @@ Training::Training(QWidget *parent) :
     this->ui->label_12->setText(QString("BILIBILI"));
     this->ui->lcdNumber_12->display(QString("55"));
     this->ui->label_12p->setText(QString("SG"));
-
-}
-
-
-
-
-Training::~Training()
-{
-    delete ui;
 }
 
 void Training::on_pushButton_5_clicked()

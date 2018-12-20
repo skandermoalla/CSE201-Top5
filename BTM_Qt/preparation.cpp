@@ -12,3 +12,9 @@ Preparation::~Preparation()
 {
     delete ui;
 }
+
+void Preparation::on_pushButton_15_clicked()
+{
+    this -> hide();
+    emit backButtonClicked();
+}

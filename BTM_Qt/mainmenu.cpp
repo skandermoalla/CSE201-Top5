@@ -17,6 +17,6 @@ MainMenu::~MainMenu()
 
 void MainMenu::on_start_clicked()
 {
-    this->hide();
+    this->close();
     startmenu->show();
 }

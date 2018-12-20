@@ -4,10 +4,10 @@
 #include <QMainWindow>
 #include<QListView>
 
-#include "data.h"
 #include "training.h"
 #include "calendar.h"
 #include "teaminfo.h"
+#include "preparation.h"
 
 namespace Ui {
 class MainWindow;
@@ -21,20 +21,21 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+public slots:
+    void refresh();
+
 private slots:
     void on_pushButton_clicked();
     void on_pushButton_3_clicked();
-
-    //void MainWindow::on_listView_indexesMoved(const QModelIndexList &indexes);
-
     void on_pushButton_4_clicked();
+    void on_pushButton_5_clicked();
 
 private:
     Ui::MainWindow *ui;
     Calendar *calendar = new Calendar;
     Training *training = new Training;
-    TeamInfo *teaminfo = new TeamInfo; //= new TeamInfo(GamePLayer );
-    //QListView *listView;
+    TeamInfo *teaminfo = new TeamInfo;
+    Preparation *preparation = new Preparation;
 };
 
 #endif // MAINWINDOW_H

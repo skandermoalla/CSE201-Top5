@@ -18,6 +18,9 @@ public:
 signals:
     void backButtonClicked();
 
+public slots:
+    void refresh();
+
 private slots:
     void on_pushButton_5_clicked();
 

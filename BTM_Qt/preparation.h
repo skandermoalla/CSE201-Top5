@@ -15,6 +15,12 @@ public:
     explicit Preparation(QWidget *parent = nullptr);
     ~Preparation();
 
+signals:
+    void backButtonClicked();
+
+private slots:
+    void on_pushButton_15_clicked();
+
 private:
     Ui::Preparation *ui;
 };

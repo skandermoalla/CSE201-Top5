@@ -30,7 +30,6 @@ SOURCES += \
     calendar.cpp \
     training.cpp \
     preparation.cpp \
-    display.cpp \
     mainmenu.cpp \
     startmenu.cpp \
     teaminfo.cpp \
@@ -41,8 +40,6 @@ HEADERS += \
     calendar.h \
     training.h \
     preparation.h \
-    data.h \
-    display.h \
     mainmenu.h \
     startmenu.h \
     teaminfo.h \

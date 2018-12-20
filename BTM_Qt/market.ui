@@ -1,17 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>Market</class>
- <widget name="Market" class="QDialog">
+ <widget class="QDialog" name="Market">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>729</width>
+    <height>509</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Basketball Team Manager</string>
   </property>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>30</y>
+     <width>71</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Budget</string>
+   </property>
+  </widget>
+  <widget class="QLCDNumber" name="lcdNumber">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>30</y>
+     <width>141</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QListWidget" name="listWidget">
+   <property name="geometry">
+    <rect>
+     <x>435</x>
+     <y>31</y>
+     <width>261</width>
+     <height>301</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
