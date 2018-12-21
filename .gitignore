@@ -1,4 +1,42 @@
+# Prerequisites
+*.d
 
-BTM_Qt/Basketball_Team_Manager.pro.user
-.DS_Store
-BTM_Qt/Basketball_Team_Manager.pro.user.b07b3cb
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+*.pro.user
+*.DS_Store
+
+# user configs
+
+*.pro.user
+
+# Folders
+build-Basketball_Team_Manager-*/
