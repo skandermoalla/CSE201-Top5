@@ -2,6 +2,8 @@
 #define TRAINING_H
 
 #include <QDialog>
+#include "League.h"
+#include "User.h"
 
 namespace Ui {
 class Training;
@@ -13,6 +15,7 @@ class Training : public QDialog
 
 public:
     explicit Training(QWidget *parent = nullptr);
+    explicit Training(User& theuser,League& league, QWidget *parent = nullptr);
     ~Training();
 
 signals:

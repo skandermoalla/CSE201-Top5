@@ -5,6 +5,7 @@
 #include <QDialog>
 #include"mainwindow.h"
 #include "League.h"
+#include "User.h"
 namespace Ui {
 class StartMenu;
 }
@@ -23,7 +24,7 @@ private slots:
 private:
     Ui::StartMenu *ui;
     TeamInfo *teaminfo;
-    MainWindow *mainwindow = new MainWindow;
+    MainWindow *mainwindow;
 };
 
 #endif // STARTMENU_H

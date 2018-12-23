@@ -38,7 +38,7 @@ SOURCES += \
     League.cpp \
     Player.cpp \
     Team.cpp \
-    nextgame.cpp
+    User.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -54,7 +54,7 @@ HEADERS += \
     League.h \
     Player.h \
     Team.h \
-    nextgame.h
+    User.h
 
 FORMS += \
         mainwindow.ui \
@@ -67,8 +67,7 @@ FORMS += \
     startmenu.ui \
     mainmenu.ui \
     teaminfo.ui \
-    market.ui \
-    nextgame.ui
+    market.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
