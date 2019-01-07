@@ -5,6 +5,8 @@
 
 
 #include "League.hpp"
+using namespace std;
+
 //random names for teams to be changed as well
 
 //auxiliary function to find the intersection of two vectors
