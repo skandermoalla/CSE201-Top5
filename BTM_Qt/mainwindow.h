@@ -8,6 +8,8 @@
 #include "calendar.h"
 #include "teaminfo.h"
 #include "preparation.h"
+#include "League.h"
+#include "User.h"
 
 namespace Ui {
 class MainWindow;
@@ -19,7 +21,9 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(User& theuser, League& A,QWidget *parent = nullptr);
     ~MainWindow();
+    Team team;
 
 public slots:
     void refresh();
