@@ -29,6 +29,20 @@ League::League(int divi, std::string seas){          //Takes arguments : divisio
      attributes["division"] = divi;
      */
 }
+League::League(){          //Takes arguments : division as an int and a season as a string
+    division = 3 ;
+    season = "1718";
+    int n = rand()%12 ;
+    for (int i = 0; i < 12; i++) {
+        Team t= Team( teamNames[(n + i) % 12] );
+        League::teams.push_back(t);
+    }
+
+    /*std::map<std::string, double,std::list> attributes;
+     attributes["season"] = seas;
+     attributes["division"] = divi;
+     */
+}
 
 std::map<int, std::vector< std::tuple<int,int> > > League::calendar()
 {

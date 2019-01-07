@@ -122,5 +122,8 @@ Player::Player(std::string pos)
 };
 
 void Player::update_overall(){
-    overallgeneral = sprint*0.1 + rebound*0.05 + passing*0.15 + handling*0.15 + shooting*0.2 + stealing*0.05 + block*0.05 + jump*0.1 +strength*0.15;
+    attack = (sprint+passing+handling+shooting+jump+strength)/6;
+    defence = (sprint+rebound+stealing+block+jump+strength)/6;
+    //overallgeneral = sprint*0.1 + rebound*0.05 + passing*0.15 + handling*0.15 + shooting*0.2 + stealing*0.05 + block*0.05 + jump*0.1 +strength*0.15;
+    overallgeneral= attack*0.6 + defence*0.4;
 }

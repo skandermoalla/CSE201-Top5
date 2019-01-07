@@ -9,6 +9,8 @@
 #include "calendar.h"
 #include "teaminfo.h"
 #include "League.h"
+#include "User.h"
+
 namespace Ui {
 class MainWindow;
 }
@@ -19,8 +21,9 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = nullptr);
-    explicit MainWindow(Team& myteam, League& A,QWidget *parent = nullptr);
+    explicit MainWindow(User& theuser, League& A,QWidget *parent = nullptr);
     ~MainWindow();
+    Team team;
 
 private slots:
     void on_pushButton_clicked();

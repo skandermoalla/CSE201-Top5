@@ -22,9 +22,9 @@ void StartMenu::on_Next_clicked()
 
 
     this -> hide();
-    Team myteam=Team(name.toStdString());
+    User user=User(name.toStdString(), team_name.toStdString(), nationality.toStdString());
     League A=League(3,"1819");
-    mainwindow = new MainWindow(myteam,A);
+    mainwindow = new MainWindow(user,A);
     
     mainwindow -> show();
 

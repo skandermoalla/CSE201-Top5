@@ -16,7 +16,7 @@ public:
     std::vector<Team> teams;
     //constructors
     League(int div, std::string seas);
-
+    League();
     //functions
     std::map<int, std::vector< std::tuple<int,int> > > calendar();
 

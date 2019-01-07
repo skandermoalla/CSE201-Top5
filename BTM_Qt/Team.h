@@ -8,6 +8,7 @@
 class Team {
 public:
     Team(std::string na);
+    Team();
     std::string name;
     std::vector<Player> players;
     //All attributes are are the averages over all the players

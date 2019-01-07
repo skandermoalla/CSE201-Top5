@@ -42,6 +42,7 @@ Team::Team(std::string na){ //takes a name
     rebound =rebound/12;
     passing =passing/12;
     handling = handling/12;
+    energy = energy/12
     
     shooting = shooting/12;
     stealing = stealing/12;
