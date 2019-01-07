@@ -41,4 +41,4 @@
 # Folders
 build-Basketball_Team_Manager*/
 
-*.DS_Store
+*/.DS_Store
