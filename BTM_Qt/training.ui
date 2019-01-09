@@ -26,9 +26,9 @@
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>155</x>
+     <x>170</x>
      <y>310</y>
-     <width>141</width>
+     <width>131</width>
      <height>16</height>
     </rect>
    </property>
@@ -39,7 +39,7 @@
   <widget class="QLabel" name="label_2p">
    <property name="geometry">
     <rect>
-     <x>155</x>
+     <x>170</x>
      <y>159</y>
      <width>31</width>
      <height>16</height>
@@ -111,7 +111,7 @@
   <widget class="QProgressBar" name="progressBar_6">
    <property name="geometry">
     <rect>
-     <x>155</x>
+     <x>170</x>
      <y>279</y>
      <width>95</width>
      <height>20</height>
@@ -281,7 +281,7 @@
   <widget class="QProgressBar" name="progressBar_2">
    <property name="geometry">
     <rect>
-     <x>155</x>
+     <x>170</x>
      <y>102</y>
      <width>95</width>
      <height>20</height>
@@ -320,9 +320,9 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>155</x>
+     <x>170</x>
      <y>129</y>
-     <width>151</width>
+     <width>141</width>
      <height>16</height>
     </rect>
    </property>
@@ -458,7 +458,7 @@
   <widget class="QLabel" name="label_10p">
    <property name="geometry">
     <rect>
-     <x>155</x>
+     <x>170</x>
      <y>525</y>
      <width>37</width>
      <height>16</height>
@@ -484,9 +484,9 @@
   <widget class="QLabel" name="label_10">
    <property name="geometry">
     <rect>
-     <x>155</x>
+     <x>170</x>
      <y>499</y>
-     <width>151</width>
+     <width>131</width>
      <height>16</height>
     </rect>
    </property>
@@ -579,7 +579,7 @@
   <widget class="QProgressBar" name="progressBar_10">
    <property name="geometry">
     <rect>
-     <x>155</x>
+     <x>170</x>
      <y>466</y>
      <width>95</width>
      <height>20</height>
@@ -618,7 +618,7 @@
   <widget class="QLabel" name="label_6p">
    <property name="geometry">
     <rect>
-     <x>155</x>
+     <x>170</x>
      <y>344</y>
      <width>31</width>
      <height>16</height>
