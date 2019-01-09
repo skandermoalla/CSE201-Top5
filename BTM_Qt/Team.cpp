@@ -41,7 +41,7 @@ void Team::Training1(){     //defesive training
 void Team::Training2(){     //shooting training
     for (int i=0; i<12 ; i++){
         double r = ((double) rand() / (RAND_MAX));
-        if (r<=0.8){
+        if (r<=0.6){
             players[i].shooting+=2;
             players[i].jump+=1;
             players[i].passing+=1;
@@ -59,12 +59,12 @@ void Team::Training3(){     //Physical training
         if (r<=0.7){
             players[i].strength+=2;
        }
-        if (r<=0.5){
+        if (r<=0.3){
             players[i].jump+=2;
             players[i].passing+=2;
             players[i].sprint+=3;
        }
-        if (r<=0.3){
+        if (r<=0.2){
             players[i].handling+=2;
        }
         players[i].energy-=18;
