@@ -2,6 +2,8 @@
 #define CALENDAR_H
 
 #include <QDialog>
+#include "User.h"
+#include "League.h"
 
 namespace Ui {
 class Calendar;
@@ -13,6 +15,7 @@ class Calendar : public QDialog
 
 public:
     explicit Calendar(QWidget *parent = nullptr);
+    explicit Calendar(User& myuser, League& myleague , QWidget *parent = nullptr);
     ~Calendar();
 
 signals:

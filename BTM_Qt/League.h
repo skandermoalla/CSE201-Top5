@@ -19,7 +19,7 @@ public:
     League();
     //functions
     std::map<int, std::vector< std::tuple<int,int> > > calendar();
-
+    std::map<int, std::vector< std::tuple<int,int> > > Calendar;
 };
 
 #endif // LEAGUE_H

@@ -42,6 +42,7 @@ League::League(){          //Takes arguments : division as an int and a season a
      attributes["season"] = seas;
      attributes["division"] = divi;
      */
+    Calendar=calendar();
 }
 
 std::map<int, std::vector< std::tuple<int,int> > > League::calendar()
