@@ -30,7 +30,10 @@ public:
     double attack;
     double overallgeneral;
     double energy;
-    void Training(); //Trains team by increasing attributes
+    void Training1(); //Trains team by increasing attributes
+    void Training2(); //Trains team by increasing attributes
+    void Training3(); //Trains team by increasing attributes
+    void Training4(); //Trains team by increasing attributes
     void update_overall();
 
 

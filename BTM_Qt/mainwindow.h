@@ -3,7 +3,7 @@
 
 #include <QMainWindow>
 #include<QListView>
-
+#pragma once
 #include "data.h"
 #include "training.h"
 #include "calendar.h"
@@ -24,6 +24,8 @@ public:
     explicit MainWindow(User& theuser, League& A,QWidget *parent = nullptr);
     ~MainWindow();
     Team team;
+    User* myuser;
+    League* myleague;
 
 private slots:
     void on_pushButton_clicked();

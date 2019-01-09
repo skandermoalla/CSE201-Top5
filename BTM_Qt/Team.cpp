@@ -23,25 +23,95 @@ Team::Team(){ //takes a name
     update_overall();
 };
 
-void Team::Training(){     //increases team attributes by 1
-    attack += 1;
-    defence += 1;
-    sprint += 1;
-    rebound += 1;
-    passing += 1;
-    handling += 1;
+void Team::Training1(){     //defesive training
+    for (int i=0; i<12 ; i++){
+        double r = ((double) rand() / (RAND_MAX));
+        if (r<=0.5){
+            players[i].rebound+=2;
+            players[i].stealing+=1;
+            players[i].strength+=1;
+            players[i].block+=1;
+        }
+        players[i].energy-=10;
+        players[i].update_overall();
+    }
+    update_overall();
 
-    shooting += 1;
-    stealing += 1;
-    block += 1;
-    jump += 1;
-    strength += 1;
-    motivation += 1;
+};
+void Team::Training2(){     //shooting training
+    for (int i=0; i<12 ; i++){
+        double r = ((double) rand() / (RAND_MAX));
+        if (r<=0.8){
+            players[i].shooting+=2;
+            players[i].jump+=1;
+            players[i].passing+=1;
+            players[i].handling+=1;
+        }
+        players[i].energy-=14;
+        players[i].update_overall();
+    }
+    update_overall();
 
-    //and decrease energy ?
+};
+void Team::Training3(){     //Physical training
+    for (int i=0; i<12 ; i++){
+        double r = ((double) rand() / (RAND_MAX));
+        if (r<=0.7){
+            players[i].strength+=2;
+       }
+        if (r<=0.5){
+            players[i].jump+=2;
+            players[i].passing+=2;
+            players[i].sprint+=3;
+       }
+        if (r<=0.3){
+            players[i].handling+=2;
+       }
+        players[i].energy-=18;
+        players[i].update_overall();
+    }
+    update_overall();
+
+};
+void Team::Training4(){     //Physical training
+    for (int i=0; i<12 ; i++){
+        double r = ((double) rand() / (RAND_MAX));
+        if (r<=0.7){
+            players[i].motivation+=4;
+       }
+        if (r<=0.2){
+            players[i].jump+=2;
+            players[i].passing+=2;
+            players[i].sprint+=3;
+       }
+        if (r<=0.2){
+            players[i].handling+=2;
+            players[i].shooting+=1;
+            players[i].rebound+=1;
+       }
+        players[i].energy-=5;
+        players[i].update_overall();
+    }
+    update_overall();
+
 };
 
+
 void Team::update_overall(){
+    age=0;
+    height=0;
+    weight=0;
+    sprint=0;
+    rebound=0;
+    passing=0;
+    handling=0;
+    shooting=0;
+    stealing=0;
+    block=0;
+    jump=0;
+    strength=0;
+    motivation=0;
+    energy=0;
     for (int j=0; j<12; j++){
         age += players[j].age;
         height += players[j].height;

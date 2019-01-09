@@ -1,6 +1,6 @@
 #include "training.h"
 #include "ui_training.h"
-
+#include <iostream>
 Training::Training(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Training)
@@ -78,6 +78,8 @@ Training::Training(User& theuser , League& league, QWidget *parent) :
     ui(new Ui::Training)
 {
     ui->setupUi(this);
+    myuser = &theuser;
+    myleague = &league;
 
     // We may need a function to refresh the display
     // the function pack up all the operations on data below
@@ -143,6 +145,12 @@ Training::Training(User& theuser , League& league, QWidget *parent) :
     this->ui->label_12p->setText(QString::fromStdString(theuser.team.players[11].position));
 
 
+    // Budget Display
+    this->ui->lcdNumber_16->display(theuser.budget);
+
+
+    // Energy Left Display
+    this->ui->lcdNumber_13->display(theuser.team.energy);
 }
 
 
@@ -157,4 +165,33 @@ void Training::on_pushButton_5_clicked()
     this -> hide();
 
     emit backButtonClicked();
+}
+
+//Defense training
+void Training::on_pushButton_clicked()
+{   myuser->budget-=5000;
+    myuser->team.Training1();
+    this->hide();
+
+}
+
+void Training::on_pushButton_2_clicked()
+{
+  myuser->budget-=8000;
+  myuser->team.Training2();
+  this->hide();
+
+}
+
+void Training::on_pushButton_3_clicked()
+{   myuser->budget-=7000;
+    myuser->team.Training3();
+    this->hide();
+
+}
+
+void Training::on_pushButton_4_clicked()
+{   myuser->budget-=10000;
+    myuser->team.Training4();
+    this->hide();
 }

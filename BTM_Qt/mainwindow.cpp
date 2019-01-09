@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QLabel>
+#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -125,7 +126,9 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::MainWindow(User& theuser ,League& A,QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
-{   training= new Training(theuser,A);
+{   //training= new Training(theuser,A);
+    myuser=&theuser;
+    myleague=&A;
     ui->setupUi(this);
     connect(calendar, SIGNAL(backButtonClicked()), this, SLOT(show()));
     connect(training, SIGNAL(backButtonClicked()), this, SLOT(show()));
@@ -255,7 +258,9 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_pushButton_3_clicked()
 {
-    this -> hide();
+    //this -> hide();
+    training= new Training(*myuser,*myleague);
+    std::cout<<"training created"<<std::endl;
     training -> show();
 }
 
