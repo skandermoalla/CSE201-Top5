@@ -1,26 +1,22 @@
-//
-//  getAutomaticWinner-2.cpp
-//  Basketball
-//
-//  Created by Edison Reshketa on 10/12/2018.
-//  Copyright © 2018 Edison Reshketa. All rights reserved.
-//
+// created by Joan Odeimi
+
 
 #include "getAutomaticWinner-2.hpp"
 #include <iostream>
-#include "Team.hpp"
+#include "Team.h"
 #include <cstdlib>
+#include "League.h"
 
-/* A function that returns the winner of the automated game: either 0 (for Team1) or 1 (for Team2) using a probabilistic approach
+/* A function that returns the winner of the automated game and give the final score using a probabilistic approach
  depending on the overall attribute of each team.
  */
 
 const int NUMBER_OF_DRAWS = 40;
 
-int getAutomaticWinner(const Team Team1, const Team Team2) { //return 0 if team1 wins, else 1
+std::pair<int, int> getAutomaticWinner(const Team Team1, const Team Team2) { //return a pair of scores ()
     
-    const double total_1 = Team1.overall;      //an integer between 0 and 100
-    const double total_2 = Team2.overall;
+    const double total_1 = Team1.overallgeneral;      //an integer between 0 and 100
+    const double total_2 = Team2.overallgeneral;
     const double p1 = total_1 / (total_1+total_2); //A number between 0 and 1
     /* const double p2 = total_2 / (total_1+total_2); */
     
@@ -30,29 +26,31 @@ int getAutomaticWinner(const Team Team1, const Team Team2) { //return 0 if team1
     for (int i =0; i<NUMBER_OF_DRAWS; i++){
         const double r = double(rand()) / (RAND_MAX);//A random number between 0 and 1
         if (r <= p1) {
-            c1++;
+            if (0.3 < r){
+                c1 += 3;
+            }
+            else {
+                c1 += 2;}
         }
         if (r > p1){
-            c2++;
+            if (0.3 < r){
+                c2 += 3;
+            }
+            else {
+                c2 += 2;}
         }
     }
-    
-    if (c1 == c2){          //in case c1 = c2, the teams are really close in level, so we toss a toin to get the winner
-        const double coin = (double) rand() / (RAND_MAX) ;
-        if (coin < 0.5)
-            return 0;
-            else
-                return 1;
-            
-    }
-    
-    if (c1 < c2)
-        return 1;
-    else
-        return 0;
-        
-    }
-    
-    
+
+    pair<int, int> t(c1, c2);
+    return t;
+}
+
+
+
+/*
+int main() {
+
+}
+*/
     
 
