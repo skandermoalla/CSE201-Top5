@@ -10,11 +10,15 @@
 #pragma once
 class League{   //has 12 teams competing during 22 weeks
 public:
+    typedef std::pair<Team&, Team&> Match;
+    typedef std::vector<Match> MatchVector;
+
     //attributes
     int division;
     std::string season;
     std::vector<Team> teams;
     int current_week;  //Warning!! Starts at week 1
+    std::map<int, std::vector< std::tuple<int,int> > > Calendar;
 
 
     //constructors
@@ -23,11 +27,11 @@ public:
 
     //functions
     std::map<int, std::vector< std::tuple<int,int> > > calendar();
-    std::map<int, std::vector< std::tuple<int,int> > > Calendar;
+    std::vector< Team& > getAllUserMatches() ;
 
     //needed for the GameEngine asap plz
     //a vector < (team1*, team2*), (team1*, team2*), ...> of pairs of pointers to teams playing against each other
-    std::vector<std::pair<Team*, Team*>> getThisWeeksGames();
+    const MatchVector getThisWeeksGames();
 
 };
 
