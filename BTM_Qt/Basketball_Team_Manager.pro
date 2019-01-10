@@ -39,7 +39,8 @@ SOURCES += \
     Player.cpp \
     Team.cpp \
     User.cpp \
-    nextgame.cpp
+    nextgame.cpp \
+    GameEngine/gameengine.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -55,7 +56,8 @@ HEADERS += \
     Player.h \
     Team.h \
     User.h \
-    nextgame.h
+    nextgame.h \
+    GameEngine/gameengine.h
 
 FORMS += \
         mainwindow.ui \

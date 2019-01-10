@@ -14,7 +14,7 @@ std::vector<int> intersection(std::vector<int> vect1, std::vector<int> vect2) {
 };
 std::string teamNames[] = { "Lakers","Cavaliers","Raptors","Warriors","Thunders","76ers","Bulls","Wizards","Celtics","Pacers","Nets","Hawks" };
 
-// why a string for seas? how are you going to increment it? it should be an int.
+
 League::League(int divi, std::string seas){          //Takes arguments : division as an int and a season as a string
     division = divi ;
     season = seas;
@@ -23,12 +23,8 @@ League::League(int divi, std::string seas){          //Takes arguments : divisio
         Team t= Team( teamNames[(n + i) % 12] );
         League::teams.push_back(t);
     }
-
-    /*std::map<std::string, double,std::list> attributes;
-     attributes["season"] = seas;
-     attributes["division"] = divi;
-     */
 }
+
 League::League(){          //Takes arguments : division as an int and a season as a string
     division = 3 ;
     season = "1718";
@@ -37,12 +33,10 @@ League::League(){          //Takes arguments : division as an int and a season a
         Team t= Team( teamNames[(n + i) % 12] );
         League::teams.push_back(t);
     }
-
-    /*std::map<std::string, double,std::list> attributes;
-     attributes["season"] = seas;
-     attributes["division"] = divi;
-     */
+    Calendar=calendar();
+    current_week = 1;
 }
+
 
 std::map<int, std::vector< std::tuple<int,int> > > League::calendar()
 {
@@ -77,6 +71,19 @@ std::map<int, std::vector< std::tuple<int,int> > > League::calendar()
     }
 
     return calendar;
+}
+
+std::vector<std::pair<Team*, Team*>> League::getThisWeeksGames(){
+    std::vector< std::tuple<int,int> > matches=Calendar[current_week];
+    for (int i = 0; i < matches.size(); i++) {
+        std::tuple<int,int>  match = matches[i];
+        int t1= std::get<0>(match);
+        int t2= std::get<1>(match);
+        if( t1 == 1 || t2 == 1){   //Checking if team 1 (user's team) is in the match
+            matches.erase(matches.begin() + i);  //Removing user's team from list of matches
+        }
+    }
+//to finish by choosing return type
 }
 
 

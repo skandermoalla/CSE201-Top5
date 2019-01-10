@@ -137,7 +137,8 @@ void MainWindow::refresh(const User& theuser)
 
 void MainWindow::on_pushButton_clicked()
 {
-    this -> hide();
+    //this -> hide();
+    calendar= new Calendar(*myuser,*myleague);
     calendar -> show();
 }
 
