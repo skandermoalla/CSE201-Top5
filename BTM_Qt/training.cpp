@@ -145,31 +145,3 @@ void Training::on_pushButton_4_clicked()
     this->hide();
 }
 
-//Defense training
-void Training::on_pushButton_clicked()
-{   myuser->budget-=5000;
-    myuser->team.Training1();
-    this->hide();
-
-}
-
-void Training::on_pushButton_2_clicked()
-{
-  myuser->budget-=8000;
-  myuser->team.Training2();
-  this->hide();
-
-}
-
-void Training::on_pushButton_3_clicked()
-{   myuser->budget-=7000;
-    myuser->team.Training3();
-    this->hide();
-
-}
-
-void Training::on_pushButton_4_clicked()
-{   myuser->budget-=10000;
-    myuser->team.Training4();
-    this->hide();
-}
