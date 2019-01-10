@@ -1,6 +1,5 @@
 #include <cmath>
 
-
 void GameEngine::updateTeamsOverall(League& league, Team& team1, Team& team2, std::pair<int, int> score){
 
     double ov1 = team1.overallgeneral;
@@ -38,14 +37,14 @@ void GameEngine::updateTeamsOverall(League& league, Team& team1, Team& team2, st
     if (ov2New > 100){
         ov2New = 100;
     }
-    
-    void GameEngine::setOverall(Team& team, double overallNew, double overall) {
-        for (int i=0; i<12 ; i++){
-            team.players[i].afterMatchUpdate(overallNew-overall);
-            team.update_overall();
-    }
 
-    team1.setOverall(ov1New, ov1);
-    team2.setOverall(ov2New, ov2);
+    setAfterMatchOverall(team1, ov1New - ov1);
+    setAfterMatchOverall(team2, ov2New - ov2);
+}
+
+void GameEngine::setAfterMatchOverall(Team& team, const double change) {
+    for (int i=0; i<12 ; i++){
+        team.players[i].afterMatchUpdate(change);
+        team.update_overall();
 }
 

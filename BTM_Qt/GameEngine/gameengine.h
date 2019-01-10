@@ -29,6 +29,8 @@ private:
    //updates the attributes of the teams after a game according to its outcome
     void updateTeamsOverall(League& league, Team& team1, Team& team2, std::pair<int, int> score) const;
 
+    void setAfterMatchOverall(League& league,Team& team, const int change, const int motivationChange) const;
+
 };
 
 #endif // GAMEENGINE_H
