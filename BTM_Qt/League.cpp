@@ -34,6 +34,7 @@ League::League(){          //Takes arguments : division as an int and a season a
         League::teams.push_back(t);
     }
     Calendar=calendar();
+    current_week = 1;
 }
 
 
@@ -73,7 +74,16 @@ std::map<int, std::vector< std::tuple<int,int> > > League::calendar()
 }
 
 std::vector<std::pair<Team*, Team*>> League::getThisWeeksGames(){
-    //to do
+    std::vector< std::tuple<int,int> > matches=Calendar[current_week];
+    for (int i = 0; i < matches.size(); i++) {
+        std::tuple<int,int>  match = matches[i];
+        int t1= std::get<0>(match);
+        int t2= std::get<1>(match);
+        if( t1 == 1 || t2 == 1){   //Checking if team 1 (user's team) is in the match
+            matches.erase(matches.begin() + i);  //Removing user's team from list of matches
+        }
+    }
+//to finish by choosing return type
 }
 
 

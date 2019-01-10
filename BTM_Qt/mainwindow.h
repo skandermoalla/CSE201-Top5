@@ -27,20 +27,19 @@ public:
     User* myuser;
     League* myleague;
 
+public slots:
+    void refresh(const User& );
+
 private slots:
     void on_pushButton_clicked();
     void on_pushButton_3_clicked();
-
-    //void MainWindow::on_listView_indexesMoved(const QModelIndexList &indexes);
-
     void on_pushButton_4_clicked();
 
 private:
     Ui::MainWindow *ui;
-    Calendar *calendar = new Calendar;
-    Training *training = new Training;
-    TeamInfo *teaminfo = new TeamInfo; //= new TeamInfo(GamePLayer );
-    //QListView *listView;
+    Calendar *calendar;
+    Training *training;
+    TeamInfo *teaminfo;
 };
 
 #endif // MAINWINDOW_H

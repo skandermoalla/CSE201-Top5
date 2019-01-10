@@ -24,7 +24,7 @@ public:
     ~Training();
 
 signals:
-    void backButtonClicked();
+    void backButtonClicked(const User&);
 
 private slots:
     void on_pushButton_5_clicked();
