@@ -24,6 +24,7 @@ public:
     std::map<int, std::vector< std::tuple<int,int> > > calendar();
     std::map<int, std::vector< std::tuple<int,int> > > Calendar;
     int current_week;
+    std::vector<Player> playermarket;
 
     const std::vector<std::pair<Team&, Team&>> getThisWeeksGames(){}
 };

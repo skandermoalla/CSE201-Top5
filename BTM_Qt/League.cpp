@@ -22,6 +22,9 @@ League::League(int divi, std::string seas){          //Takes arguments : divisio
         Team t= Team( teamNames[(n + i) % 12] );
         League::teams.push_back(t);
     }
+    for (int i=0; i<30 ; i++){
+        playermarket.push_back(Player());
+    }
 }
 
 League::League(){          //Takes arguments : division as an int and a season as a string
@@ -34,6 +37,9 @@ League::League(){          //Takes arguments : division as an int and a season a
     }
     Calendar=calendar();
     current_week = 1;
+    for (int i=0; i<30 ; i++){
+        playermarket.push_back(Player());
+    }
 }
 
 std::map<int, std::vector< std::tuple<int,int> > > League::calendar()
