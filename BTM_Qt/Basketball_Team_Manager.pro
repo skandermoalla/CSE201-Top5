@@ -30,6 +30,7 @@ SOURCES += \
     calendar.cpp \
     training.cpp \
     preparation.cpp \
+    display.cpp \
     mainmenu.cpp \
     startmenu.cpp \
     teaminfo.cpp \
@@ -45,6 +46,8 @@ HEADERS += \
     calendar.h \
     training.h \
     preparation.h \
+    data.h \
+    display.h \
     mainmenu.h \
     startmenu.h \
     teaminfo.h \
@@ -73,9 +76,3 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
-
-DISTFILES += \
-    background.jpeg
-
-RESOURCES += \
-    resourses.qrc

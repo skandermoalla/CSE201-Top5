@@ -12,5 +12,6 @@ User::User(std::string username , std::string team_name , std::string nation)
     teamname=team_name;
     team = Team(team_name);
     nationality=nation;
+    budget=100000;
 }
 

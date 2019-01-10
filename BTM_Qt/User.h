@@ -13,6 +13,7 @@ public:
     std::string teamname;
     std::string nationality;
     Team team;
+    int budget;
 };
 
 #endif // USER_H

@@ -19,11 +19,14 @@ void StartMenu::on_Next_clicked()
     QString team_name = ui->teamInput->text();
     QString nationality = ui->nationalityInput->text();
 
-    this -> close();
-    User user=User(name.toStdString(), team_name.toStdString(), nationality.toStdString());
-    League A=League(3,"1819");
-    mainwindow = new MainWindow(user,A);
-    mainwindow -> refresh();
+
+
+    this -> hide();
+    User* user=new User(name.toStdString(), team_name.toStdString(), nationality.toStdString());
+    League* A=new League(3,"1819");
+    mainwindow = new MainWindow(*user,*A);
+    
     mainwindow -> show();
 
+//    teaminfo->show();
 }
