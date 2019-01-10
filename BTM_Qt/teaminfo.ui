@@ -31,14 +31,14 @@
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="coachn">
+     <widget class="QLabel" name="division">
       <property name="text">
        <string/>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QLabel" name="division">
+     <widget class="QLabel" name="coachn">
       <property name="text">
        <string/>
       </property>

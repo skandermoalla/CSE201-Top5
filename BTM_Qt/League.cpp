@@ -14,7 +14,6 @@ std::vector<int> intersection(std::vector<int> vect1, std::vector<int> vect2) {
 };
 std::string teamNames[] = { "Lakers","Cavaliers","Raptors","Warriors","Thunders","76ers","Bulls","Wizards","Celtics","Pacers","Nets","Hawks" };
 
-// why a string for seas? how are you going to increment it? it should be an int.
 League::League(int divi, std::string seas){          //Takes arguments : division as an int and a season as a string
     division = divi ;
     season = seas;
@@ -23,12 +22,11 @@ League::League(int divi, std::string seas){          //Takes arguments : divisio
         Team t= Team( teamNames[(n + i) % 12] );
         League::teams.push_back(t);
     }
-
-    /*std::map<std::string, double,std::list> attributes;
-     attributes["season"] = seas;
-     attributes["division"] = divi;
-     */
+    for (int i=0; i<30 ; i++){
+        playermarket.push_back(Player());
+    }
 }
+
 League::League(){          //Takes arguments : division as an int and a season as a string
     division = 3 ;
     season = "1718";
@@ -37,11 +35,11 @@ League::League(){          //Takes arguments : division as an int and a season a
         Team t= Team( teamNames[(n + i) % 12] );
         League::teams.push_back(t);
     }
-
-    /*std::map<std::string, double,std::list> attributes;
-     attributes["season"] = seas;
-     attributes["division"] = divi;
-     */
+    Calendar=calendar();
+    current_week = 1;
+    for (int i=0; i<30 ; i++){
+        playermarket.push_back(Player());
+    }
 }
 
 std::map<int, std::vector< std::tuple<int,int> > > League::calendar()

@@ -3,11 +3,12 @@
 
 #include <QMainWindow>
 #include<QListView>
-
+#pragma once
 #include "data.h"
 #include "training.h"
 #include "calendar.h"
 #include "teaminfo.h"
+#include "market.h"
 #include "League.h"
 #include "User.h"
 #include "nextgame.h"
@@ -24,24 +25,26 @@ public:
     explicit MainWindow(User& theuser, League& A,QWidget *parent = nullptr);
     ~MainWindow();
     Team team;
+    User* myuser;
+    League* myleague;
+
+public slots:
+    void refresh(const User& );
 
 private slots:
     void on_pushButton_clicked();
+    void on_pushButton_2_clicked();
     void on_pushButton_3_clicked();
-
-    //void MainWindow::on_listView_indexesMoved(const QModelIndexList &indexes);
-
     void on_pushButton_4_clicked();
 
     void on_pushButton_5_clicked();
 
 private:
     Ui::MainWindow *ui;
-    Calendar *calendar = new Calendar;
-    Training *training = new Training;
-    TeamInfo *teaminfo = new TeamInfo; //= new TeamInfo(GamePLayer );
-    NextGame *nextgame = new NextGame;
-    //QListView *listView;
+    Calendar *calendar;
+    Training *training;
+    TeamInfo *teaminfo;
+    Market *market;
 };
 
 #endif // MAINWINDOW_H

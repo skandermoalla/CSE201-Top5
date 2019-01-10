@@ -7,8 +7,21 @@ Market::Market(QWidget *parent) :
 {
     ui->setupUi(this);
 }
+Market::Market(User& theuser, League& theleague , QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::Market)
+{
+    ui->setupUi(this);
+}
+
 
 Market::~Market()
 {
     delete ui;
+}
+
+void Market::on_pushButton_13_clicked()
+{
+    this -> hide();
+    emit backButtonClicked();
 }
