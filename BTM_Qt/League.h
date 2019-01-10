@@ -14,6 +14,7 @@ public:
     int division;
     std::string season;
     std::vector<Team> teams;
+    int current_week;  //Warning!! Starts at week 1
 
 
     //constructors
@@ -25,8 +26,9 @@ public:
     std::map<int, std::vector< std::tuple<int,int> > > Calendar;
 
     //needed for the GameEngine asap plz
-    //pointer to a vector < (team1*, team2*), (team1*, team2*), ...> of pairs of pointers to teams playing against each other
+    //a vector < (team1*, team2*), (team1*, team2*), ...> of pairs of pointers to teams playing against each other
     std::vector<std::pair<Team*, Team*>> getThisWeeksGames();
+
 };
 
 #endif // LEAGUE_H
