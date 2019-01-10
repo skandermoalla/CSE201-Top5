@@ -45,6 +45,7 @@ private:
     Training *training;
     TeamInfo *teaminfo;
     Market *market;
+    NextGame *nextgame;
 };
 
 #endif // MAINWINDOW_H

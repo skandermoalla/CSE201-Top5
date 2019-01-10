@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>794</width>
-    <height>552</height>
+    <width>748</width>
+    <height>589</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -59,7 +59,7 @@
      <widget class="QTextBrowser" name="textBrowser_3"/>
      <widget class="QTextBrowser" name="textBrowser_4"/>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -127,7 +127,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -179,7 +179,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -248,7 +248,7 @@
      <widget class="QTextBrowser" name="textBrowser_11"/>
      <widget class="QTextBrowser" name="textBrowser_12"/>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -316,7 +316,7 @@
       </item>
      </layout>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>20</x>
@@ -385,7 +385,7 @@
      <widget class="QTextBrowser" name="textBrowser_7"/>
      <widget class="QTextBrowser" name="textBrowser_8"/>
     </widget>
-    <widget class="QWidget" name="">
+    <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
        <x>20</x>

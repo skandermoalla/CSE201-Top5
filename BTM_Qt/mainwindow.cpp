@@ -15,6 +15,7 @@ MainWindow::MainWindow(User& theuser ,League& A,QWidget *parent) :
     this->calendar = new Calendar();
     this->teaminfo = new TeamInfo();
     this->market= new Market();
+    this->nextgame=new NextGame();
     connect(this->calendar, SIGNAL(backButtonClicked()), this, SLOT(show()));
     connect(this->teaminfo, SIGNAL(backButtonClicked()), this, SLOT(show()));
     connect(this->market, SIGNAL(backButtonClicked()), this, SLOT(show()));

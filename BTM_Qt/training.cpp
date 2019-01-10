@@ -133,7 +133,7 @@ void Training::on_pushButton_2_clicked()
                                         QMessageBox::Yes | QMessageBox::No);
         if (reply == QMessageBox::Yes)
         {
-            myuser->budget-=5000;
+            myuser->budget-=8000;
             myuser->team.Training2();
             emit backButtonClicked(*(this->myuser));
             std::cout<<"signal emitted"<<std::endl;
@@ -154,7 +154,7 @@ void Training::on_pushButton_3_clicked()
                                         QMessageBox::Yes | QMessageBox::No);
         if (reply == QMessageBox::Yes)
         {
-            myuser->budget-=5000;
+            myuser->budget-=7000;
             myuser->team.Training3();
             emit backButtonClicked(*(this->myuser));
             std::cout<<"signal emitted"<<std::endl;
@@ -175,7 +175,7 @@ void Training::on_pushButton_4_clicked()
                                         QMessageBox::Yes | QMessageBox::No);
         if (reply == QMessageBox::Yes)
         {
-            myuser->budget-=5000;
+            myuser->budget-=10000;
             myuser->team.Training4();
             emit backButtonClicked(*(this->myuser));
             std::cout<<"signal emitted"<<std::endl;
