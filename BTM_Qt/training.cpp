@@ -117,31 +117,74 @@ void Training::on_pushButton_clicked()
             this -> hide();
         }
         else if (reply == QMessageBox::No)
-        {
-            this -> hide();
+        {   //uncomment this if you want 'no' to send you to the mainwindw
+            //this -> hide();
+            //emit backButtonClicked(*(this->myuser));
         }
 
 
 }
-
+//second training
 void Training::on_pushButton_2_clicked()
 {
-  myuser->budget-=8000;
-  myuser->team.Training2();
-  this->hide();
-
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, tr("QMessageBox::question()"),
+                                        "Are you sure you want to take this training?",
+                                        QMessageBox::Yes | QMessageBox::No);
+        if (reply == QMessageBox::Yes)
+        {
+            myuser->budget-=5000;
+            myuser->team.Training2();
+            emit backButtonClicked(*(this->myuser));
+            std::cout<<"signal emitted"<<std::endl;
+            this -> hide();
+        }
+        else if (reply == QMessageBox::No)
+        {
+            //this -> hide();
+            //emit backButtonClicked(*(this->myuser));
+        }
 }
 
+//third training
 void Training::on_pushButton_3_clicked()
-{   myuser->budget-=7000;
-    myuser->team.Training3();
-    this->hide();
+{   QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, tr("QMessageBox::question()"),
+                                        "Are you sure you want to take this training?",
+                                        QMessageBox::Yes | QMessageBox::No);
+        if (reply == QMessageBox::Yes)
+        {
+            myuser->budget-=5000;
+            myuser->team.Training3();
+            emit backButtonClicked(*(this->myuser));
+            std::cout<<"signal emitted"<<std::endl;
+            this -> hide();
+        }
+        else if (reply == QMessageBox::No)
+        {
+            //this -> hide();
+            //emit backButtonClicked(*(this->myuser));
+        }
 
 }
-
+//fourth training
 void Training::on_pushButton_4_clicked()
-{   myuser->budget-=10000;
-    myuser->team.Training4();
-    this->hide();
+{   QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, tr("QMessageBox::question()"),
+                                        "Are you sure you want to take this training?",
+                                        QMessageBox::Yes | QMessageBox::No);
+        if (reply == QMessageBox::Yes)
+        {
+            myuser->budget-=5000;
+            myuser->team.Training4();
+            emit backButtonClicked(*(this->myuser));
+            std::cout<<"signal emitted"<<std::endl;
+            this -> hide();
+        }
+        else if (reply == QMessageBox::No)
+        {
+            //this -> hide();
+            //emit backButtonClicked(*(this->myuser));
+        }
 }
 
