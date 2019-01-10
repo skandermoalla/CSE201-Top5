@@ -80,6 +80,10 @@ std::map<int, std::vector< std::tuple<int,int> > > League::calendar()
     return calendar;
 }
 
+std::vector<std::pair<Team*, Team*>> League::getThisWeeksGames(){
+    //to do
+}
+
 
 
 
