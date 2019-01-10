@@ -10,6 +10,9 @@ Team::Team(std::string na){ //takes a name
     for (int j=0; j<12; j++)
         players[j].division = division; */
     update_overall();
+    for (int i=0;i<5;i++){
+    startingplayers.push_back(players[i]);
+    }
 };
 Team::Team(){ //takes a name
     name = "RANDOM";
@@ -21,6 +24,9 @@ Team::Team(){ //takes a name
     for (int j=0; j<12; j++)
         players[j].division = division; */
     update_overall();
+    for (int i=0;i<5;i++){
+    startingplayers.push_back(players[i]);
+    }
 };
 
 void Team::Training1(){     //defesive training
@@ -36,6 +42,7 @@ void Team::Training1(){     //defesive training
         players[i].update_overall();
     }
     update_overall();
+
 
 };
 void Team::Training2(){     //shooting training
