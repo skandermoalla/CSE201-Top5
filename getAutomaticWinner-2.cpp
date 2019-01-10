@@ -11,9 +11,9 @@
  depending on the overall attribute of each team.
  */
 
-const int NUMBER_OF_DRAWS = 40;
-
 std::pair<int, int> getAutomaticWinner(const Team Team1, const Team Team2) { //return a pair of scores ()
+
+    const int NUMBER_OF_DRAWS = 40;
     
     const double total_1 = Team1.overallgeneral;      //an integer between 0 and 100
     const double total_2 = Team2.overallgeneral;

@@ -1,6 +1,7 @@
 #include "gameengine.h"
 #include <memory>
 #include <cmath>
+#include <cstdlib>
 
 GameEngine::GameEngine()
 {
