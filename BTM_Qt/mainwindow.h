@@ -10,7 +10,7 @@
 #include "teaminfo.h"
 #include "League.h"
 #include "User.h"
-
+#include "nextgame.h"
 namespace Ui {
 class MainWindow;
 }
@@ -33,11 +33,14 @@ private slots:
 
     void on_pushButton_4_clicked();
 
+    void on_pushButton_5_clicked();
+
 private:
     Ui::MainWindow *ui;
     Calendar *calendar = new Calendar;
     Training *training = new Training;
     TeamInfo *teaminfo = new TeamInfo; //= new TeamInfo(GamePLayer );
+    NextGame *nextgame = new NextGame;
     //QListView *listView;
 };
 

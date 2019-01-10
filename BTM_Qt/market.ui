@@ -1,12 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>Market</class>
- <widget name="Market" class="QDialog">
+ <widget class="QDialog" name="Market">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>794</width>
+    <height>552</height>
    </rect>
   </property>
   <property name="windowTitle">

@@ -270,3 +270,9 @@ void MainWindow::on_pushButton_4_clicked()
     this -> hide();
     teaminfo -> show();
 }
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    this -> hide();
+    nextgame ->show();
+}
