@@ -46,7 +46,6 @@ HEADERS += \
     calendar.h \
     training.h \
     preparation.h \
-    data.h \
     display.h \
     mainmenu.h \
     startmenu.h \
