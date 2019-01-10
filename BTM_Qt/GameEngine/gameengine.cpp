@@ -1,30 +1,30 @@
 #include "gameengine.h"
-
+#include <memory>
 GameEngine::GameEngine()
 {
 
 }
 
-void GameEngine::simulateThisWeeksGames(League& league){
-    std::vector<std::pair<Team*, Team*>> thisWeeksGames = league.getThisWeeksGames();
-    for (std::vector<std::pair<Team*, Team*>>::iterator i = thisWeeksGames.begin(); i != thisWeeksGames.end(); i++) {
-        Team* team1 = (*i).first;
-        Team* team2 = (*i).second;
+void GameEngine::simulateThisWeeksGames(League& league) const{
+    const std::vector<std::pair<Team*, Team*>> thisWeeksGames = league.getThisWeeksGames();
+    for (std::vector<std::pair<Team*, Team*>>::const_iterator i = thisWeeksGames.begin(); i != thisWeeksGames.end(); i++) {
+        simulateAutomatedGame(league, *i->first, *i->second);
     }
 }
 
-void GameEngine::simulateAutomatedGame(League& league, Team& team1, Team& team2){
+void GameEngine::simulateAutomatedGame(League& league, Team& team1, Team& team2) const{
+    std::pair<int, int> score = getAutomaticWinner(team1, team2);
+    updateTeamsOverall(league, team1, team2, score);
+}
+
+void GameEngine::playThisWeeksGame(League& league, Team& opponentsTeam)const{
 
 }
 
-void GameEngine::playThisWeeksGame(League& league, Team& opponentsTeam){
+std::pair<int, int> GameEngine::getAutomaticWinner(const Team& team1, const Team& team2) const{
 
 }
 
-std::pair<int, int> GameEngine::getAutomaticWinner(Team& team1, Team& team2){
-
-}
-
-void GameEngine::updateTeamsOverall(League& league, Team& team1, Team& team2, std::pair<int, int> score){
+void GameEngine::updateTeamsOverall(League& league, Team& team1, Team& team2, std::pair<int, int> score) const {
 
 }
