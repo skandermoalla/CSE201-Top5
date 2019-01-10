@@ -8,9 +8,9 @@ GameEngine::GameEngine()
 }
 
 void GameEngine::simulateThisWeeksGames(League& league) const{
-    const std::vector<std::pair<Team*, Team*>> thisWeeksGames = league.getThisWeeksGames();
-    for (std::vector<std::pair<Team*, Team*>>::const_iterator i = thisWeeksGames.begin(); i != thisWeeksGames.end(); i++) {
-        simulateAutomatedGame(league, *i->first, *i->second);
+    const std::vector<std::pair<Team&, Team&>> thisWeeksGames = league.getThisWeeksGames();
+    for (std::vector<std::pair<Team&, Team&>>::const_iterator i = thisWeeksGames.begin(); i != thisWeeksGames.end(); i++) {
+        simulateAutomatedGame(league, i->first, i->second);
     }
 }
 
