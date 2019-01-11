@@ -16,6 +16,8 @@ Player::Player()
     int randomname=rand()%(sizeof(names)/sizeof(names[0]));
     name=names[randomname];
 
+   photoadress=":/images/images/IMG_5930.jpg";
+
     //choose a random number to select a surname
     int randomsurname=rand()%(sizeof(surnames)/sizeof(surnames[0]));
     surname=surnames[randomsurname];
@@ -78,6 +80,8 @@ Player::Player(std::string pos)
     //choose a random number to select a surname
     int randomsurname=rand()%(sizeof(surnames)/sizeof(surnames[0]));
     surname=surnames[randomsurname];
+
+    photoadress=":/images/images/IMG_5930.jpg";
 
     //position initialization
     position=pos;
