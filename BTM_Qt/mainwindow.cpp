@@ -28,16 +28,10 @@ void MainWindow::refresh(const User& theuser)
 {
     std::cout<<"start refresh"<<std::endl;
 
-
     // Player 1
     this->ui->label->setText(QString::fromStdString(theuser.team.players[0].surname));
     this->ui->lcdNumber->display(theuser.team.players[0].overallgeneral);
     this->ui->labelp->setText(QString::fromStdString(theuser.team.players[0].position));
-
-    QPixmap im1(":/images/images/IMG_5930.jpg");
-    this->ui->image_1->setPixmap(im1);
-    this->ui->image_1->setScaledContents(true);
-    this->ui->image_1->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
 
     // Player 2
     this->ui->label_2->setText(QString::fromStdString(theuser.team.players[1].surname));
@@ -143,7 +137,7 @@ void MainWindow::refresh(const User& theuser)
 
 void MainWindow::on_pushButton_clicked()
 {
-    this -> hide();
+    //this -> hide();
     calendar= new Calendar(*myuser,*myleague);
     calendar -> show();
 }
@@ -162,13 +156,4 @@ void MainWindow::on_pushButton_4_clicked()
 {
     this -> hide();
     teaminfo -> show();
-}
-
-void MainWindow::on_pushButton_5_clicked()
-{
-    this -> hide();
-    this->preparation= new Preparation(*myuser,*myleague);
-    connect(this->preparation, SIGNAL(backButtonClicked()), this, SLOT(show()));
-    std::cout<<"preparation created"<<std::endl;
-    preparation -> show();
 }

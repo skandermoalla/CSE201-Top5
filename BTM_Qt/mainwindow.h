@@ -10,7 +10,6 @@
 #include "teaminfo.h"
 #include "League.h"
 #include "User.h"
-#include "preparation.h"
 
 namespace Ui {
 class MainWindow;
@@ -36,14 +35,11 @@ private slots:
     void on_pushButton_3_clicked();
     void on_pushButton_4_clicked();
 
-    void on_pushButton_5_clicked();
-
 private:
     Ui::MainWindow *ui;
     Calendar *calendar;
     Training *training;
     TeamInfo *teaminfo;
-    Preparation *preparation;
 };
 
 #endif // MAINWINDOW_H
