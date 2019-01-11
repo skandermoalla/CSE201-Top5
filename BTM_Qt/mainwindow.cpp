@@ -35,6 +35,11 @@ void MainWindow::refresh(const User& theuser)
     this->ui->label->setText(QString::fromStdString(theuser.team.players[0].surname));
     this->ui->lcdNumber->display(theuser.team.players[0].overallgeneral);
     this->ui->labelp->setText(QString::fromStdString(theuser.team.players[0].position));
+    // Image Player 1
+    QPixmap im1(":/images/images/IMG_5930.jpg");
+    this->ui->image_1->setPixmap(im1);
+    this->ui->image_1->setScaledContents(true);
+    this->ui->image_1->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label->setText(QString::fromStdString("NO PLAYER"));
