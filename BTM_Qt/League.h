@@ -17,16 +17,23 @@ public:
     int division;
     std::string season;
     std::vector<Team> teams;
+
     //constructors
     League(int div, std::string seas);
     League();
+
     //functions
     std::map<int, std::vector< std::tuple<int,int> > > calendar();
     std::map<int, std::vector< std::tuple<int,int> > > Calendar;
     int current_week;
     std::vector<Player> playermarket;
 
+    // a map from current week's games to their scores
+    std::map<std::pair<Team&, Team&>, std::pair<int, int>> ThisWeeksScores;
+    std::vector<std::pair<Team&, Team&>> ThisWeeksGames = getThisWeeksGames();
+
     const std::vector<std::pair<Team&, Team&>> getThisWeeksGames(){}
+
 };
 
 #endif // LEAGUE_H
