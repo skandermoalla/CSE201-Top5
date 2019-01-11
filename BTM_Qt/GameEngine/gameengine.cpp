@@ -25,7 +25,43 @@ void GameEngine::playThisWeeksGame(League& league, Team& opponentsTeam)const{
 }
 
 std::pair<int, int> GameEngine::getAutomaticWinner(const Team& team1, const Team& team2) const{
+    const int NUMBER_OF_DRAWS = 40;
 
+    const double total_1 = team1.overallgeneral;      //an integer between 0 and 100
+    const double total_2 = team2.overallgeneral;
+
+    const double p1 = total_1 / (total_1+total_2);
+                                                                               //A number between 0 and 1
+    // const double p2 = total_2 / (total_1+total_2);
+
+    int c1 = 0;      //A counter to count the points that will make a team win
+    int c2 = 0;
+
+    double r;
+
+    for (int i =0; i<NUMBER_OF_DRAWS; i++){
+        r = double(rand()) / (RAND_MAX);//A random number between 0 and 1
+        //team 1 attacks
+        if (r <= p1) {
+            if (0.3 < r){
+                c1 += 3;
+            }
+            else {
+                c1 += 2;}
+        }
+        //team2 attacks
+        r = double(rand()) / (RAND_MAX);//A random number between 0 and 1
+        if (r > p1){
+            if (0.3 < r){
+                c2 += 3;
+            }
+            else {
+                c2 += 2;}
+        }
+    }
+
+    std::pair<int, int> t(c1, c2);
+    return t;
 }
 
 double KFactor(double overall) {
