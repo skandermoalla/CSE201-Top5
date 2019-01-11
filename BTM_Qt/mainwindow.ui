@@ -83,9 +83,6 @@
       </property>
      </widget>
     </item>
-    <item row="1" column="0" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView"/>
-    </item>
     <item row="4" column="6" colspan="2">
      <widget class="QGraphicsView" name="graphicsView_10"/>
     </item>
@@ -353,6 +350,13 @@
         </property>
        </widget>
       </widget>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="2">
+     <widget class="QLabel" name="image_1">
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
      </widget>
     </item>
    </layout>
