@@ -2,6 +2,7 @@
 #define LEAGUE_H
 
 
+
 #include <stdio.h>
 #include <vector>
 #include <map>
@@ -10,8 +11,8 @@
 #pragma once
 class League{   //has 12 teams competing during 22 weeks
 public:
-    typedef std::pair<Team&, Team&> Match;
-    typedef std::vector<Match> MatchVector;
+    //typedef std::pair<Team&, Team&> Match;
+    //typedef std::vector<Match> MatchVector;
 
     //attributes
     int division;

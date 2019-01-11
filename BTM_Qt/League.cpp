@@ -1,4 +1,5 @@
 #include "League.h"
+#include <utility>
 
 //auxiliary function to find the intersection of two vectors
 
@@ -99,6 +100,28 @@ std::vector< int > League::getAllUserMatches() {
     return users_matches;
 
 }
+
+/*const std::vector<std::pair<Team, Team>> League::getThisWeeksGames(){
+    std::vector< std::tuple<int,int> > matches= this->Calendar[current_week];
+    std::vector<std::pair<Team, Team>> matches_return;
+    for (int i = 0; i < 12 ; i++) {
+        std::tuple<int,int>  match = matches[i];
+        int t1= std::get<0>(match);
+        int t2= std::get<1>(match);
+        if( t1 == 1 || t2 == 1){   //Checking if team 1 (user's team) is in the match
+            matches.erase(matches.begin() + i);  //Removing user's team from list of matches
+        }
+        else {
+            std::pair< Team, Team > match_return;
+            match_return = std::make_pair(this->teams[t1-1], this->teams[t2-1]);
+            matches_return.push_back(match_return);
+        }
+
+
+    }
+    return matches_return;
+}*/
+
 
 
 
