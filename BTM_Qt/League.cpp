@@ -1,18 +1,19 @@
 #include "League.h"
 
 //auxiliary function to find the intersection of two vectors
-std::vector<int> intersection(std::vector<int> vect1, std::vector<int> vect2) {
+
+std::vector<int> intersection(const std::vector<int> vect1, const std::vector<int> vect2) {
     std::vector<int> intersect;
-    for (int i = 0; i < vect1.size(); i++) {
-        for (int j = 0; j < vect2.size(); j++) {
-            if (vect1[i] == vect2[j]) {
-                intersect.push_back(vect1[i]);
+    for (std::vector<int>::const_iterator i = vect1.begin(); i != vect1.end(); i++) {
+        for (std::vector<int>::const_iterator j = vect2.begin(); j != vect2.end(); j++) {
+            if (*i == *j) {
+                intersect.push_back(*i);
             }
         }
     }
     return intersect;
 };
-std::string teamNames[] = { "Lakers","Cavaliers","Raptors","Warriors","Thunders","76ers","Bulls","Wizards","Celtics","Pacers","Nets","Hawks" };
+const std::string teamNames[] = { "Lakers","Cavaliers","Raptors","Warriors","Thunders","76ers","Bulls","Wizards","Celtics","Pacers","Nets","Hawks" };
 
 League::League(int divi, std::string seas){          //Takes arguments : division as an int and a season as a string
     division = divi ;
