@@ -3,14 +3,13 @@
 #include <QLabel>
 
 
-TeamInfo::TeamInfo(/*GamePLayer gp, */QWidget *parent) :
+TeamInfo::TeamInfo(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::TeamInfo)
-    //gameplayer(gp)
+
 {
     ui->setupUi(this);
-    //ui->coachn->setText(gameplayer.get_name());
-   // ui->teamn->setText(gameplayer.get_team());
+
 }
 
 
