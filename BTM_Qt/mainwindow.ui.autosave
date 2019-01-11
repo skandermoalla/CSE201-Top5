@@ -44,7 +44,7 @@
     <item row="13" column="4" colspan="2">
      <widget class="QPushButton" name="pushButton_2">
       <property name="text">
-       <string>Market</string>
+       <string>Preparation</string>
       </property>
      </widget>
     </item>
@@ -224,9 +224,6 @@
     <item row="4" column="7">
      <widget class="QLCDNumber" name="lcdNumber_4"/>
     </item>
-    <item row="2" column="2" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_2"/>
-    </item>
     <item row="2" column="8" rowspan="9">
      <widget class="QTabWidget" name="tabWidget">
       <property name="minimumSize">
@@ -236,7 +233,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab1">
        <attribute name="title">
@@ -354,6 +351,13 @@
     </item>
     <item row="2" column="0" colspan="2">
      <widget class="QLabel" name="image_1">
+      <property name="text">
+       <string>TextLabel</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="2" colspan="2">
+     <widget class="QLabel" name="label_13">
       <property name="text">
        <string>TextLabel</string>
       </property>
