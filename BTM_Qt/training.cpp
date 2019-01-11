@@ -19,6 +19,7 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
     myuser = &theuser;
     myleague = &league;
 
+    // Player 1
     this->ui->label->setText(QString::fromStdString(theuser.team.players[0].surname));
     this->ui->lcdNumber->display(theuser.team.players[0].overallgeneral);
     this->ui->labelp->setText(QString::fromStdString(theuser.team.players[0].position));

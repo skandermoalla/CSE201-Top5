@@ -36,11 +36,11 @@
     </rect>
    </property>
    <property name="currentIndex">
-    <number>1</number>
+    <number>0</number>
    </property>
    <widget class="QWidget" name="tab">
     <attribute name="title">
-     <string>Tab 1</string>
+     <string>Sell Players</string>
     </attribute>
     <widget class="QSplitter" name="splitter">
      <property name="geometry">
@@ -454,9 +454,9 @@
      </layout>
     </widget>
    </widget>
-   <widget class="QWidget" name="tab_2">
+   <widget class="QWidget" name="">
     <attribute name="title">
-     <string>Tab 2</string>
+     <string>Buy Players</string>
     </attribute>
     <widget class="QSplitter" name="splitter_4">
      <property name="geometry">

@@ -17,9 +17,12 @@ public:
     explicit Calendar(QWidget *parent = nullptr);
     explicit Calendar(User& myuser, League& myleague , QWidget *parent = nullptr);
     ~Calendar();
-
+    User* theuser;
+    League* theleague;
 signals:
-    void backButtonClicked();
+    //void backButtonClicked();
+    void backButtonClicked(const User&);
+
 
 private slots:
     void on_pushButton_clicked();

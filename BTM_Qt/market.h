@@ -16,12 +16,14 @@ public:
     explicit Market(QWidget *parent = nullptr);
     explicit Market(User& theuser, League& theleague, QWidget *parent = nullptr);
     ~Market();
-
+    User* myuser;
+    League* myleague;
 private:
     Ui::Market *ui;
 
 signals:
-    void backButtonClicked();
+    //void backButtonClicked();
+    void backButtonClicked(const User&);
 
 private slots:
     void on_pushButton_13_clicked();

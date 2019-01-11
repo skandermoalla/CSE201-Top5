@@ -6,19 +6,18 @@
 MainWindow::MainWindow(User& theuser ,League& A,QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
-{   //training= new Training(theuser,A);
+{
     this->myuser=&theuser;
     this->myleague=&A;
     this->team=theuser.team;
     this->ui->setupUi(this);
     this->refresh(*myuser);
-    this->calendar = new Calendar();
+    //training= new Training(theuser,A);
+    //this->calendar = new Calendar();
+    //this->market= new Market();
     this->teaminfo = new TeamInfo();
-    this->market= new Market();
     this->nextgame=new NextGame();
-    connect(this->calendar, SIGNAL(backButtonClicked()), this, SLOT(show()));
     connect(this->teaminfo, SIGNAL(backButtonClicked()), this, SLOT(show()));
-    connect(this->market, SIGNAL(backButtonClicked()), this, SLOT(show()));
 
 }
 //Window operations
@@ -220,8 +219,10 @@ void MainWindow::refresh(const User& theuser)
 
 void MainWindow::on_pushButton_clicked()
 {
-    //this -> hide();
+    this -> hide();
     calendar= new Calendar(*myuser,*myleague);
+    connect(this->calendar, SIGNAL(backButtonClicked(User)), this, SLOT(show()));
+    connect(this->calendar, SIGNAL(backButtonClicked(User)), this, SLOT(refresh(User)));
     calendar -> show();
 }
 
@@ -229,6 +230,9 @@ void MainWindow::on_pushButton_clicked()
 void MainWindow::on_pushButton_2_clicked()
 {
     this -> hide();
+    market= new Market(*myuser,*myleague);
+    connect(this->market, SIGNAL(backButtonClicked(User)), this, SLOT(show()));
+    connect(this->market, SIGNAL(backButtonClicked(User)), this, SLOT(refresh(User)));
     market -> show();
 }
 
