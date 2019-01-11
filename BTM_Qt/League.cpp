@@ -79,6 +79,27 @@ std::map<int, std::vector< std::tuple<int,int> > > League::calendar()
 }
 
 
+std::vector< int > League::getAllUserMatches() {
+    std::vector< int > users_matches;
+    for (int w = 1; w < 23; w++) {
+        const std::vector< std::tuple<int,int> >& matches= this->Calendar[w];
+
+        for (int i = 0; i < 12 ; i++) {
+            const std::tuple<int,int>& match = matches[i];
+            int t1= std::get<0>(match);
+            int t2= std::get<1>(match);
+            if(t1==1){
+                users_matches.push_back( t2 );
+            }
+            if(t2==1){
+                users_matches.push_back( t1 );
+            }
+        }
+    }
+    return users_matches;
+
+}
+
 
 
 
