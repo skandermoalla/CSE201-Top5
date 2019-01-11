@@ -161,3 +161,6 @@ void Team::PlayerSell(int index){
     players.erase(players.begin()+index);
 }
 
+void Team::PlayerBuy(Player player){
+    players.push_back(player);
+}

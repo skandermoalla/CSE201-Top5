@@ -37,6 +37,7 @@ public:
     void Training4(); //Trains team by increasing attributes
     void update_overall();
     void PlayerSell(int index);
+    void PlayerBuy(Player player);
 
 
 };
