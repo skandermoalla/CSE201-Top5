@@ -17,6 +17,7 @@ void GameEngine::simulateThisWeeksGames(League& league) const{
 
 void GameEngine::simulateAutomatedGame(League& league, Team& team1, Team& team2) const{
     std::pair<int, int> score = getAutomaticWinner(team1, team2);
+    league.ThisWeeksScores[std::pair<Team&, Team&>(team1,team2)] = score;
     updateTeamsOverall(league, team1, team2, score);
 }
 
