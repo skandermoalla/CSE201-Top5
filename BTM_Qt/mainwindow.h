@@ -11,7 +11,7 @@
 #include "market.h"
 #include "League.h"
 #include "User.h"
-#include "nextgame.h"
+#include "preparation.h"
 namespace Ui {
 class MainWindow;
 }
@@ -45,7 +45,7 @@ private:
     Training *training;
     TeamInfo *teaminfo;
     Market *market;
-    NextGame *nextgame;
+    Preparation *preparation;
 };
 
 #endif // MAINWINDOW_H
