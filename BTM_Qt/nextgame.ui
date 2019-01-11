@@ -14,15 +14,23 @@
    <string>Dialog</string>
   </property>
   <widget class="QLabel" name="quater">
+   <property name="geometry">
+    <rect>
+     <x>380</x>
+     <y>140</y>
+     <width>171</width>
+     <height>21</height>
+    </rect>
+   </property>
    <property name="text">
-    <string>Quater</string>
+    <string>Quarter</string>
    </property>
   </widget>
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>210</x>
-     <y>520</y>
+     <y>570</y>
      <width>495</width>
      <height>30</height>
     </rect>
@@ -85,7 +93,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>230</x>
@@ -111,26 +119,42 @@
     </item>
     <item>
      <widget class="QLabel" name="time">
+      <property name="enabled">
+       <bool>true</bool>
+      </property>
       <property name="text">
-       <string>TextLabel</string>
+       <string>00:00</string>
       </property>
      </widget>
     </item>
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QLabel" name="away_name_2">
+       <widget class="QLabel" name="home_name">
         <property name="text">
          <string/>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLCDNumber" name="away_score_2"/>
+       <widget class="QLCDNumber" name="home_score"/>
       </item>
      </layout>
     </item>
    </layout>
+  </widget>
+  <widget class="QLabel" name="end_msg">
+   <property name="geometry">
+    <rect>
+     <x>310</x>
+     <y>530</y>
+     <width>301</width>
+     <height>20</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
   </widget>
  </widget>
  <resources/>

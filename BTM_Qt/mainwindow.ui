@@ -15,142 +15,182 @@
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="2" column="4" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_3"/>
-    </item>
-    <item row="7" column="5">
-     <widget class="QLCDNumber" name="lcdNumber_7"/>
-    </item>
-    <item row="4" column="0">
-     <widget class="QLabel" name="labelp">
-      <property name="text">
-       <string>Pos1</string>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="4" colspan="2">
-     <widget class="QLabel" name="label_11">
-      <property name="text">
-       <string>Player11</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="3">
-     <widget class="QLCDNumber" name="lcdNumber_6"/>
-    </item>
-    <item row="10" column="7">
-     <widget class="QLCDNumber" name="lcdNumber_12"/>
-    </item>
-    <item row="13" column="4" colspan="2">
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="text">
-       <string>Market</string>
-      </property>
-     </widget>
-    </item>
-    <item row="10" column="6">
-     <widget class="QLabel" name="label_12p">
-      <property name="text">
-       <string>Pos12</string>
-      </property>
-     </widget>
-    </item>
-    <item row="13" column="6" colspan="2">
+    <item row="12" column="6" colspan="2">
      <widget class="QPushButton" name="pushButton_4">
       <property name="text">
        <string>Team Infor</string>
       </property>
      </widget>
     </item>
-    <item row="10" column="5">
-     <widget class="QLCDNumber" name="lcdNumber_11"/>
-    </item>
-    <item row="10" column="3">
-     <widget class="QLCDNumber" name="lcdNumber_10"/>
-    </item>
-    <item row="10" column="1">
-     <widget class="QLCDNumber" name="lcdNumber_9"/>
-    </item>
-    <item row="10" column="2">
-     <widget class="QLabel" name="label_10p">
-      <property name="text">
-       <string>Pos10</string>
-      </property>
-     </widget>
-    </item>
-    <item row="13" column="2" colspan="2">
-     <widget class="QPushButton" name="pushButton_3">
-      <property name="text">
-       <string>Training</string>
-      </property>
-     </widget>
-    </item>
-    <item row="13" column="0" colspan="2">
-     <widget class="QPushButton" name="pushButton">
-      <property name="text">
-       <string>Calendar</string>
-      </property>
-     </widget>
-    </item>
-    <item row="10" column="4">
-     <widget class="QLabel" name="label_11p">
-      <property name="text">
-       <string>Pos11</string>
-      </property>
-     </widget>
-    </item>
-    <item row="13" column="8">
+    <item row="12" column="8">
      <widget class="QPushButton" name="pushButton_5">
       <property name="text">
        <string>Next Match</string>
       </property>
      </widget>
     </item>
-    <item row="6" column="2" colspan="2">
+    <item row="12" column="4" colspan="2">
+     <widget class="QPushButton" name="pushButton_2">
+      <property name="text">
+       <string>Market</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="3">
+     <widget class="QLCDNumber" name="lcdNumber_10"/>
+    </item>
+    <item row="9" column="1">
+     <widget class="QLCDNumber" name="lcdNumber_9"/>
+    </item>
+    <item row="9" column="2">
+     <widget class="QLabel" name="label_10p">
+      <property name="text">
+       <string>Pos10</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="5">
+     <widget class="QLCDNumber" name="lcdNumber_11"/>
+    </item>
+    <item row="12" column="0" colspan="2">
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>Calendar</string>
+      </property>
+     </widget>
+    </item>
+    <item row="12" column="2" colspan="2">
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="text">
+       <string>Training</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="4">
+     <widget class="QLabel" name="label_11p">
+      <property name="text">
+       <string>Pos11</string>
+      </property>
+     </widget>
+    </item>
+    <item row="9" column="7">
+     <widget class="QLCDNumber" name="lcdNumber_12"/>
+    </item>
+    <item row="9" column="6">
+     <widget class="QLabel" name="label_12p">
+      <property name="text">
+       <string>Pos12</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0" colspan="2">
+     <widget class="QGraphicsView" name="graphicsView"/>
+    </item>
+    <item row="4" column="6" colspan="2">
+     <widget class="QGraphicsView" name="graphicsView_10"/>
+    </item>
+    <item row="1" column="6" colspan="2">
+     <widget class="QGraphicsView" name="graphicsView_4"/>
+    </item>
+    <item row="3" column="6">
+     <widget class="QLabel" name="label_4p">
+      <property name="text">
+       <string>Pos4</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="2">
+     <widget class="QLabel" name="label_6p">
+      <property name="text">
+       <string>Pos6</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="2">
+     <widget class="QLabel" name="label_2p">
+      <property name="text">
+       <string>Pos2</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4" colspan="2">
+     <widget class="QGraphicsView" name="graphicsView_3"/>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="labelp">
+      <property name="text">
+       <string>Pos1</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="5">
+     <widget class="QLCDNumber" name="lcdNumber_7"/>
+    </item>
+    <item row="5" column="2" colspan="2">
      <widget class="QLabel" name="label_6">
       <property name="text">
        <string>Player6</string>
       </property>
      </widget>
     </item>
-    <item row="4" column="3">
-     <widget class="QLCDNumber" name="lcdNumber_2"/>
-    </item>
-    <item row="4" column="5">
+    <item row="3" column="5">
      <widget class="QLCDNumber" name="lcdNumber_3"/>
     </item>
-    <item row="4" column="4">
+    <item row="3" column="3">
+     <widget class="QLCDNumber" name="lcdNumber_2"/>
+    </item>
+    <item row="3" column="4">
      <widget class="QLabel" name="label_3p">
       <property name="text">
        <string>Pos3</string>
       </property>
      </widget>
     </item>
-    <item row="8" column="4" colspan="2">
+    <item row="7" column="4" colspan="2">
      <widget class="QGraphicsView" name="graphicsView_11"/>
     </item>
-    <item row="9" column="0" colspan="2">
-     <widget class="QLabel" name="label_9">
-      <property name="text">
-       <string>Player9</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="0" colspan="2">
+    <item row="2" column="0" colspan="2">
      <widget class="QLabel" name="label">
       <property name="text">
        <string>Player1</string>
       </property>
      </widget>
     </item>
-    <item row="9" column="6" colspan="2">
-     <widget class="QLabel" name="label_12">
+    <item row="8" column="0" colspan="2">
+     <widget class="QLabel" name="label_9">
       <property name="text">
-       <string>Player12</string>
+       <string>Player9</string>
       </property>
      </widget>
     </item>
-    <item row="4" column="1">
+    <item row="8" column="4" colspan="2">
+     <widget class="QLabel" name="label_11">
+      <property name="text">
+       <string>Player11</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="3">
+     <widget class="QLCDNumber" name="lcdNumber_6"/>
+    </item>
+    <item row="6" column="0">
+     <widget class="QLabel" name="label_5p">
+      <property name="text">
+       <string>Pos5</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="4" colspan="2">
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Player3</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="1">
+     <widget class="QLCDNumber" name="lcdNumber_5"/>
+    </item>
+    <item row="3" column="1">
      <widget class="QLCDNumber" name="lcdNumber">
       <property name="maximumSize">
        <size>
@@ -160,74 +200,104 @@
       </property>
      </widget>
     </item>
-    <item row="6" column="4" colspan="2">
+    <item row="5" column="4" colspan="2">
      <widget class="QLabel" name="label_7">
       <property name="text">
        <string>Player7</string>
       </property>
      </widget>
     </item>
-    <item row="7" column="1">
-     <widget class="QLCDNumber" name="lcdNumber_5"/>
-    </item>
-    <item row="7" column="2">
-     <widget class="QLabel" name="label_6p">
+    <item row="8" column="6" colspan="2">
+     <widget class="QLabel" name="label_12">
       <property name="text">
-       <string>Pos6</string>
+       <string>Player12</string>
       </property>
      </widget>
     </item>
-    <item row="4" column="6">
-     <widget class="QLabel" name="label_4p">
+    <item row="4" column="0" colspan="2">
+     <widget class="QGraphicsView" name="graphicsView_5"/>
+    </item>
+    <item row="7" column="0" colspan="2">
+     <widget class="QGraphicsView" name="graphicsView_6"/>
+    </item>
+    <item row="2" column="2" colspan="2">
+     <widget class="QLabel" name="label_2">
       <property name="text">
-       <string>Pos4</string>
+       <string>Player2</string>
       </property>
      </widget>
     </item>
-    <item row="2" column="6" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_4"/>
+    <item row="7" column="6" colspan="2">
+     <widget class="QGraphicsView" name="graphicsView_12"/>
     </item>
-    <item row="4" column="2">
-     <widget class="QLabel" name="label_2p">
+    <item row="7" column="2" colspan="2">
+     <widget class="QGraphicsView" name="graphicsView_8"/>
+    </item>
+    <item row="4" column="2" colspan="2">
+     <widget class="QGraphicsView" name="graphicsView_7"/>
+    </item>
+    <item row="6" column="4">
+     <widget class="QLabel" name="label_7p">
       <property name="text">
-       <string>Pos2</string>
+       <string>Pos7</string>
+      </property>
+     </widget>
+    </item>
+    <item row="6" column="6">
+     <widget class="QLabel" name="label_8p">
+      <property name="text">
+       <string>Pos8</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="4" colspan="2">
+     <widget class="QGraphicsView" name="graphicsView_9"/>
+    </item>
+    <item row="8" column="2" colspan="2">
+     <widget class="QLabel" name="label_10">
+      <property name="text">
+       <string>Player10</string>
+      </property>
+     </widget>
+    </item>
+    <item row="5" column="0" colspan="2">
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Player5</string>
       </property>
      </widget>
     </item>
     <item row="5" column="6" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_10"/>
+     <widget class="QLabel" name="label_8">
+      <property name="text">
+       <string>Player8</string>
+      </property>
+     </widget>
     </item>
-    <item row="10" column="0">
+    <item row="1" column="2" colspan="2">
+     <widget class="QGraphicsView" name="graphicsView_2"/>
+    </item>
+    <item row="6" column="7">
+     <widget class="QLCDNumber" name="lcdNumber_8"/>
+    </item>
+    <item row="9" column="0">
      <widget class="QLabel" name="label_9p">
       <property name="text">
        <string>Pos9</string>
       </property>
      </widget>
     </item>
-    <item row="7" column="7">
-     <widget class="QLCDNumber" name="lcdNumber_8"/>
-    </item>
-    <item row="3" column="4" colspan="2">
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>Player3</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="0">
-     <widget class="QLabel" name="label_5p">
-      <property name="text">
-       <string>Pos5</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="7">
+    <item row="3" column="7">
      <widget class="QLCDNumber" name="lcdNumber_4"/>
     </item>
-    <item row="2" column="2" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_2"/>
+    <item row="2" column="6" colspan="2">
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Player4</string>
+      </property>
+     </widget>
     </item>
-    <item row="2" column="8" rowspan="9">
+    <item row="1" column="8" rowspan="9">
      <widget class="QTabWidget" name="tabWidget">
       <property name="minimumSize">
        <size>
@@ -236,7 +306,7 @@
        </size>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab1">
        <attribute name="title">
@@ -283,80 +353,6 @@
         </property>
        </widget>
       </widget>
-     </widget>
-    </item>
-    <item row="5" column="0" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_5"/>
-    </item>
-    <item row="9" column="2" colspan="2">
-     <widget class="QLabel" name="label_10">
-      <property name="text">
-       <string>Player10</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="0" colspan="2">
-     <widget class="QLabel" name="label_5">
-      <property name="text">
-       <string>Player5</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="2" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_7"/>
-    </item>
-    <item row="3" column="6" colspan="2">
-     <widget class="QLabel" name="label_4">
-      <property name="text">
-       <string>Player4</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="2" colspan="2">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>Player2</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="4" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_9"/>
-    </item>
-    <item row="8" column="6" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_12"/>
-    </item>
-    <item row="8" column="2" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_8"/>
-    </item>
-    <item row="6" column="6" colspan="2">
-     <widget class="QLabel" name="label_8">
-      <property name="text">
-       <string>Player8</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="6">
-     <widget class="QLabel" name="label_8p">
-      <property name="text">
-       <string>Pos8</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="0" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_6"/>
-    </item>
-    <item row="7" column="4">
-     <widget class="QLabel" name="label_7p">
-      <property name="text">
-       <string>Pos7</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="0" colspan="2">
-     <widget class="QLabel" name="image_1">
-      <property name="text">
-       <string>TextLabel</string>
-      </property>
      </widget>
     </item>
    </layout>
