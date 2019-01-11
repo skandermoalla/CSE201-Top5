@@ -2,9 +2,9 @@
 
 #include <cmath>
 
-std::string names[]={"LeBron","Michael","Stephen","Kevin","Edison","Kobe","Derrick","Wilt","Kareem","Oscar","Tim","Paul","Kevin","Carmelo","Reggie","Vince","Robert","Tony","Rudy","Nicolas","Boris","Evan","Franck","Joakim","Mickael","Timothé","Joffrey","Rodrigue","Mickael","Ian","Kevin","Alexis","Guerschon","Tariq","Moustapha","Andrew","Charles","Axel","Thomas","Fabien","Mathias","Edwin","Jérome","Damien","Hakeem","Kyrie","Magic","Shaquille","James","Bill","Russell","Charles","Dikembe","Dirk","Julius","David","Larry","James","Allen","Marc","Steve","Pau","Jason","Karl","Gary","Yao","Dwight","Damian","Scottie","Georgy","Cyril","Olivier","Pape-Philippe","Roger","Pape","Philippe","Christian","André","Louis","Eric","Jim","Matthieu","David","Sacha","Yves","Jacques","Bill","Vincent","Jean","Bruno","Roger","Charles","Jean-Louis","Skeeter","Jean-Marie","Benkali","Tariq","Alain","Jacky","Willem","Edmond","Michel","Abdoulaye","Maurice","Bernard","Gérard","Eric","Jacques","Frédéric","Gérard","Eric","Raymond","Firmin","Stéphane","Crawford","Marc-Antoine","Johan","Laurent","Fernand","Yvan","Marc","Régis","Michel","Rémi","Lucien","Henri","Stéphane","Thierry","Jean-Pierre","Yohan","Francis","Jean-Michel","Ronnie","André","Jean-Pierre","Philip","Mel","Alex","Walt","Hersey","Kirk","Andre","Joe","Dean"};
-std::string surnames[]={"James","Jordan","Curry","Durant","Reshketa","Bryant","Rose","Chamberlain","Abdul-Jabbar","Robertson","Duncan","Pierce","Garnett","Anthony","Miller","Carter","Parish","Parker","Gobert","Batum","Diaw","Fournier","Ntilikina","Noah","Gelabale","Luwawu-Cabarrot","Lauvergne","Beaubois","Piétrus","Mahinmi","Séraphin","Ajinça","Yabusele","Abdul-Wahad","Fall","Albicy","Kahudi","Toupane","Heurtel","Causeur","Lessort","Jackson","Moiso","Inglis","Olajuwon","Irving","Johnson","ONeal","Harden","Russell","Westbrook","Barkley","Mutombo","Nowitzki","Erving","Robinson","Bird","Worthy","Iverson","Gasol","Nash","Gasol","Kidd","Malone","Payton","Ming","Howard","Lillard","Pippen","Adams","Akpomedah","Allinéi","Amagou","Antoine","Badiane","Baillet","Baltzer","Barrais","Bertorelle","Beugnot","Bilba","Bisséni","Gautier","Giffa","Gominon","Caballé","Cain","Collet","Couturier","Hamm","Haudegand","Hemmerlin","Hersin","Jackson","Jouaret","Kaba","Kirksay","Koffi","Lamothe","Laure","Leclère","Longueville","MBaye","Marcelot","Mayeur","Maza","Micoud","Monclar","Monetti","Moroze","Occansey","Offner","Onissah","Ostrowski","Palmer","Pellin","Petro","Pluvy","Prudhomme","Quenin","Quiblier","Racine","Rat","Rippert","Rebuffic","Rey","Risacher","Rupert","Salignon","Sangaré","Schneider","Sénégal","Smith","Souvré","Staelens","Szanyiel","Counts","Groza","Hazzard","Hawkins","Hinrich","Iguodala","Johnson","Kelley"};
-std::string positions[]={"PG","SG","F","PF","C"};
+const std::string names[]={"LeBron","Michael","Stephen","Kevin","Edison","Kobe","Derrick","Wilt","Kareem","Oscar","Tim","Paul","Kevin","Carmelo","Reggie","Vince","Robert","Tony","Rudy","Nicolas","Boris","Evan","Franck","Joakim","Mickael","Timothé","Joffrey","Rodrigue","Mickael","Ian","Kevin","Alexis","Guerschon","Tariq","Moustapha","Andrew","Charles","Axel","Thomas","Fabien","Mathias","Edwin","Jérome","Damien","Hakeem","Kyrie","Magic","Shaquille","James","Bill","Russell","Charles","Dikembe","Dirk","Julius","David","Larry","James","Allen","Marc","Steve","Pau","Jason","Karl","Gary","Yao","Dwight","Damian","Scottie","Georgy","Cyril","Olivier","Pape-Philippe","Roger","Pape","Philippe","Christian","André","Louis","Eric","Jim","Matthieu","David","Sacha","Yves","Jacques","Bill","Vincent","Jean","Bruno","Roger","Charles","Jean-Louis","Skeeter","Jean-Marie","Benkali","Tariq","Alain","Jacky","Willem","Edmond","Michel","Abdoulaye","Maurice","Bernard","Gérard","Eric","Jacques","Frédéric","Gérard","Eric","Raymond","Firmin","Stéphane","Crawford","Marc-Antoine","Johan","Laurent","Fernand","Yvan","Marc","Régis","Michel","Rémi","Lucien","Henri","Stéphane","Thierry","Jean-Pierre","Yohan","Francis","Jean-Michel","Ronnie","André","Jean-Pierre","Philip","Mel","Alex","Walt","Hersey","Kirk","Andre","Joe","Dean"};
+const std::string surnames[]={"James","Jordan","Curry","Durant","Reshketa","Bryant","Rose","Chamberlain","Abdul-Jabbar","Robertson","Duncan","Pierce","Garnett","Anthony","Miller","Carter","Parish","Parker","Gobert","Batum","Diaw","Fournier","Ntilikina","Noah","Gelabale","Luwawu-Cabarrot","Lauvergne","Beaubois","Piétrus","Mahinmi","Séraphin","Ajinça","Yabusele","Abdul-Wahad","Fall","Albicy","Kahudi","Toupane","Heurtel","Causeur","Lessort","Jackson","Moiso","Inglis","Olajuwon","Irving","Johnson","ONeal","Harden","Russell","Westbrook","Barkley","Mutombo","Nowitzki","Erving","Robinson","Bird","Worthy","Iverson","Gasol","Nash","Gasol","Kidd","Malone","Payton","Ming","Howard","Lillard","Pippen","Adams","Akpomedah","Allinéi","Amagou","Antoine","Badiane","Baillet","Baltzer","Barrais","Bertorelle","Beugnot","Bilba","Bisséni","Gautier","Giffa","Gominon","Caballé","Cain","Collet","Couturier","Hamm","Haudegand","Hemmerlin","Hersin","Jackson","Jouaret","Kaba","Kirksay","Koffi","Lamothe","Laure","Leclère","Longueville","MBaye","Marcelot","Mayeur","Maza","Micoud","Monclar","Monetti","Moroze","Occansey","Offner","Onissah","Ostrowski","Palmer","Pellin","Petro","Pluvy","Prudhomme","Quenin","Quiblier","Racine","Rat","Rippert","Rebuffic","Rey","Risacher","Rupert","Salignon","Sangaré","Schneider","Sénégal","Smith","Souvré","Staelens","Szanyiel","Counts","Groza","Hazzard","Hawkins","Hinrich","Iguodala","Johnson","Kelley"};
+const std::string positions[]={"PG","SG","F","PF","C"};
 
 
 //constructor when player position is not given
@@ -59,6 +59,12 @@ Player::Player()
     defence=(sprint+rebound+stealing+block+jump+strength)/6;
     //overallgeneral = sprint*0.1 + rebound*0.05 + passing*0.15 + handling*0.15 + shooting*0.2 + stealing*0.05 + block*0.05 + jump*0.1 +strength*0.15;
     overallgeneral= attack*0.6 + defence*0.4;
+    if (overallgeneral < 40) {
+        marketvalue = 50000;
+    }
+    else {
+        marketvalue = floor((0.6*pow(attack,2) + 0.4*pow(defence,2)) * 100 * 1/3);
+    }
 }
 
 
@@ -115,7 +121,7 @@ Player::Player(std::string pos)
         marketvalue = 50000;
     }
     else {
-        marketvalue = (0.6*pow(attack,2) + 0.4*pow(defence,2)) * 100 * 1/3;
+        marketvalue = floor((0.6*pow(attack,2) + 0.4*pow(defence,2)) * 100 * 1/3);
     }
     //overallgeneral = sprint*0.1 + rebound*0.05 + passing*0.15 + handling*0.15 + shooting*0.2 + stealing*0.05 + block*0.05 + jump*0.1 +strength*0.15;
     overallgeneral= attack*0.6 + defence*0.4;
@@ -126,4 +132,24 @@ void Player::update_overall(){
     defence = (sprint+rebound+stealing+block+jump+strength)/6;
     //overallgeneral = sprint*0.1 + rebound*0.05 + passing*0.15 + handling*0.15 + shooting*0.2 + stealing*0.05 + block*0.05 + jump*0.1 +strength*0.15;
     overallgeneral= attack*0.6 + defence*0.4;
+    if (overallgeneral < 40) {
+        marketvalue = 50000;
+    }
+    else {
+        marketvalue = floor((0.6*pow(attack,2) + 0.4*pow(defence,2)) * 100 * 1/3);
+    }
+}
+
+void Player::afterMatchUpdate(const int change, const int motivationChange){
+    sprint += change;
+    rebound += change;
+    passing += change;
+    handling += change;
+    shooting += change;
+    stealing += change;
+    block += change;
+    jump += change;
+    strength += change;
+    energy -= 10;
+    motivation += motivationChange;
 }

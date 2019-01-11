@@ -10,6 +10,9 @@ Team::Team(std::string na){ //takes a name
     for (int j=0; j<12; j++)
         players[j].division = division; */
     update_overall();
+    for (int i=0;i<5;i++){
+    startingplayers.push_back(players[i]);
+    }
 };
 Team::Team(){ //takes a name
     name = "RANDOM";
@@ -21,10 +24,13 @@ Team::Team(){ //takes a name
     for (int j=0; j<12; j++)
         players[j].division = division; */
     update_overall();
+    for (int i=0;i<5;i++){
+    startingplayers.push_back(players[i]);
+    }
 };
 
 void Team::Training1(){     //defesive training
-    for (int i=0; i<12 ; i++){
+    for (int i=0; i<players.size()  ; i++){
         double r = ((double) rand() / (RAND_MAX));
         if (r<=0.5){
             players[i].rebound+=2;
@@ -37,9 +43,10 @@ void Team::Training1(){     //defesive training
     }
     update_overall();
 
+
 };
 void Team::Training2(){     //shooting training
-    for (int i=0; i<12 ; i++){
+    for (int i=0; i<players.size()  ; i++){
         double r = ((double) rand() / (RAND_MAX));
         if (r<=0.6){
             players[i].shooting+=2;
@@ -54,7 +61,7 @@ void Team::Training2(){     //shooting training
 
 };
 void Team::Training3(){     //Physical training
-    for (int i=0; i<12 ; i++){
+    for (int i=0; i<players.size()  ; i++){
         double r = ((double) rand() / (RAND_MAX));
         if (r<=0.7){
             players[i].strength+=2;
@@ -74,7 +81,7 @@ void Team::Training3(){     //Physical training
 
 };
 void Team::Training4(){     //Physical training
-    for (int i=0; i<12 ; i++){
+    for (int i=0; i<players.size() ; i++){
         double r = ((double) rand() / (RAND_MAX));
         if (r<=0.7){
             players[i].motivation+=4;
@@ -112,7 +119,7 @@ void Team::update_overall(){
     strength=0;
     motivation=0;
     energy=0;
-    for (int j=0; j<12; j++){
+    for (int j=0; j<players.size() ; j++){
         age += players[j].age;
         height += players[j].height;
         weight += players[j].weight;
@@ -130,22 +137,30 @@ void Team::update_overall(){
         motivation += players[j].motivation;
         energy += players[j].energy;
     }
-    age = age/12;
-    height = height/12 ;
-    weight = weight/12;
+    age = age/players.size() ;
+    height = height/players.size()  ;
+    weight = weight/players.size() ;
 
-    attack =attack/12;
-    defence =defence/12;
-    sprint =sprint/12;
-    rebound =rebound/12;
-    passing =passing/12;
-    handling = handling/12;
+    attack =attack/players.size() ;
+    defence =defence/players.size() ;
+    sprint =sprint/players.size() ;
+    rebound =rebound/players.size() ;
+    passing =passing/players.size() ;
+    handling = handling/players.size() ;
 
-    shooting = shooting/12;
-    stealing = stealing/12;
-    block = block/12;
-    jump = jump/12;
-    strength = strength/12;
-    motivation = motivation/12;
+    shooting = shooting/players.size() ;
+    stealing = stealing/players.size() ;
+    block = block/players.size() ;
+    jump = jump/players.size() ;
+    strength = strength/players.size() ;
+    motivation = motivation/players.size() ;
     overallgeneral = sprint*0.1 + rebound*0.05 + passing*0.15 + handling*0.15 + shooting*0.2 + stealing*0.05 + block*0.05 + jump*0.1 +strength*0.15;
+}
+
+void Team::PlayerSell(int index){
+    players.erase(players.begin()+index);
+}
+
+void Team::PlayerBuy(Player player){
+    players.push_back(player);
 }

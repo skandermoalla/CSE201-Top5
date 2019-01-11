@@ -32,6 +32,7 @@
      <widget class="QLabel" name="label_11">
       <property name="text">
        <string>Player11</string>
+       <string>Market</string>
       </property>
      </widget>
     </item>

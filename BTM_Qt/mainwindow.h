@@ -8,6 +8,7 @@
 #include "training.h"
 #include "calendar.h"
 #include "teaminfo.h"
+#include "market.h"
 #include "League.h"
 #include "User.h"
 #include "preparation.h"
@@ -33,6 +34,7 @@ public slots:
 
 private slots:
     void on_pushButton_clicked();
+    void on_pushButton_2_clicked();
     void on_pushButton_3_clicked();
     void on_pushButton_4_clicked();
 
@@ -44,6 +46,7 @@ private:
     Training *training;
     TeamInfo *teaminfo;
     Preparation *preparation;
+    Market *market;
 };
 
 #endif // MAINWINDOW_H
