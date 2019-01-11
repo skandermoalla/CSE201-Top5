@@ -59,6 +59,12 @@ Player::Player()
     defence=(sprint+rebound+stealing+block+jump+strength)/6;
     //overallgeneral = sprint*0.1 + rebound*0.05 + passing*0.15 + handling*0.15 + shooting*0.2 + stealing*0.05 + block*0.05 + jump*0.1 +strength*0.15;
     overallgeneral= attack*0.6 + defence*0.4;
+    if (overallgeneral < 40) {
+        marketvalue = 50000;
+    }
+    else {
+        marketvalue = floor((0.6*pow(attack,2) + 0.4*pow(defence,2)) * 100 * 1/3);
+    }
 }
 
 
@@ -115,7 +121,7 @@ Player::Player(std::string pos)
         marketvalue = 50000;
     }
     else {
-        marketvalue = (0.6*pow(attack,2) + 0.4*pow(defence,2)) * 100 * 1/3;
+        marketvalue = floor((0.6*pow(attack,2) + 0.4*pow(defence,2)) * 100 * 1/3);
     }
     //overallgeneral = sprint*0.1 + rebound*0.05 + passing*0.15 + handling*0.15 + shooting*0.2 + stealing*0.05 + block*0.05 + jump*0.1 +strength*0.15;
     overallgeneral= attack*0.6 + defence*0.4;
@@ -126,6 +132,12 @@ void Player::update_overall(){
     defence = (sprint+rebound+stealing+block+jump+strength)/6;
     //overallgeneral = sprint*0.1 + rebound*0.05 + passing*0.15 + handling*0.15 + shooting*0.2 + stealing*0.05 + block*0.05 + jump*0.1 +strength*0.15;
     overallgeneral= attack*0.6 + defence*0.4;
+    if (overallgeneral < 40) {
+        marketvalue = 50000;
+    }
+    else {
+        marketvalue = floor((0.6*pow(attack,2) + 0.4*pow(defence,2)) * 100 * 1/3);
+    }
 }
 
 void Player::afterMatchUpdate(const int change, const int motivationChange){
