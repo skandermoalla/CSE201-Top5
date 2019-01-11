@@ -354,6 +354,8 @@ void Market::on_pushButton_13_clicked()
     //emit backButtonClicked();
 }
 
+
+
 //Sell player 1
 void Market::on_pushButton_clicked()
 {
@@ -537,10 +539,9 @@ void Market::on_pushButton_7_clicked()
 //Sell player 8
 void Market::on_pushButton_8_clicked()
 {
-    if (myuser->team.players.size()==7){
-            QMessageBox::about(this, "Impossible transaction", "Minimum number of players reached");
-       }
-       else{
+    if (myuser->team.players.size()<8) {
+    }
+        else{
         QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this, tr("QMessageBox::question()"),
                                         "Are you sure you want sell this player?",
@@ -563,10 +564,9 @@ void Market::on_pushButton_8_clicked()
 //Sell player 9
 void Market::on_pushButton_9_clicked()
 {
-    if (myuser->team.players.size()==7){
-            QMessageBox::about(this, "Impossible transaction", "Minimum number of players reached");
-       }
-       else{
+    if (myuser->team.players.size()<9) {
+    }
+        else{
         QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this, tr("QMessageBox::question()"),
                                         "Are you sure you want sell this player?",
@@ -588,10 +588,10 @@ void Market::on_pushButton_9_clicked()
 
 //Sell player 10
 void Market::on_pushButton_10_clicked()
-{if (myuser->team.players.size()==7){
-        QMessageBox::about(this, "Impossible transaction", "Minimum number of players reached");
-   }
-   else{
+{
+    if (myuser->team.players.size()<10) {
+    }
+        else{
         QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this, tr("QMessageBox::question()"),
                                         "Are you sure you want sell this player?",
@@ -613,10 +613,10 @@ void Market::on_pushButton_10_clicked()
 
 //Sell player 11
 void Market::on_pushButton_11_clicked()
-{if (myuser->team.players.size()==7){
-        QMessageBox::about(this, "Impossible transaction", "Minimum number of players reached");
-   }
-   else{
+{
+    if (myuser->team.players.size()<11) {
+    }
+        else{
         QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this, tr("QMessageBox::question()"),
                                         "Are you sure you want sell this player?",
@@ -639,9 +639,8 @@ void Market::on_pushButton_11_clicked()
 //Sell player 12
 void Market::on_pushButton_12_clicked()
 {
-    if (myuser->team.players.size()==12){
-             QMessageBox::about(this, "Impossible transaction", "Minimum number of players reached");
-        }
+    if (myuser->team.players.size()<12) {
+    }
         else{
         QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this, tr("QMessageBox::question()"),
