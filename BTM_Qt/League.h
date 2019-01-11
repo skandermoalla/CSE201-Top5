@@ -31,7 +31,7 @@ public:
 
     // a map from current week's games to their scores
     std::map<std::pair<Team&, Team&>, std::pair<int, int>> ThisWeeksScores;
-    std::vector<std::pair<Team&, Team&>> ThisWeeksGames = getThisWeeksGames();
+    //std::vector<std::pair<Team&, Team&>> ThisWeeksGames = getThisWeeksGames();
 
     const std::vector<std::pair<Team&, Team&>> getThisWeeksGames(){} // don't touch
     std::vector< int > getAllUserMatches();  //a function who gets matches of user for each week
