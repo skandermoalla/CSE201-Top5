@@ -32,10 +32,8 @@ public:
     double defence;
     double overallgeneral;
     double marketvalue;
-
     //player methods
     void update_overall();
-    void afterMatchUpdate(const int change, const int motivationChange);
 
 };
 

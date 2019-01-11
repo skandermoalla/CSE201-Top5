@@ -8,7 +8,7 @@ class User
 {
 public:
     User();
-    User(const std::string username,const  std::string team_name, const std::string nation);
+    User(std::string username, std::string team_name, std::string nation);
     std::string name;
     std::string teamname;
     std::string nationality;

@@ -21,8 +21,6 @@ Calendar::Calendar(User& myuser, League& myleague, QWidget *parent) :
     ui(new Ui::Calendar)
 {
     ui->setupUi(this);
-    theuser=&myuser;
-    theleague=&myleague;
     QStringList header;
     header<<"Week"<<"Team againts";
     this->ui->tableWidget->setHorizontalHeaderLabels(header);
@@ -40,6 +38,5 @@ Calendar::~Calendar()
 void Calendar::on_pushButton_clicked()
 {
     this -> hide();
-    emit backButtonClicked(*(this->theuser));
-    //emit backButtonClicked();
+    emit backButtonClicked();
 }

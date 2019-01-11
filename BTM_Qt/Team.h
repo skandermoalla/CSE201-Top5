@@ -11,7 +11,6 @@ public:
     Team();
     std::string name;
     std::vector<Player> players;
-    std::vector<Player> startingplayers;
     //All attributes are are the averages over all the players
     int division;
     double age;
@@ -36,8 +35,6 @@ public:
     void Training3(); //Trains team by increasing attributes
     void Training4(); //Trains team by increasing attributes
     void update_overall();
-    void PlayerSell(int index);
-    void PlayerBuy(Player player);
 
 
 };
