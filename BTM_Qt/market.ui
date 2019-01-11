@@ -454,7 +454,7 @@
      </layout>
     </widget>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="widget">
     <attribute name="title">
      <string>Buy Players</string>
     </attribute>
