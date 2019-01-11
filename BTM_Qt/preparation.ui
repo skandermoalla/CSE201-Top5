@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>777</width>
+    <width>1002</width>
     <height>531</height>
    </rect>
   </property>
@@ -21,7 +21,7 @@
        <widget class="QLCDNumber" name="lcdNumber"/>
       </item>
       <item row="2" column="3" colspan="3">
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="p1">
         <property name="text">
          <string>Choose</string>
         </property>
@@ -52,7 +52,7 @@
        </widget>
       </item>
       <item row="5" column="0" colspan="2">
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="p2">
         <property name="text">
          <string>Choose</string>
         </property>
@@ -107,7 +107,7 @@
        </widget>
       </item>
       <item row="8" column="0" colspan="2">
-       <widget class="QPushButton" name="pushButton_4">
+       <widget class="QPushButton" name="p4">
         <property name="text">
          <string>Choose</string>
         </property>
@@ -138,7 +138,7 @@
        </widget>
       </item>
       <item row="5" column="7" colspan="2">
-       <widget class="QPushButton" name="pushButton_3">
+       <widget class="QPushButton" name="p3">
         <property name="text">
          <string>Choose</string>
         </property>
@@ -159,7 +159,7 @@
        </widget>
       </item>
       <item row="8" column="7" colspan="2">
-       <widget class="QPushButton" name="pushButton_5">
+       <widget class="QPushButton" name="p5">
         <property name="text">
          <string>Choose</string>
         </property>
@@ -244,21 +244,21 @@
        </widget>
       </item>
       <item row="4" column="0">
-       <widget class="QPushButton" name="pushButton_6">
+       <widget class="QPushButton" name="p6">
         <property name="text">
          <string>Choose</string>
         </property>
        </widget>
       </item>
       <item row="10" column="0">
-       <widget class="QPushButton" name="pushButton_8">
+       <widget class="QPushButton" name="p8">
         <property name="text">
          <string>Choose</string>
         </property>
        </widget>
       </item>
       <item row="4" column="3">
-       <widget class="QPushButton" name="pushButton_7">
+       <widget class="QPushButton" name="p7">
         <property name="text">
          <string>Choose</string>
         </property>
@@ -368,14 +368,14 @@
        </widget>
       </item>
       <item row="10" column="3">
-       <widget class="QPushButton" name="pushButton_9">
+       <widget class="QPushButton" name="p9">
         <property name="text">
          <string>Choose</string>
         </property>
        </widget>
       </item>
       <item row="16" column="0">
-       <widget class="QPushButton" name="pushButton_10">
+       <widget class="QPushButton" name="p10">
         <property name="text">
          <string>Choose</string>
         </property>
@@ -389,14 +389,14 @@
        </widget>
       </item>
       <item row="21" column="0">
-       <widget class="QPushButton" name="pushButton_12">
+       <widget class="QPushButton" name="p12">
         <property name="text">
          <string>Choose</string>
         </property>
        </widget>
       </item>
       <item row="16" column="3">
-       <widget class="QPushButton" name="pushButton_11">
+       <widget class="QPushButton" name="p11">
         <property name="text">
          <string>Choose</string>
         </property>

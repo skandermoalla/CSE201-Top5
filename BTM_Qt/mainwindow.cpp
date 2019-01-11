@@ -260,7 +260,7 @@ void MainWindow::on_pushButton_4_clicked()
 void MainWindow::on_pushButton_5_clicked() // Next game
 {
     this -> hide();
-    this->preparation=new Preparation();
+    this->preparation=new Preparation(*myuser,*myleague);
     connect(this->preparation, SIGNAL(backButtonClicked()), this, SLOT(show()));
     preparation ->show();
 }

@@ -17,9 +17,15 @@ Preparation::Preparation (User &theuser , League& league, QWidget *parent) :
     ui->setupUi(this);
     //this-> ui -> widget -> setStyleSheet("widget {border-image: url(:/images/images/background.jpeg)};");
 
-    myuser = &theuser;
-    myleague = &league;
+    this->myuser = &theuser;
+    this->myleague = &league;
+    this->chosen_1 = -1;
+    this->chosen_2 = -1;
+    this->refresh(*myuser);
 
+}
+void Preparation::refresh(const User& theuser)
+{
     this->ui->label->setText(QString::fromStdString(theuser.team.players[0].surname));
     this->ui->lcdNumber->display(theuser.team.players[0].overallgeneral);
     this->ui->labelp->setText(QString::fromStdString(theuser.team.players[0].position));
@@ -86,6 +92,23 @@ Preparation::~Preparation()
     delete ui;
 }
 
+void Preparation::Substitution()
+{
+    if (this->chosen_1 == -1 || this->chosen_2 == -1)
+    {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::warning(this, tr("QMessageBox::warning()"),
+                                            "You have to choose two players to make substitution",
+                                            QMessageBox::Cancel);
+            if (reply == QMessageBox::Cancel)
+            {}
+    }
+    else
+    {
+
+    }
+}
+
 void Preparation::on_pushButton_15_clicked() //Back Button
 {
     QMessageBox::StandardButton reply;
@@ -116,4 +139,429 @@ void Preparation::on_pushButton_14_clicked() //Next Game
         }
         else if (reply == QMessageBox::No)
         {}
+}
+
+void Preparation::on_pushButton_13_clicked() // Change Button
+{
+    Substitution();
+}
+
+void Preparation::on_p1_clicked() // Choose Player 1
+{
+    int index = 0;
+    if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
+    {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::warning(this, tr("QMessageBox::warning()"),
+                                            "You can only choose two players",
+                                            QMessageBox::Cancel);
+            if (reply == QMessageBox::Cancel)
+            {}
+    }
+
+    else if (this->chosen_1 == -1 &&  this->chosen_2 != index)
+    {
+        this->chosen_1 = index;
+        this->ui->label_p1->setText(QString::fromStdString(this->myuser->team.players[this->chosen_1].surname));
+    }
+    else if (this->chosen_1 != -1 &&  this->chosen_1 != index && this->chosen_2 == -1)
+    {
+        this->chosen_2 = index;
+        this->ui->label_p2->setText(QString::fromStdString(this->myuser->team.players[this->chosen_2].surname));
+    }
+    else if (this->chosen_1 == index)
+    {
+        this->chosen_1 = -1;
+        this->ui->label_p1->setText(QString::fromStdString("Player 1"));
+    }
+    else if (this->chosen_1 != index && this->chosen_2 == index)
+    {
+        this->chosen_2 = -1;
+        this->ui->label_p2->setText(QString::fromStdString("Player 2"));
+    }
+}
+
+void Preparation::on_p2_clicked() // Choose Player 2
+{
+    int index = 1;
+    if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
+    {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::warning(this, tr("QMessageBox::warning()"),
+                                            "You can only choose two players",
+                                            QMessageBox::Cancel);
+            if (reply == QMessageBox::Cancel)
+            {}
+    }
+
+    else if (this->chosen_1 == -1 &&  this->chosen_2 != index)
+    {
+        this->chosen_1 = index;
+        this->ui->label_p1->setText(QString::fromStdString(this->myuser->team.players[this->chosen_1].surname));
+    }
+    else if (this->chosen_1 != -1 &&  this->chosen_1 != index && this->chosen_2 == -1)
+    {
+        this->chosen_2 = index;
+        this->ui->label_p2->setText(QString::fromStdString(this->myuser->team.players[this->chosen_2].surname));
+    }
+    else if (this->chosen_1 == index)
+    {
+        this->chosen_1 = -1;
+        this->ui->label_p1->setText(QString::fromStdString("Player 1"));
+    }
+    else if (this->chosen_1 != index && this->chosen_2 == index)
+    {
+        this->chosen_2 = -1;
+        this->ui->label_p2->setText(QString::fromStdString("Player 2"));
+    }
+}
+
+void Preparation::on_p3_clicked() // Choose Player 3
+{
+    int index = 2;
+    if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
+    {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::warning(this, tr("QMessageBox::warning()"),
+                                            "You can only choose two players",
+                                            QMessageBox::Cancel);
+            if (reply == QMessageBox::Cancel)
+            {}
+    }
+
+    else if (this->chosen_1 == -1 &&  this->chosen_2 != index)
+    {
+        this->chosen_1 = index;
+        this->ui->label_p1->setText(QString::fromStdString(this->myuser->team.players[this->chosen_1].surname));
+    }
+    else if (this->chosen_1 != -1 &&  this->chosen_1 != index && this->chosen_2 == -1)
+    {
+        this->chosen_2 = index;
+        this->ui->label_p2->setText(QString::fromStdString(this->myuser->team.players[this->chosen_2].surname));
+    }
+    else if (this->chosen_1 == index)
+    {
+        this->chosen_1 = -1;
+        this->ui->label_p1->setText(QString::fromStdString("Player 1"));
+    }
+    else if (this->chosen_1 != index && this->chosen_2 == index)
+    {
+        this->chosen_2 = -1;
+        this->ui->label_p2->setText(QString::fromStdString("Player 2"));
+    }
+}
+
+void Preparation::on_p4_clicked() // Choose Player 4
+{
+    int index = 3;
+    if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
+    {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::warning(this, tr("QMessageBox::warning()"),
+                                            "You can only choose two players",
+                                            QMessageBox::Cancel);
+            if (reply == QMessageBox::Cancel)
+            {}
+    }
+
+    else if (this->chosen_1 == -1 &&  this->chosen_2 != index)
+    {
+        this->chosen_1 = index;
+        this->ui->label_p1->setText(QString::fromStdString(this->myuser->team.players[this->chosen_1].surname));
+    }
+    else if (this->chosen_1 != -1 &&  this->chosen_1 != index && this->chosen_2 == -1)
+    {
+        this->chosen_2 = index;
+        this->ui->label_p2->setText(QString::fromStdString(this->myuser->team.players[this->chosen_2].surname));
+    }
+    else if (this->chosen_1 == index)
+    {
+        this->chosen_1 = -1;
+        this->ui->label_p1->setText(QString::fromStdString("Player 1"));
+    }
+    else if (this->chosen_1 != index && this->chosen_2 == index)
+    {
+        this->chosen_2 = -1;
+        this->ui->label_p2->setText(QString::fromStdString("Player 2"));
+    }
+}
+
+void Preparation::on_p5_clicked() // Choose Player 5
+{
+    int index = 4;
+    if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
+    {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::warning(this, tr("QMessageBox::warning()"),
+                                            "You can only choose two players",
+                                            QMessageBox::Cancel);
+            if (reply == QMessageBox::Cancel)
+            {}
+    }
+
+    else if (this->chosen_1 == -1 &&  this->chosen_2 != index)
+    {
+        this->chosen_1 = index;
+        this->ui->label_p1->setText(QString::fromStdString(this->myuser->team.players[this->chosen_1].surname));
+    }
+    else if (this->chosen_1 != -1 &&  this->chosen_1 != index && this->chosen_2 == -1)
+    {
+        this->chosen_2 = index;
+        this->ui->label_p2->setText(QString::fromStdString(this->myuser->team.players[this->chosen_2].surname));
+    }
+    else if (this->chosen_1 == index)
+    {
+        this->chosen_1 = -1;
+        this->ui->label_p1->setText(QString::fromStdString("Player 1"));
+    }
+    else if (this->chosen_1 != index && this->chosen_2 == index)
+    {
+        this->chosen_2 = -1;
+        this->ui->label_p2->setText(QString::fromStdString("Player 2"));
+    }
+}
+
+void Preparation::on_p6_clicked() // Choose Player 6
+{
+    int index = 5;
+    if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
+    {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::warning(this, tr("QMessageBox::warning()"),
+                                            "You can only choose two players",
+                                            QMessageBox::Cancel);
+            if (reply == QMessageBox::Cancel)
+            {}
+    }
+
+    else if (this->chosen_1 == -1 &&  this->chosen_2 != index)
+    {
+        this->chosen_1 = index;
+        this->ui->label_p1->setText(QString::fromStdString(this->myuser->team.players[this->chosen_1].surname));
+    }
+    else if (this->chosen_1 != -1 &&  this->chosen_1 != index && this->chosen_2 == -1)
+    {
+        this->chosen_2 = index;
+        this->ui->label_p2->setText(QString::fromStdString(this->myuser->team.players[this->chosen_2].surname));
+    }
+    else if (this->chosen_1 == index)
+    {
+        this->chosen_1 = -1;
+        this->ui->label_p1->setText(QString::fromStdString("Player 1"));
+    }
+    else if (this->chosen_1 != index && this->chosen_2 == index)
+    {
+        this->chosen_2 = -1;
+        this->ui->label_p2->setText(QString::fromStdString("Player 2"));
+    }
+}
+
+void Preparation::on_p7_clicked() // Choose Player 7
+{
+    int index = 6;
+    if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
+    {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::warning(this, tr("QMessageBox::warning()"),
+                                            "You can only choose two players",
+                                            QMessageBox::Cancel);
+            if (reply == QMessageBox::Cancel)
+            {}
+    }
+
+    else if (this->chosen_1 == -1 &&  this->chosen_2 != index)
+    {
+        this->chosen_1 = index;
+        this->ui->label_p1->setText(QString::fromStdString(this->myuser->team.players[this->chosen_1].surname));
+    }
+    else if (this->chosen_1 != -1 &&  this->chosen_1 != index && this->chosen_2 == -1)
+    {
+        this->chosen_2 = index;
+        this->ui->label_p2->setText(QString::fromStdString(this->myuser->team.players[this->chosen_2].surname));
+    }
+    else if (this->chosen_1 == index)
+    {
+        this->chosen_1 = -1;
+        this->ui->label_p1->setText(QString::fromStdString("Player 1"));
+    }
+    else if (this->chosen_1 != index && this->chosen_2 == index)
+    {
+        this->chosen_2 = -1;
+        this->ui->label_p2->setText(QString::fromStdString("Player 2"));
+    }
+}
+
+void Preparation::on_p8_clicked() // Choose Player 8
+{
+    int index = 7;
+    if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
+    {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::warning(this, tr("QMessageBox::warning()"),
+                                            "You can only choose two players",
+                                            QMessageBox::Cancel);
+            if (reply == QMessageBox::Cancel)
+            {}
+    }
+
+    else if (this->chosen_1 == -1 &&  this->chosen_2 != index)
+    {
+        this->chosen_1 = index;
+        this->ui->label_p1->setText(QString::fromStdString(this->myuser->team.players[this->chosen_1].surname));
+    }
+    else if (this->chosen_1 != -1 &&  this->chosen_1 != index && this->chosen_2 == -1)
+    {
+        this->chosen_2 = index;
+        this->ui->label_p2->setText(QString::fromStdString(this->myuser->team.players[this->chosen_2].surname));
+    }
+    else if (this->chosen_1 == index)
+    {
+        this->chosen_1 = -1;
+        this->ui->label_p1->setText(QString::fromStdString("Player 1"));
+    }
+    else if (this->chosen_1 != index && this->chosen_2 == index)
+    {
+        this->chosen_2 = -1;
+        this->ui->label_p2->setText(QString::fromStdString("Player 2"));
+    }
+}
+
+void Preparation::on_p9_clicked() // Choose Player 9
+{
+    int index = 8;
+    if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
+    {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::warning(this, tr("QMessageBox::warning()"),
+                                            "You can only choose two players",
+                                            QMessageBox::Cancel);
+            if (reply == QMessageBox::Cancel)
+            {}
+    }
+
+    else if (this->chosen_1 == -1 &&  this->chosen_2 != index)
+    {
+        this->chosen_1 = index;
+        this->ui->label_p1->setText(QString::fromStdString(this->myuser->team.players[this->chosen_1].surname));
+    }
+    else if (this->chosen_1 != -1 &&  this->chosen_1 != index && this->chosen_2 == -1)
+    {
+        this->chosen_2 = index;
+        this->ui->label_p2->setText(QString::fromStdString(this->myuser->team.players[this->chosen_2].surname));
+    }
+    else if (this->chosen_1 == index)
+    {
+        this->chosen_1 = -1;
+        this->ui->label_p1->setText(QString::fromStdString("Player 1"));
+    }
+    else if (this->chosen_1 != index && this->chosen_2 == index)
+    {
+        this->chosen_2 = -1;
+        this->ui->label_p2->setText(QString::fromStdString("Player 2"));
+    }
+}
+
+void Preparation::on_p10_clicked() // Choose Player 10
+{
+    int index = 9;
+    if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
+    {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::warning(this, tr("QMessageBox::warning()"),
+                                            "You can only choose two players",
+                                            QMessageBox::Cancel);
+            if (reply == QMessageBox::Cancel)
+            {}
+    }
+
+    else if (this->chosen_1 == -1 &&  this->chosen_2 != index)
+    {
+        this->chosen_1 = index;
+        this->ui->label_p1->setText(QString::fromStdString(this->myuser->team.players[this->chosen_1].surname));
+    }
+    else if (this->chosen_1 != -1 &&  this->chosen_1 != index && this->chosen_2 == -1)
+    {
+        this->chosen_2 = index;
+        this->ui->label_p2->setText(QString::fromStdString(this->myuser->team.players[this->chosen_2].surname));
+    }
+    else if (this->chosen_1 == index)
+    {
+        this->chosen_1 = -1;
+        this->ui->label_p1->setText(QString::fromStdString("Player 1"));
+    }
+    else if (this->chosen_1 != index && this->chosen_2 == index)
+    {
+        this->chosen_2 = -1;
+        this->ui->label_p2->setText(QString::fromStdString("Player 2"));
+    }
+}
+
+void Preparation::on_p11_clicked() // Choose Player 11
+{
+    int index = 10;
+    if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
+    {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::warning(this, tr("QMessageBox::warning()"),
+                                            "You can only choose two players",
+                                            QMessageBox::Cancel);
+            if (reply == QMessageBox::Cancel)
+            {}
+    }
+
+    else if (this->chosen_1 == -1 &&  this->chosen_2 != index)
+    {
+        this->chosen_1 = index;
+        this->ui->label_p1->setText(QString::fromStdString(this->myuser->team.players[this->chosen_1].surname));
+    }
+    else if (this->chosen_1 != -1 &&  this->chosen_1 != index && this->chosen_2 == -1)
+    {
+        this->chosen_2 = index;
+        this->ui->label_p2->setText(QString::fromStdString(this->myuser->team.players[this->chosen_2].surname));
+    }
+    else if (this->chosen_1 == index)
+    {
+        this->chosen_1 = -1;
+        this->ui->label_p1->setText(QString::fromStdString("Player 1"));
+    }
+    else if (this->chosen_1 != index && this->chosen_2 == index)
+    {
+        this->chosen_2 = -1;
+        this->ui->label_p2->setText(QString::fromStdString("Player 2"));
+    }
+}
+
+void Preparation::on_p12_clicked() // Choose Player 12
+{
+    int index = 11;
+    if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
+    {
+        QMessageBox::StandardButton reply;
+        reply = QMessageBox::warning(this, tr("QMessageBox::warning()"),
+                                            "You can only choose two players",
+                                            QMessageBox::Cancel);
+            if (reply == QMessageBox::Cancel)
+            {}
+    }
+
+    else if (this->chosen_1 == -1 &&  this->chosen_2 != index)
+    {
+        this->chosen_1 = index;
+        this->ui->label_p1->setText(QString::fromStdString(this->myuser->team.players[this->chosen_1].surname));
+    }
+    else if (this->chosen_1 != -1 &&  this->chosen_1 != index && this->chosen_2 == -1)
+    {
+        this->chosen_2 = index;
+        this->ui->label_p2->setText(QString::fromStdString(this->myuser->team.players[this->chosen_2].surname));
+    }
+    else if (this->chosen_1 == index)
+    {
+        this->chosen_1 = -1;
+        this->ui->label_p1->setText(QString::fromStdString("Player 1"));
+    }
+    else if (this->chosen_1 != index && this->chosen_2 == index)
+    {
+        this->chosen_2 = -1;
+        this->ui->label_p2->setText(QString::fromStdString("Player 2"));
+    }
 }
