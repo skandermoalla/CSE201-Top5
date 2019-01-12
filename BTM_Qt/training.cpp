@@ -295,8 +295,6 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
         ui->progressBar_12->setRange(0, 100);
         ui->progressBar_12->setValue(0);
-    }
-
         this->ui->image_12->setText(QString::fromStdString("        NO PICTURE "));
 }
 
@@ -307,7 +305,6 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
     // Energy Left Display
     this->ui->lcdNumber_13->display(theuser.team.energy);
 }
-
 
 
 Training::~Training()
