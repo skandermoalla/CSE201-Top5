@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>620</x>
-     <y>550</y>
+     <y>560</y>
      <width>114</width>
      <height>32</height>
     </rect>
@@ -30,7 +30,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>0</y>
+     <y>10</y>
      <width>761</width>
      <height>551</height>
     </rect>
@@ -42,23 +42,6 @@
     <attribute name="title">
      <string>Sell Players</string>
     </attribute>
-    <widget class="QSplitter" name="splitter">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>10</y>
-       <width>701</width>
-       <height>121</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <widget class="QTextBrowser" name="textBrowser"/>
-     <widget class="QTextBrowser" name="textBrowser_2"/>
-     <widget class="QTextBrowser" name="textBrowser_3"/>
-     <widget class="QTextBrowser" name="textBrowser_4"/>
-    </widget>
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
@@ -231,23 +214,6 @@
       </item>
      </layout>
     </widget>
-    <widget class="QSplitter" name="splitter_3">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>350</y>
-       <width>701</width>
-       <height>121</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <widget class="QTextBrowser" name="textBrowser_9"/>
-     <widget class="QTextBrowser" name="textBrowser_10"/>
-     <widget class="QTextBrowser" name="textBrowser_11"/>
-     <widget class="QTextBrowser" name="textBrowser_12"/>
-    </widget>
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
@@ -368,23 +334,6 @@
       </item>
      </layout>
     </widget>
-    <widget class="QSplitter" name="splitter_2">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>180</y>
-       <width>701</width>
-       <height>121</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <widget class="QTextBrowser" name="textBrowser_5"/>
-     <widget class="QTextBrowser" name="textBrowser_6"/>
-     <widget class="QTextBrowser" name="textBrowser_7"/>
-     <widget class="QTextBrowser" name="textBrowser_8"/>
-    </widget>
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
@@ -453,28 +402,167 @@
       </item>
      </layout>
     </widget>
+    <widget class="QLabel" name="image_2">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>10</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_3">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>10</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_4">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>10</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_5">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>190</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_6">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>190</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_7">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>190</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_8">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>190</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_9">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>360</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_10">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>360</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_11">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>360</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_12">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>360</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_1">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QWidget" name="widget">
     <attribute name="title">
      <string>Buy Players</string>
     </attribute>
-    <widget class="QSplitter" name="splitter_4">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>10</y>
-       <width>701</width>
-       <height>121</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <widget class="QTextBrowser" name="textBrowser_13"/>
-     <widget class="QTextBrowser" name="textBrowser_14"/>
-     <widget class="QTextBrowser" name="textBrowser_15"/>
-     <widget class="QTextBrowser" name="textBrowser_16"/>
-    </widget>
     <widget class="QWidget" name="layoutWidget">
      <property name="geometry">
       <rect>
@@ -594,23 +682,6 @@
        </widget>
       </item>
      </layout>
-    </widget>
-    <widget class="QSplitter" name="splitter_5">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>180</y>
-       <width>701</width>
-       <height>121</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <widget class="QTextBrowser" name="textBrowser_17"/>
-     <widget class="QTextBrowser" name="textBrowser_18"/>
-     <widget class="QTextBrowser" name="textBrowser_19"/>
-     <widget class="QTextBrowser" name="textBrowser_20"/>
     </widget>
     <widget class="QWidget" name="layoutWidget_3">
      <property name="geometry">
@@ -732,23 +803,6 @@
       </item>
      </layout>
     </widget>
-    <widget class="QSplitter" name="splitter_6">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>350</y>
-       <width>701</width>
-       <height>121</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <widget class="QTextBrowser" name="textBrowser_21"/>
-     <widget class="QTextBrowser" name="textBrowser_22"/>
-     <widget class="QTextBrowser" name="textBrowser_23"/>
-     <widget class="QTextBrowser" name="textBrowser_24"/>
-    </widget>
     <widget class="QWidget" name="layoutWidget_5">
      <property name="geometry">
       <rect>
@@ -868,6 +922,162 @@
        </widget>
       </item>
      </layout>
+    </widget>
+    <widget class="QLabel" name="image_22">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>10</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_23">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>10</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_24">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>10</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_25">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>190</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_26">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>190</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_27">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>190</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_28">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>190</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_29">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>360</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_30">
+     <property name="geometry">
+      <rect>
+       <x>200</x>
+       <y>360</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_31">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>360</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_32">
+     <property name="geometry">
+      <rect>
+       <x>560</x>
+       <y>360</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="image_21">
+     <property name="geometry">
+      <rect>
+       <x>20</x>
+       <y>10</y>
+       <width>161</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TextLabel</string>
+     </property>
     </widget>
    </widget>
   </widget>
