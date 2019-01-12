@@ -11,6 +11,7 @@ NextGame::NextGame(QWidget *parent) :
 {
     ui->setupUi(this);
     timer = new QTimer(this); //new timer object
+    s_timer = new QTimer(this); //timer that manages strategy change
     ui->time->setAlignment(Qt::AlignCenter);
     ui->time->setFont(QFont("Comic Sans MS",12));
     ui->quater->setAlignment(Qt::AlignCenter);
@@ -30,6 +31,7 @@ NextGame::NextGame(User& theuser, League& theleague, QWidget *parent) :
 
     ui->setupUi(this);
     timer = new QTimer(this); //new timer object
+    s_timer = new QTimer(this);
     ui->time->setAlignment(Qt::AlignCenter);
     ui->time->setFont(QFont("Comic Sans MS",12));
     ui->quater->setAlignment(Qt::AlignCenter);
@@ -46,12 +48,12 @@ NextGame::~NextGame()
     delete ui;
 }
 
-QTime quarter_length(0,1,20); //a quarter last 12 mins but we gonna make it 1:20 for now
-void NextGame::myfunc(){
+QTime quarter_length(0,3,00); //a quarter last 12 mins but we gonna make it 3:00 for now
+void NextGame::quarter_timing(){
     QTime stop_count(0,0,0);
     QTime time;
     if (quarter_length != stop_count){
-        qDebug() << "update..";
+        qDebug() << "updating clock";
         time =quarter_length.addSecs(-1); // minus -1 sec to the time
         quarter_length = time;
         QString time_text = time.toString("mm : ss"); //displaying format
@@ -63,11 +65,26 @@ void NextGame::myfunc(){
         ui->end_msg->setText("End of the Quarter");
     }
 }
+QTime stra_time(0,0,0);
+void NextGame::strat(){
+    QTime change_stra(0,0,15);
+    if  (stra_time != change_stra){
+        qDebug()<<"updating strategy timer";
+        stra_time = stra_time.addSecs(1);
+    } else{
+        qDebug()<<"fifteen seconds reached";
+        //insert your attack/defense function here
+        stra_time=stra_time.addSecs(-15);
+        qDebug()<<"stra_time="<<stra_time;
+    }
+}
 
-
-void NextGame::on_start_clicked() //comment
+void NextGame::on_start_clicked()
 {
-    connect(timer,SIGNAL(timeout()),this,SLOT(myfunc()));
+    connect(timer,SIGNAL(timeout()),this,SLOT(quarter_timing()));
+    connect(s_timer,SIGNAL(timeout()),this,SLOT(strat()));
     timer->start(1000); //scale time
+    s_timer->start(1000);
+
 
 }
