@@ -44,6 +44,8 @@ void MainWindow::refresh(const User& theuser)
         this->ui->label->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber->display("-");
         this->ui->labelp->setText(QString::fromStdString("-"));
+        this->ui->image_1->setText(QString::fromStdString("        NO PICTURE "));
+
     }
     if (theuser.team.players.size()>=2){
     // Player 2
@@ -59,6 +61,7 @@ void MainWindow::refresh(const User& theuser)
         this->ui->label_2->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_2->display("-");
         this->ui->label_2p->setText(QString::fromStdString("-"));
+        this->ui->image_2->setText(QString::fromStdString("        NO PICTURE "));
     }
     // Player 3
     if (theuser.team.players.size()>=3){
@@ -74,6 +77,7 @@ void MainWindow::refresh(const User& theuser)
         this->ui->label_3->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_3->display("-");
         this->ui->label_3p->setText(QString::fromStdString("-"));
+        this->ui->image_3->setText(QString::fromStdString("        NO PICTURE "));
     }
     // Player 4
     if (theuser.team.players.size()>=4){
@@ -89,6 +93,7 @@ void MainWindow::refresh(const User& theuser)
         this->ui->label_4->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_4->display("-");
         this->ui->label_4p->setText(QString::fromStdString("-"));
+        this->ui->image_4->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 5
@@ -105,6 +110,7 @@ void MainWindow::refresh(const User& theuser)
         this->ui->label_5->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_5->display("-");
         this->ui->label_5p->setText(QString::fromStdString("-"));
+        this->ui->image_5->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 6
@@ -121,6 +127,7 @@ void MainWindow::refresh(const User& theuser)
         this->ui->label_6->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_6->display("-");
         this->ui->label_6p->setText(QString::fromStdString("-"));
+        this->ui->image_6->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 7
@@ -132,11 +139,13 @@ void MainWindow::refresh(const User& theuser)
         this->ui->image_7->setPixmap(im1);
         this->ui->image_7->setScaledContents(true);
         this->ui->image_7->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
+
     }
     else{
         this->ui->label_7->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_7->display("-");
         this->ui->label_7p->setText(QString::fromStdString("-"));
+        this->ui->image_7->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 8
@@ -153,6 +162,7 @@ void MainWindow::refresh(const User& theuser)
         this->ui->label_8->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_8->display("-");
         this->ui->label_8p->setText(QString::fromStdString("-"));
+        this->ui->image_8->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 9
@@ -169,6 +179,7 @@ void MainWindow::refresh(const User& theuser)
         this->ui->label_9->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_9->display("-");
         this->ui->label_9p->setText(QString::fromStdString("-"));
+        this->ui->image_9->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 10
@@ -185,6 +196,7 @@ void MainWindow::refresh(const User& theuser)
         this->ui->label_10->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_10->display("-");
         this->ui->label_10p->setText(QString::fromStdString("-"));
+        this->ui->image_10->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 11
@@ -201,6 +213,7 @@ void MainWindow::refresh(const User& theuser)
         this->ui->label_11->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_11->display("-");
         this->ui->label_11p->setText(QString::fromStdString("-"));
+        this->ui->image_11->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 12
@@ -217,7 +230,8 @@ void MainWindow::refresh(const User& theuser)
         this->ui->label_12->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_12->display("-");
         this->ui->label_12p->setText(QString::fromStdString("-"));
-    }
+        this->ui->image_12->setText(QString::fromStdString("        NO PICTURE "));
+}
     //Energy tab
     QStringList header;
     header<<"surname"<<"Energy"<<"Motivation";

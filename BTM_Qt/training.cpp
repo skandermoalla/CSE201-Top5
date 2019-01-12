@@ -24,44 +24,66 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
     this->ui->label->setText(QString::fromStdString(theuser.team.players[0].surname));
     this->ui->lcdNumber->display(theuser.team.players[0].overallgeneral);
     this->ui->labelp->setText(QString::fromStdString(theuser.team.players[0].position));
+    // Image Player 1
+    QPixmap im1(theuser.team.players[0].photoadress);
+    this->ui->image_1->setPixmap(im1);
+    this->ui->image_1->setScaledContents(true);
+    this->ui->image_1->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber->display("-");
         this->ui->labelp->setText(QString::fromStdString("-"));
+        this->ui->image_1->setText(QString::fromStdString("        NO PICTURE "));
+
     }
     if (theuser.team.players.size()>=2){
     // Player 2
     this->ui->label_2->setText(QString::fromStdString(theuser.team.players[1].surname));
     this->ui->lcdNumber_2->display(theuser.team.players[1].overallgeneral);
     this->ui->label_2p->setText(QString::fromStdString(theuser.team.players[1].position));
+    QPixmap im1(theuser.team.players[1].photoadress);
+    this->ui->image_2->setPixmap(im1);
+    this->ui->image_2->setScaledContents(true);
+    this->ui->image_2->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label_2->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_2->display("-");
         this->ui->label_2p->setText(QString::fromStdString("-"));
+        this->ui->image_2->setText(QString::fromStdString("        NO PICTURE "));
     }
     // Player 3
     if (theuser.team.players.size()>=3){
     this->ui->label_3->setText(QString::fromStdString(theuser.team.players[2].surname));
     this->ui->lcdNumber_3->display(theuser.team.players[2].overallgeneral);
     this->ui->label_3p->setText(QString::fromStdString(theuser.team.players[2].position));
+        QPixmap im1(theuser.team.players[2].photoadress);
+        this->ui->image_3->setPixmap(im1);
+        this->ui->image_3->setScaledContents(true);
+        this->ui->image_3->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label_3->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_3->display("-");
         this->ui->label_3p->setText(QString::fromStdString("-"));
+        this->ui->image_3->setText(QString::fromStdString("        NO PICTURE "));
     }
     // Player 4
     if (theuser.team.players.size()>=4){
     this->ui->label_4->setText(QString::fromStdString(theuser.team.players[3].surname));
     this->ui->lcdNumber_4->display(theuser.team.players[3].overallgeneral);
     this->ui->label_4p->setText(QString::fromStdString(theuser.team.players[3].position));
+        QPixmap im1(theuser.team.players[3].photoadress);
+        this->ui->image_4->setPixmap(im1);
+        this->ui->image_4->setScaledContents(true);
+        this->ui->image_4->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label_4->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_4->display("-");
         this->ui->label_4p->setText(QString::fromStdString("-"));
+        this->ui->image_4->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 5
@@ -69,11 +91,16 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
     this->ui->label_5->setText(QString::fromStdString(theuser.team.players[3].surname));
     this->ui->lcdNumber_5->display(theuser.team.players[3].overallgeneral);
     this->ui->label_5p->setText(QString::fromStdString(theuser.team.players[3].position));
+        QPixmap im1(theuser.team.players[4].photoadress);
+        this->ui->image_5->setPixmap(im1);
+        this->ui->image_5->setScaledContents(true);
+        this->ui->image_5->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label_5->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_5->display("-");
         this->ui->label_5p->setText(QString::fromStdString("-"));
+        this->ui->image_5->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 6
@@ -81,11 +108,16 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
     this->ui->label_6->setText(QString::fromStdString(theuser.team.players[5].surname));
     this->ui->lcdNumber_6->display(theuser.team.players[5].overallgeneral);
     this->ui->label_6p->setText(QString::fromStdString(theuser.team.players[5].position));
+        QPixmap im1(theuser.team.players[5].photoadress);
+        this->ui->image_6->setPixmap(im1);
+        this->ui->image_6->setScaledContents(true);
+        this->ui->image_6->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label_6->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_6->display("-");
         this->ui->label_6p->setText(QString::fromStdString("-"));
+        this->ui->image_6->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 7
@@ -93,11 +125,17 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
     this->ui->label_7->setText(QString::fromStdString(theuser.team.players[6].surname));
     this->ui->lcdNumber_7->display(theuser.team.players[6].overallgeneral);
     this->ui->label_7p->setText(QString::fromStdString(theuser.team.players[6].position));
+        QPixmap im1(theuser.team.players[6].photoadress);
+        this->ui->image_7->setPixmap(im1);
+        this->ui->image_7->setScaledContents(true);
+        this->ui->image_7->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
+
     }
     else{
         this->ui->label_7->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_7->display("-");
         this->ui->label_7p->setText(QString::fromStdString("-"));
+        this->ui->image_7->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 8
@@ -105,11 +143,16 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
     this->ui->label_8->setText(QString::fromStdString(theuser.team.players[7].surname));
     this->ui->lcdNumber_8->display(theuser.team.players[7].overallgeneral);
     this->ui->label_8p->setText(QString::fromStdString(theuser.team.players[7].position));
+        QPixmap im1(theuser.team.players[7].photoadress);
+        this->ui->image_8->setPixmap(im1);
+        this->ui->image_8->setScaledContents(true);
+        this->ui->image_8->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label_8->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_8->display("-");
         this->ui->label_8p->setText(QString::fromStdString("-"));
+        this->ui->image_8->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 9
@@ -117,11 +160,16 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
     this->ui->label_9->setText(QString::fromStdString(theuser.team.players[8].surname));
     this->ui->lcdNumber_9->display(theuser.team.players[8].overallgeneral);
     this->ui->label_9p->setText(QString::fromStdString(theuser.team.players[8].position));
+        QPixmap im1(theuser.team.players[8].photoadress);
+        this->ui->image_9->setPixmap(im1);
+        this->ui->image_9->setScaledContents(true);
+        this->ui->image_9->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label_9->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_9->display("-");
         this->ui->label_9p->setText(QString::fromStdString("-"));
+        this->ui->image_9->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 10
@@ -129,11 +177,16 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
     this->ui->label_10->setText(QString::fromStdString(theuser.team.players[9].surname));
     this->ui->lcdNumber_10->display(theuser.team.players[9].overallgeneral);
     this->ui->label_10p->setText(QString::fromStdString(theuser.team.players[9].position));
+        QPixmap im1(theuser.team.players[9].photoadress);
+        this->ui->image_10->setPixmap(im1);
+        this->ui->image_10->setScaledContents(true);
+        this->ui->image_10->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label_10->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_10->display("-");
         this->ui->label_10p->setText(QString::fromStdString("-"));
+        this->ui->image_10->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 11
@@ -141,11 +194,16 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
     this->ui->label_11->setText(QString::fromStdString(theuser.team.players[10].surname));
     this->ui->lcdNumber_11->display(theuser.team.players[10].overallgeneral);
     this->ui->label_11p->setText(QString::fromStdString(theuser.team.players[10].position));
+        QPixmap im1(theuser.team.players[10].photoadress);
+        this->ui->image_11->setPixmap(im1);
+        this->ui->image_11->setScaledContents(true);
+        this->ui->image_11->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label_11->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_11->display("-");
         this->ui->label_11p->setText(QString::fromStdString("-"));
+        this->ui->image_11->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 12
@@ -153,13 +211,17 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
     this->ui->label_12->setText(QString::fromStdString(theuser.team.players[11].surname));
     this->ui->lcdNumber_12->display(theuser.team.players[11].overallgeneral);
     this->ui->label_12p->setText(QString::fromStdString(theuser.team.players[11].position));
+        QPixmap im1(theuser.team.players[11].photoadress);
+        this->ui->image_12->setPixmap(im1);
+        this->ui->image_12->setScaledContents(true);
+        this->ui->image_12->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label_12->setText(QString::fromStdString("NO PLAYER"));
         this->ui->lcdNumber_12->display("-");
         this->ui->label_12p->setText(QString::fromStdString("-"));
-    }
-
+        this->ui->image_12->setText(QString::fromStdString("        NO PICTURE "));
+}
 
     // Budget Display
     this->ui->lcdNumber_16->display(theuser.budget);
