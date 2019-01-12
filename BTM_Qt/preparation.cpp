@@ -21,6 +21,7 @@ Preparation::Preparation (User &theuser , League& league, QWidget *parent) :
     this->myleague = &league;
     this->chosen_1 = -1;
     this->chosen_2 = -1;
+
     this->refresh(*myuser);
 
 }
@@ -85,6 +86,7 @@ void Preparation::refresh(const User& theuser)
     this->ui->lcdNumber_12->display(theuser.team.players[11].overallgeneral);
     this->ui->label_12p->setText(QString::fromStdString(theuser.team.players[11].position));
 
+    std::cout<<"preparation refreshed"<<std::endl;
 }
 
 Preparation::~Preparation()
@@ -105,7 +107,18 @@ void Preparation::Substitution()
     }
     else
     {
-
+        int ind_1 = this->chosen_1;
+        int ind_2 = this->chosen_2;
+        Player temp = this->myuser->team.players[ind_1];
+        this->myuser->team.players[ind_1] = this->myuser->team.players[ind_2];
+        this->myuser->team.players[ind_2] = temp;
+        std::cout<<ind_1<<std::endl;
+        std::cout<<ind_2<<std::endl;
+        this->chosen_1 = -1;
+        this->chosen_2 = -1;
+        this->ui->label_p1->setText(QString::fromStdString("Player 1"));
+        this->ui->label_p2->setText(QString::fromStdString("Player 2"));
+        this->refresh(*(this->myuser));
     }
 }
 
