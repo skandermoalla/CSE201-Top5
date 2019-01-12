@@ -27,6 +27,11 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
     ui->progressBar->setRange(0, 100);
     ui->progressBar->setValue(theuser.team.players[0].energy);
+    // Image Player 1
+    QPixmap im1(theuser.team.players[0].photoadress);
+    this->ui->image_1->setPixmap(im1);
+    this->ui->image_1->setScaledContents(true);
+    this->ui->image_1->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label->setText(QString::fromStdString("NO PLAYER"));
@@ -35,6 +40,8 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
         ui->progressBar->setRange(0, 100);
         ui->progressBar->setValue(0);
+        this->ui->image_1->setText(QString::fromStdString("        NO PICTURE "));
+
     }
 
     // Player 2
@@ -45,6 +52,10 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
     ui->progressBar_2->setRange(0, 100);
     ui->progressBar_2->setValue(theuser.team.players[1].energy);
+    QPixmap im1(theuser.team.players[1].photoadress);
+    this->ui->image_2->setPixmap(im1);
+    this->ui->image_2->setScaledContents(true);
+    this->ui->image_2->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label_2->setText(QString::fromStdString("NO PLAYER"));
@@ -53,6 +64,7 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
         ui->progressBar_2->setRange(0, 100);
         ui->progressBar_2->setValue(0);
+        this->ui->image_2->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 3
@@ -63,6 +75,10 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
     ui->progressBar_3->setRange(0, 100);
     ui->progressBar_3->setValue(theuser.team.players[2].energy);
+        QPixmap im1(theuser.team.players[2].photoadress);
+        this->ui->image_3->setPixmap(im1);
+        this->ui->image_3->setScaledContents(true);
+        this->ui->image_3->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label_3->setText(QString::fromStdString("NO PLAYER"));
@@ -71,6 +87,7 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
         ui->progressBar_3->setRange(0, 100);
         ui->progressBar_3->setValue(0);
+        this->ui->image_3->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 4
@@ -81,6 +98,10 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
         ui->progressBar_4->setRange(0, 100);
         ui->progressBar_4->setValue(theuser.team.players[3].energy);
+        QPixmap im1(theuser.team.players[3].photoadress);
+        this->ui->image_4->setPixmap(im1);
+        this->ui->image_4->setScaledContents(true);
+        this->ui->image_4->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label_4->setText(QString::fromStdString("NO PLAYER"));
@@ -89,6 +110,7 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
         ui->progressBar_4->setRange(0, 100);
         ui->progressBar_4->setValue(0);
+        this->ui->image_4->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 5
@@ -99,6 +121,10 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
         ui->progressBar_5->setRange(0, 100);
         ui->progressBar_5->setValue(theuser.team.players[4].energy);
+        QPixmap im1(theuser.team.players[4].photoadress);
+        this->ui->image_5->setPixmap(im1);
+        this->ui->image_5->setScaledContents(true);
+        this->ui->image_5->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label_5->setText(QString::fromStdString("NO PLAYER"));
@@ -107,6 +133,7 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
         ui->progressBar_5->setRange(0, 100);
         ui->progressBar_5->setValue(0);
+        this->ui->image_5->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 6
@@ -117,6 +144,10 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
         ui->progressBar_6->setRange(0, 100);
         ui->progressBar_6->setValue(theuser.team.players[5].energy);
+        QPixmap im1(theuser.team.players[5].photoadress);
+        this->ui->image_6->setPixmap(im1);
+        this->ui->image_6->setScaledContents(true);
+        this->ui->image_6->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label_6->setText(QString::fromStdString("NO PLAYER"));
@@ -125,6 +156,7 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
         ui->progressBar_6->setRange(0, 100);
         ui->progressBar_6->setValue(0);
+        this->ui->image_6->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 7
@@ -135,6 +167,11 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
         ui->progressBar_7->setRange(0, 100);
         ui->progressBar_7->setValue(theuser.team.players[6].energy);
+        QPixmap im1(theuser.team.players[6].photoadress);
+        this->ui->image_7->setPixmap(im1);
+        this->ui->image_7->setScaledContents(true);
+        this->ui->image_7->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
+
     }
     else{
         this->ui->label_7->setText(QString::fromStdString("NO PLAYER"));
@@ -143,6 +180,7 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
         ui->progressBar_7->setRange(0, 100);
         ui->progressBar_7->setValue(0);
+        this->ui->image_7->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 8
@@ -153,6 +191,10 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
         ui->progressBar_8->setRange(0, 100);
         ui->progressBar_8->setValue(theuser.team.players[7].energy);
+        QPixmap im1(theuser.team.players[7].photoadress);
+        this->ui->image_8->setPixmap(im1);
+        this->ui->image_8->setScaledContents(true);
+        this->ui->image_8->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label_8->setText(QString::fromStdString("NO PLAYER"));
@@ -161,6 +203,7 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
         ui->progressBar_8->setRange(0, 100);
         ui->progressBar_8->setValue(0);
+        this->ui->image_8->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 9
@@ -171,6 +214,10 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
         ui->progressBar_9->setRange(0, 100);
         ui->progressBar_9->setValue(theuser.team.players[8].energy);
+        QPixmap im1(theuser.team.players[8].photoadress);
+        this->ui->image_9->setPixmap(im1);
+        this->ui->image_9->setScaledContents(true);
+        this->ui->image_9->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label_9->setText(QString::fromStdString("NO PLAYER"));
@@ -179,6 +226,7 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
         ui->progressBar_9->setRange(0, 100);
         ui->progressBar_9->setValue(0);
+        this->ui->image_9->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 10
@@ -189,6 +237,10 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
         ui->progressBar_10->setRange(0, 100);
         ui->progressBar_10->setValue(theuser.team.players[9].energy);
+        QPixmap im1(theuser.team.players[9].photoadress);
+        this->ui->image_10->setPixmap(im1);
+        this->ui->image_10->setScaledContents(true);
+        this->ui->image_10->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label_10->setText(QString::fromStdString("NO PLAYER"));
@@ -197,6 +249,7 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
         ui->progressBar_10->setRange(0, 100);
         ui->progressBar_10->setValue(0);
+        this->ui->image_10->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 11
@@ -207,6 +260,10 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
         ui->progressBar_11->setRange(0, 100);
         ui->progressBar_11->setValue(theuser.team.players[10].energy);
+        QPixmap im1(theuser.team.players[10].photoadress);
+        this->ui->image_11->setPixmap(im1);
+        this->ui->image_11->setScaledContents(true);
+        this->ui->image_11->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label_11->setText(QString::fromStdString("NO PLAYER"));
@@ -215,6 +272,7 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
         ui->progressBar_11->setRange(0, 100);
         ui->progressBar_11->setValue(0);
+        this->ui->image_11->setText(QString::fromStdString("        NO PICTURE "));
     }
 
     // Player 12
@@ -225,6 +283,10 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
 
         ui->progressBar_12->setRange(0, 100);
         ui->progressBar_12->setValue(theuser.team.players[11].energy);
+        QPixmap im1(theuser.team.players[11].photoadress);
+        this->ui->image_12->setPixmap(im1);
+        this->ui->image_12->setScaledContents(true);
+        this->ui->image_12->setSizePolicy( QSizePolicy::Ignored, QSizePolicy::Ignored );
     }
     else{
         this->ui->label_12->setText(QString::fromStdString("NO PLAYER"));
@@ -235,6 +297,8 @@ Training::Training(User &theuser , League& league, QWidget *parent) :
         ui->progressBar_12->setValue(0);
     }
 
+        this->ui->image_12->setText(QString::fromStdString("        NO PICTURE "));
+}
 
     // Budget Display
     this->ui->lcdNumber_16->display(theuser.budget);
