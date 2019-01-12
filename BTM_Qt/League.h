@@ -29,12 +29,12 @@ public:
     int current_week;
     std::vector<Player> playermarket;
 
-    // a map from current week's games to their scores
-    std::map<std::pair<Team&, Team&>, std::pair<int, int>> ThisWeeksScores;
-    //std::vector<std::pair<Team&, Team&>> ThisWeeksGames = getThisWeeksGames();
+    //scores of the games of the current week in the same order they are present in the calendar (not involving the user)
+    std::vector< std::pair<int, int>> ThisWeeksScores;
+    std::vector< std::pair<Team, Team> > ThisWeeksGames;
 
-    const std::vector<std::pair<Team&, Team&>> getThisWeeksGames(){} // don't touch
-    std::vector< int > getAllUserMatches();  //a function who gets matches of user for each week
+    const std::vector< std::pair<Team, Team> > getThisWeeksGames(); // don't touch
+    std::vector<int> getAllUserMatches();  //a function who gets matches of user for each week
 
 };
 

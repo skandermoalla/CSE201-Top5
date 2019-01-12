@@ -1,5 +1,6 @@
 #include "League.h"
 #include <utility>
+#include <iostream>
 
 //auxiliary function to find the intersection of two vectors
 
@@ -27,6 +28,8 @@ League::League(int divi, std::string seas){          //Takes arguments : divisio
     for (int i=0; i<30 ; i++){
         playermarket.push_back(Player());
     }
+    Calendar = calendar();  //Calendar has some problems
+    //ThisWeeksGames = getThisWeeksGames();  //uncomment when calendar is ready
 }
 
 League::League(){          //Takes arguments : division as an int and a season as a string
@@ -101,7 +104,8 @@ std::vector< int > League::getAllUserMatches() {
 
 }
 
-/*const std::vector<std::pair<Team, Team>> League::getThisWeeksGames(){
+
+const std::vector<std::pair<Team, Team>> League::getThisWeeksGames(){
     std::vector< std::tuple<int,int> > matches= this->Calendar[current_week];
     std::vector<std::pair<Team, Team>> matches_return;
     for (int i = 0; i < 12 ; i++) {
@@ -120,7 +124,7 @@ std::vector< int > League::getAllUserMatches() {
 
     }
     return matches_return;
-}*/
+}
 
 
 

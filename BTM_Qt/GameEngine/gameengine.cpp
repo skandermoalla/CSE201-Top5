@@ -9,23 +9,25 @@ GameEngine::GameEngine()
 }
 
 void GameEngine::simulateThisWeeksGames(League& league) const{
-    const std::vector<std::pair<Team&, Team&>> thisWeeksGames = league.getThisWeeksGames();
-    for (std::vector<std::pair<Team&, Team&>>::const_iterator i = thisWeeksGames.begin(); i != thisWeeksGames.end(); i++) {
+    const std::vector< std::pair< Team, Team > > thisWeeksGames = league.getThisWeeksGames(); //pair of references already
+    for (std::vector< std::pair< Team, Team > >::const_iterator i = thisWeeksGames.begin(); i != thisWeeksGames.end(); i++) {
         simulateAutomatedGame(league, i->first, i->second);
     }
 }
 
-void GameEngine::simulateAutomatedGame(League& league, Team& team1, Team& team2) const{
-    std::pair<int, int> score = getAutomaticWinner(team1, team2);
-    //league.ThisWeeksScores[std::pair<Team&, Team&>(team1,team2)] = score;
+void GameEngine::simulateAutomatedGame(League& league, Team team1, Team team2) const{
+    std::pair< int, int > score = getAutomaticWinner(team1, team2);
+    std::pair<Team, Team> match(team1,team2);
+    //league.ThisWeeksScores.insert(std::pair< std::pair<Team, Team>, std::pair<int, int>>(match, score));
+    league.ThisWeeksScores.push_back(score);
     updateTeamsOverall(league, team1, team2, score);
 }
 
-void GameEngine::playThisWeeksGame(League& league, Team& opponentsTeam)const{
+void GameEngine::playThisWeeksGame(League& league, Team& opponentsTeam)const {
 
 }
 
-std::pair<int, int> GameEngine::getAutomaticWinner(const Team& team1, const Team& team2) const{
+std::pair< int, int > GameEngine::getAutomaticWinner(const Team team1, const Team team2) const{
     const int NUMBER_OF_DRAWS = 40;
 
     const double total_1 = team1.overallgeneral;      //an integer between 0 and 100
@@ -61,7 +63,7 @@ std::pair<int, int> GameEngine::getAutomaticWinner(const Team& team1, const Team
         }
     }
 
-    std::pair<int, int> t(c1, c2);
+    std::pair< int, int > t(c1, c2);
     return t;
 }
 
@@ -70,7 +72,7 @@ double KFactor(double overall) {
 }                      //K factor (to be improved), teams with higher scores gets smaller modifications
 
 
-void GameEngine::updateTeamsOverall(League& league, Team& team1, Team& team2, std::pair<int, int> score) const{
+void GameEngine::updateTeamsOverall(League& league, Team& team1, Team& team2, std::pair< int, int > score) const{
 
     double ov1 = team1.overallgeneral;
     double ov2 = team2.overallgeneral;
@@ -120,7 +122,7 @@ void GameEngine::updateTeamsOverall(League& league, Team& team1, Team& team2, st
 }
 
 void GameEngine::setAfterMatchOverall(League& league, Team& team, const int change, const int motivationChange) const {
-    for (std::vector<Player>::iterator player = team.players.begin(); player != team.players.end(); player++){
+    for (std::vector< Player >::iterator player = team.players.begin(); player != team.players.end(); player++){
         player->afterMatchUpdate(change, motivationChange);
         team.update_overall();
     }
