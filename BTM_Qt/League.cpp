@@ -13,7 +13,9 @@ std::vector<int> intersection(const std::vector<int> vect1, const std::vector<in
         }
     }
     return intersect;
-};
+}
+
+
 const std::string teamNames[] = { "Lakers","Cavaliers","Raptors","Warriors","Thunders","76ers","Bulls","Wizards","Celtics","Pacers","Nets","Hawks" };
 
 League::League(int divi, std::string seas){          //Takes arguments : division as an int and a season as a string
@@ -108,10 +110,7 @@ std::vector< int > League::getAllUserMatches() {
         std::tuple<int,int>  match = matches[i];
         int t1= std::get<0>(match);
         int t2= std::get<1>(match);
-        if( t1 == 1 || t2 == 1){   //Checking if team 1 (user's team) is in the match
-            matches.erase(matches.begin() + i);  //Removing user's team from list of matches
-        }
-        else {
+        if( t1 != 1 && t2 != 1){   //Checking if team 1 (user's team) is in the match
             std::pair< Team, Team > match_return;
             match_return = std::make_pair(this->teams[t1-1], this->teams[t2-1]);
             matches_return.push_back(match_return);
