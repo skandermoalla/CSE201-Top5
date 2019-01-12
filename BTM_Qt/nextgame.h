@@ -19,13 +19,15 @@ public:
     explicit NextGame(GameEngine* eng, User& theuser, League& league, QWidget *parent = nullptr);
     ~NextGame();
 public slots:
-    void myfunc();//function that set and display the time
+    void quarter_timing();//function that set and display the time
+    void strat();
 private slots:
     void on_start_clicked(); //click start function
 
 private:
     Ui::NextGame *ui;
     QTimer *timer;
+    QTimer *s_timer;
     User* myuser;
     League* myleague;
     GameEngine* engine;
