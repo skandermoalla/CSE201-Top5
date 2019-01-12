@@ -33,7 +33,7 @@ public:
     std::vector< std::pair<int, int>> ThisWeeksScores;
     std::vector< std::pair<Team, Team> > ThisWeeksGames;
 
-    const std::vector< std::pair<Team, Team> > getThisWeeksGames(); // don't touch
+    const std::vector< std::pair<Team, Team> > getThisWeeksGames();
     std::vector<int> getAllUserMatches();  //a function who gets matches of user for each week
 
 };

@@ -5,6 +5,7 @@
 #include "Team.h"
 #include "Player.h"
 #include "League.h"
+#include "User.h"
 
 class GameEngine
 {
@@ -20,7 +21,7 @@ public:
     void simulateAutomatedGame(League& league, Team team1, Team team2) const;
 
     // (loading...)
-    void playThisWeeksGame(League& league, Team& opponentsTeam) const;
+    void playThisWeeksGame(User& manager, League& league, Team& opponentsTeam) const;
 
 private:
     //returns the outcome of a automatic game (scoreOfTeam1, scoreOfTeam2)

@@ -23,7 +23,7 @@ void GameEngine::simulateAutomatedGame(League& league, Team team1, Team team2) c
     updateTeamsOverall(league, team1, team2, score);
 }
 
-void GameEngine::playThisWeeksGame(League& league, Team& opponentsTeam)const {
+void GameEngine::playThisWeeksGame(User& manager, League& league, Team& opponentsTeam)const {
 
 }
 

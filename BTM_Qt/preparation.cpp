@@ -309,6 +309,7 @@ void Preparation::on_pushButton_14_clicked() //Next Game
         {
             this -> close();
             this->nextgame = new NextGame;
+            // this->nextgame = new NextGame(*myuser,*myleague);  Ongoing
             nextgame -> show();
         }
         else if (reply == QMessageBox::No)

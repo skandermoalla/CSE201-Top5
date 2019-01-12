@@ -4,6 +4,7 @@
 #include <QDialog>
 #include<QTimer>
 #include <User.h>
+#include <League.h>
 namespace Ui {
 class NextGame;
 }
@@ -14,7 +15,7 @@ class NextGame : public QDialog
 
 public:
     explicit NextGame(QWidget *parent = nullptr);
-    explicit NextGame(User& theuser, QWidget *parent = nullptr);
+    explicit NextGame(User& theuser, League& league, QWidget *parent = nullptr);
     ~NextGame();
 public slots:
     void myfunc();//function that set and display the time
@@ -24,6 +25,8 @@ private slots:
 private:
     Ui::NextGame *ui;
     QTimer *timer;
+    User* myuser;
+    League* myleague;
 };
 
 #endif // NEXTGAME_H
