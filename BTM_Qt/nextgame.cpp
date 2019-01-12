@@ -65,7 +65,7 @@ void NextGame::myfunc(){
 }
 
 
-void NextGame::on_start_clicked()
+void NextGame::on_start_clicked() //comment
 {
     connect(timer,SIGNAL(timeout()),this,SLOT(myfunc()));
     timer->start(1000); //scale time
