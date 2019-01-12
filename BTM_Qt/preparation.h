@@ -22,7 +22,7 @@ public:
     ~Preparation();
 
 signals:
-    void backButtonClicked();
+    void backButtonClicked(const User&);
 
 public slots:
     void refresh(const User& );

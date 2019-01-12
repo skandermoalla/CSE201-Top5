@@ -93,9 +93,9 @@ void MainWindow::refresh(const User& theuser)
 
     // Player 5
     if (theuser.team.players.size()>=5){
-    this->ui->label_5->setText(QString::fromStdString(theuser.team.players[3].surname));
-    this->ui->lcdNumber_5->display(theuser.team.players[3].overallgeneral);
-    this->ui->label_5p->setText(QString::fromStdString(theuser.team.players[3].position));
+    this->ui->label_5->setText(QString::fromStdString(theuser.team.players[4].surname));
+    this->ui->lcdNumber_5->display(theuser.team.players[4].overallgeneral);
+    this->ui->label_5p->setText(QString::fromStdString(theuser.team.players[4].position));
         QPixmap im1(theuser.team.players[4].photoadress);
         this->ui->image_5->setPixmap(im1);
         this->ui->image_5->setScaledContents(true);
@@ -305,6 +305,7 @@ void MainWindow::on_pushButton_5_clicked() // Next game
 {
     this -> hide();
     this->preparation=new Preparation(*myuser,*myleague);
-    connect(this->preparation, SIGNAL(backButtonClicked()), this, SLOT(show()));
+    connect(this->preparation, SIGNAL(backButtonClicked(User)), this, SLOT(show()));
+    connect(this->preparation, SIGNAL(backButtonClicked(User)), this, SLOT(refresh(User)));
     preparation ->show();
 }
