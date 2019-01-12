@@ -5,6 +5,7 @@
 #include"User.h"
 #include"League.h"
 #include"nextgame.h"
+#include "GameEngine/gameengine.h"
 
 namespace Ui {
 class Preparation;
@@ -16,9 +17,10 @@ class Preparation : public QDialog
 
 public:
     explicit Preparation(QWidget *parent = nullptr);
-    explicit Preparation(User& theuser,League& league, QWidget *parent = nullptr);
+    explicit Preparation(GameEngine* eng, User& theuser,League& league, QWidget *parent = nullptr);
     User* myuser;
     League* myleague;
+    GameEngine* engine;
     ~Preparation();
 
 signals:

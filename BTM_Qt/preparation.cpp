@@ -10,7 +10,7 @@ Preparation::Preparation(QWidget *parent) :
     ui->setupUi(this);
 }
 
-Preparation::Preparation (User &theuser , League& league, QWidget *parent) :
+Preparation::Preparation (GameEngine* eng, User &theuser , League& league, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Preparation)
 {
@@ -19,6 +19,7 @@ Preparation::Preparation (User &theuser , League& league, QWidget *parent) :
 
     this->myuser = &theuser;
     this->myleague = &league;
+    engine = eng;
     this->chosen_1 = -1;
     this->chosen_2 = -1;
 
@@ -309,7 +310,7 @@ void Preparation::on_pushButton_14_clicked() //Next Game
         {
             this -> close();
             this->nextgame = new NextGame;
-            // this->nextgame = new NextGame(*myuser,*myleague);  Ongoing
+            // this->nextgame = new NextGame(eng, *myuser,*myleague);  Ongoing
             nextgame -> show();
         }
         else if (reply == QMessageBox::No)

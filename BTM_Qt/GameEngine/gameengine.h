@@ -14,6 +14,9 @@ class GameEngine
 public:
     GameEngine();
 
+    static std::map<std::string, int(*)[9]> tactics;
+    static int tactic1[9];
+
     //methods
 
     //simulates the games that the manager is not playing for the current League's week
@@ -25,6 +28,9 @@ public:
     // (loading...)
     void playThisWeeksGame(User& manager, League& league, Team& opponentsTeam) const;
 
+    void applyTactic(Team& team, const std::string tacticName) const;
+
+
 private:
     //returns the outcome of a automatic game (scoreOfTeam1, scoreOfTeam2)
     std::pair< int, int > getAutomaticWinner(const Team team1, const Team team2) const;
@@ -33,6 +39,9 @@ private:
     void updateTeamsOverall(League& league, Team& team1, Team& team2, std::pair< int, int > score) const;
 
     void setAfterMatchOverall(League& league,Team& team, const int change, const int motivationChange) const;
+
+    void modifyTeamAttributes(Team& team, int att[]) const;
+
 
 };
 

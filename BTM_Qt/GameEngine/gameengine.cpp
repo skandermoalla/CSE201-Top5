@@ -2,9 +2,19 @@
 #include <memory>
 #include <cmath>
 #include <cstdlib>
+#include <QtDebug>
+#include <map>
+#include <string>
+
+int GameEngine::tactic1[9] =  {0,0,0,0,0,0,0,0,0}; //declare tactics
+std::map< std::string, int(*)[9] > GameEngine::tactics {
+    {"tactic1", &tactic1}, //add here the other tactics
+};
+
 
 GameEngine::GameEngine()
 {
+    qDebug()<<"Game Engine ready";
 
 }
 
@@ -127,3 +137,10 @@ void GameEngine::setAfterMatchOverall(League& league, Team& team, const int chan
         team.update_overall();
     }
 }
+
+void GameEngine::applyTactic(Team& team,const  std::string tacticName) const{
+    // modifiers of attributes [sprint;rebound;passing;handling;shooting;
+        team.sprint +=  (*tactics[tacticName])[0];
+        //continue modification here
+};
+

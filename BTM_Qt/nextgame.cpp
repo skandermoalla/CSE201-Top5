@@ -21,12 +21,13 @@ NextGame::NextGame(QWidget *parent) :
 
 }
 
-NextGame::NextGame(User& theuser, League& theleague, QWidget *parent) :
+NextGame::NextGame(GameEngine* eng, User& theuser, League& theleague, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::NextGame)
 {
     myuser = &theuser;
     myleague = &theleague;
+    engine = eng;
 
     ui->setupUi(this);
     timer = new QTimer(this); //new timer object
