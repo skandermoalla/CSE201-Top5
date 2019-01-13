@@ -11,7 +11,7 @@ public:
     Team();
     std::string name;
     std::vector<Player> players;
-    std::vector<Player> startingplayers;
+    //std::vector<Player> startingplayers;
     //All attributes are are the averages over all the players
     int division;
     double age;
