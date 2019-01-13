@@ -18,10 +18,21 @@ public:
     explicit NextGame(User& theuser, League& league, QWidget *parent = nullptr);
     ~NextGame();
 public slots:
-    void quarter_timing();//function that set and display the time
+    void quarter_1_timing();//function that set and display the time
+    void quarter_2_timing();
+    void quarter_3_timing();
+    void quarter_4_timing();
     void strat();
 private slots:
-    void on_start_clicked(); //click start function
+    void on_start_clicked(); //click start button
+
+    void on_second_q_clicked();
+
+    void on_third_q_clicked();
+
+    void on_fourth_q_clicked();
+
+    void on_end_game_clicked();
 
 private:
     Ui::NextGame *ui;
