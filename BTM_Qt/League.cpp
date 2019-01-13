@@ -90,10 +90,9 @@ std::vector< int > League::getAllUserMatches() {
     for (int w = 1; w < 23; w++) {
         const std::vector< std::tuple<int,int> >& matches= this->Calendar[w];
 
-        for (int i = 0; i < 12 ; i++) {
-            const std::tuple<int,int>& match = matches[i];
-            int t1= std::get<0>(match);
-            int t2= std::get<1>(match);
+       for (std::vector< std::tuple<int,int> >::const_iterator match = matches.begin(); match != matches.end(); ++match) {
+          int t1= std::get<0>(*match);
+          int t2= std::get<1>(*match);
             if(t1==1){
                 users_matches.push_back( t2 );
             }
@@ -110,10 +109,11 @@ std::vector< int > League::getAllUserMatches() {
 const std::vector<std::pair<Team, Team>> League::getThisWeeksGames(){
     std::vector< std::tuple<int,int> > matches= this->Calendar[current_week];
     std::vector<std::pair<Team, Team>> matches_return;
-    for (int i = 0; i < 12 ; i++) {
-        std::tuple<int,int>  match = matches[i];
-        int t1= std::get<0>(match);
-        int t2= std::get<1>(match);
+
+    for (std::vector< std::tuple<int,int> >::const_iterator match = matches.begin(); match != matches.end(); ++match) {
+      int t1= std::get<0>(*match);
+      int t2= std::get<1>(*match);
+
         if( t1 != 1 && t2 != 1){   //Checking if team 1 (user's team) is in the match
             std::pair< Team, Team > match_return;
             match_return = std::make_pair(this->teams[t1-1], this->teams[t2-1]);

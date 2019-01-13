@@ -9,12 +9,14 @@ Calendar::Calendar(QWidget *parent) :
 {
     ui->setupUi(this);
     QStringList header;
-    header<<"Week"<<"Team againts";
+    header<<"Week"<<"Team against";
     this->ui->tableWidget->setHorizontalHeaderLabels(header);
     for (int i = 0; i < 22; i++ ) {
     this->ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(i+1)));
     this->ui->tableWidget->setItem(i,1,new QTableWidgetItem(QString::number(i)));
+
     }
+
 }
 Calendar::Calendar(User& myuser, League& myleague, QWidget *parent) :
     QDialog(parent),
@@ -24,11 +26,11 @@ Calendar::Calendar(User& myuser, League& myleague, QWidget *parent) :
     theuser=&myuser;
     theleague=&myleague;
     QStringList header;
-    header<<"Week"<<"Team againts";
+    header<<"Week"<<"Team against";
     this->ui->tableWidget->setHorizontalHeaderLabels(header);
     for (int i = 0; i < 22; i++ ) {
     this->ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(i+1)));
-    //this->ui->tableWidget->setItem(i,1,new QTableWidgetItem(std::get<0>(myleague.Calendar[i][0])));
+    //this->ui->tableWidget->setItem(i,1,new QTableWidgetItem( myleague.getAllUserMatches()[i] ) );
     }
 }
 

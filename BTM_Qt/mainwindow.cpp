@@ -248,7 +248,7 @@ void MainWindow::refresh(const User& theuser)
 
     //Ability tab
     QStringList header2;
-    header2<<"surname"<<"Overall"<<"Offense"<<"Deffense";
+    header2<<"surname"<<"Overall"<<"Offense"<<"Defense";
     this->ui->tableWidget_2->setColumnCount(4);
     this->ui->tableWidget_2->setRowCount(12);
     this->ui->tableWidget_2->setHorizontalHeaderLabels(header2);
