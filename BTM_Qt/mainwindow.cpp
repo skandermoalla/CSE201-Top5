@@ -236,10 +236,10 @@ void MainWindow::refresh(const User& theuser)
     QStringList header;
     header<<"surname"<<"Energy"<<"Motivation";
     this->ui->tableWidget_3->setColumnCount(3);
-    this->ui->tableWidget_3->setRowCount(12);
+    this->ui->tableWidget_3->setRowCount(theuser.team.players.size());
     this->ui->tableWidget_3->setHorizontalHeaderLabels(header);
 
-    for (int i = 0; i < 12; i++ ) {
+    for (int i = 0; i < theuser.team.players.size(); i++ ) {
     this->ui->tableWidget_3->setItem(i,0,new QTableWidgetItem(QString::fromStdString(theuser.team.players[i].surname)));
     this->ui->tableWidget_3->setItem(i,1,new QTableWidgetItem(QString::number(theuser.team.players[i].energy)));
     this->ui->tableWidget_3->setItem(i,2,new QTableWidgetItem(QString::number(theuser.team.players[i].motivation)));
@@ -250,10 +250,10 @@ void MainWindow::refresh(const User& theuser)
     QStringList header2;
     header2<<"surname"<<"Overall"<<"Offense"<<"Deffense";
     this->ui->tableWidget_2->setColumnCount(4);
-    this->ui->tableWidget_2->setRowCount(12);
+    this->ui->tableWidget_2->setRowCount(theuser.team.players.size());
     this->ui->tableWidget_2->setHorizontalHeaderLabels(header2);
 
-    for (int i = 0; i < 12; i++ ) {
+    for (int i = 0; i < theuser.team.players.size(); i++ ) {
     this->ui->tableWidget_2->setItem(i,0,new QTableWidgetItem(QString::fromStdString(theuser.team.players[i].surname)));
     this->ui->tableWidget_2->setItem(i,1,new QTableWidgetItem(QString::number(theuser.team.players[i].overallgeneral)));
     this->ui->tableWidget_2->setItem(i,2,new QTableWidgetItem(QString::number(theuser.team.players[i].attack)));
@@ -264,10 +264,10 @@ void MainWindow::refresh(const User& theuser)
     QStringList header3;
     header3<<"Surname"<<"Nationality"<<"Age"<<"Height"<<"Weight";
     this->ui->tableWidget->setColumnCount(5);
-    this->ui->tableWidget->setRowCount(12);
+    this->ui->tableWidget->setRowCount(theuser.team.players.size());
     this->ui->tableWidget->setHorizontalHeaderLabels(header3);
 
-    for (int i = 0; i < 12; i++ ) {
+    for (int i = 0; i < theuser.team.players.size(); i++ ) {
     this->ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::fromStdString(theuser.team.players[i].surname)));
     this->ui->tableWidget->setItem(i,1,new QTableWidgetItem((/*QIcon("images.png"), */"Country")));
     this->ui->tableWidget->setItem(i,2,new QTableWidgetItem(QString::number(theuser.team.players[i].age)));

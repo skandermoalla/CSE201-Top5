@@ -11,7 +11,7 @@ Team::Team(std::string na){ //takes a name
         players[j].division = division; */
     update_overall();
     for (int i=0;i<5;i++){
-    startingplayers.push_back(players[i]);
+    //startingplayers.push_back(players[i]);
     }
 };
 Team::Team(){ //takes a name
@@ -25,7 +25,7 @@ Team::Team(){ //takes a name
         players[j].division = division; */
     update_overall();
     for (int i=0;i<5;i++){
-    startingplayers.push_back(players[i]);
+    //startingplayers.push_back(players[i]);
     }
 };
 
