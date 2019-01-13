@@ -5,6 +5,7 @@
 #include<QTimer>
 #include <User.h>
 #include <League.h>
+#include <GameEngine/gameengine.h>
 namespace Ui {
 class NextGame;
 }
@@ -15,7 +16,7 @@ class NextGame : public QDialog
 
 public:
     explicit NextGame(QWidget *parent = nullptr);
-    explicit NextGame(User& theuser, League& league, QWidget *parent = nullptr);
+    explicit NextGame(GameEngine* eng, User& theuser, League& league, QWidget *parent = nullptr);
     ~NextGame();
 public slots:
     void quarter_1_timing();//function that set and display the time
@@ -23,6 +24,7 @@ public slots:
     void quarter_3_timing();
     void quarter_4_timing();
     void strat();
+
 private slots:
     void on_start_clicked(); //click start button
 
@@ -40,6 +42,16 @@ private:
     QTimer *s_timer;
     User* myuser;
     League* myleague;
+    GameEngine* engine;
+    bool isManagerAttacking;
+    std::pair<int, int> score;
+
+    Team playingManagersTeam;
+    Team playingOpponentsTeam;
+
+    //method
+
+
 };
 
 #endif // NEXTGAME_H
