@@ -285,3 +285,7 @@ void GameEngine::endOfQuarterRest(User* manager, Team& managersTeam, Team& oppen
     //update managers'team
     manager->team = copyTeam(managersTeam);
 }
+
+void GameEngine::endOfMatchUpdate(User *manager, League &league, Team &opponentsTeam) const{
+    //to do
+}

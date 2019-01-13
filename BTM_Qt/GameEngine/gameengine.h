@@ -41,6 +41,8 @@ public:
 
     void endOfQuarterRest(User* manager, Team& managersTeam, Team& oppentsTeam) const;
 
+    void endOfMatchUpdate(User* manager, League& league, Team& opponentsTeam)const ;
+
 
 private:
     //returns the outcome of a automatic game (scoreOfTeam1, scoreOfTeam2)
