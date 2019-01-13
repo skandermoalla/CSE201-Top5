@@ -30,6 +30,11 @@ public:
 
     void applyTactic(Team& team, const std::string tacticName) const;
 
+    void getBacktoDefaultTactic(Team& playingTeam, Team& initTeam) const;
+
+    Team copyTeam(Team team);
+
+    int getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isManagerAttacking);
 
 private:
     //returns the outcome of a automatic game (scoreOfTeam1, scoreOfTeam2)
@@ -39,8 +44,6 @@ private:
     void updateTeamsOverall(League& league, Team& team1, Team& team2, std::pair< int, int > score) const;
 
     void setAfterMatchOverall(League& league,Team& team, const int change, const int motivationChange) const;
-
-    void modifyTeamAttributes(Team& team, int att[]) const;
 
 
 };

@@ -2,11 +2,14 @@
 #include <memory>
 #include <cmath>
 #include <cstdlib>
-#include <QtDebug>
+#include <QDebug>
 #include <map>
 #include <string>
+#include <iostream>
 
-int GameEngine::tactic1[9] =  {0,0,0,0,0,0,0,0,0}; //declare tactics
+int GameEngine::tactic1[9] =  {0,0,0,0,0,0,0,0,0}; //declare tactics  in header too
+// modifiers of attributes [sprint;rebound;passing;handling;shooting;
+
 std::map< std::string, int(*)[9] > GameEngine::tactics {
     {"tactic1", &tactic1}, //add here the other tactics
 };
@@ -140,7 +143,46 @@ void GameEngine::setAfterMatchOverall(League& league, Team& team, const int chan
 
 void GameEngine::applyTactic(Team& team,const  std::string tacticName) const{
     // modifiers of attributes [sprint;rebound;passing;handling;shooting;
-        team.sprint +=  (*tactics[tacticName])[0];
-        //continue modification here
+
+    // decrese energy of the first five players
+
+    // update the attributes of the first five players
+
+    for (std::vector<Player>::iterator player = team.players.begin(); player != team.players.begin()+5; player++) {
+        player->attack += (*tactics[tacticName])[0];
+        //continue stuff
+    }
+     team.update_overall();
 };
+
+void GameEngine::getBacktoDefaultTactic(Team& playingTeam, Team& initTeam) const {
+    // copy init tean attributes to playing team attributes except from energy
+    // do not decrease energy
+}
+
+Team GameEngine::copyTeam(Team team){
+    return team;
+}
+
+int GameEngine::getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isManagerAttacking){
+    return 1; // testing
+
+    //get the players playing in managers team (first 5 in the list)
+    //get the average attributes
+
+    //same for opponents team but take all the players, (already strored in the team)
+
+    //do some Heuristics (include energy?) depending on whether it's attack or defence
+
+    //decrease the energy of the players playing (5first) for manager by some value
+    // decrease energy of all players of opponents team
+    // same total decrease
+
+    //update both teams overall
+
+    // return 0, 2, 3 respectively if attack failed, scored 2 points, scored 3points
+    // optionally create a message " {playerName} scored a 3point! wow!! ... "
+
+    //@ongoing kevin
+}
 

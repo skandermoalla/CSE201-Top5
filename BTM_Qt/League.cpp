@@ -125,6 +125,11 @@ const std::vector<std::pair<Team, Team>> League::getThisWeeksGames(){
     return matches_return;
 }
 
+Team& League::getThisWeeksOpponentTeam(){
+    Team* team = new Team("Lakers"); // to code
+    return *team;
+}
+
 
 
 

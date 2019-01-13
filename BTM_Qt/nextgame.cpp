@@ -29,6 +29,8 @@ NextGame::NextGame(GameEngine* eng, User& theuser, League& theleague, QWidget *p
     myuser = &theuser;
     myleague = &theleague;
     engine = eng;
+    isManagerAttacking = true;
+    score = std::pair<int, int>(0,0);
 
     ui->setupUi(this);
     timer = new QTimer(this); //new timer object
@@ -66,24 +68,50 @@ void NextGame::quarter_timing(){
         ui->end_msg->setText("End of the Quarter");
     }
 }
+
 QTime stra_time(0,0,0);
+
 void NextGame::strat(){
+
+
     QTime change_stra(0,0,15);
     if  (stra_time != change_stra){
-        qDebug()<<"updating strategy timer";
+        qDebug()<<"updating strategy function timer";
         stra_time = stra_time.addSecs(1);
     } else{
-        qDebug()<<"fifteen seconds reached";
+        qDebug()<<"fifteen seconds reached start function ";
         //insert your attack/defense function here
+
+        int outcome = engine->getAttackResult(playingManagersTeam, playingOpponentsTeam, isManagerAttacking);
+
+        qDebug()<<"outcome = " << outcome;
+        if (isManagerAttacking){
+            score.first += outcome;
+        }
+        else {
+            score.second += outcome;
+        }
+
+        isManagerAttacking = not isManagerAttacking;
+
         stra_time=stra_time.addSecs(-15);
-        qDebug()<<"stra_time="<<stra_time;
+        qDebug()<<"stra_time function ="<<stra_time;
     }
 }
 
 void NextGame::on_start_clicked()
 {
+    Team& initManagersTeam = myuser->team;
+    Team& initOpponentsTeam = myleague->getThisWeeksOpponentTeam();
+
+    playingManagersTeam = engine->copyTeam(initManagersTeam);
+    playingOpponentsTeam = engine->copyTeam(initOpponentsTeam);
+
+    qDebug()<<"copied them";
+
     connect(timer,SIGNAL(timeout()),this,SLOT(quarter_timing()));
     connect(s_timer,SIGNAL(timeout()),this,SLOT(strat()));
+
     timer->start(1000); //scale time
     s_timer->start(1000);
 

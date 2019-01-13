@@ -19,8 +19,11 @@ public:
     explicit NextGame(GameEngine* eng, User& theuser, League& league, QWidget *parent = nullptr);
     ~NextGame();
 public slots:
+
     void quarter_timing();//function that set and display the time
+
     void strat();
+
 private slots:
     void on_start_clicked(); //click start function
 
@@ -31,6 +34,11 @@ private:
     User* myuser;
     League* myleague;
     GameEngine* engine;
+    bool isManagerAttacking;
+    std::pair<int, int> score;
+
+    Team playingManagersTeam;
+    Team playingOpponentsTeam;
 
     //method
 
