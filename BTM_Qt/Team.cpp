@@ -154,6 +154,7 @@ void Team::update_overall(){
     jump = jump/players.size() ;
     strength = strength/players.size() ;
     motivation = motivation/players.size() ;
+    energy = energy/players.size() ;
     overallgeneral = sprint*0.1 + rebound*0.05 + passing*0.15 + handling*0.15 + shooting*0.2 + stealing*0.05 + block*0.05 + jump*0.1 +strength*0.15;
 }
 
