@@ -35,9 +35,12 @@ public:
 
     void getBacktoDefaultTactic(Team& playingTeam, Team& initTeam) const;
 
-    Team copyTeam(Team team);
+    Team copyTeam(Team team) const;
 
-    int getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isManagerAttacking);
+    int getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isManagerAttacking) const;
+
+    void endOfQuarterRest(User* manager, Team& managersTeam, Team& oppentsTeam) const;
+
 
 private:
     //returns the outcome of a automatic game (scoreOfTeam1, scoreOfTeam2)

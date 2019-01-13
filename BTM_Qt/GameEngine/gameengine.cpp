@@ -197,11 +197,11 @@ void GameEngine::getBacktoDefaultTactic(Team& playingTeam, Team& initTeam) const
 
 }
 
-Team GameEngine::copyTeam(Team team){
+Team GameEngine::copyTeam(Team team) const{
     return team;
 }
 
-int GameEngine::getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isManagerAttacking){
+int GameEngine::getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isManagerAttacking) const {
     return 1; // testing
 
     //get the players playing in managers team (first 5 in the list)
@@ -223,3 +223,13 @@ int GameEngine::getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isMa
     //@ongoing kevin
 }
 
+void GameEngine::endOfQuarterRest(User* manager, Team& managersTeam, Team& oppentsTeam) const{
+    //default tactic
+    getBacktoDefaultTactic(managersTeam, manager->team);
+
+    // add energy to all players of both teams (careful take min(energy+ ,  100))
+    //@Joan
+
+    //update managers'team
+    manager->team = copyTeam(managersTeam);
+}
