@@ -279,7 +279,7 @@ void GameEngine::endOfQuarterRest(User* manager, Team& managersTeam, Team& oppen
     //default tactic
     getBacktoDefaultTactic(managersTeam, manager->team);
 
-    // add energy to all players of both teams (careful take min(energy+ ,  100))
+    // add energy to all players of both teams (managersTeam and opponentsTeam)(careful take min(energy+1 ,  100))
     //@Joan
 
     //update managers'team
