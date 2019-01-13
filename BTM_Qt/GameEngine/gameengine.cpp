@@ -7,6 +7,7 @@
 #include <string>
 #include <iostream>
 
+
 int GameEngine::tactic1[9] =  {0,0,0,0,0,0,0,0,0}; //declare tactics  in header too
 // modifiers of attributes [sprint;rebound;passing;handling;shooting;
 
@@ -165,24 +166,77 @@ Team GameEngine::copyTeam(Team team){
 }
 
 int GameEngine::getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isManagerAttacking){
-    return 1; // testing
+    //return 1; // testing
 
     //get the players playing in managers team (first 5 in the list)
     //get the average attributes
 
     //same for opponents team but take all the players, (already strored in the team)
 
-    //do some Heuristics (include energy?) depending on whether it's attack or defence
+    // attack: (0.5*shooting, 0.05*sprint, 0.1*rebound, 0.2*passing, 0.15*block)
+    //defense: (0.5*rebound, 0.3*stealing, 0.2*jump)
+    double indAtt = 0;  //out of 100
+    double indDef = 0;  //out of 100
+    if (isManagerAttacking){
+        for (std::vector< Player >::iterator player = managersTeam.players.begin(); player != managersTeam.players.begin()+5; player++){
+            indAtt += (0.5*player->shooting + 0.05*player->sprint + 0.1*player->rebound + 0.2*player->passing + 0.15*player->block)*player->energy/100;
+        }
+        indAtt /= 5;
+        indDef += (0.5*oppentsTeam.rebound + 0.3*oppentsTeam.stealing + 0.2*oppentsTeam.jump)*oppentsTeam.energy/100;
+    qDebug()<<oppentsTeam.energy;
+    }
+    else{
+        for (std::vector< Player >::iterator player = managersTeam.players.begin(); player != managersTeam.players.begin()+5; player++){
+            indDef += (0.5*player->rebound + 0.3*player->stealing + 0.2*player->jump)*player->energy/100;
+        }
+        indDef /= 5;
+        indAtt += (0.5*oppentsTeam.shooting + 0.05*oppentsTeam.sprint + 0.1*oppentsTeam.rebound + 0.2*oppentsTeam.passing + 0.15*oppentsTeam.block)*oppentsTeam.energy/100;
+    }
+
+    qDebug()<<"indDef";
+    qDebug()<<indDef;
+    qDebug()<<"indAtt";
+    qDebug()<<indAtt;
+
 
     //decrease the energy of the players playing (5first) for manager by some value
     // decrease energy of all players of opponents team
     // same total decrease
 
-    //update both teams overall
+    for (std::vector< Player >::iterator player = managersTeam.players.begin(); player != managersTeam.players.begin()+5; player++){
+        player->energy -= 2;
+    }
+    for (std::vector< Player >::iterator player = oppentsTeam.players.begin(); player != oppentsTeam.players.end(); player++){
+        player->energy -= 1;
+    }
 
+    //do some Heuristics (include energy?) depending on whether it's attack or defence
     // return 0, 2, 3 respectively if attack failed, scored 2 points, scored 3points
     // optionally create a message " {playerName} scored a 3point! wow!! ... "
+    double probSc = (1-log(1.25*indDef/indAtt))*indAtt/100; // <1 , can be negative
+    qDebug()<< "probSc";
+    qDebug()<< probSc;
+    double r = (double)rand() / (RAND_MAX);
+    qDebug()<<"r";
+    qDebug()<<r;
 
+    int res;
+
+    if (r>=probSc){
+        res =  0;
+    }
+    else if (r<probSc/3){
+        res = 3;
+    }
+    else{
+        res = 2;
+    }
+
+    //update both teams overall
+    managersTeam.update_overall();
+    oppentsTeam.update_overall();
+
+    return res;
     //@ongoing kevin
 }
 
