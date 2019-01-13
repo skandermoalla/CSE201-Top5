@@ -176,7 +176,7 @@ void NextGame::on_start_clicked()
 
     qDebug()<<"copied them";
 
-    connect(timer,SIGNAL(timeout()),this,SLOT(quarter_timing()));
+    connect(timer,SIGNAL(timeout()),this,SLOT(quarter_1_timing()));
     connect(s_timer,SIGNAL(timeout()),this,SLOT(strat()));
 
     timer->start(1000); //scale time
