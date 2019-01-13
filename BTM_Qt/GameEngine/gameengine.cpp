@@ -7,11 +7,18 @@
 #include <string>
 #include <iostream>
 
-int GameEngine::tactic1[9] =  {0,0,0,0,0,0,0,0,0}; //declare tactics  in header too
-// modifiers of attributes [sprint;rebound;passing;handling;shooting;
+//GameEngine::tacticIdentifier[11] = {energy, motivation, shooting, stealing, sprint, rebound, passing, handling, block, jump, strength}
+int GameEngine::FullCourtPress[11] = {-15,2,-1,5,2,3,0,0,5,0,4};
+int GameEngine::FastBreak[11] = {-10,3,5,3,3,2,-2,+2,0,0,-2};
+int GameEngine::ZoneDefence[11] = {-5,0,2,3,2,5,-3,0,-2,4,-2};
+int GameEngine::FullTimeAttack[11] = {-10,5,4,0,-1,1,3,2,0,0,-1};
 
-std::map< std::string, int(*)[9] > GameEngine::tactics {
-    {"tactic1", &tactic1}, //add here the other tactics
+
+std::map< std::string, int(*)[11] > GameEngine::tactics {
+    {"FullCourtPress", &FullCourtPress},
+    {"FastBreak", &FastBreak},
+    {"ZoneDefence", &ZoneDefence},
+    {"FullTimeAttack", &FullTimeAttack}
 };
 
 
@@ -149,15 +156,45 @@ void GameEngine::applyTactic(Team& team,const  std::string tacticName) const{
     // update the attributes of the first five players
 
     for (std::vector<Player>::iterator player = team.players.begin(); player != team.players.begin()+5; player++) {
-        player->attack += (*tactics[tacticName])[0];
-        //continue stuff
+        player->energy += (*tactics[tacticName])[0];
+        player->motivation += (*tactics[tacticName])[1];
+        player->shooting += (*tactics[tacticName])[2];
+        player->stealing += (*tactics[tacticName])[3];
+        player->sprint += (*tactics[tacticName])[4];
+        player->rebound += (*tactics[tacticName])[5];
+        player->passing += (*tactics[tacticName])[6];
+        player->handling += (*tactics[tacticName])[7];
+        player->block += (*tactics[tacticName])[8];
+        player->jump += (*tactics[tacticName])[9];
+        player->strength += (*tactics[tacticName])[10];
     }
      team.update_overall();
-};
+}
 
 void GameEngine::getBacktoDefaultTactic(Team& playingTeam, Team& initTeam) const {
     // copy init tean attributes to playing team attributes except from energy
     // do not decrease energy
+    //assuming the players are in the same order
+
+    for (std::vector<Player>::iterator playingPlayer = playingTeam.players.begin(), initPlayer = initTeam.players.begin();
+         playingPlayer != playingTeam.players.end() && initPlayer != initTeam.players.end();
+         playingPlayer++, initPlayer++){
+
+        playingPlayer->stealing = initPlayer->stealing;
+        playingPlayer->block = initPlayer->block;
+        playingPlayer->sprint = initPlayer->sprint;
+        playingPlayer->rebound = initPlayer->rebound;
+        playingPlayer->strength = initPlayer->strength;
+        playingPlayer->shooting = initPlayer->shooting;
+        playingPlayer->handling = initPlayer->handling;
+        playingPlayer->passing = initPlayer->passing;
+        playingPlayer->jump = initPlayer->jump;
+        playingPlayer->motivation = initPlayer->motivation;
+
+        //motivation and energy are not copied
+    }
+    playingTeam.update_overall();
+
 }
 
 Team GameEngine::copyTeam(Team team){

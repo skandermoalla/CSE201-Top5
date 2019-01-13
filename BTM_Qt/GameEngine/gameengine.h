@@ -14,8 +14,11 @@ class GameEngine
 public:
     GameEngine();
 
-    static std::map<std::string, int(*)[9]> tactics;
-    static int tactic1[9];
+    static std::map<std::string, int(*)[11]> tactics;
+    static int FullCourtPress[11];
+    static int FastBreak[11];
+    static int ZoneDefence[11];
+    static int FullTimeAttack[11];
 
     //methods
 
