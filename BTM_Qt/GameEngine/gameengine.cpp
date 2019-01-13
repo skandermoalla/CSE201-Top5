@@ -201,7 +201,7 @@ Team GameEngine::copyTeam(Team team) const{
     return team;
 }
 
-int GameEngine::getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isManagerAttacking){
+int GameEngine::getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isManagerAttacking) const{
 
     //get the players playing in managers team (first 5 in the list)
     //get the average attributes
