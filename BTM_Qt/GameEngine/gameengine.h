@@ -41,7 +41,7 @@ public:
 
     void endOfQuarterRest(User* manager, Team& managersTeam, Team& oppentsTeam) const;
 
-    void endOfMatchUpdate(User* manager, League& league, Team& opponentsTeam)const ;
+    void endOfMatchUpdate(User* manager, League& league, Team& opponentsTeam ,std::pair< int, int > score)const ;
 
 
 private:
