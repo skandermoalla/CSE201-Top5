@@ -24,22 +24,23 @@ League::League(int divi, std::string seas){          //Takes arguments : divisio
     season = seas;
     int n = rand()%12 ;
     for (int i = 0; i < 12; i++) {
-        Team t= Team( teamNames[(n + i) % 12] );
+        Team* t = new Team( teamNames[(n + i) % 12] );
         League::teams.push_back(t);
     }
     for (int i=0; i<30 ; i++){
         playermarket.push_back(Player());
     }
+    current_week =1;
     Calendar = calendar();  //Calendar has some problems
     //ThisWeeksGames = getThisWeeksGames();  //uncomment when calendar is ready
 }
 
-League::League(){          //Takes arguments : division as an int and a season as a string
+League::League(){          //Creates a default league in 3rd division and in season 17/18
     division = 3 ;
     season = "1718";
     int n = rand()%12 ;
     for (int i = 0; i < 12; i++) {
-        Team t= Team( teamNames[(n + i) % 12] );
+        Team* t= new Team( teamNames[(n + i) % 12] );
         League::teams.push_back(t);
     }
     Calendar=calendar();
@@ -116,7 +117,7 @@ const std::vector<std::pair<Team, Team>> League::getThisWeeksGames(){
         int t2= std::get<1>(match);
         if( t1 != 1 && t2 != 1){   //Checking if team 1 (user's team) is in the match
             std::pair< Team, Team > match_return;
-            match_return = std::make_pair(this->teams[t1-1], this->teams[t2-1]);
+            match_return = std::make_pair(*this->teams[t1-1], *this->teams[t2-1]);
             matches_return.push_back(match_return);
         }
 
@@ -126,8 +127,8 @@ const std::vector<std::pair<Team, Team>> League::getThisWeeksGames(){
 }
 
 Team& League::getThisWeeksOpponentTeam(){
-    Team* team = new Team("Lakers"); // to code
-    return *team;
+    int team_int = getAllUserMatches()[current_week-1];
+    return this->teams[team_int];
 }
 
 
