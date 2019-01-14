@@ -3,7 +3,7 @@
 #include <QLabel>
 #include <iostream>
 
-Calendar::Calendar(QWidget *parent) :
+/*Calendar::Calendar(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Calendar)
 {
@@ -17,7 +17,8 @@ Calendar::Calendar(QWidget *parent) :
 
     }
 
-}
+}*/
+
 Calendar::Calendar(User& myuser, League& myleague, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Calendar)
@@ -30,7 +31,7 @@ Calendar::Calendar(User& myuser, League& myleague, QWidget *parent) :
     this->ui->tableWidget->setHorizontalHeaderLabels(header);
     for (int i = 0; i < 22; i++ ) {
     this->ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(i+1)));
-    //this->ui->tableWidget->setItem(i,1,new QTableWidgetItem( myleague.getAllUserMatches()[i] ) );
+    this->ui->tableWidget->setItem(i,1,new QTableWidgetItem(QString::number(myleague.getAllUserMatches()[i])));
     }
 }
 
