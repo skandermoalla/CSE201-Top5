@@ -28,20 +28,23 @@ public:
     //simulates a Game not involving the manager between two teams and update their attributes according to the final score
     void simulateAutomatedGame(League& league, Team team1, Team team2) const;
 
-    // (loading...)
-    void playThisWeeksGame(User& manager, League& league, Team& opponentsTeam) const;
-
+    //applies a tactic withtin a game played by the manager
     void applyTactic(Team& team, const std::string tacticName) const;
 
+    //applies the default tactic to the manager's team while playing
     void getBacktoDefaultTactic(Team& playingTeam, Team& initTeam) const;
 
+    //return a clone of the team
     Team copyTeam(Team team) const;
 
+    //simulates the outcome of an attack/defence
     int getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isManagerAttacking) const;
 
+    //adds energy to players at the end of a quarter
     void endOfQuarterRest(User* manager, Team& managersTeam, Team& oppentsTeam) const;
 
-    void endOfMatchUpdate(User* manager, League& league, Team& opponentsTeam)const ;
+    //updates the manager's status at the end of a match
+    void endOfMatchUpdate(User* manager, League& league, Team& opponentsTeam ,std::pair< int, int > score)const ;
 
 
 private:
@@ -51,6 +54,7 @@ private:
    //updates the attributes of the teams after a game according to its outcome
     void updateTeamsOverall(League& league, Team& team1, Team& team2, std::pair< int, int > score) const;
 
+    //updates the team players after a match
     void setAfterMatchOverall(League& league,Team& team, const int change, const int motivationChange) const;
 
 

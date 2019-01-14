@@ -13,7 +13,7 @@ int GameEngine::FastBreak[11] = {-10,3,5,3,3,2,-2,+2,0,0,-2};
 int GameEngine::ZoneDefence[11] = {-5,0,2,3,2,5,-3,0,-2,4,-2};
 int GameEngine::FullTimeAttack[11] = {-10,5,4,0,-1,1,3,2,0,0,-1};
 
-
+// map of tactics
 std::map< std::string, int(*)[11] > GameEngine::tactics {
     {"FullCourtPress", &FullCourtPress},
     {"FastBreak", &FastBreak},
@@ -36,16 +36,16 @@ void GameEngine::simulateThisWeeksGames(League& league) const{
 }
 
 void GameEngine::simulateAutomatedGame(League& league, Team team1, Team team2) const{
+    //Simulate the game and get its score
     std::pair< int, int > score = getAutomaticWinner(team1, team2);
-    std::pair<Team, Team> match(team1,team2);
-    //league.ThisWeeksScores.insert(std::pair< std::pair<Team, Team>, std::pair<int, int>>(match, score));
+
+    //record the score in the league scores
     league.ThisWeeksScores.push_back(score);
+
+    //update the team players according to the game results
     updateTeamsOverall(league, team1, team2, score);
 }
 
-void GameEngine::playThisWeeksGame(User& manager, League& league, Team& opponentsTeam)const {
-
-}
 
 std::pair< int, int > GameEngine::getAutomaticWinner(const Team team1, const Team team2) const{
     const int NUMBER_OF_DRAWS = 40;
@@ -89,7 +89,7 @@ std::pair< int, int > GameEngine::getAutomaticWinner(const Team team1, const Tea
 
 double KFactor(double overall) {
     return 0.3*(100 - overall);
-}                      //K factor (to be improved), teams with higher scores gets smaller modifications
+}                      //Teams with higher scores gets smaller modifications
 
 
 void GameEngine::updateTeamsOverall(League& league, Team& team1, Team& team2, std::pair< int, int > score) const{
@@ -272,20 +272,39 @@ int GameEngine::getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isMa
     oppentsTeam.update_overall();
 
     return res;
-    //@ongoing kevin
 }
 
 void GameEngine::endOfQuarterRest(User* manager, Team& managersTeam, Team& oppentsTeam) const{
     //default tactic
     getBacktoDefaultTactic(managersTeam, manager->team);
 
-    // add energy to all players of both teams (managersTeam and opponentsTeam)(careful take min(energy+1 ,  100))
-    //@Joan
+    //Add 20 energy to the first 5 players
+    for (std::vector< Player >::iterator player = managersTeam.players.begin(); player != managersTeam.players.begin()+5; player++){
+        player->energy = std::min(player->energy+20, 100);
+    }
+
+    //Add 5 energy to the rest of the players
+    for (std::vector< Player >::iterator player = managersTeam.players.begin()+5; player != managersTeam.players.end(); player++){
+        player->energy = std::min(player->energy+5, 100);
+    }
+
+    //Add 12 energy to the players of the opponent team
+    for (std::vector< Player >::iterator player = oppentsTeam.players.begin(); player != oppentsTeam.players.end(); player++){
+        player->energy = std::min(player->energy+12, 100);
+    }
 
     //update managers'team
     manager->team = copyTeam(managersTeam);
 }
 
-void GameEngine::endOfMatchUpdate(User *manager, League &league, Team &opponentsTeam) const{
-    //to do
+void GameEngine::endOfMatchUpdate(User *manager, League &league, Team &opponentsTeam, std::pair< int, int > score) const{
+    updateTeamsOverall(league, manager->team, opponentsTeam, score);
+    int reward;
+    if (score.first > score.second) {
+        reward = 1000; //To be modified.
+    }
+    else {
+        reward = 200; //To be modified.
+    }
+    manager->budget += reward;
 }
