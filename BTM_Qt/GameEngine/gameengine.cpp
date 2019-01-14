@@ -13,7 +13,7 @@ int GameEngine::FastBreak[11] = {-10,3,5,3,3,2,-2,+2,0,0,-2};
 int GameEngine::ZoneDefence[11] = {-5,0,2,3,2,5,-3,0,-2,4,-2};
 int GameEngine::FullTimeAttack[11] = {-10,5,4,0,-1,1,3,2,0,0,-1};
 
-
+// map of tactics
 std::map< std::string, int(*)[11] > GameEngine::tactics {
     {"FullCourtPress", &FullCourtPress},
     {"FastBreak", &FastBreak},
@@ -36,16 +36,16 @@ void GameEngine::simulateThisWeeksGames(League& league) const{
 }
 
 void GameEngine::simulateAutomatedGame(League& league, Team team1, Team team2) const{
+    //Simulate the game and get its score
     std::pair< int, int > score = getAutomaticWinner(team1, team2);
-    std::pair<Team, Team> match(team1,team2);
-    //league.ThisWeeksScores.insert(std::pair< std::pair<Team, Team>, std::pair<int, int>>(match, score));
+
+    //record the score in the league scores
     league.ThisWeeksScores.push_back(score);
+
+    //update the team players according to the game results
     updateTeamsOverall(league, team1, team2, score);
 }
 
-void GameEngine::playThisWeeksGame(User& manager, League& league, Team& opponentsTeam)const {
-
-}
 
 std::pair< int, int > GameEngine::getAutomaticWinner(const Team team1, const Team team2) const{
     const int NUMBER_OF_DRAWS = 40;
@@ -277,9 +277,6 @@ int GameEngine::getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isMa
 void GameEngine::endOfQuarterRest(User* manager, Team& managersTeam, Team& oppentsTeam) const{
     //default tactic
     getBacktoDefaultTactic(managersTeam, manager->team);
-
-    // add energy to all players of both teams (managersTeam and opponentsTeam)(careful take min(energy+20 ,  100))
-    //@Joan
 
     //Add 20 energy to the first 5 players
     for (std::vector< Player >::iterator player = managersTeam.players.begin(); player != managersTeam.players.begin()+5; player++){
