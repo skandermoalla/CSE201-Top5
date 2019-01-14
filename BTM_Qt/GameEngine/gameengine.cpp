@@ -287,4 +287,10 @@ void GameEngine::endOfQuarterRest(User* manager, Team& managersTeam, Team& oppen
 
 void GameEngine::endOfMatchUpdate(User *manager, League &league, Team &opponentsTeam, std::pair< int, int > score) const{
     updateTeamsOverall(league, manager->team, opponentsTeam, score);
+    if (score.first > score.second) {
+        manager->budget += 1000; //To be modified.
+    }
+    else {
+        manager->budget += 200; //To be modified.
+    }
 }
