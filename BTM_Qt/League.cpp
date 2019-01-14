@@ -1,20 +1,24 @@
 #include "League.h"
+#include <utility>
+#include <iostream>
 
 //auxiliary function to find the intersection of two vectors
-std::vector<int> intersection(std::vector<int> vect1, std::vector<int> vect2) {
+
+std::vector<int> intersection(const std::vector<int> vect1, const std::vector<int> vect2) {
     std::vector<int> intersect;
-    for (int i = 0; i < vect1.size(); i++) {
-        for (int j = 0; j < vect2.size(); j++) {
-            if (vect1[i] == vect2[j]) {
-                intersect.push_back(vect1[i]);
+    for (std::vector<int>::const_iterator i = vect1.begin(); i != vect1.end(); i++) {
+        for (std::vector<int>::const_iterator j = vect2.begin(); j != vect2.end(); j++) {
+            if (*i == *j) {
+                intersect.push_back(*i);
             }
         }
     }
     return intersect;
-};
-std::string teamNames[] = { "Lakers","Cavaliers","Raptors","Warriors","Thunders","76ers","Bulls","Wizards","Celtics","Pacers","Nets","Hawks" };
+}
 
-// why a string for seas? how are you going to increment it? it should be an int.
+
+const std::string teamNames[] = { "Lakers","Cavaliers","Raptors","Warriors","Thunders","76ers","Bulls","Wizards","Celtics","Pacers","Nets","Hawks" };
+
 League::League(int divi, std::string seas){          //Takes arguments : division as an int and a season as a string
     division = divi ;
     season = seas;
@@ -23,12 +27,13 @@ League::League(int divi, std::string seas){          //Takes arguments : divisio
         Team t= Team( teamNames[(n + i) % 12] );
         League::teams.push_back(t);
     }
-
-    /*std::map<std::string, double,std::list> attributes;
-     attributes["season"] = seas;
-     attributes["division"] = divi;
-     */
+    for (int i=0; i<30 ; i++){
+        playermarket.push_back(Player());
+    }
+    Calendar = calendar();  //Calendar has some problems
+    //ThisWeeksGames = getThisWeeksGames();  //uncomment when calendar is ready
 }
+
 League::League(){          //Takes arguments : division as an int and a season as a string
     division = 3 ;
     season = "1718";
@@ -37,11 +42,11 @@ League::League(){          //Takes arguments : division as an int and a season a
         Team t= Team( teamNames[(n + i) % 12] );
         League::teams.push_back(t);
     }
-
-    /*std::map<std::string, double,std::list> attributes;
-     attributes["season"] = seas;
-     attributes["division"] = divi;
-     */
+    Calendar=calendar();
+    current_week = 1;
+    for (int i=0; i<30 ; i++){
+        playermarket.push_back(Player());
+    }
 }
 
 std::map<int, std::vector< std::tuple<int,int> > > League::calendar()
@@ -77,6 +82,47 @@ std::map<int, std::vector< std::tuple<int,int> > > League::calendar()
     }
 
     return calendar;
+}
+
+
+std::vector< int > League::getAllUserMatches() {
+    std::vector< int > users_matches;
+    for (int w = 1; w < 23; w++) {
+        const std::vector< std::tuple<int,int> >& matches= this->Calendar[w];
+
+       for (std::vector< std::tuple<int,int> >::const_iterator match = matches.begin(); match != matches.end(); ++match) {
+          int t1= std::get<0>(*match);
+          int t2= std::get<1>(*match);
+            if(t1==1){
+                users_matches.push_back( t2 );
+            }
+            if(t2==1){
+                users_matches.push_back( t1 );
+            }
+        }
+    }
+    return users_matches;
+
+}
+
+
+const std::vector<std::pair<Team, Team>> League::getThisWeeksGames(){
+    std::vector< std::tuple<int,int> > matches= this->Calendar[current_week];
+    std::vector<std::pair<Team, Team>> matches_return;
+
+    for (std::vector< std::tuple<int,int> >::const_iterator match = matches.begin(); match != matches.end(); ++match) {
+      int t1= std::get<0>(*match);
+      int t2= std::get<1>(*match);
+
+        if( t1 != 1 && t2 != 1){   //Checking if team 1 (user's team) is in the match
+            std::pair< Team, Team > match_return;
+            match_return = std::make_pair(this->teams[t1-1], this->teams[t2-1]);
+            matches_return.push_back(match_return);
+        }
+
+
+    }
+    return matches_return;
 }
 
 

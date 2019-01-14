@@ -1,6 +1,8 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <string>
+#include<QListView>
+#include <QLabel>
 #pragma once
 
 class Player{
@@ -32,8 +34,11 @@ public:
     double defence;
     double overallgeneral;
     double marketvalue;
+    QString photoadress;
+
     //player methods
     void update_overall();
+    void afterMatchUpdate(const int change, const int motivationChange);
 
 };
 

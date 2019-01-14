@@ -21,7 +21,7 @@ std::vector<int> intersection(std::vector<int> vect1, std::vector<int> vect2) {
     }
     return intersect;
 };
-std::string teamNames[] = { "Lakers","Cavaliers","Raptors","Warriors","Thunders","76ers","Bulls","Wizards","Celtics","Pacers","Nets","Hawks" };
+std::string teamNames[] = {"Los Angeles Lakers","Golden State Warriors","Toronto Raptors","Boston Celtics","San Antonio Spurs","Houston Rockets","Cleveland Cavaliers","New York Knicks","Chicago Bulls","Los Angeles Clippers","Washington Wizards","Memphis Grizzlies","Sacramento Kings","Charlotte Bobcats","Miami Heat","New Orleans Hornets","Dallas Mavericks","Detroit Pistons","Atlanta Hawks","Indiana Pacers","New Jersey Nets","Phoenix Suns","Utah Jazz","Denver Nuggets","Nanterre 92","Real Madrid","FC Barcelona","Abidjan Basket Club","New Zealand Breakers","Singapore Slingers","Portland Trail Blazers","Harlem Globetrotters","Rabat FUS","Casablanca Raja","Tangier Ittihad","Fez Maghreb","Berkane Renaissance","FAR Rabat","BC Teuta Durres","Tirana" };
 
 // why a string for seas? how are you going to increment it? it should be an int.
 League::League(int divi, std::string seas){          //Takes arguments : division as an int and a season as a string

@@ -39,14 +39,14 @@ SOURCES += \
     Player.cpp \
     Team.cpp \
     User.cpp \
-    nextgame.cpp
+    nextgame.cpp \
+    GameEngine/gameengine.cpp
 
 HEADERS += \
         mainwindow.h \
     calendar.h \
     training.h \
     preparation.h \
-    data.h \
     display.h \
     mainmenu.h \
     startmenu.h \
@@ -56,7 +56,8 @@ HEADERS += \
     Player.h \
     Team.h \
     User.h \
-    nextgame.h
+    nextgame.h \
+    GameEngine/gameengine.h
 
 FORMS += \
         mainwindow.ui \
@@ -76,3 +77,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    res_file.qrc

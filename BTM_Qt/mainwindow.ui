@@ -6,363 +6,799 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>794</width>
-    <height>543</height>
+    <width>803</width>
+    <height>547</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <layout class="QGridLayout" name="gridLayout">
-    <item row="12" column="6" colspan="2">
-     <widget class="QPushButton" name="pushButton_4">
-      <property name="text">
-       <string>Team Infor</string>
+   <widget class="QPushButton" name="pushButton_4">
+    <property name="geometry">
+     <rect>
+      <x>439</x>
+      <y>450</y>
+      <width>91</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Team Infor</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_5">
+    <property name="geometry">
+     <rect>
+      <x>586</x>
+      <y>450</y>
+      <width>101</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Next Match</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>295</x>
+      <y>450</y>
+      <width>91</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Market</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber_10">
+    <property name="geometry">
+     <rect>
+      <x>223</x>
+      <y>420</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber_9">
+    <property name="geometry">
+     <rect>
+      <x>78</x>
+      <y>420</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10p">
+    <property name="geometry">
+     <rect>
+      <x>156</x>
+      <y>420</y>
+      <width>37</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pos10</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber_11">
+    <property name="geometry">
+     <rect>
+      <x>367</x>
+      <y>420</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>450</y>
+      <width>91</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Calendar</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>450</y>
+      <width>91</width>
+      <height>32</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Training</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_11p">
+    <property name="geometry">
+     <rect>
+      <x>301</x>
+      <y>420</y>
+      <width>35</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pos11</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber_12">
+    <property name="geometry">
+     <rect>
+      <x>512</x>
+      <y>420</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_12p">
+    <property name="geometry">
+     <rect>
+      <x>445</x>
+      <y>420</y>
+      <width>37</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pos12</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4p">
+    <property name="geometry">
+     <rect>
+      <x>445</x>
+      <y>123</y>
+      <width>31</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pos4</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6p">
+    <property name="geometry">
+     <rect>
+      <x>156</x>
+      <y>268</y>
+      <width>31</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pos6</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2p">
+    <property name="geometry">
+     <rect>
+      <x>156</x>
+      <y>123</y>
+      <width>31</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pos2</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="labelp">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>123</y>
+      <width>29</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pos1</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber_7">
+    <property name="geometry">
+     <rect>
+      <x>367</x>
+      <y>268</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>156</x>
+      <y>244</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Player6</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber_3">
+    <property name="geometry">
+     <rect>
+      <x>367</x>
+      <y>123</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber_2">
+    <property name="geometry">
+     <rect>
+      <x>223</x>
+      <y>123</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3p">
+    <property name="geometry">
+     <rect>
+      <x>301</x>
+      <y>123</y>
+      <width>31</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pos3</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>99</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Player1</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>390</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Player9</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_11">
+    <property name="geometry">
+     <rect>
+      <x>301</x>
+      <y>390</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Player11</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber_6">
+    <property name="geometry">
+     <rect>
+      <x>223</x>
+      <y>268</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5p">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>268</y>
+      <width>31</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pos5</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>301</x>
+      <y>99</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Player3</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber_5">
+    <property name="geometry">
+     <rect>
+      <x>78</x>
+      <y>268</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber">
+    <property name="geometry">
+     <rect>
+      <x>78</x>
+      <y>123</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>64</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>301</x>
+      <y>244</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Player7</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_12">
+    <property name="geometry">
+     <rect>
+      <x>445</x>
+      <y>390</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Player12</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>156</x>
+      <y>99</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Player2</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7p">
+    <property name="geometry">
+     <rect>
+      <x>301</x>
+      <y>268</y>
+      <width>30</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pos7</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8p">
+    <property name="geometry">
+     <rect>
+      <x>445</x>
+      <y>268</y>
+      <width>31</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pos8</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10">
+    <property name="geometry">
+     <rect>
+      <x>156</x>
+      <y>390</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Player10</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>244</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Player5</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>445</x>
+      <y>244</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Player8</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber_8">
+    <property name="geometry">
+     <rect>
+      <x>512</x>
+      <y>268</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9p">
+    <property name="geometry">
+     <rect>
+      <x>12</x>
+      <y>420</y>
+      <width>31</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Pos9</string>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber_4">
+    <property name="geometry">
+     <rect>
+      <x>512</x>
+      <y>123</y>
+      <width>64</width>
+      <height>23</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>445</x>
+      <y>99</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Player4</string>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>592</x>
+      <y>6</y>
+      <width>190</width>
+      <height>431</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>190</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="tab1">
+     <attribute name="title">
+      <string>Info</string>
+     </attribute>
+     <widget class="QTableWidget" name="tableWidget">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>181</width>
+        <height>401</height>
+       </rect>
       </property>
      </widget>
-    </item>
-    <item row="12" column="8">
-     <widget class="QPushButton" name="pushButton_5">
-      <property name="text">
-       <string>Next Match</string>
+    </widget>
+    <widget class="QWidget" name="tab2">
+     <attribute name="title">
+      <string>Ability</string>
+     </attribute>
+     <widget class="QTableWidget" name="tableWidget_2">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>181</width>
+        <height>401</height>
+       </rect>
       </property>
      </widget>
-    </item>
-    <item row="12" column="4" colspan="2">
-     <widget class="QPushButton" name="pushButton_2">
-      <property name="text">
-       <string>Preparation</string>
+    </widget>
+    <widget class="QWidget" name="tab3">
+     <attribute name="title">
+      <string>Energy</string>
+     </attribute>
+     <widget class="QTableWidget" name="tableWidget_3">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>181</width>
+        <height>401</height>
+       </rect>
       </property>
      </widget>
-    </item>
-    <item row="9" column="3">
-     <widget class="QLCDNumber" name="lcdNumber_10"/>
-    </item>
-    <item row="9" column="1">
-     <widget class="QLCDNumber" name="lcdNumber_9"/>
-    </item>
-    <item row="9" column="2">
-     <widget class="QLabel" name="label_10p">
-      <property name="text">
-       <string>Pos10</string>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="5">
-     <widget class="QLCDNumber" name="lcdNumber_11"/>
-    </item>
-    <item row="12" column="0" colspan="2">
-     <widget class="QPushButton" name="pushButton">
-      <property name="text">
-       <string>Calendar</string>
-      </property>
-     </widget>
-    </item>
-    <item row="12" column="2" colspan="2">
-     <widget class="QPushButton" name="pushButton_3">
-      <property name="text">
-       <string>Training</string>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="4">
-     <widget class="QLabel" name="label_11p">
-      <property name="text">
-       <string>Pos11</string>
-      </property>
-     </widget>
-    </item>
-    <item row="9" column="7">
-     <widget class="QLCDNumber" name="lcdNumber_12"/>
-    </item>
-    <item row="9" column="6">
-     <widget class="QLabel" name="label_12p">
-      <property name="text">
-       <string>Pos12</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="0" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView"/>
-    </item>
-    <item row="4" column="6" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_10"/>
-    </item>
-    <item row="1" column="6" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_4"/>
-    </item>
-    <item row="3" column="6">
-     <widget class="QLabel" name="label_4p">
-      <property name="text">
-       <string>Pos4</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="2">
-     <widget class="QLabel" name="label_6p">
-      <property name="text">
-       <string>Pos6</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="2">
-     <widget class="QLabel" name="label_2p">
-      <property name="text">
-       <string>Pos2</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="4" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_3"/>
-    </item>
-    <item row="3" column="0">
-     <widget class="QLabel" name="labelp">
-      <property name="text">
-       <string>Pos1</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="5">
-     <widget class="QLCDNumber" name="lcdNumber_7"/>
-    </item>
-    <item row="5" column="2" colspan="2">
-     <widget class="QLabel" name="label_6">
-      <property name="text">
-       <string>Player6</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="5">
-     <widget class="QLCDNumber" name="lcdNumber_3"/>
-    </item>
-    <item row="3" column="3">
-     <widget class="QLCDNumber" name="lcdNumber_2"/>
-    </item>
-    <item row="3" column="4">
-     <widget class="QLabel" name="label_3p">
-      <property name="text">
-       <string>Pos3</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="4" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_11"/>
-    </item>
-    <item row="2" column="0" colspan="2">
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>Player1</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="0" colspan="2">
-     <widget class="QLabel" name="label_9">
-      <property name="text">
-       <string>Player9</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="4" colspan="2">
-     <widget class="QLabel" name="label_11">
-      <property name="text">
-       <string>Player11</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="3">
-     <widget class="QLCDNumber" name="lcdNumber_6"/>
-    </item>
-    <item row="6" column="0">
-     <widget class="QLabel" name="label_5p">
-      <property name="text">
-       <string>Pos5</string>
-      </property>
-     </widget>
-    </item>
-    <item row="2" column="4" colspan="2">
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>Player3</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="1">
-     <widget class="QLCDNumber" name="lcdNumber_5"/>
-    </item>
-    <item row="3" column="1">
-     <widget class="QLCDNumber" name="lcdNumber">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>64</height>
-       </size>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="4" colspan="2">
-     <widget class="QLabel" name="label_7">
-      <property name="text">
-       <string>Player7</string>
-      </property>
-     </widget>
-    </item>
-    <item row="8" column="6" colspan="2">
-     <widget class="QLabel" name="label_12">
-      <property name="text">
-       <string>Player12</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="0" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_5"/>
-    </item>
-    <item row="7" column="0" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_6"/>
-    </item>
-    <item row="2" column="2" colspan="2">
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>Player2</string>
-      </property>
-     </widget>
-    </item>
-    <item row="7" column="6" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_12"/>
-    </item>
-    <item row="7" column="2" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_8"/>
-    </item>
-    <item row="4" column="2" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_7"/>
-    </item>
-    <item row="6" column="4">
-     <widget class="QLabel" name="label_7p">
-      <property name="text">
-       <string>Pos7</string>
-      </property>
-     </widget>
-    </item>
-    <item row="6" column="6">
-     <widget class="QLabel" name="label_8p">
-      <property name="text">
-       <string>Pos8</string>
-      </property>
-     </widget>
-    </item>
-    <item row="4" column="4" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_9"/>
-    </item>
-    <item row="8" column="2" colspan="2">
-     <widget class="QLabel" name="label_10">
-      <property name="text">
-       <string>Player10</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="0" colspan="2">
-     <widget class="QLabel" name="label_5">
-      <property name="text">
-       <string>Player5</string>
-      </property>
-     </widget>
-    </item>
-    <item row="5" column="6" colspan="2">
-     <widget class="QLabel" name="label_8">
-      <property name="text">
-       <string>Player8</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="2" colspan="2">
-     <widget class="QGraphicsView" name="graphicsView_2"/>
-    </item>
-    <item row="6" column="7">
-     <widget class="QLCDNumber" name="lcdNumber_8"/>
-    </item>
-    <item row="9" column="0">
-     <widget class="QLabel" name="label_9p">
-      <property name="text">
-       <string>Pos9</string>
-      </property>
-     </widget>
-    </item>
-    <item row="3" column="7">
-     <widget class="QLCDNumber" name="lcdNumber_4"/>
-    </item>
-    <item row="2" column="6" colspan="2">
-     <widget class="QLabel" name="label_4">
-      <property name="text">
-       <string>Player4</string>
-      </property>
-     </widget>
-    </item>
-    <item row="1" column="8" rowspan="9">
-     <widget class="QTabWidget" name="tabWidget">
-      <property name="minimumSize">
-       <size>
-        <width>190</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="currentIndex">
-       <number>0</number>
-      </property>
-      <widget class="QWidget" name="tab1">
-       <attribute name="title">
-        <string>Info</string>
-       </attribute>
-       <widget class="QTableWidget" name="tableWidget">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>181</width>
-          <height>401</height>
-         </rect>
-        </property>
-       </widget>
+    </widget>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>0</y>
+      <width>20</width>
+      <height>451</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_2">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>0</y>
+      <width>20</width>
+      <height>451</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_3">
+    <property name="geometry">
+     <rect>
+      <x>430</x>
+      <y>0</y>
+      <width>20</width>
+      <height>451</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_4">
+    <property name="geometry">
+     <rect>
+      <x>580</x>
+      <y>0</y>
+      <width>20</width>
+      <height>451</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_5">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>440</y>
+      <width>791</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_6">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>290</y>
+      <width>591</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_7">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>140</y>
+      <width>591</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>150</y>
+      <width>571</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <widget class="QLabel" name="image_5">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
       </widget>
-      <widget class="QWidget" name="tab2">
-       <attribute name="title">
-        <string>Ability</string>
-       </attribute>
-       <widget class="QTableWidget" name="tableWidget_2">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>181</width>
-          <height>401</height>
-         </rect>
-        </property>
-       </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="image_6">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
       </widget>
-      <widget class="QWidget" name="tab3">
-       <attribute name="title">
-        <string>Energy</string>
-       </attribute>
-       <widget class="QTableWidget" name="tableWidget_3">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>181</width>
-          <height>401</height>
-         </rect>
-        </property>
-       </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="image_7">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
       </widget>
-     </widget>
-    </item>
-   </layout>
+     </item>
+     <item>
+      <widget class="QLabel" name="image_8">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>571</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLabel" name="image_1">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="image_2">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="image_3">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="image_4">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>300</y>
+      <width>571</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QLabel" name="image_9">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="image_10">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="image_11">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="image_12">
+       <property name="text">
+        <string>TextLabel</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>794</width>
+     <width>803</width>
      <height>22</height>
     </rect>
    </property>

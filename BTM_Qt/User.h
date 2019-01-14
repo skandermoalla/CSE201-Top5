@@ -8,11 +8,12 @@ class User
 {
 public:
     User();
-    User(std::string username, std::string team_name, std::string nation);
+    User(const std::string username,const  std::string team_name, const std::string nation);
     std::string name;
     std::string teamname;
     std::string nationality;
     Team team;
+    int budget;
 };
 
 #endif // USER_H
