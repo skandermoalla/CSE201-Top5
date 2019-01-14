@@ -6,6 +6,7 @@
 #include <User.h>
 #include <League.h>
 #include <GameEngine/gameengine.h>
+#include<tactics.h>
 namespace Ui {
 class NextGame;
 }
@@ -36,6 +37,8 @@ private slots:
 
     void on_end_game_clicked();
 
+    void on_tactics_clicked();
+
 private:
     Ui::NextGame *ui;
     QTimer *timer;
@@ -43,6 +46,7 @@ private:
     User* myuser;
     League* myleague;
     GameEngine* engine;
+    Tactics *tactics;
     bool isManagerAttacking;
     std::pair<int, int> score;
 

@@ -23,6 +23,8 @@ NextGame::NextGame(QWidget *parent) :
     ui->third_q->setVisible(false);
     ui->fourth_q->setVisible(false);
     ui->end_game->setVisible(false);
+    //ui->home_score->setPalette(QColor(255,0,0));
+    //ui->away_score->setPalette(QColor(255,0,0));
 }
 
 NextGame::NextGame(GameEngine* eng, User& theuser, League& theleague, QWidget *parent) :
@@ -49,6 +51,12 @@ NextGame::NextGame(GameEngine* eng, User& theuser, League& theleague, QWidget *p
     ui->third_q->setVisible(false);
     ui->fourth_q->setVisible(false);
     ui->end_game->setVisible(false);
+    ui->home_name->setAlignment(Qt::AlignCenter);
+    ui->home_name->setFont(QFont("",14));
+    ui->home_name->setText(QString::fromStdString(myuser->teamname));
+    ui->away_name->setAlignment(Qt::AlignCenter);
+    ui->away_name->setFont(QFont("",14));
+    ui->away_name->setText(QString::fromStdString(myleague->getThisWeeksOpponentTeam().name));
 }
 
 
@@ -56,83 +64,89 @@ NextGame::~NextGame()
 {
     delete ui;
 }
-int i = 1;
-QTime quarter_length(0,3,00); //a quarter last 12 mins but we gonna make it 3:00 for now
+QTime quarter_length(0,0,30); //a quarter last 12 mins but we gonna make it 3:00 for now
 void NextGame::quarter_1_timing(){
     QTime stop_count(0,0,0);
-    QTime time;
-    if (quarter_length != stop_count){
-        qDebug() << "updating clock";
+    QTime time = quarter_length;
+    if (time != stop_count){
+        qDebug() << "updating clock1";
         time =quarter_length.addSecs(-1); // minus -1 sec to the time
         quarter_length = time;
         QString time_text = time.toString("mm : ss"); //displaying format
         ui->time->setText(time_text); //set the ui label to time_text
     } else {
-        /*QList <QPushButton* > pb;
-        pb[0] = ui->start;
-        pb[1] = ui->second_q;
-        pb[2] = ui->third_q;
-        pb[3] = ui->fourth_q;
-        pb[4] = ui->end_game;*/
         timer->stop();
+        s_timer->stop();
         ui->start->setVisible(false);
         ui->second_q->setVisible(true);
-        ui->second_q->setText("Continue");
-        ui->end_msg->setText("End of the Quarter"+QString::number(i));
-        i=i+1;
+        ui->second_q->setText("Go to 2nd");
+        quarter_length = QTime(0,0,30);
+
+        ui->end_msg->setText("End of the Quarter 1");
+
+
     }
 }
 void NextGame::quarter_2_timing(){
     QTime stop_count(0,0,0);
     QTime time;
     if (quarter_length != stop_count){
-        qDebug() << "updating clock";
+        qDebug() << "updating clock2";
         time =quarter_length.addSecs(-1); // minus -1 sec to the time
         quarter_length = time;
         QString time_text = time.toString("mm : ss"); //displaying format
         ui->time->setText(time_text); //set the ui label to time_text
     } else {
+        ui->end_msg->setVisible(true);
         timer->stop();
+        s_timer->stop();
         ui->second_q->setVisible(false);
         ui->third_q->setVisible(true);
-        ui->third_q->setText("Continue");
-        ui->end_msg->setText("End of the Quarter"+QString::number(i));
-        i=i+1;
+        ui->third_q->setText("Go to 3rd");
+        ui->end_msg->setText("End of the Quarter 2");
+        quarter_length = QTime(0,0,30);
+
+
     }
 }
 void NextGame::quarter_3_timing(){
     QTime stop_count(0,0,0);
     QTime time;
     if (quarter_length != stop_count){
-        qDebug() << "updating clock";
+        qDebug() << "updating clock3";
         time =quarter_length.addSecs(-1); // minus -1 sec to the time
         quarter_length = time;
         QString time_text = time.toString("mm : ss"); //displaying format
         ui->time->setText(time_text); //set the ui label to time_text
     } else {
+        ui->end_msg->setVisible(true);
         timer->stop();
         ui->third_q->setVisible(false);
         ui->fourth_q->setVisible(true);
-        ui->fourth_q->setText("Continue");
-        ui->end_msg->setText("End of the Quarter"+QString::number(i));
-        i=i+1;
+        ui->fourth_q->setText("Go to 4th");
+        ui->end_msg->setText("End of the Quarter 3");
+        quarter_length = QTime(0,0,30);
+
     }
 }
 void NextGame::quarter_4_timing(){
     QTime stop_count(0,0,0);
     QTime time;
     if (quarter_length != stop_count){
-        qDebug() << "updating clock";
+        qDebug() << "updating clock4";
         time =quarter_length.addSecs(-1); // minus -1 sec to the time
         quarter_length = time;
         QString time_text = time.toString("mm : ss"); //displaying format
         ui->time->setText(time_text); //set the ui label to time_text
     } else {
+        ui->end_msg->setVisible(true);
         timer->stop();
+        s_timer->stop();
         ui->fourth_q->setVisible(false);
         ui->second_q->setVisible(true);
-        ui->second_q->setText("Continue");
+        ui->second_q->setText("End");
         ui->end_msg->setText("End of the game");
+        quarter_length = QTime(0,0,30);
     }
 }
 
@@ -187,11 +201,11 @@ void NextGame::on_start_clicked()
 
 void NextGame::on_second_q_clicked()
 {
-    if (i<5){
-      ui->quater->setText("Quarter: "+QString::number(i+1));
-    }
+    ui->end_msg->setVisible(false);
+    ui->quater->setText("Quarter: 2");
+    disconnect(timer,SIGNAL(timeout()),this,SLOT(quarter_1_timing()));
     connect(timer,SIGNAL(timeout()),this,SLOT(quarter_2_timing()));
-    connect(s_timer,SIGNAL(timeout()),this,SLOT(strat()));
+    //connect(s_timer,SIGNAL(timeout()),this,SLOT(strat()));
     timer->start(1000); //scale time
     s_timer->start(1000);
 
@@ -199,11 +213,11 @@ void NextGame::on_second_q_clicked()
 
 void NextGame::on_third_q_clicked()
 {
-    if (i<5){
-      ui->quater->setText("Quarter: "+QString::number(i+1));
-    }
+    ui->end_msg->setVisible(false);
+    ui->quater->setText("Quarter: 3");
+    disconnect(timer,SIGNAL(timeout()),this,SLOT(quarter_2_timing()));
     connect(timer,SIGNAL(timeout()),this,SLOT(quarter_3_timing()));
-    connect(s_timer,SIGNAL(timeout()),this,SLOT(strat()));
+    //connect(s_timer,SIGNAL(timeout()),this,SLOT(strat()));
     timer->start(1000); //scale time
     s_timer->start(1000);
 
@@ -211,11 +225,11 @@ void NextGame::on_third_q_clicked()
 
 void NextGame::on_fourth_q_clicked()
 {
-    if (i<5){
-      ui->quater->setText("Quarter: "+QString::number(i+1));
-    }
+    ui->end_msg->setVisible(false);
+    ui->quater->setText("Quarter: 4");
+    disconnect(timer,SIGNAL(timeout()),this,SLOT(quarter_3_timing()));
     connect(timer,SIGNAL(timeout()),this,SLOT(quarter_4_timing()));
-    connect(s_timer,SIGNAL(timeout()),this,SLOT(strat()));
+    //connect(s_timer,SIGNAL(timeout()),this,SLOT(strat()));
     timer->start(1000); //scale time
     s_timer->start(1000);
 
@@ -226,4 +240,9 @@ void NextGame::on_end_game_clicked()
     //When button is clicked I want to hide nextgame window and go back to mainwindow
     /*this->hide();*/
 
+}
+
+void NextGame::on_tactics_clicked()
+{
+    //tactics->show();
 }
