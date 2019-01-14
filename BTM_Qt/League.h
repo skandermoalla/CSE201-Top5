@@ -24,9 +24,9 @@ public:
     League();
 
     //functions
-    std::map<int, std::vector< std::tuple<int,int> > > calendar();
-    std::map<int, std::vector< std::tuple<int,int> > > Calendar;
-    int current_week; //starts at 1 !!
+    std::map<int, std::vector< std::pair<int,int> > > calendar();
+    std::map<int, std::vector< std::pair<int,int> > > Calendar;
+    int current_week;  //starts at 1 !!!
     std::vector<Player> playermarket;
 
     //scores of the games of the current week in the same order they are present in the calendar (not involving the user)
@@ -35,6 +35,8 @@ public:
 
     const std::vector< std::pair<Team, Team> > getThisWeeksGames();
     std::vector<int> getAllUserMatches();  //a function who gets matches of user for each week
+
+    Team& getThisWeeksOpponentTeam();  //gets this week's user opponent
 
 };
 
