@@ -22,15 +22,14 @@ public:
     League* myleague;
     GameEngine* engine;
     ~Preparation_inGame();
+
 signals:
-    void ContinueClicked(const User&);
+    void ContinueClicked(const GameEngine*, const User&, const League&);
 
 public slots:
-    void refresh(const User& );
+    void refresh(const User&);
 
 private slots:
-    void on_pushButton_15_clicked();
-
     void on_pushButton_14_clicked();
 
     void on_pushButton_13_clicked();
