@@ -278,8 +278,23 @@ void GameEngine::endOfQuarterRest(User* manager, Team& managersTeam, Team& oppen
     //default tactic
     getBacktoDefaultTactic(managersTeam, manager->team);
 
-    // add energy to all players of both teams (managersTeam and opponentsTeam)(careful take min(energy+1 ,  100))
+    // add energy to all players of both teams (managersTeam and opponentsTeam)(careful take min(energy+20 ,  100))
     //@Joan
+
+    //Add 20 energy to the first 5 players
+    for (std::vector< Player >::iterator player = managersTeam.players.begin(); player != managersTeam.players.begin()+5; player++){
+        player->energy = std::min(player->energy+20, 100);
+    }
+
+    //Add 5 energy to the rest of the players
+    for (std::vector< Player >::iterator player = managersTeam.players.begin()+5; player != managersTeam.players.end(); player++){
+        player->energy = std::min(player->energy+5, 100);
+    }
+
+    //Add 12 energy to the players of the opponent team
+    for (std::vector< Player >::iterator player = oppentsTeam.players.begin(); player != oppentsTeam.players.end(); player++){
+        player->energy = std::min(player->energy+12, 100);
+    }
 
     //update managers'team
     manager->team = copyTeam(managersTeam);
@@ -287,4 +302,10 @@ void GameEngine::endOfQuarterRest(User* manager, Team& managersTeam, Team& oppen
 
 void GameEngine::endOfMatchUpdate(User *manager, League &league, Team &opponentsTeam, std::pair< int, int > score) const{
     updateTeamsOverall(league, manager->team, opponentsTeam, score);
+    if (score.first > score.second) {
+        manager->budget += 1000; //To be modified.
+    }
+    else {
+        manager->budget += 200; //To be modified.
+    }
 }
