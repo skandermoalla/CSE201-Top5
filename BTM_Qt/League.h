@@ -26,7 +26,7 @@ public:
     //functions
     std::map<int, std::vector< std::tuple<int,int> > > calendar();
     std::map<int, std::vector< std::tuple<int,int> > > Calendar;
-    int current_week;
+    int current_week; //starts at 1 !!
     std::vector<Player> playermarket;
 
     //scores of the games of the current week in the same order they are present in the calendar (not involving the user)
