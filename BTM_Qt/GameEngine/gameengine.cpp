@@ -89,7 +89,7 @@ std::pair< int, int > GameEngine::getAutomaticWinner(const Team team1, const Tea
 
 double KFactor(double overall) {
     return 0.3*(100 - overall);
-}                      //K factor (to be improved), teams with higher scores gets smaller modifications
+}                      //Teams with higher scores gets smaller modifications
 
 
 void GameEngine::updateTeamsOverall(League& league, Team& team1, Team& team2, std::pair< int, int > score) const{
@@ -272,7 +272,6 @@ int GameEngine::getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isMa
     oppentsTeam.update_overall();
 
     return res;
-    //@ongoing kevin
 }
 
 void GameEngine::endOfQuarterRest(User* manager, Team& managersTeam, Team& oppentsTeam) const{
@@ -301,6 +300,12 @@ void GameEngine::endOfQuarterRest(User* manager, Team& managersTeam, Team& oppen
     manager->team = copyTeam(managersTeam);
 }
 
-void GameEngine::endOfMatchUpdate(User *manager, League &league, Team &opponentsTeam) const{
-    //to do
+void GameEngine::endOfMatchUpdate(User *manager, League &league, Team &opponentsTeam, std::pair< int, int > score) const{
+    updateTeamsOverall(league, manager->team, opponentsTeam, score);
+    if (score.first > score.second) {
+        manager->budget += 1000; //To be modified.
+    }
+    else {
+        manager->budget += 200; //To be modified.
+    }
 }
