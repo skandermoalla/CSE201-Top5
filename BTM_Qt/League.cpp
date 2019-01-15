@@ -30,8 +30,8 @@ League::League(int divi, std::string seas){          //Takes arguments : divisio
     for (int i=0; i<30 ; i++){
         playermarket.push_back(Player());
     }
-    Calendar = calendar();  //Calendar has some problems
-    ThisWeeksGames = getThisWeeksGames();  //uncomment when calendar is ready
+    Calendar = calendar();
+    ThisWeeksGames = getThisWeeksGames();
 }
 
 League::League(){          //Creates a default league in 3rd division and in season 17/18
@@ -74,12 +74,6 @@ std::map<int, std::vector< std::pair<int,int> > > League::calendar()
 }
 
 
-void print_vector(std::vector<int> vect){
-    for (std::vector<int>::const_iterator i = vect.begin(); i != vect.end(); ++i){
-    std::cout << *i << " " ;
-    }
-    std::cout << "\n" << std::endl;
-}
 
 std::vector< int > League::getAllUserMatches() {
     std::vector< int > users_matches;
@@ -97,7 +91,6 @@ std::vector< int > League::getAllUserMatches() {
             }
         }
     }
-    print_vector(users_matches);
     return users_matches;
 
 }
