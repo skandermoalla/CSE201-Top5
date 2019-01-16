@@ -29,9 +29,9 @@
   <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
-     <x>210</x>
+     <x>10</x>
      <y>570</y>
-     <width>495</width>
+     <width>595</width>
      <height>30</height>
     </rect>
    </property>
@@ -44,30 +44,16 @@
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="tactics">
       <property name="text">
-       <string>PushButton</string>
+       <string>Tactics</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="def_tactic">
       <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_4">
-      <property name="text">
-       <string>PushButton</string>
-      </property>
-     </widget>
-    </item>
-    <item>
-     <widget class="QPushButton" name="start">
-      <property name="text">
-       <string>Start </string>
+       <string>Default Tactic</string>
       </property>
      </widget>
     </item>
@@ -147,13 +133,78 @@
    <property name="geometry">
     <rect>
      <x>310</x>
-     <y>530</y>
-     <width>301</width>
-     <height>20</height>
+     <y>510</y>
+     <width>321</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="second_q">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>540</y>
+     <width>113</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Go to 2nd</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="start">
+   <property name="geometry">
+    <rect>
+     <x>690</x>
+     <y>510</y>
+     <width>113</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Start </string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="third_q">
+   <property name="geometry">
+    <rect>
+     <x>810</x>
+     <y>510</y>
+     <width>113</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Go to 3rd</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="fourth_q">
+   <property name="geometry">
+    <rect>
+     <x>810</x>
+     <y>540</y>
+     <width>113</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Go to 4th</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="end_game">
+   <property name="geometry">
+    <rect>
+     <x>750</x>
+     <y>570</y>
+     <width>113</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>End</string>
    </property>
   </widget>
  </widget>

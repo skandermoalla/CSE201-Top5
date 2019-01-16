@@ -1,18 +1,18 @@
-#include "preparation.h"
-#include "ui_preparation.h"
+#include "preparation_ingame.h"
+#include "ui_preparation_ingame.h"
 #include <QMessageBox>
 #include <iostream>
 
-Preparation::Preparation(QWidget *parent) :
+Preparation_inGame::Preparation_inGame(QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::Preparation)
+    ui(new Ui::Preparation_inGame)
 {
     ui->setupUi(this);
 }
 
-Preparation::Preparation (GameEngine* eng, User &theuser , League& league, QWidget *parent) :
+Preparation_inGame::Preparation_inGame (GameEngine* eng, User &theuser , League& league, QWidget *parent) :
     QDialog(parent),
-    ui(new Ui::Preparation)
+    ui(new Ui::Preparation_inGame)
 {
     ui->setupUi(this);
     //this-> ui -> widget -> setStyleSheet("widget {border-image: url(:/images/images/background.jpeg)};");
@@ -26,7 +26,7 @@ Preparation::Preparation (GameEngine* eng, User &theuser , League& league, QWidg
     this->refresh(*myuser);
 
 }
-void Preparation::refresh(const User& theuser)
+void Preparation_inGame::refresh(const User& theuser)
 {
     std::cout<<"preparation start refresh"<<std::endl;
 
@@ -251,12 +251,12 @@ void Preparation::refresh(const User& theuser)
     std::cout<<"preparation refreshed"<<std::endl;
 }
 
-Preparation::~Preparation()
+Preparation_inGame::~Preparation_inGame()
 {
     delete ui;
 }
 
-void Preparation::Substitution()
+void Preparation_inGame::Substitution()
 {
     if (this->chosen_1 == -1 || this->chosen_2 == -1)
     {
@@ -284,45 +284,28 @@ void Preparation::Substitution()
     }
 }
 
-void Preparation::on_pushButton_15_clicked() //Back Button
+
+void Preparation_inGame::on_pushButton_14_clicked() // Continue
 {
     QMessageBox::StandardButton reply;
     reply = QMessageBox::question(this, tr("QMessageBox::question()"),
-                                        "Are you sure you want leave? All changes will be recorded.",
+                                        "Are you sure you want to go to the next quarter?",
                                         QMessageBox::Yes | QMessageBox::No);
         if (reply == QMessageBox::Yes)
         {
-            emit backButtonClicked(*(this->myuser));
-            std::cout<<"signal emitted"<<std::endl;
+            emit ContinueClicked(this->engine, *(this->myuser), *(this->myleague));
             this -> close();
         }
         else if (reply == QMessageBox::No)
         {}
 }
 
-void Preparation::on_pushButton_14_clicked() //Next Game
-{
-    QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, tr("QMessageBox::question()"),
-                                        "Are you sure you want to go to the next game?",
-                                        QMessageBox::Yes | QMessageBox::No);
-        if (reply == QMessageBox::Yes)
-        {
-            this -> close();
-            this->nextgame = new NextGame(engine, *myuser,*myleague);
-
-            nextgame -> show();
-        }
-        else if (reply == QMessageBox::No)
-        {}
-}
-
-void Preparation::on_pushButton_13_clicked() // Change Button
+void Preparation_inGame::on_pushButton_13_clicked() // Change Button
 {
     Substitution();
 }
 
-void Preparation::on_p1_clicked() // Choose Player 1
+void Preparation_inGame::on_p1_clicked() // Choose Player 1
 {
     int index = 0;
     if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
@@ -366,7 +349,7 @@ void Preparation::on_p1_clicked() // Choose Player 1
     }
 }
 
-void Preparation::on_p2_clicked() // Choose Player 2
+void Preparation_inGame::on_p2_clicked() // Choose Player 2
 {
     int index = 1;
     if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
@@ -410,7 +393,7 @@ void Preparation::on_p2_clicked() // Choose Player 2
     }
 }
 
-void Preparation::on_p3_clicked() // Choose Player 3
+void Preparation_inGame::on_p3_clicked() // Choose Player 3
 {
     int index = 2;
     if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
@@ -454,7 +437,7 @@ void Preparation::on_p3_clicked() // Choose Player 3
     }
 }
 
-void Preparation::on_p4_clicked() // Choose Player 4
+void Preparation_inGame::on_p4_clicked() // Choose Player 4
 {
     int index = 3;
     if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
@@ -498,7 +481,7 @@ void Preparation::on_p4_clicked() // Choose Player 4
     }
 }
 
-void Preparation::on_p5_clicked() // Choose Player 5
+void Preparation_inGame::on_p5_clicked() // Choose Player 5
 {
     int index = 4;
     if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
@@ -542,7 +525,7 @@ void Preparation::on_p5_clicked() // Choose Player 5
     }
 }
 
-void Preparation::on_p6_clicked() // Choose Player 6
+void Preparation_inGame::on_p6_clicked() // Choose Player 6
 {
     int index = 5;
     if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
@@ -586,7 +569,7 @@ void Preparation::on_p6_clicked() // Choose Player 6
     }
 }
 
-void Preparation::on_p7_clicked() // Choose Player 7
+void Preparation_inGame::on_p7_clicked() // Choose Player 7
 {
     int index = 6;
     if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
@@ -630,7 +613,7 @@ void Preparation::on_p7_clicked() // Choose Player 7
     }
 }
 
-void Preparation::on_p8_clicked() // Choose Player 8
+void Preparation_inGame::on_p8_clicked() // Choose Player 8
 {
     int index = 7;
     if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
@@ -674,7 +657,7 @@ void Preparation::on_p8_clicked() // Choose Player 8
     }
 }
 
-void Preparation::on_p9_clicked() // Choose Player 9
+void Preparation_inGame::on_p9_clicked() // Choose Player 9
 {
     int index = 8;
     if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
@@ -718,7 +701,7 @@ void Preparation::on_p9_clicked() // Choose Player 9
     }
 }
 
-void Preparation::on_p10_clicked() // Choose Player 10
+void Preparation_inGame::on_p10_clicked() // Choose Player 10
 {
     int index = 9;
     if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
@@ -762,7 +745,7 @@ void Preparation::on_p10_clicked() // Choose Player 10
     }
 }
 
-void Preparation::on_p11_clicked() // Choose Player 11
+void Preparation_inGame::on_p11_clicked() // Choose Player 11
 {
     int index = 10;
     if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
@@ -806,7 +789,7 @@ void Preparation::on_p11_clicked() // Choose Player 11
     }
 }
 
-void Preparation::on_p12_clicked() // Choose Player 12
+void Preparation_inGame::on_p12_clicked() // Choose Player 12
 {
     int index = 11;
     if (this->chosen_1 != -1 &&  this->chosen_2 != -1 && this->chosen_1 != index && this->chosen_2 != index)
@@ -849,3 +832,4 @@ void Preparation::on_p12_clicked() // Choose Player 12
         this->ui->label_p2->setText(QString::fromStdString("Player 2"));
     }
 }
+
