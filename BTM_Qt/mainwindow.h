@@ -12,6 +12,7 @@
 #include "League.h"
 #include "User.h"
 #include "preparation.h"
+#include "GameEngine/gameengine.h"
 namespace Ui {
 class MainWindow;
 }
@@ -27,6 +28,7 @@ public:
     Team team;
     User* myuser;
     League* myleague;
+    GameEngine* engine;
 
 public slots:
     void refresh(const User& );

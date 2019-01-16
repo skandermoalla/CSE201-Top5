@@ -17,82 +17,77 @@ std::vector<int> intersection(const std::vector<int> vect1, const std::vector<in
 }
 
 
-const std::string teamNames[] = { "Lakers","Cavaliers","Raptors","Warriors","Thunders","76ers","Bulls","Wizards","Celtics","Pacers","Nets","Hawks" };
 
 League::League(int divi, std::string seas){          //Takes arguments : division as an int and a season as a string
     division = divi ;
     season = seas;
-    int n = rand()%12 ;
+    std::vector<std::string> teamNames = { "Lakers","Vllaznia","ParisBasket","Spurs","Cavaliers","Raptors","Warriors","Thunders","Bers","Bulls","Wizards","Celtics","Pacers","Nets","Hawks" };
     for (int i = 0; i < 12; i++) {
-        Team t= Team( teamNames[(n + i) % 12] );
-        League::teams.push_back(t);
+        int n = rand()%(teamNames.size()) ;
+        Team t= Team( teamNames[n] );
+        teamNames.erase(teamNames.begin()+n);
+        teams.push_back(t);
     }
     for (int i=0; i<30 ; i++){
         playermarket.push_back(Player());
     }
-    Calendar = calendar();  //Calendar has some problems
-    //ThisWeeksGames = getThisWeeksGames();  //uncomment when calendar is ready
+    Calendar = calendar();
+    ThisWeeksGames = getThisWeeksGames();
+    current_week = 1;
 }
 
-League::League(){          //Takes arguments : division as an int and a season as a string
+
+League::League(){          //Creates a default league in 3rd division and in season 17/18
     division = 3 ;
     season = "1718";
     int n = rand()%12 ;
+    std::vector<std::string> teamNames = { "Lakers","Vllaznia","ParisBasket","Spurs","Cavaliers","Raptors","Warriors","Thunders","Bers","Bulls","Wizards","Celtics","Pacers","Nets","Hawks" };
+
     for (int i = 0; i < 12; i++) {
         Team t= Team( teamNames[(n + i) % 12] );
-        League::teams.push_back(t);
+        teams.push_back(t);
     }
     Calendar=calendar();
     current_week = 1;
     for (int i=0; i<30 ; i++){
         playermarket.push_back(Player());
     }
+    ThisWeeksGames = getThisWeeksGames();  //uncomment when calendar is ready
 }
 
-std::map<int, std::vector< std::tuple<int,int> > > League::calendar()
+std::map<int, std::vector< std::pair<int,int> > > League::calendar()
 {
-    std::map<int, std::vector< std::tuple<int, int> > > calendar;
+    std::map<int, std::vector< std::pair<int, int> > > calendar;
 
-    //creating map assigning its possible opponents to each team
-    std::map<int, std::vector<int> > possibilities;
-    for (int i = 1; i < 13; i++) {
-        std::vector<int> teams = { 1,2,3,4,5,6,7,8,9,10,11,12 };
-        teams.erase(teams.begin() + i - 1);
-        possibilities[i] = teams;
+    std::vector<int> Teams1 = {1,2,3,4,5,6};
+    std::vector<int> Teams2 = {7,8,9,10,11,12};
+
+    for ( int w=1; w<23; w++){
+
+        for (int t = 0; t< 6; t++){
+                std::pair<int, int> match = std::make_pair(Teams1[t], Teams2[t]);
+                calendar[w].push_back(match);
+
+            }
+        Teams1.insert( Teams1.begin()+1 , Teams2[0]);
+
+        Teams2.push_back(Teams1[Teams1.size()-1]);
+        Teams2.erase(Teams2.begin());
+        Teams1.pop_back();
     }
-
-    //create list of matches for each week
-    for (int w = 1; w < 23; w++) {
-        std::vector<int> freeTeams = { 1,2,3,4,5,6,7,8,9,10,11,12 };
-        while (freeTeams.size() > 0) {
-            int t = freeTeams[0];
-
-            std::vector<int> possible_opponents = intersection(freeTeams, possibilities[t] );
-
-            int opponent = possible_opponents[0];  //taking the first possible and match-free opponent
-
-            std::tuple<int, int> match = std::make_tuple(t, opponent);
-
-            calendar[w].push_back(match);  //adding match to the list of matches of the week
-
-            //deleting the teams which already have a match assigned to them
-            freeTeams.erase(freeTeams.begin() + opponent - t);
-            freeTeams.erase(freeTeams.begin());
-        }
-    }
-
     return calendar;
 }
+
 
 
 std::vector< int > League::getAllUserMatches() {
     std::vector< int > users_matches;
     for (int w = 1; w < 23; w++) {
-        const std::vector< std::tuple<int,int> >& matches= this->Calendar[w];
+        const std::vector< std::pair<int,int> > matches= calendar()[w];
 
-       for (std::vector< std::tuple<int,int> >::const_iterator match = matches.begin(); match != matches.end(); ++match) {
-          int t1= std::get<0>(*match);
-          int t2= std::get<1>(*match);
+        for (std::vector< std::pair<int,int> >::const_iterator match = matches.begin(); match != matches.end(); ++match) {
+            int t1= std::get<0>(*match);
+            int t2= std::get<1>(*match);
             if(t1==1){
                 users_matches.push_back( t2 );
             }
@@ -107,10 +102,10 @@ std::vector< int > League::getAllUserMatches() {
 
 
 const std::vector<std::pair<Team, Team>> League::getThisWeeksGames(){
-    std::vector< std::tuple<int,int> > matches= this->Calendar[current_week];
+    std::vector<std::pair<int,int>> matches = this->Calendar[current_week];
     std::vector<std::pair<Team, Team>> matches_return;
 
-    for (std::vector< std::tuple<int,int> >::const_iterator match = matches.begin(); match != matches.end(); ++match) {
+    for(std::vector<std::pair<int,int>>::const_iterator match = matches.begin();match != matches.end();++match){
       int t1= std::get<0>(*match);
       int t2= std::get<1>(*match);
 
@@ -125,6 +120,11 @@ const std::vector<std::pair<Team, Team>> League::getThisWeeksGames(){
     return matches_return;
 }
 
+Team& League::getThisWeeksOpponentTeam(){
+    std::cout << this->getAllUserMatches()[this->current_week] << std::endl;
+    int team_int = this->getAllUserMatches()[this->current_week-1];
+    return this->teams[team_int];
+}
 
 
 

@@ -1,5 +1,5 @@
-#ifndef PREPARATION_H
-#define PREPARATION_H
+#ifndef PREPARATION_INGAME_H
+#define PREPARATION_INGAME_H
 
 #include <QDialog>
 #include"User.h"
@@ -8,30 +8,28 @@
 #include "GameEngine/gameengine.h"
 
 namespace Ui {
-class Preparation;
+class Preparation_inGame;
 }
 
-class Preparation : public QDialog
+class Preparation_inGame : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit Preparation(QWidget *parent = nullptr);
-    explicit Preparation(GameEngine* eng, User& theuser,League& league, QWidget *parent = nullptr);
+    explicit Preparation_inGame(QWidget *parent = nullptr);
+    explicit Preparation_inGame(GameEngine* eng, User& theuser,League& league, QWidget *parent = nullptr);
     User* myuser;
     League* myleague;
     GameEngine* engine;
-    ~Preparation();
+    ~Preparation_inGame();
 
 signals:
-    void backButtonClicked(const User&);
+    void ContinueClicked(const GameEngine*, const User&, const League&);
 
 public slots:
-    void refresh(const User& );
+    void refresh(const User&);
 
 private slots:
-    void on_pushButton_15_clicked();
-
     void on_pushButton_14_clicked();
 
     void on_pushButton_13_clicked();
@@ -61,11 +59,11 @@ private slots:
     void on_p12_clicked();
 
 private:
-    Ui::Preparation *ui;
+    Ui::Preparation_inGame *ui;
     NextGame *nextgame;
     int chosen_1;
     int chosen_2;
     void Substitution();
 };
 
-#endif // PREPARATION_H
+#endif // PREPARATION_INGAME_H

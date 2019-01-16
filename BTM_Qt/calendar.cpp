@@ -3,21 +3,7 @@
 #include <QLabel>
 #include <iostream>
 
-Calendar::Calendar(QWidget *parent) :
-    QDialog(parent),
-    ui(new Ui::Calendar)
-{
-    ui->setupUi(this);
-    QStringList header;
-    header<<"Week"<<"Team against";
-    this->ui->tableWidget->setHorizontalHeaderLabels(header);
-    for (int i = 0; i < 22; i++ ) {
-    this->ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(i+1)));
-    this->ui->tableWidget->setItem(i,1,new QTableWidgetItem(QString::number(i)));
 
-    }
-
-}
 Calendar::Calendar(User& myuser, League& myleague, QWidget *parent) :
     QDialog(parent),
     ui(new Ui::Calendar)
@@ -26,11 +12,12 @@ Calendar::Calendar(User& myuser, League& myleague, QWidget *parent) :
     theuser=&myuser;
     theleague=&myleague;
     QStringList header;
-    header<<"Week"<<"Team against";
+    header<<"Week"<<"Match against";
+    std::vector <int> B = myleague.getAllUserMatches(); //the vector with all the matches of the user
     this->ui->tableWidget->setHorizontalHeaderLabels(header);
     for (int i = 0; i < 22; i++ ) {
     this->ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(i+1)));
-    //this->ui->tableWidget->setItem(i,1,new QTableWidgetItem( myleague.getAllUserMatches()[i] ) );
+    this->ui->tableWidget->setItem(i,1,new QTableWidgetItem(QString::fromStdString(myleague.teams[B[i]-1].name)));
     }
 }
 

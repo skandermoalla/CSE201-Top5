@@ -18,6 +18,8 @@ MainWindow::MainWindow(User& theuser ,League& A,QWidget *parent) :
     this->teaminfo = new TeamInfo();
     connect(this->teaminfo, SIGNAL(backButtonClicked()), this, SLOT(show()));
 
+    engine = new GameEngine();
+
 }
 //Window operations
 MainWindow::~MainWindow()
@@ -279,6 +281,7 @@ void MainWindow::refresh(const User& theuser)
     std::cout<<"refreshed"<<std::endl;
 }
 
+//calendar
 void MainWindow::on_pushButton_clicked()
 {
     this -> hide();
@@ -318,7 +321,7 @@ void MainWindow::on_pushButton_4_clicked()
 void MainWindow::on_pushButton_5_clicked() // Next game
 {
     this -> hide();
-    this->preparation=new Preparation(*myuser,*myleague);
+    this->preparation=new Preparation(engine, *myuser,*myleague);
     connect(this->preparation, SIGNAL(backButtonClicked(User)), this, SLOT(show()));
     connect(this->preparation, SIGNAL(backButtonClicked(User)), this, SLOT(refresh(User)));
     preparation ->show();
