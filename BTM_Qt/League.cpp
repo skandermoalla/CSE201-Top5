@@ -26,7 +26,7 @@ League::League(int divi, std::string seas){          //Takes arguments : divisio
         int n = rand()%(teamNames.size()) ;
         Team t= Team( teamNames[n] );
         teamNames.erase(teamNames.begin()+n);
-        League::teams.push_back(t);
+        teams.push_back(t);
     }
     for (int i=0; i<30 ; i++){
         playermarket.push_back(Player());
@@ -43,7 +43,7 @@ League::League(){          //Creates a default league in 3rd division and in sea
 
     for (int i = 0; i < 12; i++) {
         Team t= Team( teamNames[(n + i) % 12] );
-        League::teams.push_back(t);
+        teams.push_back(t);
     }
     Calendar=calendar();
     current_week = 1;
@@ -117,7 +117,6 @@ const std::vector<std::pair<Team, Team>> League::getThisWeeksGames(){
     }
     return matches_return;
 }
-
 
 Team& League::getThisWeeksOpponentTeam(){
     std::cout << this->getAllUserMatches()[this->current_week] << std::endl;

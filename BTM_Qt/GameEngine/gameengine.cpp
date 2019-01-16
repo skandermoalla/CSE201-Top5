@@ -2,9 +2,29 @@
 #include <memory>
 #include <cmath>
 #include <cstdlib>
+#include <QDebug>
+#include <map>
+#include <string>
+#include <iostream>
+
+//GameEngine::tacticIdentifier[11] = {energy, motivation, shooting, stealing, sprint, rebound, passing, handling, block, jump, strength}
+int GameEngine::FullCourtPress[11] = {-15,2,-1,5,2,3,0,0,5,0,4};
+int GameEngine::FastBreak[11] = {-10,3,5,3,3,2,-2,+2,0,0,-2};
+int GameEngine::ZoneDefence[11] = {-5,0,2,3,2,5,-3,0,-2,4,-2};
+int GameEngine::FullTimeAttack[11] = {-10,5,4,0,-1,1,3,2,0,0,-1};
+
+// map of tactics
+std::map< std::string, int(*)[11] > GameEngine::tactics {
+    {"FullCourtPress", &FullCourtPress},
+    {"FastBreak", &FastBreak},
+    {"ZoneDefence", &ZoneDefence},
+    {"FullTimeAttack", &FullTimeAttack}
+};
+
 
 GameEngine::GameEngine()
 {
+    qDebug()<<"Game Engine ready";
 
 }
 
@@ -16,16 +36,16 @@ void GameEngine::simulateThisWeeksGames(League& league) const{
 }
 
 void GameEngine::simulateAutomatedGame(League& league, Team team1, Team team2) const{
+    //Simulate the game and get its score
     std::pair< int, int > score = getAutomaticWinner(team1, team2);
-    std::pair<Team, Team> match(team1,team2);
-    //league.ThisWeeksScores.insert(std::pair< std::pair<Team, Team>, std::pair<int, int>>(match, score));
+
+    //record the score in the league scores
     league.ThisWeeksScores.push_back(score);
+
+    //update the team players according to the game results
     updateTeamsOverall(league, team1, team2, score);
 }
 
-void GameEngine::playThisWeeksGame(User& manager, League& league, Team& opponentsTeam)const {
-
-}
 
 std::pair< int, int > GameEngine::getAutomaticWinner(const Team team1, const Team team2) const{
     const int NUMBER_OF_DRAWS = 40;
@@ -69,7 +89,7 @@ std::pair< int, int > GameEngine::getAutomaticWinner(const Team team1, const Tea
 
 double KFactor(double overall) {
     return 0.3*(100 - overall);
-}                      //K factor (to be improved), teams with higher scores gets smaller modifications
+}                      //Teams with higher scores gets smaller modifications
 
 
 void GameEngine::updateTeamsOverall(League& league, Team& team1, Team& team2, std::pair< int, int > score) const{
@@ -126,4 +146,165 @@ void GameEngine::setAfterMatchOverall(League& league, Team& team, const int chan
         player->afterMatchUpdate(change, motivationChange);
         team.update_overall();
     }
+}
+
+void GameEngine::applyTactic(Team& team,const  std::string tacticName) const{
+    // modifiers of attributes [sprint;rebound;passing;handling;shooting;
+
+    // decrese energy of the first five players
+
+    // update the attributes of the first five players
+
+    for (std::vector<Player>::iterator player = team.players.begin(); player != team.players.begin()+5; player++) {
+        player->energy += (*tactics[tacticName])[0];
+        player->motivation += (*tactics[tacticName])[1];
+        player->shooting += (*tactics[tacticName])[2];
+        player->stealing += (*tactics[tacticName])[3];
+        player->sprint += (*tactics[tacticName])[4];
+        player->rebound += (*tactics[tacticName])[5];
+        player->passing += (*tactics[tacticName])[6];
+        player->handling += (*tactics[tacticName])[7];
+        player->block += (*tactics[tacticName])[8];
+        player->jump += (*tactics[tacticName])[9];
+        player->strength += (*tactics[tacticName])[10];
+    }
+     team.update_overall();
+}
+
+void GameEngine::getBacktoDefaultTactic(Team& playingTeam, Team& initTeam) const {
+    // copy init tean attributes to playing team attributes except from energy
+    // do not decrease energy
+    //assuming the players are in the same order
+
+    for (std::vector<Player>::iterator playingPlayer = playingTeam.players.begin(), initPlayer = initTeam.players.begin();
+         playingPlayer != playingTeam.players.end() && initPlayer != initTeam.players.end();
+         playingPlayer++, initPlayer++){
+
+        playingPlayer->stealing = initPlayer->stealing;
+        playingPlayer->block = initPlayer->block;
+        playingPlayer->sprint = initPlayer->sprint;
+        playingPlayer->rebound = initPlayer->rebound;
+        playingPlayer->strength = initPlayer->strength;
+        playingPlayer->shooting = initPlayer->shooting;
+        playingPlayer->handling = initPlayer->handling;
+        playingPlayer->passing = initPlayer->passing;
+        playingPlayer->jump = initPlayer->jump;
+        playingPlayer->motivation = initPlayer->motivation;
+
+        //motivation and energy are not copied
+    }
+    playingTeam.update_overall();
+
+}
+
+Team GameEngine::copyTeam(Team team) const{
+    return team;
+}
+
+int GameEngine::getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isManagerAttacking) const{
+
+    //get the players playing in managers team (first 5 in the list)
+    //get the average attributes
+
+    //same for opponents team but take all the players, (already strored in the team)
+
+    // attack: (0.5*shooting, 0.05*sprint, 0.1*rebound, 0.2*passing, 0.15*block)
+    //defense: (0.5*rebound, 0.3*stealing, 0.2*jump)
+    double indAtt = 0;  //out of 100
+    double indDef = 0;  //out of 100
+    if (isManagerAttacking){
+        for (std::vector< Player >::iterator player = managersTeam.players.begin(); player != managersTeam.players.begin()+5; player++){
+            indAtt += (0.5*player->shooting + 0.05*player->sprint + 0.1*player->rebound + 0.2*player->passing + 0.15*player->block)*player->energy/100;
+        }
+        indAtt /= 5;
+        indDef += (0.5*oppentsTeam.rebound + 0.3*oppentsTeam.stealing + 0.2*oppentsTeam.jump)*oppentsTeam.energy/100;
+    qDebug()<<oppentsTeam.energy;
+    }
+    else{
+        for (std::vector< Player >::iterator player = managersTeam.players.begin(); player != managersTeam.players.begin()+5; player++){
+            indDef += (0.5*player->rebound + 0.3*player->stealing + 0.2*player->jump)*player->energy/100;
+        }
+        indDef /= 5;
+        indAtt += (0.5*oppentsTeam.shooting + 0.05*oppentsTeam.sprint + 0.1*oppentsTeam.rebound + 0.2*oppentsTeam.passing + 0.15*oppentsTeam.block)*oppentsTeam.energy/100;
+    }
+
+    qDebug()<<"indDef";
+    qDebug()<<indDef;
+    qDebug()<<"indAtt";
+    qDebug()<<indAtt;
+
+
+    //decrease the energy of the players playing (5first) for manager by some value
+    // decrease energy of all players of opponents team
+    // same total decrease
+
+    for (std::vector< Player >::iterator player = managersTeam.players.begin(); player != managersTeam.players.begin()+5; player++){
+        player->energy -= 2;
+    }
+    for (std::vector< Player >::iterator player = oppentsTeam.players.begin(); player != oppentsTeam.players.end(); player++){
+        player->energy -= 1;
+    }
+
+    //do some Heuristics (include energy?) depending on whether it's attack or defence
+    // return 0, 2, 3 respectively if attack failed, scored 2 points, scored 3points
+    // optionally create a message " {playerName} scored a 3point! wow!! ... "
+    double probSc = (1-log(1.25*indDef/indAtt))*indAtt/100; // <1 , can be negative
+    qDebug()<< "probSc";
+    qDebug()<< probSc;
+    double r = (double)rand() / (RAND_MAX);
+    qDebug()<<"r";
+    qDebug()<<r;
+
+    int res;
+
+    if (r>=probSc){
+        res =  0;
+    }
+    else if (r<probSc/3){
+        res = 3;
+    }
+    else{
+        res = 2;
+    }
+
+    //update both teams overall
+    managersTeam.update_overall();
+    oppentsTeam.update_overall();
+
+    return res;
+}
+
+void GameEngine::endOfQuarterRest(User* manager, Team& managersTeam, Team& oppentsTeam) const{
+    //default tactic
+    getBacktoDefaultTactic(managersTeam, manager->team);
+
+    //Add 20 energy to the first 5 players
+    for (std::vector< Player >::iterator player = managersTeam.players.begin(); player != managersTeam.players.begin()+5; player++){
+        player->energy = std::min(player->energy+20, 100);
+    }
+
+    //Add 5 energy to the rest of the players
+    for (std::vector< Player >::iterator player = managersTeam.players.begin()+5; player != managersTeam.players.end(); player++){
+        player->energy = std::min(player->energy+5, 100);
+    }
+
+    //Add 12 energy to the players of the opponent team
+    for (std::vector< Player >::iterator player = oppentsTeam.players.begin(); player != oppentsTeam.players.end(); player++){
+        player->energy = std::min(player->energy+12, 100);
+    }
+
+    //update managers'team
+    manager->team = copyTeam(managersTeam);
+}
+
+void GameEngine::endOfMatchUpdate(User *manager, League &league, Team &opponentsTeam, std::pair< int, int > score) const{
+    updateTeamsOverall(league, manager->team, opponentsTeam, score);
+    int reward;
+    if (score.first > score.second) {
+        reward = 1000; //To be modified.
+    }
+    else {
+        reward = 200; //To be modified.
+    }
+    manager->budget += reward;
 }
