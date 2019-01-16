@@ -50,6 +50,7 @@ Team::Team(std::string na){ //takes a name
     jump = jump/12;
     strength = strength/12;
     motivation = motivation/12;
+    energy = energy/12;
     update_overall();
 }
 

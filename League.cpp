@@ -5,6 +5,8 @@
 
 
 #include "League.hpp"
+using namespace std;
+
 //random names for teams to be changed as well
 
 //auxiliary function to find the intersection of two vectors
@@ -69,7 +71,21 @@ std::map<int, std::vector< std::tuple<int,int> > > League::calendar()
         }
     }
     
-    return calendar;
+    return calendar; //return a map with key the week number, and value a vector of tuples, each tuple representing the match between two teams
+}
+std::vector<int> League::opponents_user() {
+    std::vector <int> opponents;
+    std::map<int, std::vector< std::tuple<int,int> > > calendar;
+    calendar = League.calendar(); //create a calendar associated to the League
+    for (int w = 0, w<22, w++) { //iterate over weeks
+        for (int n = 0, n<6, n++){
+            if (calendar[w][n].begin() == 1){ //find the matches that concern the team 1, aka the user's team
+                opponents.push_back(calendar[w][n].begin()+1); //add the opponent of the team 1 to the vector
+            }
+        }
+    }
+    return opponents;
+    
 }
 
 
