@@ -33,7 +33,9 @@ League::League(int divi, std::string seas){          //Takes arguments : divisio
     }
     Calendar = calendar();
     ThisWeeksGames = getThisWeeksGames();
+    current_week = 1;
 }
+
 
 League::League(){          //Creates a default league in 3rd division and in season 17/18
     division = 3 ;
