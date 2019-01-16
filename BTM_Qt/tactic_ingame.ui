@@ -52,7 +52,7 @@
    <item row="4" column="3">
     <widget class="QPushButton" name="pushButton_5">
      <property name="text">
-      <string>Continue</string>
+      <string>Apply tactic</string>
      </property>
     </widget>
    </item>
@@ -85,7 +85,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Choose Your Tactics:</string>
+      <string>Choose Your Tactic:</string>
      </property>
     </widget>
    </item>

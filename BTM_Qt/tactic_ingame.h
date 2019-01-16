@@ -4,7 +4,6 @@
 #include <QDialog>
 #include"User.h"
 #include"League.h"
-#include"nextgame.h"
 #include "GameEngine/gameengine.h"
 
 namespace Ui {
@@ -16,15 +15,15 @@ class Tactic_inGame : public QDialog
     Q_OBJECT
 
 public:
-    explicit Tactic_inGame(QWidget *parent = nullptr);
-    explicit Tactic_inGame(GameEngine* eng, User& theuser,League& league, QWidget *parent = nullptr);
-    User* myuser;
-    League* myleague;
+    explicit Tactic_inGame(QWidget *parent);
+    explicit Tactic_inGame(GameEngine* eng, Team* playingManagersTeam, Team* initManagersTeam, QWidget *parent = nullptr);
+    Team* managersTeam;
+    Team* initManagersTeam;
     GameEngine* engine;
     ~Tactic_inGame();
 
 signals:
-    void ContinueClicked(const GameEngine*, const User&, const League&);
+    void ContinueClicked(const GameEngine*, const User&, const League&); // to do
 
 private slots:
     void on_pushButton_5_clicked();
@@ -36,6 +35,8 @@ private slots:
     void on_pushButton_3_clicked();
 
     void on_pushButton_4_clicked();
+
+    void on_pushButton_6_clicked();
 
 private:
     Ui::Tactic_inGame *ui;

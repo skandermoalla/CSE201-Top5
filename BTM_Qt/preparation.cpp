@@ -310,7 +310,7 @@ void Preparation::on_pushButton_14_clicked() //Next Game
         {
             this -> close();
             this->nextgame = new NextGame(engine, *myuser,*myleague);
-            // this->nextgame = new NextGame(eng, *myuser,*myleague);  Ongoing
+
             nextgame -> show();
         }
         else if (reply == QMessageBox::No)

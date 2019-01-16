@@ -186,7 +186,11 @@ void NextGame::on_start_clicked()
     Team& initOpponentsTeam = myleague->getThisWeeksOpponentTeam();
 
     playingManagersTeam = engine->copyTeam(initManagersTeam);
-    playingOpponentsTeam = engine->copyTeam(initOpponentsTeam);
+    playingOpponentsTeam = engine->copyTeam(initOpponentsTeam); //useless?
+
+    //show tactics button that was hidden
+
+    tactic_ingame = new Tactic_inGame(engine, &playingManagersTeam, &(myuser->team)); //do for each quarter
 
     qDebug()<<"copied them";
 
@@ -244,5 +248,6 @@ void NextGame::on_end_game_clicked()
 
 void NextGame::on_tactics_clicked()
 {
+    tactic_ingame->show();
     //tactics->show();
 }

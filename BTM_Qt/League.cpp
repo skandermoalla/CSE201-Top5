@@ -25,7 +25,7 @@ League::League(int divi, std::string seas){          //Takes arguments : divisio
     int n = rand()%12 ;
     for (int i = 0; i < 12; i++) {
         Team t= Team( teamNames[(n + i) % 12] );
-        League::teams.push_back(t);
+        teams.push_back(t);
     }
     for (int i=0; i<30 ; i++){
         playermarket.push_back(Player());
@@ -40,7 +40,7 @@ League::League(){          //Takes arguments : division as an int and a season a
     int n = rand()%12 ;
     for (int i = 0; i < 12; i++) {
         Team t= Team( teamNames[(n + i) % 12] );
-        League::teams.push_back(t);
+        teams.push_back(t);
     }
     Calendar=calendar();
     current_week = 1;

@@ -6,7 +6,7 @@
 #include <User.h>
 #include <League.h>
 #include <GameEngine/gameengine.h>
-#include<tactics.h>
+#include <tactic_ingame.h>
 namespace Ui {
 class NextGame;
 }
@@ -46,7 +46,8 @@ private:
     User* myuser;
     League* myleague;
     GameEngine* engine;
-    Tactics *tactics;
+
+    Tactic_inGame *tactic_ingame;
     bool isManagerAttacking;
     std::pair<int, int> score;
 

@@ -41,9 +41,8 @@ SOURCES += \
     User.cpp \
     nextgame.cpp \
     GameEngine/gameengine.cpp \
-    tactics.cpp
     preparation_ingame.cpp \
-    tactic_ingame.cpp
+    tactic_ingame.cpp\
 
 HEADERS += \
         mainwindow.h \
@@ -61,9 +60,8 @@ HEADERS += \
     User.h \
     nextgame.h \
     GameEngine/gameengine.h \
-    tactics.h
     preparation_ingame.h \
-    tactic_ingame.h
+    tactic_ingame.h \
 
 FORMS += \
         mainwindow.ui \
@@ -78,9 +76,8 @@ FORMS += \
     teaminfo.ui \
     market.ui \
     nextgame.ui \
-    tactics.ui
     preparation_ingame.ui \
-    tactic_ingame.ui
+    tactic_ingame.ui \
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
