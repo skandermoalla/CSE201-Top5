@@ -17,14 +17,15 @@ std::vector<int> intersection(const std::vector<int> vect1, const std::vector<in
 }
 
 
-const std::string teamNames[] = { "Lakers","Cavaliers","Raptors","Warriors","Thunders","76ers","Bulls","Wizards","Celtics","Pacers","Nets","Hawks" };
 
 League::League(int divi, std::string seas){          //Takes arguments : division as an int and a season as a string
     division = divi ;
     season = seas;
-    int n = rand()%12 ;
+    std::vector<std::string> teamNames = { "Lakers","Vllaznia","ParisBasket","Spurs","Cavaliers","Raptors","Warriors","Thunders","Bers","Bulls","Wizards","Celtics","Pacers","Nets","Hawks" };
     for (int i = 0; i < 12; i++) {
-        Team t= Team( teamNames[(n + i) % 12] );
+        int n = rand()%(teamNames.size()) ;
+        Team t= Team( teamNames[n] );
+        teamNames.erase(teamNames.begin()+n);
         League::teams.push_back(t);
     }
     for (int i=0; i<30 ; i++){
@@ -38,6 +39,8 @@ League::League(){          //Creates a default league in 3rd division and in sea
     division = 3 ;
     season = "1718";
     int n = rand()%12 ;
+    std::vector<std::string> teamNames = { "Lakers","Vllaznia","ParisBasket","Spurs","Cavaliers","Raptors","Warriors","Thunders","Bers","Bulls","Wizards","Celtics","Pacers","Nets","Hawks" };
+
     for (int i = 0; i < 12; i++) {
         Team t= Team( teamNames[(n + i) % 12] );
         League::teams.push_back(t);
@@ -78,7 +81,7 @@ std::map<int, std::vector< std::pair<int,int> > > League::calendar()
 std::vector< int > League::getAllUserMatches() {
     std::vector< int > users_matches;
     for (int w = 1; w < 23; w++) {
-        const std::vector< std::pair<int,int> >& matches= calendar()[w];
+        const std::vector< std::pair<int,int> > matches= calendar()[w];
 
         for (std::vector< std::pair<int,int> >::const_iterator match = matches.begin(); match != matches.end(); ++match) {
             int t1= std::get<0>(*match);
