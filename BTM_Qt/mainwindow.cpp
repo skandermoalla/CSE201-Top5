@@ -279,6 +279,7 @@ void MainWindow::refresh(const User& theuser)
     std::cout<<"refreshed"<<std::endl;
 }
 
+//calendar
 void MainWindow::on_pushButton_clicked()
 {
     this -> hide();

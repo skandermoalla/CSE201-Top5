@@ -12,11 +12,12 @@ Calendar::Calendar(User& myuser, League& myleague, QWidget *parent) :
     theuser=&myuser;
     theleague=&myleague;
     QStringList header;
-    header<<"Week"<<"Team against";
+    header<<"Week"<<"Match against";
     this->ui->tableWidget->setHorizontalHeaderLabels(header);
     for (int i = 0; i < 22; i++ ) {
     this->ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(i+1)));
-    this->ui->tableWidget->setItem(i,1,new QTableWidgetItem(QString::number(myleague.getAllUserMatches()[i])));
+    Team team = myleague.teams[myleague.getAllUserMatches()[i]-1];
+    this->ui->tableWidget->setItem(i,1,new QTableWidgetItem(QString::fromStdString(team.name)));
     }
 }
 
