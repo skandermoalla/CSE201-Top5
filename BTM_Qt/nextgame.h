@@ -54,6 +54,8 @@ private:
     Team playingManagersTeam;
     Team playingOpponentsTeam;
 
+    bool check_tactics;
+
     //method
 
 
