@@ -13,6 +13,9 @@
   <property name="windowTitle">
    <string>Basketball Team Manager</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">background-image: url(:/images/images/white background image.png);</string>
+  </property>
   <layout class="QHBoxLayout" name="horizontalLayout">
    <item>
     <widget class="QWidget" name="widget" native="true">
@@ -253,6 +256,9 @@
    </item>
    <item>
     <widget class="QWidget" name="widget_2" native="true">
+     <property name="styleSheet">
+      <string notr="true">background-image: url(:/images/images/white background image.png);</string>
+     </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="5" column="4">
        <widget class="QLCDNumber" name="lcdNumber_7"/>
