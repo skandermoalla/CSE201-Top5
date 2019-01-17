@@ -4,7 +4,6 @@
 #include<QTime>
 #include<QString>
 #include <QDebug>
-#include <QMessageBox>
 
 NextGame::NextGame(QWidget *parent) :
     QDialog(parent),
@@ -37,8 +36,6 @@ NextGame::NextGame(GameEngine* eng, User& theuser, League& theleague, QWidget *p
     engine = eng;
     isManagerAttacking = true;
     score = std::pair<int, int>(0,0);
-
-    this->check_tactics = false;
 
     ui->setupUi(this);
     timer = new QTimer(this); //new timer object
@@ -193,7 +190,6 @@ void NextGame::on_start_clicked()
 
     //show tactics button that was hidden
 
-    this->check_tactics = true;
     tactic_ingame = new Tactic_inGame(engine, &playingManagersTeam, &(myuser->team)); //do for each quarter
 
     qDebug()<<"copied them";
@@ -252,17 +248,6 @@ void NextGame::on_end_game_clicked()
 
 void NextGame::on_tactics_clicked()
 {
-    if (this->check_tactics == false)
-    {
-        QMessageBox::StandardButton reply;
-        reply = QMessageBox::warning(this, tr("QMessageBox::warning()"),
-                                            "You have to start the game to change your tactics",
-                                            QMessageBox::Cancel);
-            if (reply == QMessageBox::Cancel)
-            {}
-    }
-    else
-    {
-        tactic_ingame->show();
-    }
+    tactic_ingame->show();
+    //tactics->show();
 }
