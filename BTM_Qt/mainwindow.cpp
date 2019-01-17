@@ -236,7 +236,7 @@ void MainWindow::refresh(const User& theuser)
 }
     //Energy tab
     QStringList header;
-    header<<"surname"<<"Energy"<<"Motivation";
+    header<<"Surname"<<"Energy"<<"Motivation";
     this->ui->tableWidget_3->setColumnCount(3);
     this->ui->tableWidget_3->setRowCount(theuser.team.players.size());
     this->ui->tableWidget_3->setHorizontalHeaderLabels(header);
@@ -250,7 +250,7 @@ void MainWindow::refresh(const User& theuser)
 
     //Ability tab
     QStringList header2;
-    header2<<"surname"<<"Overall"<<"Offense"<<"Defense";
+    header2<<"Surname"<<"Overall"<<"Offense"<<"Defense";
     this->ui->tableWidget_2->setColumnCount(4);
     this->ui->tableWidget_2->setRowCount(theuser.team.players.size());
     this->ui->tableWidget_2->setHorizontalHeaderLabels(header2);
@@ -277,7 +277,7 @@ void MainWindow::refresh(const User& theuser)
     this->ui->tableWidget->setItem(i,4,new QTableWidgetItem(QString::number(theuser.team.players[i].weight)));
     }
 
-    this->ui->tableWidget->show();
+    //this->ui->tableWidget->show();
     std::cout<<"refreshed"<<std::endl;
 }
 
@@ -312,9 +312,10 @@ void MainWindow::on_pushButton_3_clicked()
     training -> show();
 }
 
-void MainWindow::on_pushButton_4_clicked()
+void MainWindow::on_pushButton_4_clicked() //teaminfo
 {
     this -> hide();
+    this->teaminfo = new TeamInfo(*myuser,*myleague);
     teaminfo -> show();
 }
 

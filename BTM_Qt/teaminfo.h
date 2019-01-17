@@ -1,7 +1,9 @@
 #ifndef TEAMINFO_H
 #define TEAMINFO_H
 #include <QDialog>
-//#include "gameplayer.h"
+#include "User.h"
+#include "League.h"
+
 
 namespace Ui {
 class TeamInfo;
@@ -12,7 +14,8 @@ class TeamInfo : public QDialog
     Q_OBJECT
 
 public:
-    explicit TeamInfo(/*GamePLayer gp, */QWidget *parent = nullptr);
+    explicit TeamInfo(QWidget *parent = nullptr);
+    explicit TeamInfo(User& theuser, League& A, QWidget *parent = nullptr);
     ~TeamInfo();
 
 signals:
@@ -23,7 +26,9 @@ private slots:
 
 private:
     Ui::TeamInfo *ui;
-   // GamePLayer gameplayer;
+    User* myuser;
+    League* myleague;
+
 };
 
 #endif // TEAMINFO_H
