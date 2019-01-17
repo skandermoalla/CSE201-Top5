@@ -433,8 +433,9 @@ void NextGame::on_end_game_clicked()
     timer->stop();
     s_timer->stop();
     //When button is clicked I want to hide nextgame window and go back to mainwindow
-    /*this->hide();*/
-
+    this->close();
+    emit backButtonClicked(*this->myuser, *this->myleague);
+    qDebug() << "return to mainwindow";
 }
 
 void NextGame::on_tactics_clicked()
