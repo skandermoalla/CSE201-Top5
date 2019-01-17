@@ -4,5 +4,8 @@
         <file>images/image_2.jpg</file>
         <file>images/james.png</file>
         <file>images/curry.png</file>
+        <file>images/BasketBallCourtStartMenu.png</file>
+        <file>images/background.png</file>
+        <file>images/StartMenuBackground.png</file>
     </qresource>
 </RCC>
