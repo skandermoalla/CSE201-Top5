@@ -46,6 +46,8 @@ public:
     //updates the manager's status at the end of a match
     void endOfMatchUpdate(User* manager, League& league, Team& opponentsTeam ,std::pair< int, int > score)const ;
 
+    std::string popMessage(Team& team, int outcome) const;
+
 
 private:
     //returns the outcome of a automatic game (scoreOfTeam1, scoreOfTeam2)
