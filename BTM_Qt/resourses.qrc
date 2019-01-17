@@ -1,5 +1,89 @@
 <RCC>
     <qresource prefix="/images">
         <file>images/background.jpeg</file>
+        <file>images/Abdelhakim Zouita.png</file>
+        <file>images/Akay Mert .png</file>
+        <file>images/Alexis Ajinca.png</file>
+        <file>images/Ali Kanaan.png</file>
+        <file>images/Ali Mahmoud.png</file>
+        <file>images/Amine Rzig.png</file>
+        <file>images/Andre Iguodala.png</file>
+        <file>images/Atef Maoua.png</file>
+        <file>images/Ater Majok.png</file>
+        <file>images/Aymen Bouzid .png</file>
+        <file>images/background.png</file>
+        <file>images/BasketBallCourtStartMenu.png</file>
+        <file>images/Boris Diaw.png</file>
+        <file>images/Brian Beshara.png</file>
+        <file>images/Charles Jenkins.png</file>
+        <file>images/curry.png</file>
+        <file>images/Danilo Gallinari.png</file>
+        <file>images/Dee Bost.png</file>
+        <file>images/Devin Brooks.png</file>
+        <file>images/Elie Stephan.png</file>
+        <file>images/Eulis Baez.png</file>
+        <file>images/Evan Fournier .png</file>
+        <file>images/Filip Barovic.png</file>
+        <file>images/Francis Schneider.png</file>
+        <file>images/Franck Ntilikina.png</file>
+        <file>images/Gaith Nakka.png</file>
+        <file>images/George Hill.png</file>
+        <file>images/Ghaleb Rida.png</file>
+        <file>images/Goran Dragic.png</file>
+        <file>images/Guerschon Yabusele.png</file>
+        <file>images/Hussein Tawbe.png</file>
+        <file>images/Ian Mahinmi.png</file>
+        <file>images/image_2.jpg</file>
+        <file>images/IMG_5930.jpg</file>
+        <file>images/J.J. Redick.png</file>
+        <file>images/Jackson Vroman.png</file>
+        <file>images/James Bell.png</file>
+        <file>images/james.png</file>
+        <file>images/Jean AbdelNour.png</file>
+        <file>images/Jean Marc Kraidy.png</file>
+        <file>images/Jeff Brooks.png</file>
+        <file>images/Joakim Noah.png</file>
+        <file>images/Joe Johnson.png</file>
+        <file>images/Joffrey Lauvergne.png</file>
+        <file>images/Joseph Vogel.png</file>
+        <file>images/Karim Ouattara.png</file>
+        <file>images/Kevin Séraphin.png</file>
+        <file>images/Khalid Bouchikou.png</file>
+        <file>images/Kirk Hinrich.png</file>
+        <file>images/Lauri Markkanen.png</file>
+        <file>images/Liu Wei.png</file>
+        <file>images/Lonzo Ball.png</file>
+        <file>images/Luke Fischer.png</file>
+        <file>images/Majid Naji.png</file>
+        <file>images/Markel Brown.png</file>
+        <file>images/Michael Roll.png</file>
+        <file>images/Mickael Gelabale.png</file>
+        <file>images/Mickael Pietrus.png</file>
+        <file>images/Miguel Serrano .png</file>
+        <file>images/Mohamed Kherrazi.png</file>
+        <file>images/Mustapha Huff.png</file>
+        <file>images/Nabil Souari.png</file>
+        <file>images/Nicolas Batum .png</file>
+        <file>images/Nizar Knioua.png</file>
+        <file>images/Norvel Pelle.png</file>
+        <file>images/Omar Abada.png</file>
+        <file>images/Omar El Turk.png</file>
+        <file>images/Ondrej Balvin.png</file>
+        <file>images/Rodrigue Beaubois.png</file>
+        <file>images/Rony Fahed.jpg</file>
+        <file>images/Rudy Gobert.png</file>
+        <file>images/Salah Mejri.png</file>
+        <file>images/Savas Oguz.png</file>
+        <file>images/Serge Ibaka.png</file>
+        <file>images/Stéphane Risacher.png</file>
+        <file>images/Sun Yue.png</file>
+        <file>images/Taj Gibson.png</file>
+        <file>images/Thierry Rupert.png</file>
+        <file>images/Timothe Luwawu-Cabarrot.png</file>
+        <file>images/Walt Hazzard.png</file>
+        <file>images/Xu Xiaoliang.png</file>
+        <file>images/Yohan Sangare.png</file>
+        <file>images/Yuta Watanabe.png</file>
+        <file>images/Zainoul Bah.png</file>
     </qresource>
 </RCC>
