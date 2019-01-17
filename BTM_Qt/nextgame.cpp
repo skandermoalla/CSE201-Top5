@@ -57,6 +57,10 @@ NextGame::NextGame(GameEngine* eng, User& theuser, League& theleague, QWidget *p
     ui->away_name->setAlignment(Qt::AlignCenter);
     ui->away_name->setFont(QFont("",14));
     ui->away_name->setText(QString::fromStdString(myleague->getThisWeeksOpponentTeam().name));
+
+    ui->def_tactic->setVisible(false);
+    ui->tactics->setVisible(false);
+    ui->sub->setVisible(false);
 }
 
 
@@ -64,7 +68,7 @@ NextGame::~NextGame()
 {
     delete ui;
 }
-QTime quarter_length(0,0,30); //a quarter last 12 mins but we gonna make it 3:00 for now
+QTime quarter_length(0,0,50); //a quarter last 12 mins but we gonna make it 3:00 for now
 void NextGame::quarter_1_timing(){
     QTime stop_count(0,0,0);
     QTime time = quarter_length;
@@ -182,13 +186,17 @@ void NextGame::strat(){
 
 void NextGame::on_start_clicked()
 {
+    //get the teams that are playing
     Team& initManagersTeam = myuser->team;
     Team& initOpponentsTeam = myleague->getThisWeeksOpponentTeam();
 
+    //copy managers team to be able to apply changes to it and recover the initTeam for default tactic
     playingManagersTeam = engine->copyTeam(initManagersTeam);
-    playingOpponentsTeam = engine->copyTeam(initOpponentsTeam); //useless?
+    playingOpponentsTeam = engine->copyTeam(initOpponentsTeam);
 
     //show tactics button that was hidden
+    ui->tactics->setVisible(true);
+    ui->def_tactic->setVisible(true);
 
     tactic_ingame = new Tactic_inGame(engine, &playingManagersTeam, &(myuser->team)); //do for each quarter
 
@@ -199,8 +207,6 @@ void NextGame::on_start_clicked()
 
     timer->start(1000); //scale time
     s_timer->start(1000);
-
-
 }
 
 void NextGame::on_second_q_clicked()

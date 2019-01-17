@@ -92,14 +92,14 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QLabel" name="away_name">
+       <widget class="QLabel" name="home_name">
         <property name="text">
          <string/>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLCDNumber" name="away_score"/>
+       <widget class="QLCDNumber" name="home_score"/>
       </item>
      </layout>
     </item>
@@ -116,14 +116,14 @@
     <item>
      <layout class="QVBoxLayout" name="verticalLayout_2">
       <item>
-       <widget class="QLabel" name="home_name">
+       <widget class="QLabel" name="away_name">
         <property name="text">
          <string/>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLCDNumber" name="home_score"/>
+       <widget class="QLCDNumber" name="away_score"/>
       </item>
      </layout>
     </item>
