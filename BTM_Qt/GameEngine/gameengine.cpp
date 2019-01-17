@@ -214,7 +214,7 @@ int GameEngine::getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isMa
     double indDef = 0;  //out of 100
     if (isManagerAttacking){
         for (std::vector< Player >::iterator player = managersTeam.players.begin(); player != managersTeam.players.begin()+5; player++){
-            indAtt += (0.5*player->shooting + 0.05*player->sprint + 0.1*player->rebound + 0.2*player->passing + 0.15*player->block)*((player->energy/100) + 1)/2;
+            indAtt += (0.5*player->shooting + 0.05*player->sprint + 0.1*player->rebound + 0.2*player->passing + 0.15*player->block)*player->energy/100;
         }
         indAtt /= 5;
         indDef += (0.5*oppentsTeam.rebound + 0.3*oppentsTeam.stealing + 0.2*oppentsTeam.jump)*oppentsTeam.energy/100;
@@ -222,14 +222,11 @@ int GameEngine::getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isMa
     }
     else{
         for (std::vector< Player >::iterator player = managersTeam.players.begin(); player != managersTeam.players.begin()+5; player++){
-            indDef += (0.5*player->rebound + 0.3*player->stealing + 0.2*player->jump)*((player->energy/100) + 1)/2;
+            indDef += (0.5*player->rebound + 0.3*player->stealing + 0.2*player->jump)*player->energy/100;
         }
         indDef /= 5;
         indAtt += (0.5*oppentsTeam.shooting + 0.05*oppentsTeam.sprint + 0.1*oppentsTeam.rebound + 0.2*oppentsTeam.passing + 0.15*oppentsTeam.block)*oppentsTeam.energy/100;
     }
-
-    indAtt = fmax(indAtt,1);
-    indDef = fmax(indDef,1);
 
     qDebug()<<"indDef";
     qDebug()<<indDef;
@@ -257,8 +254,6 @@ int GameEngine::getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isMa
     double r = (double)rand() / (RAND_MAX);
     qDebug()<<"r";
     qDebug()<<r;
-
-    qDebug()<<isManagerAttacking;
 
     int res;
 
