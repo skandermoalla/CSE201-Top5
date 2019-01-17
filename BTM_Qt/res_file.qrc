@@ -4,7 +4,6 @@
         <file>images/image_2.jpg</file>
         <file>images/james.png</file>
         <file>images/curry.png</file>
-<<<<<<< HEAD
         <file>images/BasketBallCourtStartMenu.png</file>
         <file>images/background.png</file>
         <file>images/StartMenuBackground.png</file>
@@ -86,7 +85,5 @@
         <file>images/Yohan Sangaré.png</file>
         <file>images/Yuta Watanabe.png</file>
         <file>images/Zaïnoul Bah.png</file>
-=======
->>>>>>> parent of 8f64e65... Merge branch 'master' of https://github.com/skandermoalla/Top5
     </qresource>
 </RCC>
