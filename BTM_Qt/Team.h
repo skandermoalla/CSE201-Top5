@@ -38,6 +38,8 @@ public:
     void update_overall();
     void PlayerSell(int index);
     void PlayerBuy(Player player);
+    int points;
+
 
 
 };

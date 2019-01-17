@@ -13,6 +13,7 @@ Team::Team(std::string na){ //takes a name
     for (int i=0;i<5;i++){
     //startingplayers.push_back(players[i]);
     }
+    points=0;
 };
 Team::Team(){ //takes a name
     name = "RANDOM";
@@ -27,6 +28,7 @@ Team::Team(){ //takes a name
     for (int i=0;i<5;i++){
     //startingplayers.push_back(players[i]);
     }
+    points=0;
 };
 
 void Team::Training1(){     //defesive training
