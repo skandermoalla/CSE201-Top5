@@ -88,5 +88,7 @@
         <file>images/white background image.png</file>
         <file>images/BasketballCourt1600.png</file>
         <file>images/StartMenu1600pix.png</file>
+        <file>images/basketball.jpg</file>
+        <file>images/basketball3.jpg</file>
     </qresource>
 </RCC>
