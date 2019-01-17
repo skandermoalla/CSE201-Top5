@@ -3,15 +3,41 @@
 #include <QLabel>
 
 
-TeamInfo::TeamInfo(/*GamePLayer gp, */QWidget *parent) :
+TeamInfo::TeamInfo(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::TeamInfo)
-    //gameplayer(gp)
+
 {
     ui->setupUi(this);
-    //ui->coachn->setText(gameplayer.get_name());
-   // ui->teamn->setText(gameplayer.get_team());
 }
+
+TeamInfo::TeamInfo(User& theuser, League& A, QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::TeamInfo)
+
+{
+    ui->setupUi(this);
+
+    this->myuser = &theuser;
+    this->myleague = &A;
+    this->ui->coachn->setText(QString::fromStdString(theuser.name));
+    this->ui->teamn->setText(QString::fromStdString(theuser.teamname));
+
+    //Ranking Table
+    QStringList header;
+    header<<"Ranking"<<"Team name"<<"Points";
+    this->ui->tableWidget->setColumnCount(3);
+    this->ui->tableWidget->setRowCount(12);
+    this->ui->tableWidget->setHorizontalHeaderLabels(header);
+
+    for (int i = 0; i < 12; i++ ) {
+    this->ui->tableWidget->setItem(i,0,new QTableWidgetItem(QString::number(i+1)));
+    this->ui->tableWidget->setItem(i,1,new QTableWidgetItem(QString::fromStdString(this->myleague->ranking[i].name)));
+    this->ui->tableWidget->setItem(i,2,new QTableWidgetItem(QString::number(this->myleague->ranking[i].points)));
+    }
+    this->ui->tableWidget->show();
+}
+
 
 
 TeamInfo::~TeamInfo()

@@ -16,6 +16,9 @@ std::vector<int> intersection(const std::vector<int> vect1, const std::vector<in
     return intersect;
 }
 
+bool League::comparepoints(Team a, Team b){
+    return (a.points<b.points);
+}
 
 
 League::League(int divi, std::string seas){          //Takes arguments : division as an int and a season as a string
@@ -34,6 +37,8 @@ League::League(int divi, std::string seas){          //Takes arguments : divisio
     Calendar = calendar();
     ThisWeeksGames = getThisWeeksGames();
     current_week = 1;
+    ranking=teams;
+    sort(ranking.begin(),ranking.end(),comparepoints);
 }
 
 
