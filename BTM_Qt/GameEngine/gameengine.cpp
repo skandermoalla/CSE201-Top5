@@ -274,6 +274,17 @@ int GameEngine::getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isMa
     return res;
 }
 
+std::string GameEngine::popMessage(Team& team, int outcome) const{
+    std::string message;
+    if(outcome == 0){
+        message = "That was close.";
+    }
+    else{
+    message = "Man, that was a pretty shot! " +  std::to_string(outcome) + " points from " + team.players[rand() % (4)].name + ".";
+    }
+    return message;
+};
+
 void GameEngine::endOfQuarterRest(User* manager, Team& managersTeam, Team& oppentsTeam) const{
     //default tactic
     getBacktoDefaultTactic(managersTeam, manager->team);
