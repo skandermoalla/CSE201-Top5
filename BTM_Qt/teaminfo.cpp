@@ -32,8 +32,8 @@ TeamInfo::TeamInfo(User& theuser, League& A, QWidget *parent) :
 
     for (int i = 0; i < 12; i++ ) {
     this->ui->tableWidget->setItem(i,0,new QTableWidgetItem(i+1));
-    this->ui->tableWidget->setItem(i,1,new QTableWidgetItem(i+1));
-    this->ui->tableWidget->setItem(i,2,new QTableWidgetItem(i+1));
+    this->ui->tableWidget->setItem(i,1,new QTableWidgetItem(QString::fromStdString(this->myleague->ranking[i].name)));
+    this->ui->tableWidget->setItem(i,2,new QTableWidgetItem(this->myleague->ranking[i].points));
     }
     this->ui->tableWidget->show();
 }
