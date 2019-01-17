@@ -5,6 +5,7 @@
 #include<QString>
 #include <QDebug>
 
+
 NextGame::NextGame(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::NextGame)
@@ -19,6 +20,8 @@ NextGame::NextGame(QWidget *parent) :
     ui->quater->setFont(QFont("Comic Sans MS",12)); //typo in my ui_form, quater instead of quarter,don't mind it
     ui->end_msg->setAlignment(Qt::AlignCenter);
     ui->end_msg->setFont(QFont("Comic Sans MS",12));
+    ui->comments->setAlignment(Qt::AlignCenter);
+    ui->comments->setFont(QFont("Comic Sans MS",16));
     ui->second_q->setVisible(false);
     ui->third_q->setVisible(false);
     ui->fourth_q->setVisible(false);
@@ -43,8 +46,9 @@ NextGame::NextGame(GameEngine* eng, User& theuser, League& theleague, QWidget *p
     ui->setupUi(this);
     timer = new QTimer(this); //new timer object
     s_timer = new QTimer(this);
+    ui->start->setStyleSheet("font-weight: bold");
     ui->time->setAlignment(Qt::AlignCenter);
-    ui->time->setFont(QFont("Comic Sans MS",12));
+    ui->time->setFont(QFont("Comic Sans MS",14));
     ui->quater->setAlignment(Qt::AlignCenter);
     ui->quater->setText("Quarter: 1");
     ui->quater->setFont(QFont("Comic Sans MS",12)); //typo in my ui_form, quater instead of quarter,don't mind it
@@ -63,7 +67,10 @@ NextGame::NextGame(GameEngine* eng, User& theuser, League& theleague, QWidget *p
     ui->away_name->setAlignment(Qt::AlignCenter);
     ui->away_name->setFont(QFont("",14));
     ui->away_name->setText(QString::fromStdString(myleague->getThisWeeksOpponentTeam().name));
-
+    ui->comments->setAlignment(Qt::AlignCenter);
+    ui->comments->setFont(QFont("Comic Sans MS",16));
+    ui->home_score->setStyleSheet({"color:rgb(255,0,0); background-color:rgb(0,0,0);"});
+    ui->away_score->setStyleSheet({"color:rgb(0,0,255); background-color:rgb(0,0,0);"});
     ui->def_tactic->setVisible(false);
     ui->tactics->setVisible(false);
     ui->sub->setVisible(false);
@@ -91,6 +98,7 @@ void NextGame::quarter_1_timing(){
         s_timer->stop();
         ui->second_q->setVisible(true);
         ui->second_q->setText("Go to 2nd");
+        ui->second_q->setStyleSheet("font-weight: bold");
         ui->tactics->setVisible(false);
         ui->def_tactic->setVisible(false);
         ui->tactics->setEnabled(false);
@@ -125,9 +133,9 @@ void NextGame::quarter_2_timing(){
         ui->end_msg->setVisible(true);
         timer->stop();
         s_timer->stop();
-
         ui->third_q->setVisible(true);
         ui->third_q->setText("Go to 3rd");
+        ui->third_q->setStyleSheet("font-weight: bold");
         ui->end_msg->setText("End of the Quarter 2");
         ui->tactics->setVisible(false);
         ui->def_tactic->setVisible(false);
@@ -165,6 +173,7 @@ void NextGame::quarter_3_timing(){
         s_timer->stop();
         ui->fourth_q->setVisible(true);
         ui->fourth_q->setText("Go to 4th");
+        ui->fourth_q->setStyleSheet("font-weight: bold");
         ui->end_msg->setText("End of the Quarter 3");
         ui->tactics->setVisible(false);
         ui->def_tactic->setVisible(false);
@@ -204,6 +213,7 @@ void NextGame::quarter_4_timing(){
         ui->fourth_q->setVisible(false);
         ui->end_game->setVisible(true);
         ui->end_game->setText("End");
+        ui->end_game->setStyleSheet("font-weight: bold");
         ui->tactics->setVisible(false);
         ui->def_tactic->setVisible(false);
         ui->tactics->setEnabled(false);
@@ -217,7 +227,12 @@ QTime stra_time(0,0,0);
 
 void NextGame::strat(){
 
-
+    std::vector<QString> coms_home_2 ={"What a dunk!!","A nice finish with an acrobatic layup!","Long two pointer!","He comes up with the deuce!",
+                                      "He slammed it home!","Up and in!","Beautiful finish with the floater!","BBQ Chicken Alert!!!","Pull up jumper good!","Driving baseline, it's good!"};
+    std::vector<QString> coms_home_3 ={"Hits it from distance!","Good from the perimeter!","Nice 3 pointer!","He lets it fly and it's good!",
+                                      "Stepback 3!","From 30 feets out!","Knocks it down!","Good from Curry range!","Good from the hash!","He banks home the 3!"};
+    std::vector<QString> coms_home_0 ={"Missed it!","Won't go in!","Too bad he missed the shot!","He gets rejected!","Comes up empty!",
+                                      "Airball!","He got stripped","It's a miss!","He got blocked!","No basket"};
     QTime change_stra(0,0,2);
     if  (stra_time != change_stra){
         qDebug()<<"updating strategy function timer";
@@ -239,9 +254,25 @@ void NextGame::strat(){
             //add highlight to highlights
             //engine->popMessage(playingOpponentsTeam, outcome);
         }
-
+        if (isManagerAttacking){
+            QPalette palette = ui->comments->palette();
+            palette.setColor(QPalette::WindowText,Qt::red);
+            ui->comments->setPalette(palette);
+        }else{
+            QPalette palette = ui->comments->palette();
+            palette.setColor(QPalette::WindowText,Qt::blue);
+            ui->comments->setPalette(palette);
+        }
+        if (outcome == 2){
+            ui->comments->setText(coms_home_2[(std::rand()%10)]);
+        }
+        if (outcome == 3){
+            ui->comments->setText(coms_home_3[(std::rand()%10)]);
+        }
+        if (outcome == 0){
+            ui->comments->setText(coms_home_0[(std::rand()%10)]);
+        }
         isManagerAttacking = not isManagerAttacking;
-
         stra_time=stra_time.addSecs(-2);
         qDebug()<<"stra_time function ="<<stra_time;
     }
