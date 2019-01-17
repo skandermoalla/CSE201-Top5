@@ -26,6 +26,10 @@ public slots:
     void quarter_4_timing();
     void strat();
 
+
+signals:
+    void backButtonClicked(const User&, const League&);
+
 private slots:
     void on_start_clicked(); //click start button
 

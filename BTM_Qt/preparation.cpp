@@ -308,9 +308,10 @@ void Preparation::on_pushButton_14_clicked() //Next Game
                                         QMessageBox::Yes | QMessageBox::No);
         if (reply == QMessageBox::Yes)
         {
-            this -> close();
+            this -> hide();
             this->nextgame = new NextGame(engine, *myuser,*myleague);
-
+            connect(this->nextgame, SIGNAL(backButtonClicked(User, League)), this->parent(), SLOT(show()));
+            connect(this->nextgame, SIGNAL(backButtonClicked(User, League)), this->parent(), SLOT(reset(User, League)));
             nextgame -> show();
         }
         else if (reply == QMessageBox::No)

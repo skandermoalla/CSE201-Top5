@@ -32,6 +32,7 @@ public:
 
 public slots:
     void refresh(const User& );
+    void reset(User&,  League&);
 
 private slots:
     void on_pushButton_clicked();
