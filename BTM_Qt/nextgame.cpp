@@ -69,8 +69,8 @@ NextGame::NextGame(GameEngine* eng, User& theuser, League& theleague, QWidget *p
     ui->away_name->setText(QString::fromStdString(myleague->getThisWeeksOpponentTeam().name));
     ui->comments->setAlignment(Qt::AlignCenter);
     ui->comments->setFont(QFont("Comic Sans MS",16));
-    ui->home_score->setStyleSheet({"color:rgb(255,0,0); background-color:rgb(0,0,0);"});
-    ui->away_score->setStyleSheet({"color:rgb(0,0,255); background-color:rgb(0,0,0);"});
+    ui->home_score->setStyleSheet({"color:rgb(255,0,0); background-color:rgb(0,0,0);border: 3px solid white"});
+    ui->away_score->setStyleSheet({"color:rgb(0,0,255); background-color:rgb(0,0,0);border: 3px solid white"});
     ui->def_tactic->setVisible(false);
     ui->tactics->setVisible(false);
     ui->sub->setVisible(false);

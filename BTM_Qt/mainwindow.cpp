@@ -38,6 +38,7 @@ void MainWindow::refresh(const User& theuser)
     if (theuser.team.players.size()>=1){
     // Player 1
     this->ui->label->setText(QString::fromStdString(theuser.team.players[0].surname));
+    this->ui->label->setAlignment(Qt::AlignCenter);
     this->ui->lcdNumber->display(theuser.team.players[0].overallgeneral);
     this->ui->labelp->setText(QString::fromStdString(theuser.team.players[0].position));
     // Image Player 1
@@ -48,6 +49,7 @@ void MainWindow::refresh(const User& theuser)
     }
     else{
         this->ui->label->setText(QString::fromStdString("NO PLAYER"));
+        this->ui->label->setAlignment(Qt::AlignCenter);
         this->ui->lcdNumber->display("-");
         this->ui->labelp->setText(QString::fromStdString("-"));
         this->ui->image_1->setText(QString::fromStdString("        NO PICTURE "));
@@ -56,6 +58,7 @@ void MainWindow::refresh(const User& theuser)
     if (theuser.team.players.size()>=2){
     // Player 2
     this->ui->label_2->setText(QString::fromStdString(theuser.team.players[1].surname));
+    this->ui->label_2->setAlignment(Qt::AlignCenter);
     this->ui->lcdNumber_2->display(theuser.team.players[1].overallgeneral);
     this->ui->label_2p->setText(QString::fromStdString(theuser.team.players[1].position));
     QPixmap im1(theuser.team.players[1].photoadress);
@@ -65,6 +68,7 @@ void MainWindow::refresh(const User& theuser)
     }
     else{
         this->ui->label_2->setText(QString::fromStdString("NO PLAYER"));
+        this->ui->label_2->setAlignment(Qt::AlignCenter);
         this->ui->lcdNumber_2->display("-");
         this->ui->label_2p->setText(QString::fromStdString("-"));
         this->ui->image_2->setText(QString::fromStdString("        NO PICTURE "));
@@ -72,6 +76,7 @@ void MainWindow::refresh(const User& theuser)
     // Player 3
     if (theuser.team.players.size()>=3){
     this->ui->label_3->setText(QString::fromStdString(theuser.team.players[2].surname));
+    this->ui->label_3->setAlignment(Qt::AlignCenter);
     this->ui->lcdNumber_3->display(theuser.team.players[2].overallgeneral);
     this->ui->label_3p->setText(QString::fromStdString(theuser.team.players[2].position));
         QPixmap im1(theuser.team.players[2].photoadress);
@@ -81,6 +86,7 @@ void MainWindow::refresh(const User& theuser)
     }
     else{
         this->ui->label_3->setText(QString::fromStdString("NO PLAYER"));
+        this->ui->label_3->setAlignment(Qt::AlignCenter);
         this->ui->lcdNumber_3->display("-");
         this->ui->label_3p->setText(QString::fromStdString("-"));
         this->ui->image_3->setText(QString::fromStdString("        NO PICTURE "));
@@ -88,6 +94,7 @@ void MainWindow::refresh(const User& theuser)
     // Player 4
     if (theuser.team.players.size()>=4){
     this->ui->label_4->setText(QString::fromStdString(theuser.team.players[3].surname));
+    this->ui->label_4->setAlignment(Qt::AlignCenter);
     this->ui->lcdNumber_4->display(theuser.team.players[3].overallgeneral);
     this->ui->label_4p->setText(QString::fromStdString(theuser.team.players[3].position));
         QPixmap im1(theuser.team.players[3].photoadress);
@@ -97,6 +104,7 @@ void MainWindow::refresh(const User& theuser)
     }
     else{
         this->ui->label_4->setText(QString::fromStdString("NO PLAYER"));
+        this->ui->label_4->setAlignment(Qt::AlignCenter);
         this->ui->lcdNumber_4->display("-");
         this->ui->label_4p->setText(QString::fromStdString("-"));
         this->ui->image_4->setText(QString::fromStdString("        NO PICTURE "));
@@ -105,6 +113,7 @@ void MainWindow::refresh(const User& theuser)
     // Player 5
     if (theuser.team.players.size()>=5){
     this->ui->label_5->setText(QString::fromStdString(theuser.team.players[4].surname));
+    this->ui->label_5->setAlignment(Qt::AlignCenter);
     this->ui->lcdNumber_5->display(theuser.team.players[4].overallgeneral);
     this->ui->label_5p->setText(QString::fromStdString(theuser.team.players[4].position));
         QPixmap im1(theuser.team.players[4].photoadress);
@@ -114,6 +123,7 @@ void MainWindow::refresh(const User& theuser)
     }
     else{
         this->ui->label_5->setText(QString::fromStdString("NO PLAYER"));
+        this->ui->label_5->setAlignment(Qt::AlignCenter);
         this->ui->lcdNumber_5->display("-");
         this->ui->label_5p->setText(QString::fromStdString("-"));
         this->ui->image_5->setText(QString::fromStdString("        NO PICTURE "));
@@ -122,6 +132,7 @@ void MainWindow::refresh(const User& theuser)
     // Player 6
     if (theuser.team.players.size()>=6){
     this->ui->label_6->setText(QString::fromStdString(theuser.team.players[5].surname));
+    this->ui->label_6->setAlignment(Qt::AlignCenter);
     this->ui->lcdNumber_6->display(theuser.team.players[5].overallgeneral);
     this->ui->label_6p->setText(QString::fromStdString(theuser.team.players[5].position));
         QPixmap im1(theuser.team.players[5].photoadress);
@@ -131,6 +142,7 @@ void MainWindow::refresh(const User& theuser)
     }
     else{
         this->ui->label_6->setText(QString::fromStdString("NO PLAYER"));
+        this->ui->label_6->setAlignment(Qt::AlignCenter);
         this->ui->lcdNumber_6->display("-");
         this->ui->label_6p->setText(QString::fromStdString("-"));
         this->ui->image_6->setText(QString::fromStdString("        NO PICTURE "));
@@ -139,6 +151,7 @@ void MainWindow::refresh(const User& theuser)
     // Player 7
     if (theuser.team.players.size()>=7){
     this->ui->label_7->setText(QString::fromStdString(theuser.team.players[6].surname));
+    this->ui->label_7->setAlignment(Qt::AlignCenter);
     this->ui->lcdNumber_7->display(theuser.team.players[6].overallgeneral);
     this->ui->label_7p->setText(QString::fromStdString(theuser.team.players[6].position));
         QPixmap im1(theuser.team.players[6].photoadress);
@@ -149,6 +162,7 @@ void MainWindow::refresh(const User& theuser)
     }
     else{
         this->ui->label_7->setText(QString::fromStdString("NO PLAYER"));
+        this->ui->label_7->setAlignment(Qt::AlignCenter);
         this->ui->lcdNumber_7->display("-");
         this->ui->label_7p->setText(QString::fromStdString("-"));
         this->ui->image_7->setText(QString::fromStdString("        NO PICTURE "));
@@ -157,6 +171,7 @@ void MainWindow::refresh(const User& theuser)
     // Player 8
     if (theuser.team.players.size()>=8){
     this->ui->label_8->setText(QString::fromStdString(theuser.team.players[7].surname));
+    this->ui->label_8->setAlignment(Qt::AlignCenter);
     this->ui->lcdNumber_8->display(theuser.team.players[7].overallgeneral);
     this->ui->label_8p->setText(QString::fromStdString(theuser.team.players[7].position));
         QPixmap im1(theuser.team.players[7].photoadress);
@@ -166,6 +181,7 @@ void MainWindow::refresh(const User& theuser)
     }
     else{
         this->ui->label_8->setText(QString::fromStdString("NO PLAYER"));
+        this->ui->label_8->setAlignment(Qt::AlignCenter);
         this->ui->lcdNumber_8->display("-");
         this->ui->label_8p->setText(QString::fromStdString("-"));
         this->ui->image_8->setText(QString::fromStdString("        NO PICTURE "));
@@ -174,6 +190,7 @@ void MainWindow::refresh(const User& theuser)
     // Player 9
     if (theuser.team.players.size()>=9){
     this->ui->label_9->setText(QString::fromStdString(theuser.team.players[8].surname));
+    this->ui->label_9->setAlignment(Qt::AlignCenter);
     this->ui->lcdNumber_9->display(theuser.team.players[8].overallgeneral);
     this->ui->label_9p->setText(QString::fromStdString(theuser.team.players[8].position));
         QPixmap im1(theuser.team.players[8].photoadress);
@@ -183,6 +200,7 @@ void MainWindow::refresh(const User& theuser)
     }
     else{
         this->ui->label_9->setText(QString::fromStdString("NO PLAYER"));
+        this->ui->label_9->setAlignment(Qt::AlignCenter);
         this->ui->lcdNumber_9->display("-");
         this->ui->label_9p->setText(QString::fromStdString("-"));
         this->ui->image_9->setText(QString::fromStdString("        NO PICTURE "));
@@ -191,6 +209,7 @@ void MainWindow::refresh(const User& theuser)
     // Player 10
     if (theuser.team.players.size()>=10){
     this->ui->label_10->setText(QString::fromStdString(theuser.team.players[9].surname));
+    this->ui->label_10->setAlignment(Qt::AlignCenter);
     this->ui->lcdNumber_10->display(theuser.team.players[9].overallgeneral);
     this->ui->label_10p->setText(QString::fromStdString(theuser.team.players[9].position));
         QPixmap im1(theuser.team.players[9].photoadress);
@@ -200,6 +219,7 @@ void MainWindow::refresh(const User& theuser)
     }
     else{
         this->ui->label_10->setText(QString::fromStdString("NO PLAYER"));
+        this->ui->label_10->setAlignment(Qt::AlignCenter);
         this->ui->lcdNumber_10->display("-");
         this->ui->label_10p->setText(QString::fromStdString("-"));
         this->ui->image_10->setText(QString::fromStdString("        NO PICTURE "));
@@ -208,6 +228,7 @@ void MainWindow::refresh(const User& theuser)
     // Player 11
     if (theuser.team.players.size()>=11){
     this->ui->label_11->setText(QString::fromStdString(theuser.team.players[10].surname));
+    this->ui->label_11->setAlignment(Qt::AlignCenter);
     this->ui->lcdNumber_11->display(theuser.team.players[10].overallgeneral);
     this->ui->label_11p->setText(QString::fromStdString(theuser.team.players[10].position));
         QPixmap im1(theuser.team.players[10].photoadress);
@@ -217,6 +238,7 @@ void MainWindow::refresh(const User& theuser)
     }
     else{
         this->ui->label_11->setText(QString::fromStdString("NO PLAYER"));
+        this->ui->label_11->setAlignment(Qt::AlignCenter);
         this->ui->lcdNumber_11->display("-");
         this->ui->label_11p->setText(QString::fromStdString("-"));
         this->ui->image_11->setText(QString::fromStdString("        NO PICTURE "));
@@ -225,6 +247,7 @@ void MainWindow::refresh(const User& theuser)
     // Player 12
     if (theuser.team.players.size()>=12){
     this->ui->label_12->setText(QString::fromStdString(theuser.team.players[11].surname));
+    this->ui->label_12->setAlignment(Qt::AlignCenter);
     this->ui->lcdNumber_12->display(theuser.team.players[11].overallgeneral);
     this->ui->label_12p->setText(QString::fromStdString(theuser.team.players[11].position));
         QPixmap im1(theuser.team.players[11].photoadress);
@@ -234,6 +257,7 @@ void MainWindow::refresh(const User& theuser)
     }
     else{
         this->ui->label_12->setText(QString::fromStdString("NO PLAYER"));
+        this->ui->label_12->setAlignment(Qt::AlignCenter);
         this->ui->lcdNumber_12->display("-");
         this->ui->label_12p->setText(QString::fromStdString("-"));
         this->ui->image_12->setText(QString::fromStdString("        NO PICTURE "));
