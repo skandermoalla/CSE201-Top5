@@ -312,9 +312,10 @@ void MainWindow::on_pushButton_3_clicked()
     training -> show();
 }
 
-void MainWindow::on_pushButton_4_clicked()
+void MainWindow::on_pushButton_4_clicked() //teaminfo
 {
     this -> hide();
+    this->teaminfo = new TeamInfo(*myuser,*myleague);
     teaminfo -> show();
 }
 
