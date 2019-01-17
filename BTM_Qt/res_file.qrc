@@ -1,5 +1,14 @@
 <RCC>
     <qresource prefix="/images">
-        
+        <file>images/IMG_5930.jpg</file>
+        <file>images/image_2.jpg</file>
+        <file>images/james.png</file>
+        <file>images/curry.png</file>
+        <file>images/background.png</file>
+        <file>images/StartMenuBackground.png</file>
+        <file>images/BasketballCourt.jpg</file>
+        <file>images/white background image.png</file>
+        <file>images/BasketballCourt1600.png</file>
+        <file>images/StartMenu1600pix.png</file>
     </qresource>
 </RCC>

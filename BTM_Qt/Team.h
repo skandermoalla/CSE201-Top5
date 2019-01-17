@@ -40,8 +40,6 @@ public:
     void PlayerBuy(Player player);
     int points;
 
-
-
 };
 
 #endif // TEAM_H

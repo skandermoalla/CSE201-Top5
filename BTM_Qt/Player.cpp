@@ -1,30 +1,29 @@
 #include "Player.h"
 
 #include <cmath>
-#include <vector>
-#include <string>
 
-std::vector<std::string> names={"LeBron","Michael","Stephen","Kevin","Edison","Kobe","Derrick","Wilt","Kareem","Oscar","Tim","Paul","Kevin","Carmelo","Reggie","Vince","Robert","Tony","Rudy","Nicolas","Boris","Evan","Franck","Joakim","Mickael","Timothé","Joffrey","Rodrigue","Mickael","Ian","Kevin","Alexis","Guerschon","Tariq","Moustapha","Andrew","Charles","Axel","Thomas","Fabien","Mathias","Edwin","Jérome","Damien","Hakeem","Kyrie","Magic","Shaquille","James","Bill","Russell","Charles","Dikembe","Dirk","Julius","David","Larry","James","Allen","Marc","Steve","Pau","Jason","Karl","Gary","Yao","Dwight","Damian","Scottie","Georgy","Cyril","Olivier","Pape-Philippe","Roger","Pape","Philippe","Christian","André","Louis","Eric","Jim","Matthieu","David","Sacha","Yves","Jacques","Bill","Vincent","Jean","Bruno","Roger","Charles","Jean-Louis","Skeeter","Jean-Marie","Benkali","Tariq","Alain","Jacky","Willem","Edmond","Michel","Abdoulaye","Maurice","Bernard","Gérard","Eric","Jacques","Frédéric","Gérard","Eric","Raymond","Firmin","Stéphane","Crawford","Marc-Antoine","Johan","Laurent","Fernand","Yvan","Marc","Régis","Michel","Rémi","Lucien","Henri","Stéphane","Thierry","Jean-Pierre","Yohan","Francis","Jean-Michel","Ronnie","André","Jean-Pierre","Philip","Mel","Alex","Walt","Hersey","Kirk","Andre","Joe","Dean","Liu","Charles","Xu","Savas","Miguel","Luke","Sun","Jean-Marc","Karim", "Zainoul","Akay","Ondrej","Eulis","Salah","Aymen","Omar","Nizar","Atef","Ghaith","Michael","Amine","Khalid","Mohamed","Majid","Nabil","Abdelhakim","Jean","Mustapha","Ghaleb","Elie","Joseph","Rony","Omar","Brian","Ali","Norvel","Ali","Hussein","Ater","Jackson"};
-std::vector<std::string> surnames={"James","Jordan","Curry","Durant","Reshketa","Bryant","Rose","Chamberlain","Abdul-Jabbar","Robertson","Duncan","Pierce","Garnett","Anthony","Miller","Carter","Parish","Parker","Gobert","Batum","Diaw","Fournier","Ntilikina","Noah","Gelabale","Luwawu-Cabarrot","Lauvergne","Beaubois","Piétrus","Mahinmi","Séraphin","Ajinça","Yabusele","Abdul-Wahad","Fall","Albicy","Kahudi","Toupane","Heurtel","Causeur","Lessort","Jackson","Moiso","Inglis","Olajuwon","Irving","Johnson","ONeal","Harden","Russell","Westbrook","Barkley","Mutombo","Nowitzki","Erving","Robinson","Bird","Worthy","Iverson","Gasol","Nash","Gasol","Kidd","Malone","Payton","Ming","Howard","Lillard","Pippen","Adams","Akpomedah","Allinéi","Amagou","Antoine","Badiane","Baillet","Baltzer","Barrais","Bertorelle","Beugnot","Bilba","Bisséni","Gautier","Giffa","Gominon","Caballé","Cain","Collet","Couturier","Hamm","Haudegand","Hemmerlin","Hersin","Jackson","Jouaret","Kaba","Kirksay","Koffi","Lamothe","Laure","Leclère","Longueville","MBaye","Marcelot","Mayeur","Maza","Micoud","Monclar","Monetti","Moroze","Occansey","Offner","Onissah","Ostrowski","Palmer","Pellin","Petro","Pluvy","Prudhomme","Quenin","Quiblier","Racine","Rat","Rippert","Rebuffic","Rey","Risacher","Rupert","Salignon","Sangaré","Schneider","Sénégal","Smith","Souvré","Staelens","Szanyiel","Counts","Groza","Hazzard","Hawkins","Hinrich","Iguodala","Johnson","Kelley","Wei","Jenkins","Xiaoliang","Oguz","Serrano","Fischer","Yue","Kraidy","Ouattara","Bah","Mert","Balvin","Balez","Mejri","Bouzid","Abada","Knioua","Maoua","Nakka","Roll","Rzig","Boukichou","Kherrazi","Naji","Souari","Zouita","Abdelnour","Hoff","Rida","Stephan","Vogel","Fahed","El Turk","Beshara","Mahmoud","Pelle","Kanaan","Tawbe","Majok","Vroman"};
+const std::string names[]={"LeBron","Stephen","Kevin","Edison","Kobe","Derrick","Wilt","Kareem","Oscar","Tim","Paul","Kevin","Carmelo","Reggie","Vince","Robert","Tony","Rudy","Nicolas","Boris","Evan","Franck","Joakim","Mickael","Timothé","Joffrey","Rodrigue","Mickael","Ian","Kevin","Alexis","Guerschon","Tariq","Moustapha","Andrew","Charles","Axel","Thomas","Fabien","Mathias","Edwin","Jérome","Damien","Hakeem","Kyrie","Magic","Shaquille","James","Bill","Russell","Charles","Dikembe","Dirk","Julius","David","Larry","James","Allen","Marc","Steve","Pau","Jason","Karl","Gary","Yao","Dwight","Damian","Scottie","Georgy","Cyril","Olivier","Pape-Philippe","Roger","Pape","Philippe","Christian","André","Louis","Eric","Jim","Matthieu","David","Sacha","Yves","Jacques","Bill","Vincent","Jean","Bruno","Roger","Charles","Jean-Louis","Skeeter","Jean-Marie","Benkali","Tariq","Alain","Jacky","Willem","Edmond","Michel","Abdoulaye","Maurice","Bernard","Gérard","Eric","Jacques","Frédéric","Gérard","Eric","Raymond","Firmin","Stéphane","Crawford","Marc-Antoine","Johan","Laurent","Fernand","Yvan","Marc","Régis","Michel","Rémi","Lucien","Henri","Stéphane","Thierry","Jean-Pierre","Yohan","Francis","Jean-Michel","Ronnie","André","Jean-Pierre","Philip","Mel","Alex","Walt","Hersey","Kirk","Andre","Joe","Dean", "Timofey", "Abdelhakim", "Adam", "Ali", "Ali", "Amine", "Charles", "Darrin", "Dmitriy", "Elie", "Garlon", "Joseph", "Khalid", "Marvin", "Mustapha", "Nabil", "Norvel", "Novak", "Omar", "Rony"};
+const std::string surnames[]={"James","Curry","Durant","Reshketa","Bryant","Rose","Chamberlain","Abdul-Jabbar","Robertson","Duncan","Pierce","Garnett","Anthony","Miller","Carter","Parish","Parker","Gobert","Batum","Diaw","Fournier","Ntilikina","Noah","Gelabale","Luwawu-Cabarrot","Lauvergne","Beaubois","Piétrus","Mahinmi","Séraphin","Ajinça","Yabusele","Abdul-Wahad","Fall","Albicy","Kahudi","Toupane","Heurtel","Causeur","Lessort","Jackson","Moiso","Inglis","Olajuwon","Irving","Johnson","ONeal","Harden","Russell","Westbrook","Barkley","Mutombo","Nowitzki","Erving","Robinson","Bird","Worthy","Iverson","Gasol","Nash","Gasol","Kidd","Malone","Payton","Ming","Howard","Lillard","Pippen","Adams","Akpomedah","Allinéi","Amagou","Antoine","Badiane","Baillet","Baltzer","Barrais","Bertorelle","Beugnot","Bilba","Bisséni","Gautier","Giffa","Gominon","Caballé","Cain","Collet","Couturier","Hamm","Haudegand","Hemmerlin","Hersin","Jackson","Jouaret","Kaba","Kirksay","Koffi","Lamothe","Laure","Leclère","Longueville","MBaye","Marcelot","Mayeur","Maza","Micoud","Monclar","Monetti","Moroze","Occansey","Offner","Onissah","Ostrowski","Palmer","Pellin","Petro","Pluvy","Prudhomme","Quenin","Quiblier","Racine","Rat","Rippert","Rebuffic","Rey","Risacher","Rupert","Salignon","Sangaré","Schneider","Sénégal","Smith","Souvré","Staelens","Szanyiel","Counts","Groza","Hazzard","Hawkins","Hinrich","Iguodala","Johnson","Kelley", "Semenas", "Stephan", "Green", "Vogel", "Boukichou", "Ogunsep", "Huff", "Souari", "Pelle", "Dedovic", "El Turk", "Fahed"};
 const std::string positions[]={"PG","SG","F","PF","C"};
 const QString photolocation[]={":/images/images/IMG_5930.jpg",":/images/images/image_2.jpg",":/images/images/james.png",":/images/images/curry.png"};
+
 
 //constructor when player position is not given
 Player::Player()
 {
     //initialize the division attribute
 
-    //choose a random numbers to select a name and a surname
-    int randomname=rand()%(names.size());
+    //choose a random numbers to select a surname
+    int randomname=rand()%(sizeof(names)/sizeof(names[0]));
     name=names[randomname];
-    surname=surnames[randomname];
-    //names.erase(names.begin()+randomname);
-    //surnames.erase(surnames.begin()+randomname);
 
     //choose a random number to select a picture
     int randomphoto=rand()%(sizeof(photolocation)/sizeof(photolocation[0]));
     photoadress=photolocation[randomphoto];
 
+    //choose a random number to select a surname
+    int randomsurname=rand()%(sizeof(surnames)/sizeof(surnames[0]));
+    surname=surnames[randomsurname];
 
     //position initialization
     position=positions[rand()%5];
@@ -77,11 +76,13 @@ Player::Player()
 //constructor when the player position is given
 Player::Player(std::string pos)
 {
-    int randomname=rand()%(names.size());
+    //choose a random numbers to select a surname
+    int randomname=rand()%(sizeof(names)/sizeof(names[0]));
     name=names[randomname];
-    surname=surnames[randomname];
-    names.erase(names.begin()+randomname);
-    surnames.erase(surnames.begin()+randomname);
+
+    //choose a random number to select a surname
+    int randomsurname=rand()%(sizeof(surnames)/sizeof(surnames[0]));
+    surname=surnames[randomsurname];
 
     photoadress=":/images/images/IMG_5930.jpg";
 

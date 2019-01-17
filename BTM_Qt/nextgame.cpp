@@ -4,7 +4,6 @@
 #include<QTime>
 #include<QString>
 #include <QDebug>
-#include <QMessageBox>
 
 NextGame::NextGame(QWidget *parent) :
     QDialog(parent),
@@ -41,8 +40,6 @@ NextGame::NextGame(GameEngine* eng, User& theuser, League& theleague, QWidget *p
     isManagerAttacking = true;
     score = std::pair<int, int>(0,0);
 
-    this->check_tactics = false;
-
     ui->setupUi(this);
     timer = new QTimer(this); //new timer object
     s_timer = new QTimer(this);
@@ -66,6 +63,10 @@ NextGame::NextGame(GameEngine* eng, User& theuser, League& theleague, QWidget *p
     ui->away_name->setAlignment(Qt::AlignCenter);
     ui->away_name->setFont(QFont("",14));
     ui->away_name->setText(QString::fromStdString(myleague->getThisWeeksOpponentTeam().name));
+
+    ui->def_tactic->setVisible(false);
+    ui->tactics->setVisible(false);
+    ui->sub->setVisible(false);
 }
 
 
@@ -88,7 +89,6 @@ void NextGame::quarter_1_timing(){
     } else {
         timer->stop();
         s_timer->stop();
-
         ui->second_q->setVisible(true);
         ui->second_q->setText("Go to 2nd");
         ui->tactics->setVisible(false);
@@ -100,7 +100,13 @@ void NextGame::quarter_1_timing(){
         quarter_length = QTime(0,1,30);
 
         ui->end_msg->setText("End of the Quarter 1");
+        ui->sub->setVisible(true);
+        ui->tactics->setVisible(false);
+        ui->def_tactic->setVisible(false);
 
+        //save the state of the teams
+        myuser->team = playingManagersTeam;
+        myleague->getThisWeeksOpponentTeam() = playingOpponentsTeam;
 
     }
 }
@@ -131,6 +137,14 @@ void NextGame::quarter_2_timing(){
         ui->sub->setEnabled(true);
         quarter_length = QTime(0,1,30);
 
+        ui->sub->setVisible(true);
+        ui->tactics->setVisible(false);
+        ui->def_tactic->setVisible(false);
+
+        //save the state of the teams
+        myuser->team = playingManagersTeam;
+        myleague->getThisWeeksOpponentTeam() = playingOpponentsTeam;
+
 
     }
 }
@@ -159,6 +173,14 @@ void NextGame::quarter_3_timing(){
         ui->sub->setVisible(true);
         ui->sub->setEnabled(true);
         quarter_length = QTime(0,1,30);
+
+        ui->sub->setVisible(true);
+        ui->tactics->setVisible(false);
+        ui->def_tactic->setVisible(false);
+
+        //save the state of the teams
+        myuser->team = playingManagersTeam;
+        myleague->getThisWeeksOpponentTeam() = playingOpponentsTeam;
 
     }
 }
@@ -209,9 +231,13 @@ void NextGame::strat(){
         qDebug()<<"outcome = " << outcome;
         if (isManagerAttacking){
             score.first += outcome;
+            //add hightlight to highlights
+            //engine->popMessage(playingManagersTeam, outcome);
         }
         else {
             score.second += outcome;
+            //add highlight to highlights
+            //engine->popMessage(playingOpponentsTeam, outcome);
         }
 
         isManagerAttacking = not isManagerAttacking;
@@ -235,13 +261,17 @@ void NextGame::on_start_clicked()
     Team& initManagersTeam = myuser->team;
     Team& initOpponentsTeam = myleague->getThisWeeksOpponentTeam();
 
+    //copy managers team to be able to apply changes to it and recover the initTeam for default tactic
     playingManagersTeam = engine->copyTeam(initManagersTeam);
-    playingOpponentsTeam = engine->copyTeam(initOpponentsTeam); //useless?
+    playingOpponentsTeam = engine->copyTeam(initOpponentsTeam);
 
-    //show tactics button that was hidden
+    //show tactics button that was hidden and
+    ui->start->setVisible(false);
+    ui->tactics->setVisible(true);
+    ui->def_tactic->setVisible(true);
 
-    this->check_tactics = true;
-    tactic_ingame = new Tactic_inGame(engine, &playingManagersTeam, &(myuser->team)); //do for each quarter
+    tactic_ingame = new Tactic_inGame(engine, &playingManagersTeam, &(myuser->team));
+    //do for each quarter
 
     qDebug()<<"copied them";
 
@@ -250,8 +280,6 @@ void NextGame::on_start_clicked()
 
     timer->start(1000); //scale time
     s_timer->start(1000);
-
-
 }
 
 void NextGame::on_second_q_clicked()
@@ -267,8 +295,28 @@ void NextGame::on_second_q_clicked()
     ui->sub->setVisible(false);
     ui->quater->setText("Quarter: 2");
     disconnect(timer,SIGNAL(timeout()),this,SLOT(quarter_1_timing()));
+
+    //get the teams that are playing
+    Team& initManagersTeam = myuser->team;
+    Team& initOpponentsTeam = myleague->getThisWeeksOpponentTeam();
+
+    //copy managers team to be able to apply changes to it and recover the initTeam for default tactic
+    playingManagersTeam = engine->copyTeam(initManagersTeam);
+    playingOpponentsTeam = engine->copyTeam(initOpponentsTeam);
+
+    //show tactics button that was hidden and
+    ui->second_q->setVisible(false);
+    ui->sub->setVisible(false);
+    ui->tactics->setVisible(true);
+    ui->def_tactic->setVisible(true);
+
+    tactic_ingame = new Tactic_inGame(engine, &playingManagersTeam, &(myuser->team));
+
     connect(timer,SIGNAL(timeout()),this,SLOT(quarter_2_timing()));
+
     //connect(s_timer,SIGNAL(timeout()),this,SLOT(strat()));
+
+    //do for each quarter
     timer->start(1000); //scale time
     s_timer->start(1000);
 
@@ -287,8 +335,26 @@ void NextGame::on_third_q_clicked()
     ui->sub->setVisible(false);
     ui->quater->setText("Quarter: 3");
     disconnect(timer,SIGNAL(timeout()),this,SLOT(quarter_2_timing()));
+
+    //get the teams that are playing
+    Team& initManagersTeam = myuser->team;
+    Team& initOpponentsTeam = myleague->getThisWeeksOpponentTeam();
+
+    //copy managers team to be able to apply changes to it and recover the initTeam for default tactic
+    playingManagersTeam = engine->copyTeam(initManagersTeam);
+    playingOpponentsTeam = engine->copyTeam(initOpponentsTeam);
+
+    //show tactics button that was hidden and
+    ui->third_q->setVisible(false);
+    ui->sub->setVisible(false);
+    ui->tactics->setVisible(true);
+    ui->def_tactic->setVisible(true);
+
+    tactic_ingame = new Tactic_inGame(engine, &playingManagersTeam, &(myuser->team));
+
     connect(timer,SIGNAL(timeout()),this,SLOT(quarter_3_timing()));
     //connect(s_timer,SIGNAL(timeout()),this,SLOT(strat()));
+
     timer->start(1000); //scale time
     s_timer->start(1000);
 
@@ -307,6 +373,23 @@ void NextGame::on_fourth_q_clicked()
     ui->sub->setVisible(false);
     ui->quater->setText("Quarter: 4");
     disconnect(timer,SIGNAL(timeout()),this,SLOT(quarter_3_timing()));
+
+    //get the teams that are playing
+    Team& initManagersTeam = myuser->team;
+    Team& initOpponentsTeam = myleague->getThisWeeksOpponentTeam();
+
+    //copy managers team to be able to apply changes to it and recover the initTeam for default tactic
+    playingManagersTeam = engine->copyTeam(initManagersTeam);
+    playingOpponentsTeam = engine->copyTeam(initOpponentsTeam);
+
+    //show tactics button that was hidden and
+    ui->fourth_q->setVisible(false);
+    ui->sub->setVisible(false);
+    ui->tactics->setVisible(true);
+    ui->def_tactic->setVisible(true);
+
+    tactic_ingame = new Tactic_inGame(engine, &playingManagersTeam, &(myuser->team));
+
     connect(timer,SIGNAL(timeout()),this,SLOT(quarter_4_timing()));
     //connect(s_timer,SIGNAL(timeout()),this,SLOT(strat()));
     timer->start(1000); //scale time
@@ -325,17 +408,6 @@ void NextGame::on_end_game_clicked()
 
 void NextGame::on_tactics_clicked()
 {
-    if (this->check_tactics == false)
-    {
-        QMessageBox::StandardButton reply;
-        reply = QMessageBox::warning(this, tr("QMessageBox::warning()"),
-                                            "You have to start the game to change your tactics",
-                                            QMessageBox::Cancel);
-            if (reply == QMessageBox::Cancel)
-            {}
-    }
-    else
-    {
-        tactic_ingame->show();
-    }
+    tactic_ingame->show();
+    //tactics->show();
 }
