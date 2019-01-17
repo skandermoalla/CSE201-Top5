@@ -59,7 +59,7 @@ void Tactic_inGame::on_pushButton_clicked() //  Tac 1
     }
     else
     {
-        this->ui->chosentac->setText(QString::fromStdString("Fast Break"));
+        this->ui->chosentac->setText(QString::fromStdString("Default Tactics"));
         this->chosen = -1;
     }
 }
@@ -69,7 +69,7 @@ void Tactic_inGame::on_pushButton_2_clicked() // Tac 2
     int index = 2;
     if (this->chosen != index)
     {
-        this->ui->chosentac->setText(QString::fromStdString("Zone Defence") );
+        this->ui->chosentac->setText(QString::fromStdString("Fast Break") );
         this->chosen = index;
     }
     else
@@ -84,7 +84,7 @@ void Tactic_inGame::on_pushButton_3_clicked() // Tac 3
     int index = 3;
     if (this->chosen != index)
     {
-        this->ui->chosentac->setText(QString::fromStdString("FullTime Attack") );
+        this->ui->chosentac->setText(QString::fromStdString("Zone Defence") );
         this->chosen = index;
     }
     else
@@ -99,7 +99,7 @@ void Tactic_inGame::on_pushButton_4_clicked() // Tac 4
     int index = 4;
     if (this->chosen != index)
     {
-        this->ui->chosentac->setText(QString::fromStdString("Full Court Press") );
+        this->ui->chosentac->setText(QString::fromStdString("Full Time Attack") );
         this->chosen = index;
     }
     else
