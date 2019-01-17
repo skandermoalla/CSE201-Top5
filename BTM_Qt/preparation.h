@@ -21,6 +21,7 @@ public:
     User* myuser;
     League* myleague;
     GameEngine* engine;
+    NextGame *nextgame;
     ~Preparation();
 
 signals:
@@ -62,7 +63,6 @@ private slots:
 
 private:
     Ui::Preparation *ui;
-    NextGame *nextgame;
     int chosen_1;
     int chosen_2;
     void Substitution();

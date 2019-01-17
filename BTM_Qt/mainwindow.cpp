@@ -16,7 +16,6 @@ MainWindow::MainWindow(User& theuser ,League& A,QWidget *parent) :
     //this->calendar = new Calendar();
     //this->market= new Market();
     this->teaminfo = new TeamInfo();
-
     engine = new GameEngine();
 
 }
@@ -24,6 +23,12 @@ MainWindow::MainWindow(User& theuser ,League& A,QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+void MainWindow::reset(User& newuser, League& newA)
+{
+    this->myuser = &newuser;
+    this->myleague = &newA;
+    this->refresh(*myuser);
 }
 
 void MainWindow::refresh(const User& theuser)
@@ -322,7 +327,7 @@ void MainWindow::on_pushButton_4_clicked() //teaminfo
 void MainWindow::on_pushButton_5_clicked() // Next game
 {
     this -> hide();
-    this->preparation=new Preparation(engine, *myuser,*myleague);
+    this->preparation=new Preparation(engine, *myuser,*myleague, this);
     connect(this->preparation, SIGNAL(backButtonClicked(User)), this, SLOT(show()));
     connect(this->preparation, SIGNAL(backButtonClicked(User)), this, SLOT(refresh(User)));
     preparation ->show();

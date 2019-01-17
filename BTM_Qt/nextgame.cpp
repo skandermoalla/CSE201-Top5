@@ -168,8 +168,7 @@ void NextGame::quarter_4_timing(){
         timer->stop();
         s_timer->stop();
         ui->fourth_q->setVisible(false);
-        ui->second_q->setVisible(true);
-        ui->second_q->setText("End");
+        ui->end_game->setVisible(true);
         ui->end_msg->setText("End of the game");
         quarter_length = QTime(0,0,30);
 
@@ -338,8 +337,9 @@ void NextGame::on_fourth_q_clicked()
 void NextGame::on_end_game_clicked()
 {
     //When button is clicked I want to hide nextgame window and go back to mainwindow
-    /*this->hide();*/
-
+    this->close();
+    emit backButtonClicked(*this->myuser, *this->myleague);
+    qDebug() << "return to mainwindow";
 }
 
 void NextGame::on_tactics_clicked()
