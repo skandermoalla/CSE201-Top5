@@ -11554,7 +11554,7 @@
      </rect>
     </property>
     <property name="styleSheet">
-     <string notr="true">background-image: url(:/images/images/I-Stock-Basketball-Court.jpg);</string>
+     <string notr="true">background-image: url(:/images/images/basketball3.jpg);</string>
     </property>
    </widget>
    <zorder>graphicsView</zorder>

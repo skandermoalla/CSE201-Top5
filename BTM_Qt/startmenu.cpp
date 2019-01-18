@@ -33,6 +33,7 @@ void StartMenu::on_Next_clicked()
         this -> hide();
         User* user=new User(name.toStdString(), team_name.toStdString(), nationality.toStdString());
         League* A=new League(3,"1819");
+        user->resuming=false;
         A->teams[0]=user->team;
         A->ranking[0]=user->team;
         mainwindow = new MainWindow(*user,*A);

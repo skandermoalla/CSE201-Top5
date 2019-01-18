@@ -30,7 +30,6 @@
         <file>images/Charles Barkley.png</file>
         <file>images/Charles Jenkins.png</file>
         <file>images/Chima Moneke.png</file>
-        <file>images/Christian Baltzer.png</file>
         <file>images/Cyril Akpomedah.png</file>
         <file>images/Damian Lillard.png</file>
         <file>images/Damien Inglis.png</file>
@@ -54,7 +53,6 @@
         <file>images/Fedor Zugic.png</file>
         <file>images/Felipe Reyes.png</file>
         <file>images/Filip Barovic.png</file>
-        <file>images/Francis Schneider.png</file>
         <file>images/Franck Ntilikina.png</file>
         <file>images/Gabriel Deck.png</file>
         <file>images/Gaith Nakka.png</file>
@@ -142,7 +140,6 @@
         <file>images/StartMenuBackground.png</file>
         <file>images/Stephane Risacher.png</file>
         <file>images/Steve Nash.png</file>
-        <file>images/Sun Yue.png</file>
         <file>images/Taj Gibson.png</file>
         <file>images/Tariq Kirksay.png</file>
         <file>images/Thierry Rupert.png</file>
@@ -160,7 +157,6 @@
         <file>images/Walter Tavares.png</file>
         <file>images/white background image.png</file>
         <file>images/Xavier Rabaseda.png</file>
-        <file>images/Xu Xiaoliang.png</file>
         <file>images/Yao Ming.png</file>
         <file>images/Yohan Sangare.png</file>
         <file>images/Yovel Zoosman.png</file>
@@ -199,5 +195,13 @@
         <file>images/Omar ElTurk.png</file>
         <file>images/Pape PhilippeAmagou.png</file>
         <file>images/Charles Kahudi.png</file>
+        <file>images/bbcourt_hardwood.jpg</file>
+        <file>images/championship_celeb.jpg</file>
+        <file>images/gym_2.jpg</file>
+        <file>images/Francis Schneider.png</file>
+        <file>images/Xu Xiaoliang.png</file>
+        <file>images/Christian Baltzer.png</file>
+        <file>images/Sun Yue.png</file>
+        <file>images/Michael Jordan.jpg</file>
     </qresource>
 </RCC>

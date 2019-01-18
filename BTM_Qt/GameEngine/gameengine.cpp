@@ -364,17 +364,26 @@ int GameEngine::endOfMatchUpdate(User *manager, League* league, Team &opponentsT
     //updates the team players attributes (gain of speed etc...)
     updateTeamsOverall(*league, manager->team, opponentsTeam, score);
     int reward;
-    int points;
+    int managersPoints;
+    int opponentsPoints;
+
     if (score.first > score.second) {
         reward = 1000; //To be modified.
-        points = 2;
+        managersPoints = 2;
+        opponentsPoints = 1;
     }
     else {
         reward = 200; //To be modified.
-        points = 1;
+        managersPoints = 1;
+        opponentsPoints = 2;
     }
     manager->budget += reward;
-    manager->team.points += points;
+    manager->team.points += managersPoints;
+    manager->team.gamesplayed += 1;
+    seachTeamAndUpdatePoints(league, opponentsTeam.name, opponentsPoints);
+
+    league->teams[0] = copyTeam(manager->team);
+    league->updateranking();
 
     //increment league week
     league->current_week += 1; //check when to stop incrementing
@@ -398,12 +407,14 @@ void GameEngine::updateThisWeeksRanking(League *league) const {
             seachTeamAndUpdatePoints(league, league->ThisWeeksGames[i].second.name, 2);
         }
     }
+    league->updateranking();
 }
 
 void GameEngine::seachTeamAndUpdatePoints(League *league, std::string teamName, int points) const{
     for (std::vector<Team>::iterator team = league->teams.begin();team != league->teams.end(); team++ ){
         if (team->name == teamName){
             team->points += points;
+            team->gamesplayed+=1;
         }
     }
 }

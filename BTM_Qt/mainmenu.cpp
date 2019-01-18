@@ -56,12 +56,13 @@ void MainMenu::on_resume_clicked()
     for (int j=0;j<12;j++){
     myfile.open(files[j]);
     std::string name;
-    int points,nrplayers;
-    myfile>>name>>points>>nrplayers;
+    int points,nrplayers,gamesplayed;
+    myfile>>name>>points>>nrplayers>>gamesplayed;
     std::cout<<name<<std::endl; //name of the team
     std::cout<<points<<std::endl; //points of the team
     league->teams[j].name=name;
     league->teams[j].points=points;
+    league->teams[j].gamesplayed=gamesplayed;
     std::string playername,playersurname,playerposition;
     for (int i=0;i<nrplayers;i++){
         //get the players information
@@ -109,10 +110,12 @@ void MainMenu::on_resume_clicked()
     //now update the user team
     std::ifstream team0("team0.txt");
     std::string name,playername,playersurname,playerposition;;
-    int points,nrplayers;
-    team0>>name>>points>>nrplayers;
+    int points,nrplayers,gamesplayed;
+    team0>>name>>points>>nrplayers>>gamesplayed;
     myuser->team.name=name;
     myuser->team.points=points;
+    myuser->resuming=true;
+    myuser->team.gamesplayed=gamesplayed;
 
     for (int i=0;i<nrplayers;i++){
         team0>>playername>>playersurname>>playerposition>>age>>height>>weight>>sprint>>rebound>>passing>>handling>>shooting>>stealing>>block>>jump>>strength>>motivation>>energy>>attack>>defence>>overallgeneral>>marketvalue>>photoloc1>>photoloc2;
