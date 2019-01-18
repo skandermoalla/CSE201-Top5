@@ -64,6 +64,7 @@ GameEngine::GameEngine()
 }
 
 void GameEngine::simulateThisWeeksGames(League& league) const{
+    league.ThisWeeksScores = {};
     const std::vector< std::pair< Team, Team > > thisWeeksGames = league.getThisWeeksGames(); //pair of references already
     for (std::vector< std::pair< Team, Team > >::const_iterator i = thisWeeksGames.begin(); i != thisWeeksGames.end(); i++) {
         simulateAutomatedGame(league, i->first, i->second);
@@ -363,19 +364,55 @@ int GameEngine::endOfMatchUpdate(User *manager, League* league, Team &opponentsT
     //updates the team players attributes (gain of speed etc...)
     updateTeamsOverall(*league, manager->team, opponentsTeam, score);
     int reward;
+    int managersPoints;
+    int opponentsPoints;
+
     if (score.first > score.second) {
         reward = 1000; //To be modified.
+        managersPoints = 2;
+        opponentsPoints = 1;
     }
     else {
         reward = 200; //To be modified.
+        managersPoints = 1;
+        opponentsPoints = 2;
     }
     manager->budget += reward;
+    manager->team.points += managersPoints;
+    seachTeamAndUpdatePoints(league, opponentsTeam.name, opponentsPoints);
+
+    league->teams[0] = copyTeam(manager->team);
+    league->updateranking();
 
     //increment league week
     league->current_week += 1; //check when to stop incrementing
 
     //simulate games of that week
+    league->ThisWeeksGames = league->getThisWeeksGames();
     simulateThisWeeksGames(*league);
+    updateThisWeeksRanking(league);
 
     return reward;
+}
+
+void GameEngine::updateThisWeeksRanking(League *league) const {
+    for (int i = 0; i < 5; i++){
+        if (league->ThisWeeksScores[i].first > league->ThisWeeksScores[i].second) {
+            seachTeamAndUpdatePoints(league, league->ThisWeeksGames[i].first.name, 2);
+            seachTeamAndUpdatePoints(league, league->ThisWeeksGames[i].second.name, 1);
+        }
+        else {
+            seachTeamAndUpdatePoints(league, league->ThisWeeksGames[i].first.name, 1);
+            seachTeamAndUpdatePoints(league, league->ThisWeeksGames[i].second.name, 2);
+        }
+    }
+    league->updateranking();
+}
+
+void GameEngine::seachTeamAndUpdatePoints(League *league, std::string teamName, int points) const{
+    for (std::vector<Team>::iterator team = league->teams.begin();team != league->teams.end(); team++ ){
+        if (team->name == teamName){
+            team->points += points;
+        }
+    }
 }
