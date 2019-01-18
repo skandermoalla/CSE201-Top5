@@ -130,7 +130,7 @@ const std::vector<std::pair<Team, Team>> League::getThisWeeksGames(){
 Team& League::getThisWeeksOpponentTeam(){
     std::cout << this->getAllUserMatches()[this->current_week] << std::endl;
     int team_int = this->getAllUserMatches()[this->current_week-1];
-    return this->teams[team_int];
+    return this->teams[team_int-1];
 }
 
 
