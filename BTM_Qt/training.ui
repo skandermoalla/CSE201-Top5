@@ -14,7 +14,7 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/images/images/basketball3.jpg);</string>
+   <string notr="true"/>
   </property>
   <widget class="QLCDNumber" name="lcdNumber_2">
    <property name="geometry">
