@@ -381,6 +381,9 @@ int GameEngine::endOfMatchUpdate(User *manager, League* league, Team &opponentsT
     manager->team.points += managersPoints;
     seachTeamAndUpdatePoints(league, opponentsTeam.name, opponentsPoints);
 
+    league->teams[0] = copyTeam(manager->team);
+    league->updateranking();
+
     //increment league week
     league->current_week += 1; //check when to stop incrementing
 
@@ -403,6 +406,7 @@ void GameEngine::updateThisWeeksRanking(League *league) const {
             seachTeamAndUpdatePoints(league, league->ThisWeeksGames[i].second.name, 2);
         }
     }
+    league->updateranking();
 }
 
 void GameEngine::seachTeamAndUpdatePoints(League *league, std::string teamName, int points) const{
