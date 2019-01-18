@@ -10,3 +10,5 @@ A user can progress from league to league, each season, depending on the perform
 
 
 ## How to compile the project
+
+## How to play the game
