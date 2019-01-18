@@ -379,6 +379,7 @@ int GameEngine::endOfMatchUpdate(User *manager, League* league, Team &opponentsT
     }
     manager->budget += reward;
     manager->team.points += managersPoints;
+    manager->team.gamesplayed += 1;
     seachTeamAndUpdatePoints(league, opponentsTeam.name, opponentsPoints);
 
     league->teams[0] = copyTeam(manager->team);
@@ -413,6 +414,7 @@ void GameEngine::seachTeamAndUpdatePoints(League *league, std::string teamName, 
     for (std::vector<Team>::iterator team = league->teams.begin();team != league->teams.end(); team++ ){
         if (team->name == teamName){
             team->points += points;
+            team->gamesplayed+=1;
         }
     }
 }
