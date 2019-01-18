@@ -280,7 +280,7 @@ int GameEngine::getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isMa
         player->energy -= 2;
     }
     for (std::vector< Player >::iterator player = oppentsTeam.players.begin(); player != oppentsTeam.players.end(); player++){
-        player->energy -= 1;
+        player->energy -= 2;
     }
 
     //do some Heuristics (include energy?) depending on whether it's attack or defence
@@ -330,19 +330,19 @@ void GameEngine::endOfQuarterRest(User* manager, Team& managersTeam, Team& oppen
     //default tactic
     getBacktoDefaultTactic(managersTeam, manager->team);
 
-    //Add 20 energy to the first 5 players
+    //Add 70 energy to the first 5 players
     for (std::vector< Player >::iterator player = managersTeam.players.begin(); player != managersTeam.players.begin()+5; player++){
-        player->energy = std::min(player->energy+20, 100);
+        player->energy = std::min(player->energy+30, 100);
     }
 
-    //Add 5 energy to the rest of the players
+    //Add 10 energy to the rest of the players
     for (std::vector< Player >::iterator player = managersTeam.players.begin()+5; player != managersTeam.players.end(); player++){
-        player->energy = std::min(player->energy+5, 100);
+        player->energy = std::min(player->energy+10, 100);
     }
 
-    //Add 12 energy to the players of the opponent team
+    //Add 30 energy to the players of the opponent team
     for (std::vector< Player >::iterator player = oppentsTeam.players.begin(); player != oppentsTeam.players.end(); player++){
-        player->energy = std::min(player->energy+12, 100);
+        player->energy = std::min(player->energy+30, 100);
     }
 
     //update managers'team

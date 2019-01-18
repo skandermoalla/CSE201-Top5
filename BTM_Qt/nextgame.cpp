@@ -112,10 +112,8 @@ void NextGame::quarter_1_timing(){
         ui->tactics->setVisible(false);
         ui->def_tactic->setVisible(false);
 
-        //save the state of the teams
-        myuser->team = playingManagersTeam;
-        myleague->getThisWeeksOpponentTeam() = playingOpponentsTeam;
-
+        //save the state of the managers team and add energy to both teams
+        engine->endOfQuarterRest(myuser, playingManagersTeam, playingOpponentsTeam);
     }
 }
 void NextGame::quarter_2_timing(){
@@ -149,9 +147,8 @@ void NextGame::quarter_2_timing(){
         ui->tactics->setVisible(false);
         ui->def_tactic->setVisible(false);
 
-        //save the state of the teams
-        myuser->team = playingManagersTeam;
-        myleague->getThisWeeksOpponentTeam() = playingOpponentsTeam;
+        //save the state of the managers team and add energy to both teams
+        engine->endOfQuarterRest(myuser, playingManagersTeam, playingOpponentsTeam);
 
 
     }
@@ -187,9 +184,8 @@ void NextGame::quarter_3_timing(){
         ui->tactics->setVisible(false);
         ui->def_tactic->setVisible(false);
 
-        //save the state of the teams
-        myuser->team = playingManagersTeam;
-        myleague->getThisWeeksOpponentTeam() = playingOpponentsTeam;
+        //save the state of the managers team and add energy to both teams
+        engine->endOfQuarterRest(myuser, playingManagersTeam, playingOpponentsTeam);
 
     }
 }
@@ -325,11 +321,9 @@ void NextGame::on_second_q_clicked()
 
     //get the teams that are playing
     Team& initManagersTeam = myuser->team;
-    Team& initOpponentsTeam = myleague->getThisWeeksOpponentTeam();
 
     //copy managers team to be able to apply changes to it and recover the initTeam for default tactic
     playingManagersTeam = engine->copyTeam(initManagersTeam);
-    playingOpponentsTeam = engine->copyTeam(initOpponentsTeam);
 
     //show tactics button that was hidden and
     ui->second_q->setVisible(false);
@@ -365,11 +359,9 @@ void NextGame::on_third_q_clicked()
 
     //get the teams that are playing
     Team& initManagersTeam = myuser->team;
-    Team& initOpponentsTeam = myleague->getThisWeeksOpponentTeam();
 
     //copy managers team to be able to apply changes to it and recover the initTeam for default tactic
     playingManagersTeam = engine->copyTeam(initManagersTeam);
-    playingOpponentsTeam = engine->copyTeam(initOpponentsTeam);
 
     //show tactics button that was hidden and
     ui->third_q->setVisible(false);
@@ -403,11 +395,9 @@ void NextGame::on_fourth_q_clicked()
 
     //get the teams that are playing
     Team& initManagersTeam = myuser->team;
-    Team& initOpponentsTeam = myleague->getThisWeeksOpponentTeam();
 
     //copy managers team to be able to apply changes to it and recover the initTeam for default tactic
     playingManagersTeam = engine->copyTeam(initManagersTeam);
-    playingOpponentsTeam = engine->copyTeam(initOpponentsTeam);
 
     //show tactics button that was hidden and
     ui->fourth_q->setVisible(false);
