@@ -21,7 +21,7 @@ NextGame::NextGame(QWidget *parent) :
     ui->end_msg->setAlignment(Qt::AlignCenter);
     ui->end_msg->setFont(QFont("Comic Sans MS",12));
     ui->comments->setAlignment(Qt::AlignCenter);
-    ui->comments->setFont(QFont("Comic Sans MS",16));
+    ui->comments->setFont(QFont("Comic Sans MS",14));
     ui->second_q->setVisible(false);
     ui->third_q->setVisible(false);
     ui->fourth_q->setVisible(false);

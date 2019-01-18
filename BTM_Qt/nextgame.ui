@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>933</width>
+    <width>1000</width>
     <height>604</height>
    </rect>
   </property>
@@ -23,7 +23,7 @@ background-color:orange;
     <rect>
      <x>230</x>
      <y>140</y>
-     <width>471</width>
+     <width>551</width>
      <height>41</height>
     </rect>
    </property>
@@ -84,7 +84,7 @@ border: 3px solid white;
   <widget class="QListWidget" name="listWidget_2">
    <property name="geometry">
     <rect>
-     <x>760</x>
+     <x>827</x>
      <y>140</y>
      <width>171</width>
      <height>341</height>
@@ -96,7 +96,7 @@ border: 3px solid white;
     <rect>
      <x>230</x>
      <y>0</y>
-     <width>471</width>
+     <width>551</width>
      <height>131</height>
     </rect>
    </property>
@@ -193,7 +193,7 @@ border: 3px solid white;
   <widget class="QPushButton" name="second_q">
    <property name="geometry">
     <rect>
-     <x>690</x>
+     <x>757</x>
      <y>540</y>
      <width>113</width>
      <height>28</height>
@@ -206,7 +206,7 @@ border: 3px solid white;
   <widget class="QPushButton" name="start">
    <property name="geometry">
     <rect>
-     <x>690</x>
+     <x>757</x>
      <y>510</y>
      <width>113</width>
      <height>28</height>
@@ -219,7 +219,7 @@ border: 3px solid white;
   <widget class="QPushButton" name="third_q">
    <property name="geometry">
     <rect>
-     <x>810</x>
+     <x>877</x>
      <y>510</y>
      <width>113</width>
      <height>28</height>
@@ -232,7 +232,7 @@ border: 3px solid white;
   <widget class="QPushButton" name="fourth_q">
    <property name="geometry">
     <rect>
-     <x>810</x>
+     <x>877</x>
      <y>540</y>
      <width>113</width>
      <height>28</height>
@@ -245,7 +245,7 @@ border: 3px solid white;
   <widget class="QPushButton" name="end_game">
    <property name="geometry">
     <rect>
-     <x>750</x>
+     <x>757</x>
      <y>570</y>
      <width>113</width>
      <height>28</height>
@@ -258,9 +258,9 @@ border: 3px solid white;
   <widget class="QLabel" name="comments">
    <property name="geometry">
     <rect>
-     <x>234</x>
+     <x>194</x>
      <y>235</y>
-     <width>471</width>
+     <width>611</width>
      <height>181</height>
     </rect>
    </property>
@@ -269,6 +269,19 @@ border: 3px solid white;
    </property>
    <property name="text">
     <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="quit">
+   <property name="geometry">
+    <rect>
+     <x>877</x>
+     <y>570</y>
+     <width>113</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Quit</string>
    </property>
   </widget>
  </widget>
