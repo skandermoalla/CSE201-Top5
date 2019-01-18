@@ -50,6 +50,8 @@ private slots:
 
     void on_def_tactic_clicked();
 
+    void on_quit_clicked();
+
 private:
     Ui::NextGame *ui;
     QTimer *timer;

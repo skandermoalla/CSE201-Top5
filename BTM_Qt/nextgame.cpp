@@ -472,3 +472,21 @@ void NextGame::on_def_tactic_clicked()
 
     //pop a message saying default tactic was applied
 }
+
+void NextGame::on_quit_clicked()
+{
+    timer->stop();
+    s_timer->stop();
+
+    //call endOfMatchUpdate method of gameEngine
+    int reward = engine->endOfMatchUpdate(myuser, myleague, myleague->getThisWeeksOpponentTeam(), score);
+
+    //create a pop-up with the reward
+
+
+    //When button is clicked I want to hide nextgame window and go back to mainwindow
+    this->close();
+
+    emit backButtonClicked(*this->myuser, *this->myleague);
+    qDebug() << "return to mainwindow";
+}
