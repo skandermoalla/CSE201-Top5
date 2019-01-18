@@ -7,6 +7,8 @@
 #include <League.h>
 #include <GameEngine/gameengine.h>
 #include <tactic_ingame.h>
+#include <preparation_ingame.h>
+
 namespace Ui {
 class NextGame;
 }
@@ -61,6 +63,8 @@ private:
     GameEngine* engine;
 
     Tactic_inGame *tactic_ingame;
+    Preparation_inGame  *preparation_ingame;
+
     bool isManagerAttacking;
     std::pair<int, int> score;
 

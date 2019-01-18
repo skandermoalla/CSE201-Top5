@@ -4,7 +4,6 @@
 #include <QDialog>
 #include"User.h"
 #include"League.h"
-#include"nextgame.h"
 #include "GameEngine/gameengine.h"
 
 namespace Ui {
@@ -23,8 +22,8 @@ public:
     GameEngine* engine;
     ~Preparation_inGame();
 
-signals:
-    void ContinueClicked(const GameEngine*, const User&, const League&);
+//signals:
+    //void ContinueClicked(const GameEngine*, const User&, const League&);
 
 public slots:
     void refresh(const User&);
@@ -60,7 +59,6 @@ private slots:
 
 private:
     Ui::Preparation_inGame *ui;
-    NextGame *nextgame;
     int chosen_1;
     int chosen_2;
     void Substitution();
