@@ -26,9 +26,11 @@ MainWindow::MainWindow(User& theuser ,League& A,QWidget *parent) :
     engine = new GameEngine();
 
     //simulate the first week games
-    engine->simulateThisWeeksGames(*myleague);
-    engine->updateThisWeeksRanking(myleague);
-    myleague->updateranking();
+    if (not theuser.resuming) {
+        engine->simulateThisWeeksGames(*myleague);
+        engine->updateThisWeeksRanking(myleague);
+        myleague->updateranking();
+    }
 
 }
 //Window operations

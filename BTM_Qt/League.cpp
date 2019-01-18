@@ -29,7 +29,7 @@ bool League::comparepoints(Team a, Team b){
 League::League(int divi, std::string seas){          //Takes arguments : division as an int and a season as a string
     division = divi ;
     season = seas;
-    std::vector<std::string> teamNames = { "Lakers","Teuta","Lion","Barcelona","Madrid","CSKA Moscow","Worrioes","Vllaznia","ParisBasket","Spurs","Cavaliers","Raptors","Warriors","Thunders","Bers","Bulls","Wizards","Celtics","Pacers","Nets","Hawks" };
+    std::vector<std::string> teamNames = { "Lakers","Teuta","Lion","Barcelona","Madrid","CSKAMoscow","Worrioes","Vllaznia","ParisBasket","Spurs","Cavaliers","Raptors","Warriors","Thunders","Bers","Bulls","Wizards","Celtics","Pacers","Nets","Hawks" };
     for (int i = 0; i < 12; i++) {
         int n = rand()%(teamNames.size()) ;
         Team t= Team( teamNames[n] );
