@@ -38,7 +38,7 @@ void MainMenu::on_resume_clicked()
     //then modify the teams of the league by reading each team's file
 
     std::ifstream leaguefile;
-    leaguefile.open("/tmp/league.txt");
+    leaguefile.open("league.txt");
     int division,week;
     std::string season,photoloc1,photoloc2;
     //read the division, season and week of the league
@@ -48,7 +48,7 @@ void MainMenu::on_resume_clicked()
 
 
     std::ifstream myfile;
-    std::vector<std::string> files = {"/tmp/team0.txt","/tmp/team1.txt","/tmp/team2.txt","/tmp/team3.txt","/tmp/team4.txt","/tmp/team5.txt","/tmp/team6.txt","/tmp/team7.txt","/tmp/team8.txt","/tmp/team9.txt","/tmp/team10.txt","/tmp/team11.txt"};
+    std::vector<std::string> files = {"team0.txt","team1.txt","team2.txt","team3.txt","team4.txt","team5.txt","team6.txt","team7.txt","team8.txt","team9.txt","team10.txt","team11.txt"};
     int age,height,weight,sprint,rebound,passing,handling,shooting,stealing,block,jump,strength,motivation,energy;
     double attack,defence,overallgeneral,marketvalue;
     //modify the teams of the league created
@@ -93,13 +93,13 @@ void MainMenu::on_resume_clicked()
         }
 
     std::ifstream userfile;
-    userfile.open("/tmp/user.txt");
+    userfile.open("user.txt");
     std::string username,teamname,nationality;
     int budget;
     userfile>>username>>teamname>>nationality>>budget;
     User* myuser=new User(username,teamname,nationality);
     std::string playername,playersurname,playerposition;
-    std::ifstream team0("/tmp/team0.txt");
+    std::ifstream team0("team0.txt");
     std::string name;
     int points;
     team0>>name>>points;
