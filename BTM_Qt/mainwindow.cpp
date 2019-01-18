@@ -16,7 +16,12 @@ MainWindow::MainWindow(User& theuser ,League& A,QWidget *parent) :
     //this->calendar = new Calendar();
     //this->market= new Market();
     this->teaminfo = new TeamInfo();
+
+    //create the engine
     engine = new GameEngine();
+
+    //simulate the first week games
+    engine->simulateThisWeeksGames(*myleague);
 
 }
 //Window operations

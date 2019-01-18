@@ -332,25 +332,36 @@ void GameEngine::endOfQuarterRest(User* manager, Team& managersTeam, Team& oppen
 
     //Add 70 energy to the first 5 players
     for (std::vector< Player >::iterator player = managersTeam.players.begin(); player != managersTeam.players.begin()+5; player++){
-        player->energy = std::min(player->energy+30, 100);
+        player->energy = std::min(player->energy+40, 100);
     }
 
     //Add 10 energy to the rest of the players
     for (std::vector< Player >::iterator player = managersTeam.players.begin()+5; player != managersTeam.players.end(); player++){
-        player->energy = std::min(player->energy+10, 100);
+        player->energy = std::min(player->energy+30, 100);
     }
 
     //Add 30 energy to the players of the opponent team
     for (std::vector< Player >::iterator player = oppentsTeam.players.begin(); player != oppentsTeam.players.end(); player++){
-        player->energy = std::min(player->energy+30, 100);
+        player->energy = std::min(player->energy+50, 100);
     }
 
     //update managers'team
     manager->team = copyTeam(managersTeam);
 }
 
-void GameEngine::endOfMatchUpdate(User *manager, League &league, Team &opponentsTeam, std::pair< int, int > score) const{
-    updateTeamsOverall(league, manager->team, opponentsTeam, score);
+int GameEngine::endOfMatchUpdate(User *manager, League* league, Team &opponentsTeam, std::pair< int, int > score) const{
+    //Add 50 energy to the managers player
+    for (std::vector< Player >::iterator player = manager->team.players.begin(); player != manager->team.players.end(); player++){
+        player->energy = std::min(player->energy+50, 100);
+    }
+
+    //Add 70 energy to the players of the opponent team (they were not allowed substituitions...)
+    for (std::vector< Player >::iterator player = opponentsTeam.players.begin(); player != opponentsTeam.players.end(); player++){
+        player->energy = std::min(player->energy+50, 100);
+    }
+
+    //updates the team players attributes (gain of speed etc...)
+    updateTeamsOverall(*league, manager->team, opponentsTeam, score);
     int reward;
     if (score.first > score.second) {
         reward = 1000; //To be modified.
@@ -359,4 +370,12 @@ void GameEngine::endOfMatchUpdate(User *manager, League &league, Team &opponents
         reward = 200; //To be modified.
     }
     manager->budget += reward;
+
+    //increment league week
+    league->current_week += 1; //check when to stop incrementing
+
+    //simulate games of that week
+    simulateThisWeeksGames(*league);
+
+    return reward;
 }

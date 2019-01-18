@@ -47,9 +47,10 @@ public:
     //adds energy to players at the end of a quarter
     void endOfQuarterRest(User* manager, Team& managersTeam, Team& oppentsTeam) const;
 
-    //updates the manager's status at the end of a match
-    void endOfMatchUpdate(User* manager, League& league, Team& opponentsTeam ,std::pair< int, int > score)const ;
+    //updates the manager's status at the end of a match and return the reward
+    int endOfMatchUpdate(User* manager, League* league, Team& opponentsTeam ,std::pair< int, int > score)const ;
 
+    //returns a highlight depending on the outcome
     QString popMessage(Team& team, int outcome) const;
 
 

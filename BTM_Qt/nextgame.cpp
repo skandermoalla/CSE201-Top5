@@ -212,10 +212,19 @@ void NextGame::quarter_4_timing(){
         ui->end_game->setStyleSheet("font-weight: bold");
         ui->tactics->setVisible(false);
         ui->def_tactic->setVisible(false);
+
+        ui->sub->setVisible(false);
+
         ui->tactics->setEnabled(false);
         ui->def_tactic->setEnabled(false);
         ui->end_msg->setText("End of the game");
         quarter_length = QTime(0,1,30);
+
+        //save the state of the managers team and add energy to both teams
+        engine->endOfQuarterRest(myuser, playingManagersTeam, playingOpponentsTeam);
+
+        //save the opponents team
+        myleague->getThisWeeksOpponentTeam() = engine->copyTeam(playingOpponentsTeam);
     }
 }
 
@@ -223,12 +232,6 @@ QTime stra_time(0,0,0);
 
 void NextGame::strat(){
 
-    std::vector<QString> coms_home_2 ={"What a dunk!!","A nice finish with an acrobatic layup!","Long two pointer!","He comes up with the deuce!",
-                                      "He slammed it home!","Up and in!","Beautiful finish with the floater!","BBQ Chicken Alert!!!","Pull up jumper good!","Driving baseline, it's good!"};
-    std::vector<QString> coms_home_3 ={"Hits it from distance!","Good from the perimeter!","Nice 3 pointer!","He lets it fly and it's good!",
-                                      "Stepback 3!","From 30 feets out!","Knocks it down!","Good from Curry range!","Good from the hash!","He banks home the 3!"};
-    std::vector<QString> coms_home_0 ={"Missed it!","Won't go in!","Too bad he missed the shot!","He gets rejected!","Comes up empty!",
-                                      "Airball!","He got stripped","It's a miss!","He got blocked!","No basket"};
     QTime change_stra(0,0,3);
     if  (stra_time != change_stra){
         qDebug()<<"updating strategy function timer";
@@ -418,14 +421,23 @@ void NextGame::on_end_game_clicked()
 {
     timer->stop();
     s_timer->stop();
+
+    //call endOfMatchUpdate method of gameEngine
+    int reward = engine->endOfMatchUpdate(myuser, myleague, myleague->getThisWeeksOpponentTeam(), score);
+
+    //create a pop-up with the reward
+
+
     //When button is clicked I want to hide nextgame window and go back to mainwindow
     this->close();
+
     emit backButtonClicked(*this->myuser, *this->myleague);
     qDebug() << "return to mainwindow";
+
+
 }
 
 void NextGame::on_tactics_clicked()
 {
     tactic_ingame->show();
-    //tactics->show();
 }
