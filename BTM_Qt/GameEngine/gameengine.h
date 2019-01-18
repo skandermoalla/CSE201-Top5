@@ -20,6 +20,10 @@ public:
     static int ZoneDefence[11];
     static int FullTimeAttack[11];
 
+    static std::vector<QString> highlight_0;
+    static std::vector<QString> highlight_2;
+    static std::vector<QString> highlight_3;
+
     //methods
 
     //simulates the games that the manager is not playing for the current League's week
@@ -46,7 +50,7 @@ public:
     //updates the manager's status at the end of a match
     void endOfMatchUpdate(User* manager, League& league, Team& opponentsTeam ,std::pair< int, int > score)const ;
 
-    std::string popMessage(Team& team, int outcome) const;
+    QString popMessage(Team& team, int outcome) const;
 
 
 private:

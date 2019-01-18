@@ -21,6 +21,41 @@ std::map< std::string, int(*)[11] > GameEngine::tactics {
     {"FullTimeAttack", &FullTimeAttack}
 };
 
+std::vector<QString> GameEngine::highlight_2 ={
+    "What a dunk!!",
+    "A nice finish with an acrobatic layup!",
+    "Long two pointer!",
+    "He comes up with the deuce!",
+    "He slammed it home!","Up and in!",
+    "Beautiful finish with the floater!",
+    "BBQ Chicken Alert!!!",
+    "Pull up jumper good!",
+    "Driving baseline, it's good!"};
+
+std::vector<QString> GameEngine::highlight_3 ={
+    "Hits it from distance!",
+    "Good from the perimeter!",
+    "Nice 3 pointer!",
+    "He lets it fly and it's good!",
+    "Stepback 3!",
+    "From 30 feets out!",
+    "Knocks it down!",
+    "Good from Curry range!",
+    "Good from the hash!",
+    "He banks home the 3!"};
+
+std::vector<QString> GameEngine::highlight_0 ={
+    "Missed it!",
+    "Won't go in!",
+    "Too bad he missed the shot!",
+    "He gets rejected!",
+    "Comes up empty!",
+    "Airball!",
+    "He got stripped",
+    "It's a miss!",
+    "He got blocked!",
+    "No basket"};
+
 
 GameEngine::GameEngine()
 {
@@ -210,15 +245,18 @@ int GameEngine::getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isMa
 
     // attack: (0.5*shooting, 0.05*sprint, 0.1*rebound, 0.2*passing, 0.15*block)
     //defense: (0.5*rebound, 0.3*stealing, 0.2*jump)
+
     double indAtt = 0;  //out of 100
     double indDef = 0;  //out of 100
     if (isManagerAttacking){
         for (std::vector< Player >::iterator player = managersTeam.players.begin(); player != managersTeam.players.begin()+5; player++){
             indAtt += (0.5*player->shooting + 0.05*player->sprint + 0.1*player->rebound + 0.2*player->passing + 0.15*player->block)*player->energy/100;
+
+            qDebug()<<"manager's team member's enegery" << player->energy;
         }
         indAtt /= 5;
         indDef += (0.5*oppentsTeam.rebound + 0.3*oppentsTeam.stealing + 0.2*oppentsTeam.jump)*oppentsTeam.energy/100;
-    qDebug()<<oppentsTeam.energy;
+    qDebug()<<"opponents team energy" << oppentsTeam.energy;
     }
     else{
         for (std::vector< Player >::iterator player = managersTeam.players.begin(); player != managersTeam.players.begin()+5; player++){
@@ -274,13 +312,16 @@ int GameEngine::getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isMa
     return res;
 }
 
-std::string GameEngine::popMessage(Team& team, int outcome) const{
-    std::string message;
+QString GameEngine::popMessage(Team& team, int outcome) const{
+    QString message;
     if(outcome == 0){
-        message = "That was close.";
+        message = highlight_0[(std::rand()%10)] + " no points for " + QString::fromStdString(team.players[rand() % (4)].name) ;
     }
-    else{
-    message = "Man, that was a pretty shot! " +  std::to_string(outcome) + " points from " + team.players[rand() % (4)].name + ".";
+    else if (outcome == 2){
+        message = highlight_2[(std::rand()%10)] + " 2 points from " + QString::fromStdString(team.players[rand() % (4)].name) ;
+    }
+    else {
+        message = highlight_3[(std::rand()%10)] + " 3 points from " + QString::fromStdString(team.players[rand() % (4)].name) ;
     }
     return message;
 };
