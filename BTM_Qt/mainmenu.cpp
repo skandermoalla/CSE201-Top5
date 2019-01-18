@@ -43,26 +43,28 @@ void MainMenu::on_resume_clicked()
     std::string season,photoloc1,photoloc2;
     //read the division, season and week of the league
     leaguefile>>division>>season>>week;
+    //Now we create the league
     League* league = new League(division,season);
-    league->week=week;
+    league->week=week; //modify the week of the league
 
 
     std::ifstream myfile;
     std::vector<std::string> files = {"team0.txt","team1.txt","team2.txt","team3.txt","team4.txt","team5.txt","team6.txt","team7.txt","team8.txt","team9.txt","team10.txt","team11.txt"};
     int age,height,weight,sprint,rebound,passing,handling,shooting,stealing,block,jump,strength,motivation,energy;
     double attack,defence,overallgeneral,marketvalue;
-    //modify the teams of the league created
+    //modify the teams of the league created based on the files
     for (int j=0;j<12;j++){
     myfile.open(files[j]);
     std::string name;
     int points;
     myfile>>name>>points;
-    std::cout<<name<<std::endl;
-    std::cout<<points<<std::endl;
+    std::cout<<name<<std::endl; //name of the team
+    std::cout<<points<<std::endl; //points of the team
     league->teams[j].name=name;
     league->teams[j].points=points;
     std::string playername,playersurname,playerposition;
     for (int i=0;i<12;i++){
+        //get the players information
         myfile>>playername>>playersurname>>playerposition;
         league->teams[j].players[i].name=playername;
         league->teams[j].players[i].surname=playersurname;
@@ -92,15 +94,18 @@ void MainMenu::on_resume_clicked()
     myfile.close();
         }
 
-    std::ifstream userfile;
-    userfile.open("user.txt");
+
+    //create the user team and update it based on the file
+    std::ifstream userfile("user.txt");
     std::string username,teamname,nationality;
     int budget;
     userfile>>username>>teamname>>nationality>>budget;
-    User* myuser=new User(username,teamname,nationality);
-    std::string playername,playersurname,playerposition;
+    User* myuser=new User(username,teamname,nationality); 
+
+
+    //now update the user team
     std::ifstream team0("team0.txt");
-    std::string name;
+    std::string name,playername,playersurname,playerposition;;
     int points;
     team0>>name>>points;
     myuser->team.name=name;
@@ -137,6 +142,9 @@ void MainMenu::on_resume_clicked()
     team0.close();
     userfile.close();
 
+    //update the ranking of the league
+    league->ranking=league->teams;
+    sort(league->ranking.begin(),league->ranking.end(),league->comparepoints);
 
     mainwindow=new MainWindow(*myuser, *league);
     this -> hide();
