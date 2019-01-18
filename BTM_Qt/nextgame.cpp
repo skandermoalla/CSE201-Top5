@@ -4,6 +4,7 @@
 #include<QTime>
 #include<QString>
 #include <QDebug>
+#include<QTableWidget>
 
 
 NextGame::NextGame(QWidget *parent) :
@@ -74,6 +75,20 @@ NextGame::NextGame(GameEngine* eng, User& theuser, League& theleague, QWidget *p
     ui->def_tactic->setVisible(false);
     ui->tactics->setVisible(false);
     ui->sub->setVisible(false);
+    for (int i=0; i<5;i++){
+     ui->table_home->setItem(i,0,new QTableWidgetItem(QString::fromStdString("yo"/*this->playingManagersTeam.players[i].surname*/)));
+     ui->table_home->setItem(i,1,new QTableWidgetItem(QString::number(this->playingManagersTeam.players[i].overallgeneral)));
+     ui->table_home->setItem(i,2,new QTableWidgetItem(QString::number(this->playingManagersTeam.players[i].energy)));
+     ui->table_away->setItem(i,0,new QTableWidgetItem(QString::number(this->playingOpponentsTeam.overallgeneral)));
+     ui->table_away->setItem(i,0,new QTableWidgetItem(QString::number(this->playingOpponentsTeam.attack)));
+     ui->table_away->setItem(i,0,new QTableWidgetItem(QString::number(this->playingOpponentsTeam.defence)));
+    }
+    ui->table_home->setItem(5,1,new QTableWidgetItem(QString::number(this->playingManagersTeam.overallgeneral)));
+    ui->table_home->setItem(5,2,new QTableWidgetItem(QString::number(this->playingManagersTeam.energy)));
+    ui->table_home->setItem(5,3,new QTableWidgetItem(QString::number(this->playingManagersTeam.attack)));
+    ui->table_home->setItem(5,4,new QTableWidgetItem(QString::number(this->playingManagersTeam.defence)));
+
+
 }
 
 
