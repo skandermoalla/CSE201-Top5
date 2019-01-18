@@ -158,6 +158,9 @@ void Team::update_overall(){
     motivation = motivation/players.size() ;
     energy = energy/players.size() ;
     overallgeneral = sprint*0.1 + rebound*0.05 + passing*0.15 + handling*0.15 + shooting*0.2 + stealing*0.05 + block*0.05 + jump*0.1 +strength*0.15;
+    defence=(0.5*rebound + 0.3*stealing + 0.2*jump);
+    attack=0.5*shooting + 0.05*sprint + 0.1*rebound + 0.2*passing + 0.15*block;
+
 }
 
 void Team::PlayerSell(int index){
