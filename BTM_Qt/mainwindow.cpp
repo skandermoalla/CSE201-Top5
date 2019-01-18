@@ -4,6 +4,8 @@
 #include <iostream>
 #include <fstream>
 #include <QMessageBox>
+#include<QColor>
+
 
 
 MainWindow::MainWindow(User& theuser ,League& A,QWidget *parent) :
@@ -398,7 +400,9 @@ void MainWindow::on_pushButton_5_clicked() // Next game
 
 void MainWindow::on_pushButton_6_clicked() // Save the game
 {
-   QMessageBox::about(this, "Saved", "Your Game is saved successfully");
+
+   QMessageBox::about(this, "Saved", "Your Game was saved successfully");
+
 
 
 
@@ -428,6 +432,9 @@ void MainWindow::on_pushButton_6_clicked() // Save the game
     myfile<<myuser->name<<myuser->teamname<<myuser->nationality<<myuser->budget;
     myfile.close();
 
+
 }
 
 }
+
+

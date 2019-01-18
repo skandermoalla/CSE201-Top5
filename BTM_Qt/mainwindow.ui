@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>947</width>
+    <width>1067</width>
     <height>569</height>
    </rect>
   </property>
@@ -435,7 +435,7 @@
    <bool>false</bool>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/images/images/basketball3.jpg);</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QPushButton" name="pushButton_4">
@@ -511,7 +511,7 @@
      <rect>
       <x>156</x>
       <y>420</y>
-      <width>37</width>
+      <width>61</width>
       <height>16</height>
      </rect>
     </property>
@@ -937,8 +937,11 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="text">
-     <string>Pos10</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Pos10&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLCDNumber" name="lcdNumber_11">
@@ -986,9 +989,9 @@
    <widget class="QLabel" name="label_11p">
     <property name="geometry">
      <rect>
-      <x>301</x>
+      <x>310</x>
       <y>420</y>
-      <width>35</width>
+      <width>51</width>
       <height>16</height>
      </rect>
     </property>
@@ -1414,8 +1417,11 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="text">
-     <string>Pos11</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Pos11&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLCDNumber" name="lcdNumber_12">
@@ -1433,7 +1439,7 @@
      <rect>
       <x>445</x>
       <y>420</y>
-      <width>37</width>
+      <width>61</width>
       <height>16</height>
      </rect>
     </property>
@@ -1859,8 +1865,11 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="text">
-     <string>Pos12</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Pos12&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_4p">
@@ -1868,7 +1877,7 @@
      <rect>
       <x>445</x>
       <y>123</y>
-      <width>31</width>
+      <width>51</width>
       <height>16</height>
      </rect>
     </property>
@@ -2294,11 +2303,14 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="styleSheet">
      <string notr="true"/>
     </property>
     <property name="text">
-     <string>Pos4</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Pos4&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_6p">
@@ -2306,7 +2318,7 @@
      <rect>
       <x>156</x>
       <y>268</y>
-      <width>31</width>
+      <width>61</width>
       <height>16</height>
      </rect>
     </property>
@@ -2732,8 +2744,14 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
     <property name="text">
-     <string>Pos6</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Pos6&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="labelp">
@@ -3166,6 +3184,9 @@
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="text">
      <string>Pos1</string>
@@ -3687,7 +3708,7 @@
      <rect>
       <x>301</x>
       <y>123</y>
-      <width>31</width>
+      <width>61</width>
       <height>16</height>
      </rect>
     </property>
@@ -4113,8 +4134,11 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="text">
-     <string>Pos3</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Pos3&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label">
@@ -4547,6 +4571,9 @@
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="text">
      <string>Player1</string>
@@ -4983,6 +5010,9 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="text">
      <string>Player11</string>
     </property>
@@ -5002,7 +5032,7 @@
      <rect>
       <x>12</x>
       <y>268</y>
-      <width>31</width>
+      <width>51</width>
       <height>16</height>
      </rect>
     </property>
@@ -5428,15 +5458,18 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="text">
-     <string>Pos5</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Pos5&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_3">
     <property name="geometry">
      <rect>
-      <x>301</x>
-      <y>99</y>
+      <x>310</x>
+      <y>100</y>
       <width>121</width>
       <height>16</height>
      </rect>
@@ -5862,6 +5895,9 @@
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="text">
      <string>Player3</string>
@@ -6324,6 +6360,9 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="text">
      <string>Player7</string>
     </property>
@@ -6759,6 +6798,9 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="text">
      <string>Player12</string>
     </property>
@@ -6768,7 +6810,7 @@
      <rect>
       <x>301</x>
       <y>268</y>
-      <width>30</width>
+      <width>61</width>
       <height>16</height>
      </rect>
     </property>
@@ -7194,8 +7236,11 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="text">
-     <string>Pos7</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Pos7&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_8p">
@@ -7203,7 +7248,7 @@
      <rect>
       <x>445</x>
       <y>268</y>
-      <width>31</width>
+      <width>61</width>
       <height>16</height>
      </rect>
     </property>
@@ -7629,8 +7674,11 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="text">
-     <string>Pos8</string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;Pos8&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
    <widget class="QLabel" name="label_10">
@@ -8063,6 +8111,9 @@
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="text">
      <string>Player10</string>
@@ -8499,6 +8550,9 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="text">
      <string>Player5</string>
     </property>
@@ -8933,6 +8987,9 @@
       <weight>75</weight>
       <bold>true</bold>
      </font>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
     </property>
     <property name="text">
      <string>Player8</string>
@@ -9379,6 +9436,9 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="text">
      <string>Pos9</string>
     </property>
@@ -9396,8 +9456,8 @@
    <widget class="QLabel" name="label_4">
     <property name="geometry">
      <rect>
-      <x>445</x>
-      <y>99</y>
+      <x>450</x>
+      <y>100</y>
       <width>131</width>
       <height>16</height>
      </rect>
@@ -9824,6 +9884,9 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="text">
      <string>Player4</string>
     </property>
@@ -9833,7 +9896,7 @@
      <rect>
       <x>600</x>
       <y>10</y>
-      <width>190</width>
+      <width>451</width>
       <height>431</height>
      </rect>
     </property>
@@ -9847,7 +9910,7 @@
      <string notr="true">background-image: url(:/images/images/white background image.png);</string>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab1">
      <property name="styleSheet">
@@ -9861,7 +9924,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>311</width>
+        <width>441</width>
         <height>401</height>
        </rect>
       </property>
@@ -9876,7 +9939,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>311</width>
+        <width>451</width>
         <height>401</height>
        </rect>
       </property>
@@ -9891,7 +9954,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>311</width>
+        <width>451</width>
         <height>411</height>
        </rect>
       </property>
@@ -9955,7 +10018,7 @@
      <rect>
       <x>0</x>
       <y>440</y>
-      <width>791</width>
+      <width>1061</width>
       <height>16</height>
      </rect>
     </property>
@@ -10423,6 +10486,9 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="text">
      <string>Player9</string>
     </property>
@@ -10858,6 +10924,9 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="text">
      <string>Player2</string>
     </property>
@@ -10865,8 +10934,8 @@
    <widget class="QLabel" name="label_2p">
     <property name="geometry">
      <rect>
-      <x>156</x>
-      <y>123</y>
+      <x>160</x>
+      <y>120</y>
       <width>41</width>
       <height>16</height>
      </rect>
@@ -11293,6 +11362,9 @@
       <bold>true</bold>
      </font>
     </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
     <property name="text">
      <string>Pos2</string>
     </property>
@@ -11472,6 +11544,32 @@
      <string>TextLabel</string>
     </property>
    </widget>
+   <widget class="QGraphicsView" name="graphicsView">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>1071</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-image: url(:/images/images/I-Stock-Basketball-Court.jpg);</string>
+    </property>
+   </widget>
+   <zorder>graphicsView</zorder>
+   <zorder>image_9</zorder>
+   <zorder>image_10</zorder>
+   <zorder>image_11</zorder>
+   <zorder>image_12</zorder>
+   <zorder>image_5</zorder>
+   <zorder>image_6</zorder>
+   <zorder>image_7</zorder>
+   <zorder>image_8</zorder>
+   <zorder>image_1</zorder>
+   <zorder>image_2</zorder>
+   <zorder>image_3</zorder>
+   <zorder>image_4</zorder>
    <zorder>label_2p</zorder>
    <zorder>pushButton_4</zorder>
    <zorder>pushButton_5</zorder>
@@ -11508,9 +11606,6 @@
    <zorder>line_4</zorder>
    <zorder>line_5</zorder>
    <zorder>line_6</zorder>
-   <zorder>layoutWidget</zorder>
-   <zorder>layoutWidget</zorder>
-   <zorder>layoutWidget</zorder>
    <zorder>pushButton</zorder>
    <zorder>line_7</zorder>
    <zorder>line_2</zorder>
