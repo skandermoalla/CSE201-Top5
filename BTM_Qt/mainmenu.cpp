@@ -56,14 +56,14 @@ void MainMenu::on_resume_clicked()
     for (int j=0;j<12;j++){
     myfile.open(files[j]);
     std::string name;
-    int points;
-    myfile>>name>>points;
+    int points,nrplayers;
+    myfile>>name>>points>>nrplayers;
     std::cout<<name<<std::endl; //name of the team
     std::cout<<points<<std::endl; //points of the team
     league->teams[j].name=name;
     league->teams[j].points=points;
     std::string playername,playersurname,playerposition;
-    for (int i=0;i<12;i++){
+    for (int i=0;i<nrplayers;i++){
         //get the players information
         myfile>>playername>>playersurname>>playerposition;
         league->teams[j].players[i].name=playername;
@@ -90,6 +90,9 @@ void MainMenu::on_resume_clicked()
         league->teams[j].players[i].photoadress=QString::fromStdString(photoloc1+" "+photoloc2);
         league->teams[j].update_overall();
     }
+    for (int j=nrplayers;j<12;j++){
+        league->teams[j].players.erase(league->teams[j].players.begin()+j-1);
+    }
 
     myfile.close();
         }
@@ -106,12 +109,12 @@ void MainMenu::on_resume_clicked()
     //now update the user team
     std::ifstream team0("team0.txt");
     std::string name,playername,playersurname,playerposition;;
-    int points;
-    team0>>name>>points;
+    int points,nrplayers;
+    team0>>name>>points>>nrplayers;
     myuser->team.name=name;
     myuser->team.points=points;
 
-    for (int i=0;i<12;i++){
+    for (int i=0;i<nrplayers;i++){
         team0>>playername>>playersurname>>playerposition>>age>>height>>weight>>sprint>>rebound>>passing>>handling>>shooting>>stealing>>block>>jump>>strength>>motivation>>energy>>attack>>defence>>overallgeneral>>marketvalue>>photoloc1>>photoloc2;
         std::cout<<playername<<" "<<playersurname<<" "<<playerposition<<std::endl;
         std::cout<<age<<" "<<height<<" "<<weight<<" "<<sprint<<" "<<rebound<<" "<<passing<<" "<<handling<<" "<<shooting<<" "<<stealing<<" "<<block<<" "<<jump<<" "<<strength<<" "<<motivation<<" "<<energy<<" "<<attack<<" "<<defence<<" "<<overallgeneral<<" "<<marketvalue<<" "<<photoloc1+photoloc2<<std::endl;
@@ -138,6 +141,9 @@ void MainMenu::on_resume_clicked()
         myuser->team.players[i].marketvalue=marketvalue;
         myuser->team.players[i].photoadress=QString::fromStdString(photoloc1+" "+photoloc2);
         myuser->team.update_overall();
+    }
+    for (int j=nrplayers;j<12;j++){
+        myuser->team.players.erase(myuser->team.players.begin()+j-1);
     }
     team0.close();
     userfile.close();

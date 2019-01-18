@@ -4,6 +4,8 @@
 #include <iostream>
 #include <fstream>
 #include <QMessageBox>
+#include<QColor>
+
 
 
 MainWindow::MainWindow(User& theuser ,League& A,QWidget *parent) :
@@ -398,7 +400,9 @@ void MainWindow::on_pushButton_5_clicked() // Next game
 
 void MainWindow::on_pushButton_6_clicked() // Save the game
 {
-   QMessageBox::about(this, "Saved", "Your Game is saved successfully");
+
+   QMessageBox::about(this, "Saved", "Your Game was saved successfully");
+
 
 
 
@@ -407,15 +411,15 @@ void MainWindow::on_pushButton_6_clicked() // Save the game
     std::ofstream myfile;
     team0=myuser->team;
     myfile.open(files[0]);
-    myfile <<team0.name<<"\n"<<team0.points<<"\n";
+    myfile <<team0.name<<"\n"<<team0.points<<"\n"<<team0.players.size()<<"\n";
     for (int i=0;i<12;i++)
     myfile<<team0.players[i].name<<" "<<team0.players[i].surname<<" "<<" "<<team0.players[i].position<<" "<<team0.players[i].age<<" "<<team0.players[i].height<<" "<<team0.players[i].weight<<" "<<team0.players[i].sprint<<" "<<team0.players[i].rebound<<" "<<team0.players[i].passing<<" "<<team0.players[i].handling<<" "<<team0.players[i].shooting<<" "<<team0.players[i].stealing<<" "<<team0.players[i].block<<" "<<team0.players[i].jump<<" "<<team0.players[i].strength<<" "<<team0.players[i].motivation<<" "<<team0.players[i].energy<<" "<<team0.players[i].attack<<" "<<team0.players[i].defence<<" "<<team0.players[i].overallgeneral<<" "<<team0.players[i].marketvalue<<" "<<team0.players[i].photoadd<<"\n";
     myfile.close();
 
-    for (int j=1;j<12;j++){
+    for (int j=1;j<myleague->teams.size();j++){
     team0=myleague->teams[j];
     myfile.open(files[j]);
-    myfile<<team0.name<<"\n"<<team0.points<<"\n";
+    myfile<<team0.name<<"\n"<<team0.points<<"\n"<<team0.players.size()<<"\n";
     for (int i=0;i<12;i++)
     myfile<<team0.players[i].name<<" "<<team0.players[i].surname<<" "<<" "<<team0.players[i].position<<" "<<team0.players[i].age<<" "<<team0.players[i].height<<" "<<team0.players[i].weight<<" "<<team0.players[i].sprint<<" "<<team0.players[i].rebound<<" "<<team0.players[i].passing<<" "<<team0.players[i].handling<<" "<<team0.players[i].shooting<<" "<<team0.players[i].stealing<<" "<<team0.players[i].block<<" "<<team0.players[i].jump<<" "<<team0.players[i].strength<<" "<<team0.players[i].motivation<<" "<<team0.players[i].energy<<" "<<team0.players[i].attack<<" "<<team0.players[i].defence<<" "<<team0.players[i].overallgeneral<<" "<<team0.players[i].marketvalue<<" "<<team0.players[i].photoadd<<"\n";
     myfile.close();
@@ -428,6 +432,9 @@ void MainWindow::on_pushButton_6_clicked() // Save the game
     myfile<<myuser->name<<myuser->teamname<<myuser->nationality<<myuser->budget;
     myfile.close();
 
+
 }
 
 }
+
+
