@@ -16,15 +16,20 @@ std::vector<int> intersection(const std::vector<int> vect1, const std::vector<in
     return intersect;
 }
 
+void League::updateranking(){
+    ranking=teams;
+    sort(ranking.begin(),ranking.end(),comparepoints);
+}
+
 bool League::comparepoints(Team a, Team b){
-    return (a.points<b.points);
+    return (a.points>b.points);
 }
 
 
 League::League(int divi, std::string seas){          //Takes arguments : division as an int and a season as a string
     division = divi ;
     season = seas;
-    std::vector<std::string> teamNames = { "Lakers","Vllaznia","ParisBasket","Spurs","Cavaliers","Raptors","Warriors","Thunders","Bers","Bulls","Wizards","Celtics","Pacers","Nets","Hawks" };
+    std::vector<std::string> teamNames = { "Lakers","Teuta","Lion","Barcelona","Madrid","CSKA Moscow","Worrioes","Vllaznia","ParisBasket","Spurs","Cavaliers","Raptors","Warriors","Thunders","Bers","Bulls","Wizards","Celtics","Pacers","Nets","Hawks" };
     for (int i = 0; i < 12; i++) {
         int n = rand()%(teamNames.size()) ;
         Team t= Team( teamNames[n] );

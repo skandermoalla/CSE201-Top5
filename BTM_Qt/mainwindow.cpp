@@ -28,6 +28,7 @@ MainWindow::MainWindow(User& theuser ,League& A,QWidget *parent) :
     //simulate the first week games
     engine->simulateThisWeeksGames(*myleague);
     engine->updateThisWeeksRanking(myleague);
+    myleague->updateranking();
 
 }
 //Window operations
@@ -39,6 +40,7 @@ void MainWindow::reset(User& newuser, League& newA)
 {
     this->myuser = &newuser;
     this->myleague = &newA;
+    myleague->updateranking();
     this->refresh(*myuser);
 }
 

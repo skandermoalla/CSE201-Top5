@@ -36,7 +36,7 @@ public:
 
     const std::vector< std::pair<Team, Team> > getThisWeeksGames();
     std::vector<int> getAllUserMatches();  //a function who gets matches of user for each week
-
+    void updateranking();
     Team& getThisWeeksOpponentTeam();  //gets this week's user opponent
 
 };
