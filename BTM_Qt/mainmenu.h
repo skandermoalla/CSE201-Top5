@@ -17,12 +17,13 @@ public:
 
 private slots:
     void on_start_clicked();
-
+    void on_resume_clicked();
     void on_quit_clicked();
 
 private:
     Ui::MainMenu *ui;
     StartMenu *startmenu = new StartMenu();
+    MainWindow *mainwindow;
 };
 
 #endif // MAINMENU_H

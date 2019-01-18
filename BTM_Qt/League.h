@@ -28,6 +28,7 @@ public:
     std::vector<Player> playermarket;
     std::vector<Team> ranking;
     static bool comparepoints(Team a, Team b);
+    int week;
 
     //scores of the games of the current week in the same order they are present in the calendar (not involving the user)
     std::vector< std::pair<int, int>> ThisWeeksScores;

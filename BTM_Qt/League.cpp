@@ -39,6 +39,7 @@ League::League(int divi, std::string seas){          //Takes arguments : divisio
     current_week = 1;
     ranking=teams;
     sort(ranking.begin(),ranking.end(),comparepoints);
+    week=0;
 }
 
 
@@ -58,6 +59,7 @@ League::League(){          //Creates a default league in 3rd division and in sea
         playermarket.push_back(Player());
     }
     ThisWeeksGames = getThisWeeksGames();  //uncomment when calendar is ready
+    week=0;
 }
 
 std::map<int, std::vector< std::pair<int,int> > > League::calendar()

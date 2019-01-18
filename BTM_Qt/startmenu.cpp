@@ -3,6 +3,7 @@
 #include <string>
 #include <iostream>
 #include <QMessageBox>
+#include <fstream>
 
 StartMenu::StartMenu(QWidget *parent) :
     QDialog(parent),
@@ -35,6 +36,11 @@ void StartMenu::on_Next_clicked()
         A->teams[0]=user->team;
         A->ranking[0]=user->team;
         mainwindow = new MainWindow(*user,*A);
+        std::ofstream myfile;
+        myfile.open ("/tmp/example.txt");
+        myfile <<user->name;
+        myfile.close();
+
         mainwindow -> show();
     }
 
