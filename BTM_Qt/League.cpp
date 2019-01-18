@@ -35,11 +35,11 @@ League::League(int divi, std::string seas){          //Takes arguments : divisio
         playermarket.push_back(Player());
     }
     Calendar = calendar();
-    ThisWeeksGames = getThisWeeksGames();
     current_week = 1;
     ranking=teams;
     sort(ranking.begin(),ranking.end(),comparepoints);
     week=0;
+    ThisWeeksGames = getThisWeeksGames();
 }
 
 
@@ -119,6 +119,9 @@ const std::vector<std::pair<Team, Team>> League::getThisWeeksGames(){
         if( t1 != 1 && t2 != 1){   //Checking if team 1 (user's team) is in the match
             std::pair< Team, Team > match_return;
             match_return = std::make_pair(this->teams[t1-1], this->teams[t2-1]);
+            //The GameEngine comment:
+            //Teams are passed by value in std::make_pair hence we will have to do naive search to modify the teams
+            //attributes later on
             matches_return.push_back(match_return);
         }
 

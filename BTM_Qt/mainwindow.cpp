@@ -27,6 +27,7 @@ MainWindow::MainWindow(User& theuser ,League& A,QWidget *parent) :
 
     //simulate the first week games
     engine->simulateThisWeeksGames(*myleague);
+    engine->updateThisWeeksRanking(myleague);
 
 }
 //Window operations
