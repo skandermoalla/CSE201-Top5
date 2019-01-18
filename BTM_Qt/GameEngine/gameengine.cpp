@@ -364,17 +364,22 @@ int GameEngine::endOfMatchUpdate(User *manager, League* league, Team &opponentsT
     //updates the team players attributes (gain of speed etc...)
     updateTeamsOverall(*league, manager->team, opponentsTeam, score);
     int reward;
-    int points;
+    int managersPoints;
+    int opponentsPoints;
+
     if (score.first > score.second) {
         reward = 1000; //To be modified.
-        points = 2;
+        managersPoints = 2;
+        opponentsPoints = 1;
     }
     else {
         reward = 200; //To be modified.
-        points = 1;
+        managersPoints = 1;
+        opponentsPoints = 2;
     }
     manager->budget += reward;
-    manager->team.points += points;
+    manager->team.points += managersPoints;
+    seachTeamAndUpdatePoints(league, opponentsTeam.name, opponentsPoints);
 
     //increment league week
     league->current_week += 1; //check when to stop incrementing
