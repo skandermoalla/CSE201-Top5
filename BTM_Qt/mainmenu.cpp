@@ -37,7 +37,7 @@ void MainMenu::on_resume_clicked()
 {   std::ifstream leaguefile;
     leaguefile.open("/tmp/league.txt");
     int division,week;
-    std::string season;
+    std::string season,photoloc;
     leaguefile>>division>>season>>week;
     League* league = new League(division,season);
     league->week=week;
@@ -62,7 +62,7 @@ void MainMenu::on_resume_clicked()
         league->teams[j].players[i].name=playername;
         league->teams[j].players[i].surname=playersurname;
         league->teams[j].players[i].position=playerposition;
-        myfile>>age>>height>>weight>>sprint>>rebound>>passing>>handling>>shooting>>stealing>>block>>jump>>strength>>motivation>>energy>>attack>>defence>>overallgeneral>>marketvalue;
+        myfile>>age>>height>>weight>>sprint>>rebound>>passing>>handling>>shooting>>stealing>>block>>jump>>strength>>motivation>>energy>>attack>>defence>>overallgeneral>>marketvalue>>photoloc;
         league->teams[j].players[i].age=age;
         league->teams[j].players[i].weight=weight;
         league->teams[j].players[i].sprint=sprint;
@@ -101,9 +101,9 @@ void MainMenu::on_resume_clicked()
     myuser->team.points=points;
 
     for (int i=0;i<12;i++){
-        team0>>playername>>playersurname>>playerposition>>age>>height>>weight>>sprint>>rebound>>passing>>handling>>shooting>>stealing>>block>>jump>>strength>>motivation>>energy>>attack>>defence>>overallgeneral>>marketvalue;
+        team0>>playername>>playersurname>>playerposition>>age>>height>>weight>>sprint>>rebound>>passing>>handling>>shooting>>stealing>>block>>jump>>strength>>motivation>>energy>>attack>>defence>>overallgeneral>>marketvalue>>photoloc;
         std::cout<<playername<<" "<<playersurname<<" "<<playerposition<<std::endl;
-        std::cout<<age<<" "<<height<<" "<<weight<<" "<<sprint<<" "<<rebound<<" "<<passing<<" "<<handling<<" "<<shooting<<" "<<stealing<<" "<<block<<" "<<jump<<" "<<strength<<" "<<motivation<<" "<<energy<<" "<<attack<<" "<<defence<<" "<<overallgeneral<<" "<<marketvalue<<std::endl;
+        std::cout<<age<<" "<<height<<" "<<weight<<" "<<sprint<<" "<<rebound<<" "<<passing<<" "<<handling<<" "<<shooting<<" "<<stealing<<" "<<block<<" "<<jump<<" "<<strength<<" "<<motivation<<" "<<energy<<" "<<attack<<" "<<defence<<" "<<overallgeneral<<" "<<marketvalue<<" "<<photoloc<<std::endl;
         myuser->team.players[i].name=playername;
         myuser->team.players[i].surname=playersurname;
         myuser->team.players[i].position=playerposition;
