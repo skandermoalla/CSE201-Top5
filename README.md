@@ -10,5 +10,13 @@ A user can progress from league to league, each season, depending on the perform
 
 
 ## How to compile the project
+Open a terminal and write
+`git clone https://github.com/skandermoalla/Top5`
 
+Open Qt Creator.
+Click on `Open project`.
+Go to the file: `/home/osboxes/Top5/BTM_Qt/Basketball_Team_Manager.pro`
+Build and run the project by `Ctrl+R`
+
+Enjoy the game!
 ## How to play the game
