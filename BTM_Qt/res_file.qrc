@@ -10,7 +10,6 @@
         <file>images/Alexis Ajinca.png</file>
         <file>images/Ali Kanaan.png</file>
         <file>images/Ali Mahmoud.png</file>
-        <file>images/Amedeo Della Valle.png</file>
         <file>images/Amine Rzig.png</file>
         <file>images/Andre Iguodala.png</file>
         <file>images/Andrey Vorontsevich.png</file>
@@ -32,7 +31,6 @@
         <file>images/Charles Jenkins.png</file>
         <file>images/Chima Moneke.png</file>
         <file>images/Christian Baltzer.png</file>
-        <file>images/curry.png</file>
         <file>images/Cyril Akpomedah.png</file>
         <file>images/Damian Lillard.png</file>
         <file>images/Damien Inglis.png</file>
@@ -69,7 +67,6 @@
         <file>images/Hussein Tawbe.png</file>
         <file>images/Ian Mahinmi.png</file>
         <file>images/Ian Vougioukas.png</file>
-        <file>images/image_2.jpg</file>
         <file>images/IMG_5930.jpg</file>
         <file>images/J.J. Redick.png</file>
         <file>images/Jackson Vroman.png</file>
@@ -79,14 +76,12 @@
         <file>images/Jan Vesely.png</file>
         <file>images/Jason Kidd.png</file>
         <file>images/Jean AbdelNour.png</file>
-        <file>images/Jean Marc Kraidy.png</file>
         <file>images/Jeff Brooks.png</file>
         <file>images/Joakim Noah.png</file>
         <file>images/Joe Johnson.png</file>
         <file>images/Joffrey Lauvergne.png</file>
         <file>images/Johan Petro.png</file>
         <file>images/Joseph Vogel.png</file>
-        <file>images/Kareem Abdul Jabbar.png</file>
         <file>images/Karim Ouattara.png</file>
         <file>images/Kendrick Ray.png</file>
         <file>images/Kevin Durant.png</file>
@@ -105,7 +100,6 @@
         <file>images/Luke Fischer.png</file>
         <file>images/Magic Johnson.png</file>
         <file>images/Majid Naji.png</file>
-        <file>images/Marc Antoine Pellin.png</file>
         <file>images/Marc Gasol.png</file>
         <file>images/Markel Brown.png</file>
         <file>images/Michael Roll.png</file>
@@ -124,9 +118,7 @@
         <file>images/Nizar Knioua.png</file>
         <file>images/Norvel Pelle.png</file>
         <file>images/Omar Abada.png</file>
-        <file>images/Omar El Turk.png</file>
         <file>images/Ondrej Balvin.png</file>
-        <file>images/Pape Philippe Amagou.png</file>
         <file>images/Pau Gasol.png</file>
         <file>images/Paul Pierce.png</file>
         <file>images/Pierre Oriola.png</file>
@@ -198,5 +190,13 @@
         <file>images/Edwin Jackson.png</file>
         <file>images/I-Stock-Basketball-Court.jpg</file>
         <file>images/Reggie Miller.png</file>
+        <file>images/Step Curry.png</file>
+        <file>images/Amedeo DellaValle.png</file>
+        <file>images/Edison Reshketa.jpg</file>
+        <file>images/Jean MarcKraidy.png</file>
+        <file>images/Kareem AbdulJabbar.png</file>
+        <file>images/Marc AntoinePellin.png</file>
+        <file>images/Omar ElTurk.png</file>
+        <file>images/Pape PhilippeAmagou.png</file>
     </qresource>
 </RCC>

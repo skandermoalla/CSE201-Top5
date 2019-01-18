@@ -34,10 +34,14 @@ void MainMenu::on_start_clicked()
 }
 
 void MainMenu::on_resume_clicked()
-{   std::ifstream leaguefile;
+{   //the idea is to create a league from reading the file
+    //then modify the teams of the league by reading each team's file
+
+    std::ifstream leaguefile;
     leaguefile.open("/tmp/league.txt");
     int division,week;
-    std::string season,photoloc;
+    std::string season,photoloc1,photoloc2;
+    //read the division, season and week of the league
     leaguefile>>division>>season>>week;
     League* league = new League(division,season);
     league->week=week;
@@ -47,6 +51,7 @@ void MainMenu::on_resume_clicked()
     std::vector<std::string> files = {"/tmp/team0.txt","/tmp/team1.txt","/tmp/team2.txt","/tmp/team3.txt","/tmp/team4.txt","/tmp/team5.txt","/tmp/team6.txt","/tmp/team7.txt","/tmp/team8.txt","/tmp/team9.txt","/tmp/team10.txt","/tmp/team11.txt"};
     int age,height,weight,sprint,rebound,passing,handling,shooting,stealing,block,jump,strength,motivation,energy;
     double attack,defence,overallgeneral,marketvalue;
+    //modify the teams of the league created
     for (int j=0;j<12;j++){
     myfile.open(files[j]);
     std::string name;
@@ -62,7 +67,7 @@ void MainMenu::on_resume_clicked()
         league->teams[j].players[i].name=playername;
         league->teams[j].players[i].surname=playersurname;
         league->teams[j].players[i].position=playerposition;
-        myfile>>age>>height>>weight>>sprint>>rebound>>passing>>handling>>shooting>>stealing>>block>>jump>>strength>>motivation>>energy>>attack>>defence>>overallgeneral>>marketvalue>>photoloc;
+        myfile>>age>>height>>weight>>sprint>>rebound>>passing>>handling>>shooting>>stealing>>block>>jump>>strength>>motivation>>energy>>attack>>defence>>overallgeneral>>marketvalue>>photoloc1>>photoloc2;
         league->teams[j].players[i].age=age;
         league->teams[j].players[i].weight=weight;
         league->teams[j].players[i].sprint=sprint;
@@ -80,6 +85,7 @@ void MainMenu::on_resume_clicked()
         league->teams[j].players[i].defence=defence;
         league->teams[j].players[i].overallgeneral=overallgeneral;
         league->teams[j].players[i].marketvalue=marketvalue;
+        league->teams[j].players[i].photoadress=QString::fromStdString(photoloc1+" "+photoloc2);
         league->teams[j].update_overall();
     }
 
@@ -101,9 +107,9 @@ void MainMenu::on_resume_clicked()
     myuser->team.points=points;
 
     for (int i=0;i<12;i++){
-        team0>>playername>>playersurname>>playerposition>>age>>height>>weight>>sprint>>rebound>>passing>>handling>>shooting>>stealing>>block>>jump>>strength>>motivation>>energy>>attack>>defence>>overallgeneral>>marketvalue>>photoloc;
+        team0>>playername>>playersurname>>playerposition>>age>>height>>weight>>sprint>>rebound>>passing>>handling>>shooting>>stealing>>block>>jump>>strength>>motivation>>energy>>attack>>defence>>overallgeneral>>marketvalue>>photoloc1>>photoloc2;
         std::cout<<playername<<" "<<playersurname<<" "<<playerposition<<std::endl;
-        std::cout<<age<<" "<<height<<" "<<weight<<" "<<sprint<<" "<<rebound<<" "<<passing<<" "<<handling<<" "<<shooting<<" "<<stealing<<" "<<block<<" "<<jump<<" "<<strength<<" "<<motivation<<" "<<energy<<" "<<attack<<" "<<defence<<" "<<overallgeneral<<" "<<marketvalue<<" "<<photoloc<<std::endl;
+        std::cout<<age<<" "<<height<<" "<<weight<<" "<<sprint<<" "<<rebound<<" "<<passing<<" "<<handling<<" "<<shooting<<" "<<stealing<<" "<<block<<" "<<jump<<" "<<strength<<" "<<motivation<<" "<<energy<<" "<<attack<<" "<<defence<<" "<<overallgeneral<<" "<<marketvalue<<" "<<photoloc1+photoloc2<<std::endl;
         myuser->team.players[i].name=playername;
         myuser->team.players[i].surname=playersurname;
         myuser->team.players[i].position=playerposition;
@@ -125,6 +131,7 @@ void MainMenu::on_resume_clicked()
         myuser->team.players[i].defence=defence;
         myuser->team.players[i].overallgeneral=overallgeneral;
         myuser->team.players[i].marketvalue=marketvalue;
+        myuser->team.players[i].photoadress=QString::fromStdString(photoloc1+" "+photoloc2);
         myuser->team.update_overall();
     }
     team0.close();
