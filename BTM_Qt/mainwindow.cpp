@@ -3,6 +3,8 @@
 #include <QLabel>
 #include <iostream>
 #include <fstream>
+#include <QMessageBox>
+
 
 MainWindow::MainWindow(User& theuser ,League& A,QWidget *parent) :
     QMainWindow(parent),
@@ -356,13 +358,14 @@ void MainWindow::on_pushButton_4_clicked() //teaminfo
 
 void MainWindow::on_pushButton_5_clicked() // Next game
 {
+
     this -> hide();
     this->preparation=new Preparation(engine, *myuser,*myleague, this);
     connect(this->preparation, SIGNAL(backButtonClicked(User)), this, SLOT(show()));
     connect(this->preparation, SIGNAL(backButtonClicked(User)), this, SLOT(refresh(User)));
     preparation ->show();
 
-    std::vector<std::string> files = {"/tmp/team0.txt","/tmp/team1.txt","/tmp/team2.txt","/tmp/team3.txt","/tmp/team4.txt","/tmp/team5.txt","/tmp/team6.txt","/tmp/team7.txt","/tmp/team8.txt","/tmp/team9.txt","/tmp/team10.txt","/tmp/team11.txt"};
+    std::vector<std::string> files = {"team0.txt","team1.txt","team2.txt","team3.txt","team4.txt","team5.txt","team6.txt","team7.txt","team8.txt","team9.txt","team10.txt","team11.txt"};
     Team team0;
     std::ofstream myfile;
     team0=myuser->team;
@@ -380,15 +383,51 @@ void MainWindow::on_pushButton_5_clicked() // Next game
     myfile<<team0.players[i].name<<" "<<team0.players[i].surname<<" "<<" "<<team0.players[i].position<<" "<<team0.players[i].age<<" "<<team0.players[i].height<<" "<<team0.players[i].weight<<" "<<team0.players[i].sprint<<" "<<team0.players[i].rebound<<" "<<team0.players[i].passing<<" "<<team0.players[i].handling<<" "<<team0.players[i].shooting<<" "<<team0.players[i].stealing<<" "<<team0.players[i].block<<" "<<team0.players[i].jump<<" "<<team0.players[i].strength<<" "<<team0.players[i].motivation<<" "<<team0.players[i].energy<<" "<<team0.players[i].attack<<" "<<team0.players[i].defence<<" "<<team0.players[i].overallgeneral<<" "<<team0.players[i].marketvalue<<" "<<team0.players[i].photoadd<<"\n";
     myfile.close();
 
-    myfile.open("/tmp/league.txt");
+    myfile.open("league.txt");
     myfile<<myleague->division<<myleague->season<<myleague->week;
     myfile.close();
 
-    myfile.open("/tmp/user.txt");
+    myfile.open("user.txt");
     myfile<<myuser->name<<myuser->teamname<<myuser->nationality<<myuser->budget;
     myfile.close();
 
 }
 
+
+}
+
+void MainWindow::on_pushButton_6_clicked() // Save the game
+{
+   QMessageBox::about(this, "Saved", "Your Game is saved successfully");
+
+
+
+    std::vector<std::string> files = {"team0.txt","team1.txt","team2.txt","team3.txt","team4.txt","team5.txt","team6.txt","team7.txt","team8.txt","team9.txt","team10.txt","team11.txt"};
+    Team team0;
+    std::ofstream myfile;
+    team0=myuser->team;
+    myfile.open(files[0]);
+    myfile <<team0.name<<"\n"<<team0.points<<"\n";
+    for (int i=0;i<12;i++)
+    myfile<<team0.players[i].name<<" "<<team0.players[i].surname<<" "<<" "<<team0.players[i].position<<" "<<team0.players[i].age<<" "<<team0.players[i].height<<" "<<team0.players[i].weight<<" "<<team0.players[i].sprint<<" "<<team0.players[i].rebound<<" "<<team0.players[i].passing<<" "<<team0.players[i].handling<<" "<<team0.players[i].shooting<<" "<<team0.players[i].stealing<<" "<<team0.players[i].block<<" "<<team0.players[i].jump<<" "<<team0.players[i].strength<<" "<<team0.players[i].motivation<<" "<<team0.players[i].energy<<" "<<team0.players[i].attack<<" "<<team0.players[i].defence<<" "<<team0.players[i].overallgeneral<<" "<<team0.players[i].marketvalue<<" "<<team0.players[i].photoadd<<"\n";
+    myfile.close();
+
+    for (int j=1;j<12;j++){
+    team0=myleague->teams[j];
+    myfile.open(files[j]);
+    myfile<<team0.name<<"\n"<<team0.points<<"\n";
+    for (int i=0;i<12;i++)
+    myfile<<team0.players[i].name<<" "<<team0.players[i].surname<<" "<<" "<<team0.players[i].position<<" "<<team0.players[i].age<<" "<<team0.players[i].height<<" "<<team0.players[i].weight<<" "<<team0.players[i].sprint<<" "<<team0.players[i].rebound<<" "<<team0.players[i].passing<<" "<<team0.players[i].handling<<" "<<team0.players[i].shooting<<" "<<team0.players[i].stealing<<" "<<team0.players[i].block<<" "<<team0.players[i].jump<<" "<<team0.players[i].strength<<" "<<team0.players[i].motivation<<" "<<team0.players[i].energy<<" "<<team0.players[i].attack<<" "<<team0.players[i].defence<<" "<<team0.players[i].overallgeneral<<" "<<team0.players[i].marketvalue<<" "<<team0.players[i].photoadd<<"\n";
+    myfile.close();
+
+    myfile.open("league.txt");
+    myfile<<myleague->division<<myleague->season<<myleague->week;
+    myfile.close();
+
+    myfile.open("user.txt");
+    myfile<<myuser->name<<myuser->teamname<<myuser->nationality<<myuser->budget;
+    myfile.close();
+
+}
 
 }
