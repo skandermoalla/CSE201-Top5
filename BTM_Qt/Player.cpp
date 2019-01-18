@@ -17,17 +17,13 @@ Player::Player()
     std::cout<<(sizeof(names)/sizeof(names[0]))<<" ";
     std::cout<<(sizeof(photolocation)/sizeof(photolocation[0]));
     std::cout<<std::endl;
-    //choose a random numbers to select a surname
+    //choose a random numbers to select a name,surname and the photoloc
     int randomname=rand()%(sizeof(photolocation)/sizeof(photolocation[0]));
     name=names[randomname];
-
-    //choose a random number to select a picture
-    int randomphoto=rand()%(sizeof(photolocation)/sizeof(photolocation[0]));
+    //int randomphoto=rand()%(sizeof(photolocation)/sizeof(photolocation[0]));
     photoadress=photolocation[randomname];
     photoadd=photoloc[randomname];
-
-    //choose a random number to select a surname
-    int randomsurname=rand()%(sizeof(surnames)/sizeof(surnames[0]));
+    //int randomsurname=rand()%(sizeof(surnames)/sizeof(surnames[0]));
     surname=surnames[randomname];
 
     //position initialization
