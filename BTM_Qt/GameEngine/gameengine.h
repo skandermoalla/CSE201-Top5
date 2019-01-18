@@ -53,6 +53,9 @@ public:
     //returns a highlight depending on the outcome
     QString popMessage(Team& team, int outcome) const;
 
+    //computes the points added to each team after simulate the week's games
+    void updateThisWeeksRanking(League* league) const;
+
 
 private:
     //returns the outcome of a automatic game (scoreOfTeam1, scoreOfTeam2)
@@ -64,6 +67,7 @@ private:
     //updates the team players after a match
     void setAfterMatchOverall(League& league,Team& team, const int change, const int motivationChange) const;
 
+    void seachTeamAndUpdatePoints(League* league,std::string teamName, int points) const;
 
 };
 
