@@ -4,6 +4,7 @@
 #include<QTime>
 #include<QString>
 #include <QDebug>
+#include<QTableWidget>
 
 
 NextGame::NextGame(QWidget *parent) :
@@ -21,7 +22,7 @@ NextGame::NextGame(QWidget *parent) :
     ui->end_msg->setAlignment(Qt::AlignCenter);
     ui->end_msg->setFont(QFont("Comic Sans MS",12));
     ui->comments->setAlignment(Qt::AlignCenter);
-    ui->comments->setFont(QFont("Comic Sans MS",16));
+    ui->comments->setFont(QFont("Comic Sans MS",14));
     ui->second_q->setVisible(false);
     ui->third_q->setVisible(false);
     ui->fourth_q->setVisible(false);
@@ -42,6 +43,14 @@ NextGame::NextGame(GameEngine* eng, User& theuser, League& theleague, QWidget *p
     engine = eng;
     isManagerAttacking = true;
     score = std::pair<int, int>(0,0);
+
+     //get user's and opponents teams
+    Team& initManagersTeam = myuser->team;
+    Team& initOpponentsTeam = myleague->getThisWeeksOpponentTeam();
+
+    //copy managers team to be able to apply changes to it and recover the initTeam for default tactic
+    playingManagersTeam = engine->copyTeam(initManagersTeam);
+    playingOpponentsTeam = engine->copyTeam(initOpponentsTeam);
 
     ui->setupUi(this);
     timer = new QTimer(this); //new timer object
@@ -74,6 +83,23 @@ NextGame::NextGame(GameEngine* eng, User& theuser, League& theleague, QWidget *p
     ui->def_tactic->setVisible(false);
     ui->tactics->setVisible(false);
     ui->sub->setVisible(false);
+    for (int i=0; i<5;i++){
+     ui->table_home->setItem(i,0,new QTableWidgetItem(QString::fromStdString(this->playingManagersTeam.players[i].surname)));
+     ui->table_home->setItem(i,1,new QTableWidgetItem(QString::number(this->playingManagersTeam.players[i].overallgeneral)));
+
+
+    }
+    ui->table_away->setItem(0,0,new QTableWidgetItem(QString::number(this->playingOpponentsTeam.overallgeneral)));
+    ui->table_away->setItem(1,0,new QTableWidgetItem(QString::number(this->playingOpponentsTeam.attack)));
+    ui->table_away->setItem(2,0,new QTableWidgetItem(QString::number(this->playingOpponentsTeam.defence)));
+    ui->table_home->setItem(5,1,new QTableWidgetItem(QString::number(this->playingManagersTeam.overallgeneral)));
+    ui->table_home->setItem(5,2,new QTableWidgetItem(QString::number(this->playingManagersTeam.energy)));
+    ui->table_home->setItem(5,3,new QTableWidgetItem(QString::number(this->playingManagersTeam.attack)));
+    ui->table_home->setItem(5,4,new QTableWidgetItem(QString::number(this->playingManagersTeam.defence)));
+
+
+
+   
 }
 
 
@@ -114,6 +140,9 @@ void NextGame::quarter_1_timing(){
 
         //save the state of the managers team and add energy to both teams
         engine->endOfQuarterRest(myuser, playingManagersTeam, playingOpponentsTeam);
+
+        // prepare the window to make substituitions
+        preparation_ingame = new Preparation_inGame(engine, *myuser, *myleague);
     }
 }
 void NextGame::quarter_2_timing(){
@@ -150,7 +179,8 @@ void NextGame::quarter_2_timing(){
         //save the state of the managers team and add energy to both teams
         engine->endOfQuarterRest(myuser, playingManagersTeam, playingOpponentsTeam);
 
-
+        // prepare the window to make substituitions
+        preparation_ingame = new Preparation_inGame(engine, *myuser, *myleague);
     }
 }
 void NextGame::quarter_3_timing(){
@@ -186,6 +216,9 @@ void NextGame::quarter_3_timing(){
 
         //save the state of the managers team and add energy to both teams
         engine->endOfQuarterRest(myuser, playingManagersTeam, playingOpponentsTeam);
+
+        // prepare the window to make substituitions
+        preparation_ingame = new Preparation_inGame(engine, *myuser, *myleague);
 
     }
 }
@@ -237,7 +270,9 @@ void NextGame::strat(){
         qDebug()<<"updating strategy function timer";
         stra_time = stra_time.addSecs(1);
     } else{
-
+        for (int i= 0;i<5;i++){
+        ui->table_home->setItem(i,2,new QTableWidgetItem(QString::number(this->playingManagersTeam.players[i].energy)));
+        }
         int outcome = engine->getAttackResult(playingManagersTeam, playingOpponentsTeam, isManagerAttacking);
         QString highlight;
 
@@ -260,7 +295,6 @@ void NextGame::strat(){
             QPalette palette = ui->comments->palette();
             palette.setColor(QPalette::WindowText,Qt::blue);
             ui->comments->setPalette(palette);
-
             highlight = engine->popMessage(playingOpponentsTeam, outcome);
         }
 
@@ -284,14 +318,6 @@ void NextGame::on_start_clicked()
     ui->start->setEnabled(false);
     ui->start->setVisible(false);
     ui->start->setEnabled(false);
-
-    //get user's and opponents teams
-    Team& initManagersTeam = myuser->team;
-    Team& initOpponentsTeam = myleague->getThisWeeksOpponentTeam();
-
-    //copy managers team to be able to apply changes to it and recover the initTeam for default tactic
-    playingManagersTeam = engine->copyTeam(initManagersTeam);
-    playingOpponentsTeam = engine->copyTeam(initOpponentsTeam);
 
     //show tactics button that was hidden and
     ui->start->setVisible(false);
@@ -425,10 +451,10 @@ void NextGame::on_end_game_clicked()
     //call endOfMatchUpdate method of gameEngine
     int reward = engine->endOfMatchUpdate(myuser, myleague, myleague->getThisWeeksOpponentTeam(), score);
 
-    //create a pop-up with the reward
+    //create a pop-up with the reward (on the main window)
 
 
-    //When button is clicked I want to hide nextgame window and go back to mainwindow
+    //When button is clicked I want to hide nextgame window and go back to mainwindow @kader
     this->close();
 
     emit backButtonClicked(*this->myuser, *this->myleague);
@@ -440,4 +466,34 @@ void NextGame::on_end_game_clicked()
 void NextGame::on_tactics_clicked()
 {
     tactic_ingame->show();
+}
+
+void NextGame::on_sub_clicked()
+{
+    preparation_ingame->show();
+}
+
+void NextGame::on_def_tactic_clicked()
+{
+    engine->getBacktoDefaultTactic(playingManagersTeam, myuser->team);
+
+    //pop a message saying default tactic was applied @kader
+}
+
+void NextGame::on_quit_clicked()
+{
+    timer->stop();
+    s_timer->stop();
+
+    //call endOfMatchUpdate method of gameEngine
+    int reward = engine->endOfMatchUpdate(myuser, myleague, myleague->getThisWeeksOpponentTeam(), score);
+
+    //create a pop-up with the reward
+
+
+    //When button is clicked I want to hide nextgame window and go back to mainwindow
+    this->close();
+
+    emit backButtonClicked(*this->myuser, *this->myleague);
+    qDebug() << "return to mainwindow";
 }

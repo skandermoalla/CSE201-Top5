@@ -315,13 +315,13 @@ int GameEngine::getAttackResult(Team& managersTeam, Team& oppentsTeam, bool isMa
 QString GameEngine::popMessage(Team& team, int outcome) const{
     QString message;
     if(outcome == 0){
-        message = highlight_0[(std::rand()%10)] + " no points for " + QString::fromStdString(team.players[rand() % (4)].name) ;
+        message = highlight_0[(std::rand()%10)] + "\n No points for " + QString::fromStdString(team.players[rand() % (5)].surname) ;
     }
     else if (outcome == 2){
-        message = highlight_2[(std::rand()%10)] + " 2 points from " + QString::fromStdString(team.players[rand() % (4)].name) ;
+        message = highlight_2[(std::rand()%10)] + "\n 2 points from " + QString::fromStdString(team.players[rand() % (5)].surname) ;
     }
     else {
-        message = highlight_3[(std::rand()%10)] + " 3 points from " + QString::fromStdString(team.players[rand() % (4)].name) ;
+        message = highlight_3[(std::rand()%10)] + "\n 3 points from " + QString::fromStdString(team.players[rand() % (5)].surname) ;
     }
     return message;
 };

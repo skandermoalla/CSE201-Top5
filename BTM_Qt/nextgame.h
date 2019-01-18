@@ -7,6 +7,8 @@
 #include <League.h>
 #include <GameEngine/gameengine.h>
 #include <tactic_ingame.h>
+#include <preparation_ingame.h>
+
 namespace Ui {
 class NextGame;
 }
@@ -46,6 +48,12 @@ private slots:
     //need for substituition and def_tactics buttons
     //@Kader
 
+    void on_sub_clicked();
+
+    void on_def_tactic_clicked();
+
+    void on_quit_clicked();
+
 private:
     Ui::NextGame *ui;
     QTimer *timer;
@@ -55,6 +63,8 @@ private:
     GameEngine* engine;
 
     Tactic_inGame *tactic_ingame;
+    Preparation_inGame  *preparation_ingame;
+
     bool isManagerAttacking;
     std::pair<int, int> score;
 
