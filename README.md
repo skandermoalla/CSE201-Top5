@@ -16,6 +16,7 @@ Open a terminal and write
 Open Qt Creator.
 Click on `Open project`.
 Go to the file: `/home/osboxes/Top5/BTM_Qt/Basketball_Team_Manager.pro`
+
 Build and run the project by `Ctrl+R`
 
 Enjoy the game!
