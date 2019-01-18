@@ -293,7 +293,7 @@ void Preparation_inGame::on_pushButton_14_clicked() // Continue
                                         QMessageBox::Yes | QMessageBox::No);
         if (reply == QMessageBox::Yes)
         {
-            emit ContinueClicked(this->engine, *(this->myuser), *(this->myleague));
+            //emit ContinueClicked(this->engine, *(this->myuser), *(this->myleague));
             this -> close();
         }
         else if (reply == QMessageBox::No)

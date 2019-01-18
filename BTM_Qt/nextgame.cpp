@@ -122,6 +122,9 @@ void NextGame::quarter_1_timing(){
 
         //save the state of the managers team and add energy to both teams
         engine->endOfQuarterRest(myuser, playingManagersTeam, playingOpponentsTeam);
+
+        // prepare the window to make substituitions
+        preparation_ingame = new Preparation_inGame(engine, *myuser, *myleague);
     }
 }
 void NextGame::quarter_2_timing(){
@@ -158,7 +161,8 @@ void NextGame::quarter_2_timing(){
         //save the state of the managers team and add energy to both teams
         engine->endOfQuarterRest(myuser, playingManagersTeam, playingOpponentsTeam);
 
-
+        // prepare the window to make substituitions
+        preparation_ingame = new Preparation_inGame(engine, *myuser, *myleague);
     }
 }
 void NextGame::quarter_3_timing(){
@@ -194,6 +198,9 @@ void NextGame::quarter_3_timing(){
 
         //save the state of the managers team and add energy to both teams
         engine->endOfQuarterRest(myuser, playingManagersTeam, playingOpponentsTeam);
+
+        // prepare the window to make substituitions
+        preparation_ingame = new Preparation_inGame(engine, *myuser, *myleague);
 
     }
 }
@@ -425,10 +432,10 @@ void NextGame::on_end_game_clicked()
     //call endOfMatchUpdate method of gameEngine
     int reward = engine->endOfMatchUpdate(myuser, myleague, myleague->getThisWeeksOpponentTeam(), score);
 
-    //create a pop-up with the reward
+    //create a pop-up with the reward (on the main window)
 
 
-    //When button is clicked I want to hide nextgame window and go back to mainwindow
+    //When button is clicked I want to hide nextgame window and go back to mainwindow @kader
     this->close();
 
     emit backButtonClicked(*this->myuser, *this->myleague);
@@ -444,12 +451,12 @@ void NextGame::on_tactics_clicked()
 
 void NextGame::on_sub_clicked()
 {
-
+    preparation_ingame->show();
 }
 
 void NextGame::on_def_tactic_clicked()
 {
     engine->getBacktoDefaultTactic(playingManagersTeam, myuser->team);
 
-    //pop a message saying default tactic was applied
+    //pop a message saying default tactic was applied @kader
 }
