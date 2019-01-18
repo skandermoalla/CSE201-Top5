@@ -14,7 +14,11 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true"/>
+   <string notr="true">
+QDialog{background-image: url(:/images/images/basketball3.jpg);                
+}
+QLabel{color:rgb(255,255,255);background-color:black;}
+</string>
   </property>
   <widget class="QLCDNumber" name="lcdNumber_2">
    <property name="geometry">

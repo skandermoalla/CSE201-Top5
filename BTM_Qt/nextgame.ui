@@ -14,9 +14,7 @@
    <string>Dialog</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QDialog{
-background-color:orange;
-}</string>
+   <string notr="true">QDialog{background-image: url(:/images/images/bbcourt_hardwood.jpg);}</string>
   </property>
   <widget class="QLabel" name="quater">
    <property name="geometry">
