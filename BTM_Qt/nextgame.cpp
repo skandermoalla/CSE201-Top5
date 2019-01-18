@@ -112,10 +112,8 @@ void NextGame::quarter_1_timing(){
         ui->tactics->setVisible(false);
         ui->def_tactic->setVisible(false);
 
-        //save the state of the teams
-        myuser->team = playingManagersTeam;
-        myleague->getThisWeeksOpponentTeam() = playingOpponentsTeam;
-
+        //save the state of the managers team and add energy to both teams
+        engine->endOfQuarterRest(myuser, playingManagersTeam, playingOpponentsTeam);
     }
 }
 void NextGame::quarter_2_timing(){
@@ -149,9 +147,8 @@ void NextGame::quarter_2_timing(){
         ui->tactics->setVisible(false);
         ui->def_tactic->setVisible(false);
 
-        //save the state of the teams
-        myuser->team = playingManagersTeam;
-        myleague->getThisWeeksOpponentTeam() = playingOpponentsTeam;
+        //save the state of the managers team and add energy to both teams
+        engine->endOfQuarterRest(myuser, playingManagersTeam, playingOpponentsTeam);
 
 
     }
@@ -187,9 +184,8 @@ void NextGame::quarter_3_timing(){
         ui->tactics->setVisible(false);
         ui->def_tactic->setVisible(false);
 
-        //save the state of the teams
-        myuser->team = playingManagersTeam;
-        myleague->getThisWeeksOpponentTeam() = playingOpponentsTeam;
+        //save the state of the managers team and add energy to both teams
+        engine->endOfQuarterRest(myuser, playingManagersTeam, playingOpponentsTeam);
 
     }
 }
@@ -233,47 +229,43 @@ void NextGame::strat(){
                                       "Stepback 3!","From 30 feets out!","Knocks it down!","Good from Curry range!","Good from the hash!","He banks home the 3!"};
     std::vector<QString> coms_home_0 ={"Missed it!","Won't go in!","Too bad he missed the shot!","He gets rejected!","Comes up empty!",
                                       "Airball!","He got stripped","It's a miss!","He got blocked!","No basket"};
-    QTime change_stra(0,0,2);
+    QTime change_stra(0,0,3);
     if  (stra_time != change_stra){
         qDebug()<<"updating strategy function timer";
         stra_time = stra_time.addSecs(1);
     } else{
-        qDebug()<<"fifteen seconds reached start function ";
-        //insert your attack/defense function here
 
         int outcome = engine->getAttackResult(playingManagersTeam, playingOpponentsTeam, isManagerAttacking);
+        QString highlight;
 
         qDebug()<<"outcome = " << outcome;
         if (isManagerAttacking){
             score.first += outcome;
+
             //add hightlight to highlights
-            //engine->popMessage(playingManagersTeam, outcome);
-        }
-        else {
-            score.second += outcome;
-            //add highlight to highlights
-            //engine->popMessage(playingOpponentsTeam, outcome);
-        }
-        if (isManagerAttacking){
             QPalette palette = ui->comments->palette();
             palette.setColor(QPalette::WindowText,Qt::red);
             ui->comments->setPalette(palette);
-        }else{
+
+            highlight = engine->popMessage(playingManagersTeam, outcome);
+        }
+        else {
+            score.second += outcome;
+
+            //add highlight to highlights
+
             QPalette palette = ui->comments->palette();
             palette.setColor(QPalette::WindowText,Qt::blue);
             ui->comments->setPalette(palette);
+
+            highlight = engine->popMessage(playingOpponentsTeam, outcome);
         }
-        if (outcome == 2){
-            ui->comments->setText(coms_home_2[(std::rand()%10)]);
-        }
-        if (outcome == 3){
-            ui->comments->setText(coms_home_3[(std::rand()%10)]);
-        }
-        if (outcome == 0){
-            ui->comments->setText(coms_home_0[(std::rand()%10)]);
-        }
+
+        ui->comments->setText(highlight);
+
+        //change state
         isManagerAttacking = not isManagerAttacking;
-        stra_time=stra_time.addSecs(-2);
+        stra_time=stra_time.addSecs(-3);
         qDebug()<<"stra_time function ="<<stra_time;
     }
 }
@@ -289,6 +281,8 @@ void NextGame::on_start_clicked()
     ui->start->setEnabled(false);
     ui->start->setVisible(false);
     ui->start->setEnabled(false);
+
+    //get user's and opponents teams
     Team& initManagersTeam = myuser->team;
     Team& initOpponentsTeam = myleague->getThisWeeksOpponentTeam();
 
@@ -303,8 +297,6 @@ void NextGame::on_start_clicked()
 
     tactic_ingame = new Tactic_inGame(engine, &playingManagersTeam, &(myuser->team));
     //do for each quarter
-
-    qDebug()<<"copied them";
 
     connect(timer,SIGNAL(timeout()),this,SLOT(quarter_1_timing()));
     connect(s_timer,SIGNAL(timeout()),this,SLOT(strat()));
@@ -329,11 +321,9 @@ void NextGame::on_second_q_clicked()
 
     //get the teams that are playing
     Team& initManagersTeam = myuser->team;
-    Team& initOpponentsTeam = myleague->getThisWeeksOpponentTeam();
 
     //copy managers team to be able to apply changes to it and recover the initTeam for default tactic
     playingManagersTeam = engine->copyTeam(initManagersTeam);
-    playingOpponentsTeam = engine->copyTeam(initOpponentsTeam);
 
     //show tactics button that was hidden and
     ui->second_q->setVisible(false);
@@ -369,11 +359,9 @@ void NextGame::on_third_q_clicked()
 
     //get the teams that are playing
     Team& initManagersTeam = myuser->team;
-    Team& initOpponentsTeam = myleague->getThisWeeksOpponentTeam();
 
     //copy managers team to be able to apply changes to it and recover the initTeam for default tactic
     playingManagersTeam = engine->copyTeam(initManagersTeam);
-    playingOpponentsTeam = engine->copyTeam(initOpponentsTeam);
 
     //show tactics button that was hidden and
     ui->third_q->setVisible(false);
@@ -407,11 +395,9 @@ void NextGame::on_fourth_q_clicked()
 
     //get the teams that are playing
     Team& initManagersTeam = myuser->team;
-    Team& initOpponentsTeam = myleague->getThisWeeksOpponentTeam();
 
     //copy managers team to be able to apply changes to it and recover the initTeam for default tactic
     playingManagersTeam = engine->copyTeam(initManagersTeam);
-    playingOpponentsTeam = engine->copyTeam(initOpponentsTeam);
 
     //show tactics button that was hidden and
     ui->fourth_q->setVisible(false);
