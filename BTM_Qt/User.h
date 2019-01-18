@@ -14,6 +14,7 @@ public:
     std::string nationality;
     Team team;
     int budget;
+    bool resuming;
 };
 
 #endif // USER_H

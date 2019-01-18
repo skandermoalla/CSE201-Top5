@@ -113,6 +113,7 @@ void MainMenu::on_resume_clicked()
     team0>>name>>points>>nrplayers;
     myuser->team.name=name;
     myuser->team.points=points;
+    myuser->resuming=true;
 
     for (int i=0;i<nrplayers;i++){
         team0>>playername>>playersurname>>playerposition>>age>>height>>weight>>sprint>>rebound>>passing>>handling>>shooting>>stealing>>block>>jump>>strength>>motivation>>energy>>attack>>defence>>overallgeneral>>marketvalue>>photoloc1>>photoloc2;
