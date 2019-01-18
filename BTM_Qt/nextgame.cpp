@@ -44,6 +44,14 @@ NextGame::NextGame(GameEngine* eng, User& theuser, League& theleague, QWidget *p
     isManagerAttacking = true;
     score = std::pair<int, int>(0,0);
 
+     //get user's and opponents teams
+    Team& initManagersTeam = myuser->team;
+    Team& initOpponentsTeam = myleague->getThisWeeksOpponentTeam();
+
+    //copy managers team to be able to apply changes to it and recover the initTeam for default tactic
+    playingManagersTeam = engine->copyTeam(initManagersTeam);
+    playingOpponentsTeam = engine->copyTeam(initOpponentsTeam);
+
     ui->setupUi(this);
     timer = new QTimer(this); //new timer object
     s_timer = new QTimer(this);
@@ -89,6 +97,8 @@ NextGame::NextGame(GameEngine* eng, User& theuser, League& theleague, QWidget *p
     ui->table_home->setItem(5,4,new QTableWidgetItem(QString::number(this->playingManagersTeam.defence)));
 
 
+
+   
 }
 
 
@@ -299,14 +309,6 @@ void NextGame::on_start_clicked()
     ui->start->setEnabled(false);
     ui->start->setVisible(false);
     ui->start->setEnabled(false);
-
-    //get user's and opponents teams
-    Team& initManagersTeam = myuser->team;
-    Team& initOpponentsTeam = myleague->getThisWeeksOpponentTeam();
-
-    //copy managers team to be able to apply changes to it and recover the initTeam for default tactic
-    playingManagersTeam = engine->copyTeam(initManagersTeam);
-    playingOpponentsTeam = engine->copyTeam(initOpponentsTeam);
 
     //show tactics button that was hidden and
     ui->start->setVisible(false);
