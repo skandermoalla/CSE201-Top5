@@ -8,7 +8,8 @@ User::User()
 }
 
 User::User(std::string username , std::string team_name , std::string nation)
-{   name=username;
+{   srand(time(0));
+    name=username;
     teamname=team_name;
     team = Team(team_name);
     nationality=nation;
