@@ -46,6 +46,10 @@ private slots:
     //need for substituition and def_tactics buttons
     //@Kader
 
+    void on_sub_clicked();
+
+    void on_def_tactic_clicked();
+
 private:
     Ui::NextGame *ui;
     QTimer *timer;
