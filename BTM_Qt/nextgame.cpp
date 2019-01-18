@@ -441,3 +441,15 @@ void NextGame::on_tactics_clicked()
 {
     tactic_ingame->show();
 }
+
+void NextGame::on_sub_clicked()
+{
+
+}
+
+void NextGame::on_def_tactic_clicked()
+{
+    engine->getBacktoDefaultTactic(playingManagersTeam, myuser->team);
+
+    //pop a message saying default tactic was applied
+}
