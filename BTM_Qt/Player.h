@@ -35,6 +35,7 @@ public:
     double overallgeneral;
     double marketvalue;
     QString photoadress;
+    std::string photoadd;
 
     //player methods
     void update_overall();
