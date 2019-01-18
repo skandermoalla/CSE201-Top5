@@ -84,13 +84,14 @@ NextGame::NextGame(GameEngine* eng, User& theuser, League& theleague, QWidget *p
     ui->tactics->setVisible(false);
     ui->sub->setVisible(false);
     for (int i=0; i<5;i++){
-     ui->table_home->setItem(i,0,new QTableWidgetItem(QString::fromStdString("yo"/*this->playingManagersTeam.players[i].surname*/)));
+     ui->table_home->setItem(i,0,new QTableWidgetItem(QString::fromStdString(this->playingManagersTeam.players[i].surname)));
      ui->table_home->setItem(i,1,new QTableWidgetItem(QString::number(this->playingManagersTeam.players[i].overallgeneral)));
-     ui->table_home->setItem(i,2,new QTableWidgetItem(QString::number(this->playingManagersTeam.players[i].energy)));
-     ui->table_away->setItem(i,0,new QTableWidgetItem(QString::number(this->playingOpponentsTeam.overallgeneral)));
-     ui->table_away->setItem(i,0,new QTableWidgetItem(QString::number(this->playingOpponentsTeam.attack)));
-     ui->table_away->setItem(i,0,new QTableWidgetItem(QString::number(this->playingOpponentsTeam.defence)));
+
+
     }
+    ui->table_away->setItem(0,0,new QTableWidgetItem(QString::number(this->playingOpponentsTeam.overallgeneral)));
+    ui->table_away->setItem(1,0,new QTableWidgetItem(QString::number(this->playingOpponentsTeam.attack)));
+    ui->table_away->setItem(2,0,new QTableWidgetItem(QString::number(this->playingOpponentsTeam.defence)));
     ui->table_home->setItem(5,1,new QTableWidgetItem(QString::number(this->playingManagersTeam.overallgeneral)));
     ui->table_home->setItem(5,2,new QTableWidgetItem(QString::number(this->playingManagersTeam.energy)));
     ui->table_home->setItem(5,3,new QTableWidgetItem(QString::number(this->playingManagersTeam.attack)));
@@ -262,7 +263,9 @@ void NextGame::strat(){
         qDebug()<<"updating strategy function timer";
         stra_time = stra_time.addSecs(1);
     } else{
-
+        for (int i= 0;i<5;i++){
+        ui->table_home->setItem(i,2,new QTableWidgetItem(QString::number(this->playingManagersTeam.players[i].energy)));
+        }
         int outcome = engine->getAttackResult(playingManagersTeam, playingOpponentsTeam, isManagerAttacking);
         QString highlight;
 
@@ -285,7 +288,6 @@ void NextGame::strat(){
             QPalette palette = ui->comments->palette();
             palette.setColor(QPalette::WindowText,Qt::blue);
             ui->comments->setPalette(palette);
-
             highlight = engine->popMessage(playingOpponentsTeam, outcome);
         }
 
