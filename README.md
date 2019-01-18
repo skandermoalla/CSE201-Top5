@@ -32,5 +32,5 @@ During a match, the user has the chance to interact with the game by choosing th
 
 The goal of the user, as a manager, is to make their team progress from league to league, each season, by the performances of their team (wins and losses). 
 
-Finally, before exiting the game, the user can save their progression. 
+Finally, before exiting the game, the user can save their progression and come back to it later by resuming the game. 
 
