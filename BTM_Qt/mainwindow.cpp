@@ -430,7 +430,7 @@ void MainWindow::on_pushButton_6_clicked() // Save the game
     myfile.close();
 
     myfile.open("league.txt");
-    myfile<<myleague->division<<" "<<myleague->season<<" "<<myleague->week;
+    myfile<<myleague->division<<" "<<myleague->season<<" "<<myleague->current_week;
     myfile.close();
 
     myfile.open("user.txt");

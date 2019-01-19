@@ -45,7 +45,7 @@ void MainMenu::on_resume_clicked()
     leaguefile>>division>>season>>week;
     //Now we create the league
     League* league = new League(division,season);
-    league->week=week; //modify the week of the league
+    league->current_week=week; //modify the week of the league
 
 
     std::ifstream myfile;
